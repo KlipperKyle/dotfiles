@@ -19,7 +19,7 @@ set timeoutlen=500  " Don't wait long for keymaps
 
 " Line wrapping options
 set linebreak       " enable line wrap
-set nojoinspaces    " use single spaces between sentences
+"set nojoinspaces    " use single spaces between sentences
 set showbreak=»\    " Lead-in char
 set sidescroll=10   " When disabling wrap, show context of 10 chars
 
@@ -84,11 +84,13 @@ if &t_Co > 2 || has("gui_running")
     colorscheme torte
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
+    let g:Twiki_SourceHTMLSyntax=1
 endif
 
 " GUI specific options
 if has("gui_running")
-    set guifont=Monospace\ 9
+    "set guifont=Monospace\ 9
+    set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar
 endif
@@ -122,7 +124,8 @@ if has("autocmd")
     augroup END
 
     " Per-file options
-    autocmd BufNewFile,BufRead *.md   setlocal spell tw=72
+    autocmd BufNewFile,BufRead *.md   setlocal ft=markdown spell tw=72
+    autocmd BufNewFile,BufRead *.tmpl setlocal ft=twiki spell tw=72 et ts=3 sw=3
 
     " Cheap/simple spreadsheets in Vim
     autocmd BufNewFile,BufRead *.tsv  setlocal ts=16 noet number
