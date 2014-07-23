@@ -1,7 +1,7 @@
 ! terminal colors ----------------------------------------------------- 
 
 *VT100*colorMode: on
-*VT100*boldColors: on
+!*VT100*boldColors: on
 *VT100*dynamicColors: on
 
 ! Uncomment this for "white" text on a dark background.
@@ -29,12 +29,13 @@
 *VT100*color15: white
 
 ! Uncomment this to use color for the bold attribute
-*VT100*colorBDMode: on
-*VT100*colorBD: white
+!*VT100*colorBDMode: on
+!*VT100*colorBD: white
 
 ! xterm ----------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
+!xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
 xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
