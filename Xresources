@@ -1,11 +1,11 @@
 ! terminal colors ----------------------------------------------------- 
 
 *VT100*colorMode: on
-!*VT100*boldColors: on
+*VT100*boldColors: on
 *VT100*dynamicColors: on
 
 ! Uncomment this for "white" text on a dark background.
-*VT100*foreground: gray70
+*VT100*foreground: gray80
 *VT100*background: black
 
 ! These are the 8 ANSI colors and their bright equivalents.  Depending on
@@ -18,7 +18,8 @@
 *VT100*color4: blue2
 *VT100*color5: magenta3
 *VT100*color6: cyan3
-*VT100*color7: gray70
+!*VT100*color7: gray70
+*VT100*color7: gray80
 *VT100*color8: gray50
 *VT100*color9: red
 *VT100*color10: green
@@ -38,10 +39,11 @@ xterm*VT100.geometry:     80x25
 !xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
 xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*cursorColor:        yellow
 xterm*dynamicColors:      true
 xterm*utf8:               2
 xterm*eightBitInput:      true
-xterm*saveLines:          1024
+xterm*saveLines:          4000
 xterm*scrollKey:          true
 xterm*scrollTtyOutput:    false
 xterm*scrollBar:          true
