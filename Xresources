@@ -33,9 +33,17 @@
 !*VT100*colorBDMode: on
 !*VT100*colorBD: white
 
+! Fix the backspace key
+! <http://www.hypexr.org/linux_ruboff.php>
+*ttyModes:         erase ^?
+*VT100.Translations: \
+        #override <Key>BackSpace: string(0x7f) \n\
+          <Key>Delete:    string(0x1b) string("[3~")
+
 ! xterm ----------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
+!xterm.*backarrowKey:      false
 !xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
 xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
