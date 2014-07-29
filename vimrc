@@ -148,6 +148,10 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.css    setlocal number
     autocmd BufNewFile,BufRead *.coffee setlocal number
 
+    " Add some useful commands to Tex files
+    autocmd FileType tex noremap <leader>ll :!latex "%"<CR>
+    autocmd FileType tex noremap <leader>lp :!pdflatex "%"<CR>
+
 else
 
     set autoindent        " always set autoindenting on
