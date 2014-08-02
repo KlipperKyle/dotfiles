@@ -81,7 +81,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
-    colorscheme torte
+    colorscheme desert
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
     let g:Twiki_SourceHTMLSyntax=1
