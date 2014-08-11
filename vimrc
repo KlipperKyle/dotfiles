@@ -124,9 +124,11 @@ if has("autocmd")
 
     augroup END
 
-    " Per-file options
-    autocmd BufNewFile,BufRead *.md   setlocal ft=markdown spell tw=72
-    autocmd BufNewFile,BufRead *.tmpl setlocal ft=twiki spell tw=72 et ts=3 sw=3
+    " Wiki formats
+    autocmd FileType            markdown    setlocal spell tw=72
+    autocmd BufNewFile,BufRead *.md         setlocal ft=markdown
+    autocmd FileType            twiki       setlocal spell tw=72 et ts=3 sw=3
+    autocmd BufNewFile,BufRead *.tmpl       setlocal ft=twiki
 
     " Cheap/simple spreadsheets in Vim
     autocmd BufNewFile,BufRead *.tsv  setlocal ts=16 noet number
@@ -134,20 +136,8 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.tsv  map L f	W
     autocmd BufNewFile,BufRead *.tsv  map H F	B
 
-    " Show tabs and line numbers when coding
-    autocmd BufNewFile,BufRead *.pl     setlocal number
-    autocmd BufNewFile,BufRead *.pm     setlocal number
-    autocmd BufNewFile,BufRead *.py     setlocal number
-    autocmd BufNewFile,BufRead *.php    setlocal number
-    autocmd BufNewFile,BufRead *.js     setlocal number
-    autocmd BufNewFile,BufRead *.c      setlocal number
-    autocmd BufNewFile,BufRead *.h      setlocal number
-    autocmd BufNewFile,BufRead *.cpp    setlocal number
-    autocmd BufNewFile,BufRead *.hpp    setlocal number
-    autocmd BufNewFile,BufRead *.lua    setlocal number
-    autocmd BufNewFile,BufRead *.html   setlocal number
-    autocmd BufNewFile,BufRead *.css    setlocal number
-    autocmd BufNewFile,BufRead *.coffee setlocal number
+    " Show line numbers when coding
+    autocmd FileType    perl\|python\|sh\|php\|js\|c\|cpp\|lua\|html\|css   setlocal number
 
     " Add some useful commands to Tex files
     autocmd FileType tex noremap <leader>ll :!latex "%"<CR>
