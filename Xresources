@@ -40,6 +40,8 @@
         #override <Key>BackSpace: string(0x7f) \n\
           <Key>Delete:    string(0x1b) string("[3~")
 
+*VT100*alternateScroll:    true
+
 ! xterm ----------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
