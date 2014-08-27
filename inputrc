@@ -1,0 +1,4 @@
+set editing-mode vi
+set keymap vi-insert
+"\C-r": history-search-backward
+"\C-e": history-search-forward
