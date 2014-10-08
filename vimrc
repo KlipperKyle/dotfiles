@@ -125,7 +125,7 @@ if has("autocmd")
     augroup END
 
     " Wiki formats
-    autocmd FileType            markdown    setlocal spell tw=72
+    autocmd FileType            markdown    setlocal spell tw=72 autoindent
     autocmd BufNewFile,BufRead *.md         setlocal ft=markdown
     autocmd FileType            twiki       setlocal spell tw=72 et ts=3 sw=3
     autocmd BufNewFile,BufRead *.tmpl       setlocal ft=twiki
