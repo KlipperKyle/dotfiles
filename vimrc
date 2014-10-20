@@ -20,7 +20,7 @@ set timeoutlen=500  " Don't wait long for keymaps
 " Line wrapping options
 set linebreak       " enable line wrap
 "set nojoinspaces    " use single spaces between sentences
-set showbreak=»\    " Lead-in char
+set showbreak=>\    " Lead-in char
 set sidescroll=10   " When disabling wrap, show context of 10 chars
 
 " When using tab completion for filenames, only complete as far
