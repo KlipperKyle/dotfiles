@@ -63,6 +63,9 @@ noremap <leader>n :set number!<CR>
 " Toggle paste mode
 noremap <leader>p :setlocal paste!<CR>
 
+" Toggle spell check
+noremap <leader>s :setlocal spell!<CR>
+
 " Easy movement between windows
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
@@ -84,6 +87,7 @@ if &t_Co > 2 || has("gui_running")
     if has("gui_running")
         colorscheme desert
     else
+        set term=xterm-256color
         colorscheme torte
     endif
     set hlsearch
