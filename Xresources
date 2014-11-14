@@ -2,7 +2,7 @@
 
 *VT100*colorMode: on
 *VT100*boldColors: on
-*VT100*dynamicColors: on
+*VT100*dynamicColors: off
 
 ! Uncomment this for "white" text on a dark background.
 *VT100*foreground: gray80
@@ -32,25 +32,26 @@
 ! Uncomment this to use color for the bold attribute
 !*VT100*colorBDMode: on
 !*VT100*colorBD: white
+*VT100*colorAttrMode: true
 
 ! Fix the backspace key
 ! <http://www.hypexr.org/linux_ruboff.php>
-*ttyModes:         erase ^?
-*VT100.Translations: \
-        #override <Key>BackSpace: string(0x7f) \n\
-          <Key>Delete:    string(0x1b) string("[3~")
+! *ttyModes:         erase ^?
+! *VT100.Translations: \
+!         #override <Key>BackSpace: string(0x7f) \n\
+!           <Key>Delete:    string(0x1b) string("[3~")
 
 *VT100*alternateScroll:    true
 
 ! xterm ----------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
-!xterm.*backarrowKey:      false
+xterm.*backarrowKey:      true
 !xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
 xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*cursorColor:        yellow
-xterm*dynamicColors:      true
+xterm*dynamicColors:      false
 xterm*utf8:               2
 xterm*eightBitInput:      true
 xterm*saveLines:          4000
@@ -96,11 +97,11 @@ URxvt*scrollWithBuffer:               false
 ! URxvt*mouseWheelScrollPage:           boolean
 ! URxvt*tripleclickwords:               boolean
 ! URxvt*insecure:                       boolean
-URxvt*cursorUnderline:                false
-URxvt*cursorBlink:                    true
+! URxvt*cursorUnderline:                boolean
+! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
 URxvt*background:                     black
-URxvt*foreground:                     gray70
+URxvt*foreground:                     gray80
 URxvt*color0:                         black
 URxvt*color1:                         red3
 URxvt*color2:                         green3
@@ -108,7 +109,7 @@ URxvt*color3:                         yellow3
 URxvt*color4:                         blue2
 URxvt*color5:                         magenta3
 URxvt*color6:                         cyan3
-URxvt*color7:                         gray70
+URxvt*color7:                         gray80
 URxvt*color8:                         gray50
 URxvt*color9:                         red
 URxvt*color10:                        green
@@ -126,7 +127,7 @@ URxvt*colorBD:                        white
 ! URxvt*troughColor:                    color
 ! URxvt*highlightColor:                 color
 ! URxvt*highlightTextColor:             color
-! URxvt*cursorColor:                    color
+URxvt*cursorColor:                    yellow
 ! URxvt*cursorColor2:                   color
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color
@@ -163,11 +164,12 @@ URxvt*font:                           xft:Monospace:style=Regular:size=9
 ! URxvt*modifier:                       modifier
 ! URxvt*cutchars:                       string
 ! URxvt*answerbackString:               string
-! URxvt*secondaryScreen:                boolean
-! URxvt*secondaryScroll:                boolean
+URxvt*secondaryScreen:                true
+URxvt*secondaryScroll:                false
+URxvt*secondaryWheel:                 true
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                string
+URxvt*perl-ext-common:                tabbed
 ! URxvt*perl-ext:                       string
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
@@ -194,6 +196,11 @@ URxvt*font:                           xft:Monospace:style=Regular:size=9
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+URxvt.tabbed.tabbar-fg: 15
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 0
+URxvt.tabbed.tab-bg: 3
 
 ! xclock --------------------------------------------------------------
 
