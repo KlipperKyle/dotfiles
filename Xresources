@@ -43,6 +43,11 @@
 
 *VT100*alternateScroll:    true
 
+! Xcursor --------------------------------------------------------------
+
+Xcursor.theme: Bluecurve
+Xcursor.size:  16
+
 ! xterm ----------------------------------------------------------------
 
 xterm*VT100.geometry:     80x25
@@ -169,7 +174,7 @@ URxvt*secondaryScroll:                false
 URxvt*secondaryWheel:                 true
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-URxvt*perl-ext-common:                tabbed
+URxvt*perl-ext-common:                tabbed,matcher
 ! URxvt*perl-ext:                       string
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
@@ -179,7 +184,7 @@ URxvt*perl-ext-common:                tabbed
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
 ! URxvt*bell-command:                   string
-! URxvt*matcher.button:                 string
+URxvt*matcher.button:                 3
 ! URxvt*matcher.launcher:               string
 ! URxvt*matcher.launcher.*:             string
 ! URxvt*matcher.pattern.*:              string
@@ -191,16 +196,11 @@ URxvt*perl-ext-common:                tabbed
 ! URxvt*selection-pastebin.cmd:         string
 ! URxvt*selection-pastebin.url:         string
 ! URxvt*selection.pattern-0:            string
-! URxvt*tab-bg:                         colour
-! URxvt*tab-fg:                         colour
-! URxvt*tabbar-bg:                      colour
-! URxvt*tabbar-fg:                      colour
-! URxvt*url-launcher:                   string
-
-URxvt.tabbed.tabbar-fg: 15
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 3
+URxvt*tab-bg:                         3
+URxvt*tab-fg:                         0
+URxvt*tabbar-bg:                      0
+URxvt*tabbar-fg:                      15
+URxvt*url-launcher:                   xdg-open
 
 ! xclock --------------------------------------------------------------
 
