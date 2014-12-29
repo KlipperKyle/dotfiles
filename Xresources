@@ -174,7 +174,7 @@ URxvt*secondaryScroll:                false
 URxvt*secondaryWheel:                 true
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-URxvt*perl-ext-common:                tabbed,matcher
+URxvt*perl-ext-common:                matcher
 ! URxvt*perl-ext:                       string
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
