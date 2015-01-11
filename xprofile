@@ -26,3 +26,6 @@ xrdb "$HOME/.Xresources"
 # Compose key
 setxkbmap -option compose:caps
 numlockx on
+
+# Set the Desktop Environment
+export DE=xfce
