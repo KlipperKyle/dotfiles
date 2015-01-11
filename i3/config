@@ -230,6 +230,8 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Application Finder"] floating enable
 for_window [class="Display"] floating enable
+for_window [title="Buddy List"] floating enable
+for_window [class="Conky"] floating enable
 
 # Autostart programs
 exec --no-startup-id dbus-launch --sh-syntax --exit-with-session
