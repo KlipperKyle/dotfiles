@@ -48,11 +48,11 @@ function qr { qrencode -o - $@ | display; }
 ssh() {
     case ${TERM} in
         xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
-            printf "\033]0;%s %s\007" "ssh" "$@"
+            printf "\033]0;%s %s\007" "ssh" "$*"
 
         ;;
         screen)
-            printf "\033_%s %s\033\\" "ssh" "$@"
+            printf "\033_%s %s\033\\" "ssh" "$*"
         ;;
     esac
     env TERM=$'rxvt-unicode' \
