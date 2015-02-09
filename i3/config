@@ -159,10 +159,10 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym j resize shrink width 10 px or 10 ppt
-    bindsym k resize grow height 10 px or 10 ppt
-    bindsym l resize shrink height 10 px or 10 ppt
-    bindsym semicolon resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
     # same bindings, but for the arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
@@ -214,6 +214,19 @@ bindsym $mod+apostrophe scratchpad show
 bindsym $alt+Shift+apostrophe move scratchpad
 bindsym $alt+apostrophe scratchpad show
 
+# move the whole workspace to the next output
+bindsym $mod+semicolon move workspace to output right
+
+# Cycle between workspaces
+bindsym $mod+p workspace prev
+bindsym $mod+n workspace next
+bindsym $mod+Shift+p move container to workspace prev
+bindsym $mod+Shift+n move container to workspace next
+
+# Mouse focus/warping
+focus_follows_mouse no
+mouse_warping output
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -230,7 +243,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Application Finder"] floating enable
 for_window [class="Display"] floating enable
-for_window [title="Buddy List"] floating enable
+#for_window [title="Buddy List"] floating enable
 for_window [class="Conky"] floating enable
 
 # Autostart programs
