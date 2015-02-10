@@ -18,10 +18,10 @@ set laststatus=2    " Always show the filename
 set timeoutlen=500  " Don't wait long for keymaps
 
 " Line wrapping options
-set linebreak       " enable line wrap
-"set nojoinspaces    " use single spaces between sentences
-set showbreak=>\    " Lead-in char
-set sidescroll=10   " When disabling wrap, show context of 10 chars
+set linebreak           " enable line wrap
+"set nojoinspaces        " use single spaces between sentences
+set showbreak=>>\ \     " Lead-in char
+set sidescroll=10       " When disabling wrap, show context of 10 chars
 
 " When using tab completion for filenames, only complete as far
 " as the match goes
@@ -74,6 +74,9 @@ noremap <C-l> <C-W>l
 
 " Don't remove indentation when adding '#' comments
 inoremap # X#
+
+" Map kj as escape
+inoremap kj 
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -135,7 +138,7 @@ if has("autocmd")
     " Wiki formats
     autocmd FileType            markdown    setlocal spell tw=72 autoindent
     autocmd BufNewFile,BufRead *.md         setlocal ft=markdown
-    autocmd FileType            twiki       setlocal spell tw=72 et ts=3 sw=3
+    autocmd FileType            twiki       setlocal spell tw=0 wrap et ts=3 sw=3
     autocmd BufNewFile,BufRead *.tmpl       setlocal ft=twiki
 
     " Cheap/simple spreadsheets in Vim
