@@ -87,12 +87,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
-    if has("gui_running")
-        colorscheme desert
-    else
-        set term=xterm-256color
-        colorscheme torte
-    endif
+    colorscheme desert256
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
     let g:Twiki_SourceHTMLSyntax=1
