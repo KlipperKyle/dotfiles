@@ -240,7 +240,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     endfun
     " }}}
 
-    call <SID>X("Normal", "cccccc", "000000", "")
+    "call <SID>X("Normal", "cccccc", "000000", "")
+    call <SID>X("Normal", "ffffff", "333333", "")
 
     " highlight groups
     call <SID>X("Cursor", "708090", "f0e68c", "")
@@ -258,7 +259,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     "LineNr
     call <SID>X("ModeMsg", "daa520", "", "")
     call <SID>X("MoreMsg", "2e8b57", "", "")
-    call <SID>X("NonText", "addbe7", "000000", "bold")
+    "call <SID>X("NonText", "addbe7", "000000", "bold")
+    call <SID>X("NonText", "addbe7", "4d4d4d", "bold")
     call <SID>X("Question", "00ff7f", "", "")
     call <SID>X("Search", "f5deb3", "cd853f", "")
     call <SID>X("SpecialKey", "9acd32", "", "")
