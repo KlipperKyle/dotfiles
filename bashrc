@@ -55,8 +55,7 @@ ssh() {
             printf "\033_%s %s\033\\" "ssh" "$*"
         ;;
     esac
-    env TERM=$'rxvt-unicode' \
-    ssh "$@"
+    env ssh "$@"
 }
 
 ## Use gpg-agent for ssh-keys
@@ -69,7 +68,7 @@ ssh() {
 # fortune is a simple program that displays a pseudorandom message
 # from a database of quotations at logon and/or logout.
 
-FORTUNE="/usr/bin/fortune"
+FORTUNE="/usr/bin/fortune /home/kyle/Dropbox/fortunes-custom all"
 #[[ "$PS1" ]] && $FORTUNE
 [[ "$PS1" ]] && echo -e "\e[00;33m$($FORTUNE)\e[00m"  # Color: Brown
 unset FORTUNE
