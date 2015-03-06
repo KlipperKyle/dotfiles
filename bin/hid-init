@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Compose key
+setxkbmap -option compose:caps
+numlockx on
+
+if [ "$DE" = "xfce" ]; then
+    pkill xfsettingsd
+    sleep 0.5
+    xfsettingsd &> /dev/null &
+fi
