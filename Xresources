@@ -218,4 +218,4 @@ Xft.dpi:        96
 Xft.antialias:  false
 Xft.rgba:       none
 Xft.hinting:    true
-Xft.hintstyle:  hintfull
+Xft.hintstyle:  hintmedium
