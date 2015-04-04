@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Batch encrypt files using gpg
+# encrypt [-r recipient] file1 [file2] [file3] [...]
+#
+# Author: Kyle Terrien
+# Date: 2015-04-04
+
+# Check for a custom recipient
+if [ "$1" == "-r" ]; then
+    shift
+    if gpg --list-keys | grep "$1" >& /dev/null; then
+        r="$1"
+    else
+        echo "$0: $1: Key does not exist in gpg database" >&2
+        exit 1
+    fi
+    shift
+fi
+
+# Print usage if there are no files given
+if [ "$*" == "" ]; then
+    echo 'encrypt [-r recipient] file1 [file2] [file3] [...]' >&2
+    exit 1
+fi
+
+# Encrypt each file
+for file in "$@"; do
+    gpg --batch --yes -eq --default-recipient-self "$file"
+done

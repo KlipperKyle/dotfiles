@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Batch decrypt files using gpg
+# decrypt file1 [file2] [file3] [...]
+#
+# Author: Kyle Terrien
+# Date: 2015-04-04
+
+# Print usage if there are no files given
+if [ "$*" == "" ]; then
+    echo 'decrypt file1 [file2] [file3] [...]' >&2
+    exit 1
+fi
+
+# Decrypt each file
+for file in "$@"; do
+    if [ -f "$file" ]; then
+        gpg --batch -dq "$file" > "${file%.gpg}"
+        chmod g=,o= "${file%.gpg}"
+    else
+        echo "$0: $file: No such file " >&2
+    fi
+done
