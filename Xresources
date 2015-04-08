@@ -52,9 +52,9 @@ Xcursor.size:  16
 xterm*VT100.geometry:     80x25
 xterm.*backarrowKey:      true
 !xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
-!xterm*faceName:           Monospace:style=Regular:size=9
+xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-xterm*font:               -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
+!xterm*font:               -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
 xterm*cursorColor:        green
 xterm*dynamicColors:      false
 xterm*utf8:               2
@@ -138,8 +138,8 @@ URxvt*cursorColor:                    green
 ! URxvt*pointerColor2:                  color
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-! URxvt*font:                           xft:Monospace:style=Regular:size=9
-URxvt*font:                           -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
+URxvt*font:                           xft:Monospace:style=Regular:size=9
+! URxvt*font:                           -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
