@@ -255,6 +255,8 @@ for_window [class="Zotero" title="Zotero Preferences"] floating enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [class="Zotero" title="Edit Bibliography"] floating enable
 for_window [class="Tk"] floating enable
+for_window [class="XCalc"] floating enable
+for_window [class="Pavucontrol"] floating enable
 
 # Autostart programs
 exec --no-startup-id dbus-launch --sh-syntax --exit-with-session
