@@ -23,9 +23,8 @@ set linebreak           " enable line wrap
 set showbreak=>>\ \     " Lead-in char
 set sidescroll=10       " When disabling wrap, show context of 10 chars
 
-" When using tab completion for filenames, only complete as far
-" as the match goes
-set wildmode=longest,list
+" Tab completion
+set wildmode=full
 set wildmenu
 
 " Default tabbing settings
