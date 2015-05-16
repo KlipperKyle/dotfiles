@@ -77,3 +77,11 @@ fi
 # See also: https://wiki.archlinux.org/index.php/Bash#The_.22command_not_found.22_hook
 [ -r /usr/share/doc/pkgfile/command-not-found.bash ] && . /usr/share/doc/pkgfile/command-not-found.bash
 
+# Allow local overrides
+if [ -d "$HOME/.alias.d" ] ; then
+    for file in "$HOME/.alias.d/"* ; do
+        [ -r "$file" ] && . "$file"
+    done
+fi
+
+:
