@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# .env
+# Source from .bash_profile
+#
+
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+export EDITOR=/usr/bin/vim
+export GNUSTEP_USER_ROOT="${HOME}/GNUstep"
+export QT_STYLE_OVERRIDE=gtk
+export QT_QPA_PLATFORMTHEME=gtk2
+
+# Get a GUI terminal
+for terminal in urxvt rxvt xterm xfce4-terminal mate-terminal gnome-terminal ; do
+    if command -v $terminal > /dev/null 2>&1; then
+        export TERMINAL=$terminal
+        break
+    fi
+done
+
+# Get a GUI editor
+for editor in gvim pluma mousepad gedit ; do
+    if command -v $editor > /dev/null 2>&1; then
+        export VISUAL=$editor
+    fi
+done
+
+# Allow local overrides
+if [ -d "$HOME/.env.d" ] ; then
+    for file in "$HOME/.env.d/"* ; do
+        [ -r "$file" ] && . "$file"
+    done
+fi
