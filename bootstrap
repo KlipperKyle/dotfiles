@@ -69,6 +69,7 @@ link "dotfiles/vimrc" ".vimrc"
 link "dotfiles/vim" ".vim"
 
 # bin
+[ -d "bin" ] || mkdir "bin"
 link "../dotfiles/bin/decrypt" "bin/decrypt"
 link "../dotfiles/bin/encrypt" "bin/encrypt"
 link "../dotfiles/bin/fix-permissions" "bin/fix-permissions"
