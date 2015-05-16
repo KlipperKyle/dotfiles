@@ -1,4 +1,10 @@
-# See <https://developer.gnome.org/gtk3/unstable/GtkSettings.html>
+#
+# .xsettingsd
+#
+
+# See the following for a list of options
+# <https://developer.gnome.org/gtk3/unstable/GtkSettings.html>
+# <https://github.com/derat/xsettingsd/wiki/Settings>
 
 Gtk/ButtonImages 1
 Gtk/CanChangeAccels 1
