@@ -78,7 +78,7 @@ xterm*toolBar:            false
 ! URxvt*jumpScroll:                     boolean
 ! URxvt*skipScroll:                     boolean
 ! URxvt*pastableTabs:                   boolean
-! URxvt*scrollstyle:                    mode
+URxvt*scrollstyle:                    rxvt
 ! URxvt*scrollBar:                      boolean
 URxvt*scrollBar_right:                true
 URxvt*scrollBar_floating:             true

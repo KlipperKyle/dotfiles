@@ -35,15 +35,41 @@ fi
 # Load Xresources
 xrdb "$HOME/.Xresources"
 
-# Compose key
+# Mouse acceleration
+xset m 4/1 4
+
+# Keyboard
+xset r rate 250 40
 setxkbmap -option compose:caps
 numlockx on
 
 # Set the Desktop Environment
 export DE=xfce
 
+# Startup programs
+dbus-launch --sh-syntax --exit-with-session &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+/usr/bin/gnome-keyring-daemon --start --components=secrets &
+#xfsettingsd &
+xsettingsd &
+xset dpms 900 900 900 &
+xset s off &
+xautolock -time 15 -locker 'i3exit lock' &
+#xfce4-power-manager &
+#xscreensaver -no-splash &
+#/home/kyle/bin/compton-start &
+start-pulseaudio-x11 &
+nm-applet &
+xfce4-clipman &
+#xfce4-notes &
+#system-config-printer-applet &
+#thunar --daemon &
+#conky &
+dropboxd &
+#/home/kyle/bin/xpenguins-start &
+
 #exec xterm
-#exec wmaker
+exec wmaker
 
 # exec gnome-session
 # exec startkde

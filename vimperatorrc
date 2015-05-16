@@ -1,10 +1,10 @@
 "3.9 (created: 2015/02/15 15:49:05)
 
 " Make scrolling larger
-noremap k 5k
-noremap j 5j
-noremap h 5h
-noremap l 5l
+noremap k 3k
+noremap j 3j
+noremap h 3h
+noremap l 3l
 
 " Set the Window title back from 'Vimperator' to 'Mozilla Firefox'
 set "titlestring=Mozilla Firefox"
