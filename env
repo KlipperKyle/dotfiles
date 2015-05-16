@@ -15,7 +15,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 
 # Get a GUI terminal
 for terminal in urxvt rxvt xterm xfce4-terminal mate-terminal gnome-terminal ; do
-    if command -v $terminal > /dev/null 2>&1; then
+    if type $terminal > /dev/null 2>&1; then
         export TERMINAL=$terminal
         break
     fi
@@ -23,8 +23,9 @@ done
 
 # Get a GUI editor
 for editor in gvim pluma mousepad gedit ; do
-    if command -v $editor > /dev/null 2>&1; then
+    if type $editor > /dev/null 2>&1; then
         export VISUAL=$editor
+        break
     fi
 done
 
