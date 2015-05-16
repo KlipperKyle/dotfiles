@@ -1,0 +1,96 @@
+#!/bin/bash
+#
+# boostrap
+#
+# Simlink and copy stuff.  This script attempts to do 80% of the work
+# for you.
+#
+
+DOTFILES="$HOME/dotfiles"
+cd "$HOME"
+
+link() {
+    local src="$1"
+    local dst="$2"
+
+    # If the file exists but is not a symlink, back it up
+    if [[ -e "$dst" && ! -L "$dst" ]] ; then
+        # Only backup files that differ
+        # This check always succeeds on directories
+        # (i.e. directories are always considered unique)
+        if ! cmp -s "$src" "$dst" ; then
+            echo "$dst: backing up to $dst.dotfilesbak"
+            mv "$dst" "$dst.dotfilesbak"
+        else
+            rm "$dst"
+        fi
+    fi
+
+    # Symlink it
+    echo "$dst: linking from $src"
+    ln -nsf "$src" "$dst"
+}
+
+copy() {
+    local src="$1"
+    local dst="$2"
+    local ans=
+
+    # If file exists, ask if we want to merge changes
+    if [ -e "$dst" ] ; then
+        if ! cmp -s "$src" "$dst" ; then
+            echo -ne "$dst: differs from $src\nMerge changes? [Y/n]: "
+            read ans
+            if [[ "$ans" != "n" && "$ans" != "N" ]] ; then
+                vimdiff "$dst" "$src"
+            fi
+        else
+            echo "$dst: No changes"
+        fi
+    else
+        echo "$dst: copying from $src"
+        cp -p "$src" "$dst"
+    fi
+}
+
+# Simple config files
+link "dotfiles/alias" ".alias"
+#copy "dotfiles/conkyrc" "conkyrc"
+link "dotfiles/env" ".env"
+link "dotfiles/inputrc" ".inputrc"
+link "dotfiles/vimperatorrc" ".vimperatorrc"
+link "dotfiles/Xresources" ".Xresources"
+#copy "dotfiles/xinitrc" ".xinitrc"
+#copy "dotfiles/xprofile" ".xprofile"
+copy "dotfiles/xsettingsd" ".xsettingsd"
+
+# Vim
+link "dotfiles/vimrc" ".vimrc"
+link "dotfiles/vim" ".vim"
+
+# bin
+link "../dotfiles/bin/decrypt" "bin/decrypt"
+link "../dotfiles/bin/encrypt" "bin/encrypt"
+link "../dotfiles/bin/fix-permissions" "bin/fix-permissions"
+link "../dotfiles/bin/hid-init" "bin/hid-init"
+link "../dotfiles/bin/i3exit" "bin/i3exit"
+link "../dotfiles/bin/xflock4" "bin/xflock4"
+
+# fontconfig
+[ -d ".config/fontconfig" ] || mkdir -p ".config/fontconfig"
+link "../../dotfiles/fontconfig/fonts.conf" ".config/fontconfig/fonts.conf"
+
+# GNUstep (Not touching this for now)
+
+# i3
+[ -d ".config/i3" ] || mkdir -p ".config/i3"
+copy "dotfiles/i3/config" ".config/i3/config"
+[ -d ".config/i3status" ] || mkdir -p ".config/i3status"
+copy "dotfiles/i3status/config" ".config/i3status/config"
+
+# icons
+[ -d ".icons" ] || mkdir ".icons"
+link "../dotfiles/icons/i3lock.png" ".icons/i3lock.png"
+
+# terminfo
+link "dotfiles/terminfo" ".terminfo"
