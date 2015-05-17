@@ -1,6 +1,6 @@
 (
   "Window Maker",
-  (URxvt, EXEC, urxvt),
+  (URxvt, SHORTCUT, "Mod4+Return", EXEC, urxvt),
   (Gvim, EXEC, gvim),
   ("Mozilla Firefox", EXEC, firefox),
   (
@@ -8,7 +8,7 @@
     OPEN_MENU,
     "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/arch-applications.menu"
   ),
-  (Run..., EXEC, "%A(Run, Type command:)"),
+  (Run..., SHORTCUT, "Mod4+D", EXEC, "dmenu_run -b"),
   (
     Appearance,
     (
@@ -147,7 +147,7 @@
     "/usr/lib/GNUstep/Applications/WPrefs.app/WPrefs"
   ),
   ("Info Panel", INFO_PANEL),
+  (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
   ("Restart Window Maker", RESTART),
-  ("Other Window Managers", ("Start twm", RESTART, twm)),
   ("Exit Window Maker", EXIT)
 )
