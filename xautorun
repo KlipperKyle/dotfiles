@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# ~/.xautorun
+#
+
+# Start the GnuPG agent and enable OpenSSH agent emulation
+gnupginf="${HOME}/.gpg-agent-info"
+
+if pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+    eval `cat $gnupginf`
+    eval `cut -d= -f1 $gnupginf | xargs echo export`
+    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+else
+    eval `gpg-agent -s --enable-ssh-support --daemon --write-env-file "$gnupginf"`
+fi
+
+# Set monitor settings
+type configure-monitors &> /dev/null && configure-monitors
+
+# Load Xresources
+xrdb "$HOME/.Xresources"
+
+# Mouse acceleration
+xset m 4/1 4
+
+# Keyboard
+xset r rate 250 40
+setxkbmap -option compose:caps
+numlockx on
+
+# Set the Desktop Environment
+export DE=xfce
+
+#
+# Startup programs
+# These will likely be different on each machine
+#
+
+# Core
+dbus-launch --sh-syntax --exit-with-session &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+/usr/bin/gnome-keyring-daemon --start --components=secrets &
+start-pulseaudio-x11 &
+#/home/kyle/bin/compton-start &
+
+# GTK settings and screensaver
+#xfsettingsd &
+xsettingsd &
+xset dpms 900 900 900 &
+xset s off &
+xautolock -time 15 -locker 'i3exit lock' &
+#xfce4-power-manager &
+#xscreensaver -no-splash &
+
+# Tray/background apps
+nm-applet &
+xfce4-clipman &
+#xfce4-notes &
+#system-config-printer-applet &
+#thunar --daemon &
+#conky &
+dropboxd &
+#/home/kyle/bin/xpenguins-start &
