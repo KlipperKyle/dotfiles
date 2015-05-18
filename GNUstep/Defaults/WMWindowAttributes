@@ -1,0 +1,13 @@
+{
+  Chromium = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+  };
+  Dropbox = {
+    NoAppIcon = Yes;
+    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/dropbox.Dropbox.xpm";
+  };
+  "Xfce4-notifyd" = {
+    NoAppIcon = Yes;
+  };
+}
