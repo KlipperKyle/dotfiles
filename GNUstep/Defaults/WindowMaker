@@ -19,7 +19,7 @@
   );
   MoveToPrevWorkspaceLayerKey = None;
   MaximizeKey = "Mod4+O";
-  HideKey = "Mod4+W";
+  HideKey = "Mod4+C";
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = "Shift+Mod1+7";
   RBCMaximizeKey = "Shift+Mod1+M";
@@ -53,7 +53,7 @@
   RunKey = "Mod4+R";
   LHMaximizeKey = "Shift+Mod1+H";
   MoveToPrevWorkspaceKey = "Shift+Mod4+P";
-  RootMenuKey = "Mod4+C";
+  RootMenuKey = "Mod4+W";
   MoveToWorkspace6Key = "Shift+Mod1+6";
   DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
   MoveToWorkspace10Key = "Shift+Mod1+0";
@@ -90,6 +90,7 @@
   MenuTextColor = "#000000";
   Attraction = NO;
   SingleClickLaunch = NO;
+  DontConfirmKill = YES;
   DisableBlinking = NO;
   AntialiasedText = YES;
   LowerKey = "Mod4+X";
@@ -111,7 +112,7 @@
   VMaximizeKey = "Mod4+V";
   CClipTitleColor = "#616161";
   WindowShortcut5Key = None;
-  HideOthersKey = "Shift+Mod4+W";
+  HideOthersKey = "Shift+Mod4+C";
   IconPath = (
     "$HOME/GNUstep/Library/Icons",
     "/usr/share/WindowMaker/Icons",
