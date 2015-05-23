@@ -5,7 +5,9 @@
   };
   Dropbox = {
     NoAppIcon = Yes;
-    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/dropbox.Dropbox.xpm";
+  };
+  Volumeicon = {
+    NoAppIcon = Yes;
   };
   "Xfce4-notifyd" = {
     NoAppIcon = Yes;
