@@ -1,118 +1,121 @@
 {
-  FrameBorderColor = "#000000";
-  FTitleColor = "#ffffff";
-  LTCMaximizeKey = "Shift+Mod1+Y";
-  CycleIgnoreMinimized = NO;
-  MenuDisabledColor = "#7f7f7f";
-  LastWorkspaceKey = None;
-  IconTitleBack = "#000000";
-  MoveToWorkspace9Key = "Shift+Mod1+9";
-  PixmapPath = (
-    "$HOME/GNUstep/Library/WindowMaker/Pixmaps",
-    "$HOME/GNUstep/Library/WindowMaker/Backgrounds",
-    "$HOME/GNUstep/Library/WindowMaker/CachedPixmaps",
-    "/usr/share/WindowMaker/Pixmaps",
-    "/usr/share/WindowMaker/Backgrounds",
-    "/usr/include/X11/pixmaps",
-    "/usr/local/share/pixmaps",
-    "/usr/share/pixmaps"
-  );
-  MoveToPrevWorkspaceLayerKey = None;
-  MaximizeKey = "Mod4+O";
-  HideKey = "Mod4+C";
-  MouseForwardButtonAction = None;
-  MoveToWorkspace7Key = "Shift+Mod1+7";
-  RBCMaximizeKey = "Shift+Mod1+M";
-  DisableClip = YES;
-  WindowShortcut10Key = None;
-  IconTitleColor = "#ffffff";
-  MoveToWorkspace2Key = "Shift+Mod1+2";
-  MouseWheelTiltAction = None;
-  MenuTitleColor = "#ffffff";
-  WindowShortcut3Key = None;
-  ClipAutolowerDelay = 250;
-  WindowRelaunchKey = "Mod4+A";
-  SelectKey = "Mod4+S";
-  WindowShortcut4Key = None;
-  NoWindowOverDock = YES;
-  WorkspaceBack = (solid, "#505075");
-  LBCMaximizeKey = "Shift+Mod1+N";
-  HighlightTextColor = "#000000";
-  ClipRaiseLowerKey = "Shift+Mod4+F";
-  ClipAutoexpandDelay = 100;
-  WindowShortcut9Key = None;
-  HelpBalloons = YES;
-  MoveResizeKey = "Mod4+T";
-  PrevWorkspaceKey = "Mod4+P";
-  AutoArrangeIcons = YES;
-  AppIconBalloons = YES;
-  ClipTitleColor = "#000000";
-  FrameFocusedBorderColor = "#000000";
-  WindowTitleFont = "sans serif:slant=0:weight=200:width=100:pixelsize=12";
-  MoveToWorkspace8Key = "Shift+Mod1+8";
-  RunKey = "Mod4+R";
-  LHMaximizeKey = "Shift+Mod1+H";
-  MoveToPrevWorkspaceKey = "Shift+Mod4+P";
-  RootMenuKey = "Mod4+W";
-  MoveToWorkspace6Key = "Shift+Mod1+6";
-  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
-  MoveToWorkspace10Key = "Shift+Mod1+0";
-  BHMaximizeKey = "Shift+Mod1+J";
-  MouseBackwardButtonAction = None;
-  KbdModeLock = NO;
-  CycleActiveHeadOnly = NO;
-  DockRaiseLowerKey = "Mod4+F";
-  MoveToWorkspace1Key = "Shift+Mod1+1";
-  MenuTitleExtendSpace = 0;
-  WindowShortcut1Key = None;
-  ShowClipTitle = YES;
-  RHMaximizeKey = "Shift+Mod1+L";
-  FrameSelectedBorderColor = "#ffffff";
-  THMaximizeKey = "Shift+Mod1+K";
-  ClipAutocollapseDelay = 250;
-  MiniaturizeKey = "Mod4+E";
-  MoveToNextWorkspaceLayerKey = None;
-  WindowShortcut2Key = None;
-  MiniwindowApercuBalloons = NO;
-  ToggleKbdModeKey = None;
-  WindowMenuKey = "Mod4+space";
-  DoNotMakeAppIconsBounce = NO;
-  MiniwindowTitleBalloons = YES;
-  MaximusKey = "Mod4+G";
-  WindowShortcut7Key = None;
-  OpaqueResize = YES;
-  RaiseAppIconsWhenBouncing = YES;
-  ResizeIncrement = 16;
-  WindowShortcut8Key = None;
-  OpaqueMoveResizeKeyboard = YES;
-  MoveToLastWorkspaceKey = None;
-  GroupNextKey = None;
-  MenuTextColor = "#000000";
-  Attraction = NO;
-  SingleClickLaunch = NO;
-  DontConfirmKill = YES;
-  DisableBlinking = NO;
   AntialiasedText = YES;
-  LowerKey = "Mod4+X";
-  MoveToWorkspace5Key = "Shift+Mod1+5";
-  WindowTitleExtendSpace = 0;
-  NormalCursor = (builtin, left_ptr);
-  WorkspaceNameDisplayPosition = center;
-  WindowListKey = None;
-  ScreenSwitchKey = "Mod4+colon";
-  MoveToNextWorkspaceKey = "Shift+Mod4+N";
-  HMaximizeKey = "Mod4+B";
-  CloseKey = "Shift+Mod4+Q";
-  HighlightColor = "#ffffff";
-  FocusMode = sloppy;
-  NextWorkspaceKey = "Mod4+N";
-  GroupPrevKey = None;
-  MoveToWorkspace3Key = "Shift+Mod1+3";
-  MinimizeAllKey = None;
-  VMaximizeKey = "Mod4+V";
+  AppIconBalloons = YES;
+  Attraction = NO;
+  AutoArrangeIcons = YES;
+  BHMaximizeKey = "Shift+Mod1+J";
+  BounceAppIconsWhenUrgent = YES;
   CClipTitleColor = "#616161";
-  WindowShortcut5Key = None;
+  CirculateRaise = NO;
+  ClipAutocollapseDelay = 250;
+  ClipAutoexpandDelay = 100;
+  ClipAutolowerDelay = 250;
+  ClipAutoraiseDelay = 100;
+  ClipRaiseLowerKey = "Shift+Mod4+F";
+  ClipTitleColor = "#000000";
+  CloseKey = "Shift+Mod4+Q";
+  CycleActiveHeadOnly = NO;
+  CycleIgnoreMinimized = NO;
+  DisableBlinking = NO;
+  DisableClip = YES;
+  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
+  DockRaiseLowerKey = "Mod4+F";
+  DoNotMakeAppIconsBounce = NO;
+  DontConfirmKill = YES;
+  FocusMode = sloppy;
+  FrameBorderColor = "#000000";
+  FrameFocusedBorderColor = "#000000";
+  FrameSelectedBorderColor = "#ffffff";
+  FTitleColor = "#ffffff";
+  GroupNextKey = None;
+  GroupPrevKey = None;
+  HelpBalloons = YES;
+  HideKey = "Mod4+C";
   HideOthersKey = "Shift+Mod4+C";
+  HighlightActiveApp = YES;
+  HighlightColor = "#ffffff";
+  HighlightTextColor = "#000000";
+  HMaximizeKey = "Mod4+B";
+  IconTitleBack = "#000000";
+  IconTitleColor = "#ffffff";
+  KbdModeLock = NO;
+  LastWorkspaceKey = None;
+  LBCMaximizeKey = "Shift+Mod1+N";
+  LHMaximizeKey = "Shift+Mod1+H";
+  LowerKey = "Mod4+X";
+  LTCMaximizeKey = "Shift+Mod1+Y";
+  MaximizeKey = "Mod4+O";
+  MaximusKey = "Mod4+G";
+  MenuDisabledColor = "#7f7f7f";
+  MenuTextColor = "#000000";
+  MenuTextExtendSpace = 0;
+  MenuTitleColor = "#ffffff";
+  MenuTitleExtendSpace = 0;
+  MiniaturizeKey = "Mod4+E";
+  MinimizeAllKey = None;
+  MiniwindowApercuBalloons = NO;
+  MiniwindowTitleBalloons = YES;
+  ModifierKey = Mod4;
+  MouseBackwardButtonAction = None;
+  MouseForwardButtonAction = None;
+  MouseWheelTiltAction = None;
+  MoveResizeKey = "Mod4+T";
+  MoveToLastWorkspaceKey = None;
+  MoveToNextWorkspaceKey = "Shift+Mod4+N";
+  MoveToNextWorkspaceLayerKey = None;
+  MoveToPrevWorkspaceKey = "Shift+Mod4+P";
+  MoveToPrevWorkspaceLayerKey = None;
+  MoveToWorkspace10Key = "Shift+Mod1+0";
+  MoveToWorkspace1Key = "Shift+Mod1+1";
+  MoveToWorkspace2Key = "Shift+Mod1+2";
+  MoveToWorkspace3Key = "Shift+Mod1+3";
+  MoveToWorkspace4Key = "Shift+Mod1+4";
+  MoveToWorkspace5Key = "Shift+Mod1+5";
+  MoveToWorkspace6Key = "Shift+Mod1+6";
+  MoveToWorkspace7Key = "Shift+Mod1+7";
+  MoveToWorkspace8Key = "Shift+Mod1+8";
+  MoveToWorkspace9Key = "Shift+Mod1+9";
+  NextWorkspaceKey = "Mod4+N";
+  NormalCursor = (builtin, left_ptr);
+  NoWindowOverDock = YES;
+  OpaqueMoveResizeKeyboard = YES;
+  OpaqueResize = YES;
+  PrevWorkspaceKey = "Mod4+P";
+  PTitleColor = "#ffffff";
+  RaiseAppIconsWhenBouncing = YES;
+  RaiseKey = "Mod4+Z";
+  RBCMaximizeKey = "Shift+Mod1+M";
+  ResizeIncrement = 16;
+  RHMaximizeKey = "Shift+Mod1+L";
+  RootMenuKey = "Mod4+W";
+  RTCMaximizeKey = "Shift+Mod1+U";
+  RunKey = "Mod4+R";
+  ScreenSwitchKey = "Mod4+colon";
+  SelectKey = "Mod4+S";
+  ShowClipTitle = YES;
+  SingleClickLaunch = NO;
+  THMaximizeKey = "Shift+Mod1+K";
+  ToggleKbdModeKey = None;
+  UTitleColor = "#000000";
+  ViKeyMenus = YES;
+  VMaximizeKey = "Mod4+V";
+  WindowListKey = None;
+  WindowMenuKey = "Mod4+space";
+  WindowRelaunchKey = "Mod4+A";
+  WindowShortcut10Key = None;
+  WindowShortcut1Key = None;
+  WindowShortcut2Key = None;
+  WindowShortcut3Key = None;
+  WindowShortcut4Key = None;
+  WindowShortcut5Key = None;
+  WindowShortcut6Key = None;
+  WindowShortcut7Key = None;
+  WindowShortcut8Key = None;
+  WindowShortcut9Key = None;
+  WindowTitleExtendSpace = 0;
+  WindowTitleFont = "sans serif:slant=0:weight=200:width=100:pixelsize=12";
+  WorkspaceBack = (solid, "#505075");
+  WorkspaceNameDisplayPosition = center;
   IconPath = (
     "$HOME/GNUstep/Library/Icons",
     "/usr/share/WindowMaker/Icons",
@@ -124,17 +127,14 @@
     "/usr/local/share/pixmaps",
     "/usr/share/pixmaps"
   );
-  RaiseKey = "Mod4+Z";
-  ModifierKey = Mod4;
-  ClipAutoraiseDelay = 100;
-  WindowShortcut6Key = None;
-  MenuTextExtendSpace = 0;
-  ViKeyMenus = YES;
-  BounceAppIconsWhenUrgent = YES;
-  UTitleColor = "#000000";
-  HighlightActiveApp = YES;
-  CirculateRaise = NO;
-  PTitleColor = "#ffffff";
-  MoveToWorkspace4Key = "Shift+Mod1+4";
-  RTCMaximizeKey = "Shift+Mod1+U";
+  PixmapPath = (
+    "$HOME/GNUstep/Library/WindowMaker/Pixmaps",
+    "$HOME/GNUstep/Library/WindowMaker/Backgrounds",
+    "$HOME/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "/usr/share/WindowMaker/Pixmaps",
+    "/usr/share/WindowMaker/Backgrounds",
+    "/usr/include/X11/pixmaps",
+    "/usr/local/share/pixmaps",
+    "/usr/share/pixmaps"
+  );
 }
