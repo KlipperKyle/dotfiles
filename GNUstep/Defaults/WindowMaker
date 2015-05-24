@@ -5,39 +5,28 @@
   AutoArrangeIcons = YES;
   BHMaximizeKey = "Shift+Mod1+J";
   BounceAppIconsWhenUrgent = YES;
-  CClipTitleColor = "#616161";
   CirculateRaise = NO;
   ClipAutocollapseDelay = 250;
   ClipAutoexpandDelay = 100;
   ClipAutolowerDelay = 250;
   ClipAutoraiseDelay = 100;
   ClipRaiseLowerKey = "Shift+Mod4+F";
-  ClipTitleColor = "#000000";
   CloseKey = "Shift+Mod4+Q";
   CycleActiveHeadOnly = NO;
   CycleIgnoreMinimized = NO;
   DisableBlinking = NO;
   DisableClip = YES;
-  DisplayFont = "-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-*-*";
   DockRaiseLowerKey = "Mod4+F";
   DoNotMakeAppIconsBounce = NO;
   DontConfirmKill = YES;
   FocusMode = sloppy;
-  FrameBorderColor = "#000000";
-  FrameFocusedBorderColor = "#000000";
-  FrameSelectedBorderColor = "#ffffff";
-  FTitleColor = "#ffffff";
   GroupNextKey = None;
   GroupPrevKey = None;
   HelpBalloons = YES;
   HideKey = "Mod4+C";
   HideOthersKey = "Shift+Mod4+C";
   HighlightActiveApp = YES;
-  HighlightColor = "#ffffff";
-  HighlightTextColor = "#000000";
   HMaximizeKey = "Mod4+B";
-  IconTitleBack = "#000000";
-  IconTitleColor = "#ffffff";
   KbdModeLock = NO;
   LastWorkspaceKey = None;
   LBCMaximizeKey = "Shift+Mod1+N";
@@ -46,10 +35,7 @@
   LTCMaximizeKey = "Shift+Mod1+Y";
   MaximizeKey = "Mod4+O";
   MaximusKey = "Mod4+G";
-  MenuDisabledColor = "#7f7f7f";
-  MenuTextColor = "#000000";
   MenuTextExtendSpace = 0;
-  MenuTitleColor = "#ffffff";
   MenuTitleExtendSpace = 0;
   MiniaturizeKey = "Mod4+E";
   MinimizeAllKey = None;
@@ -81,7 +67,6 @@
   OpaqueMoveResizeKeyboard = YES;
   OpaqueResize = YES;
   PrevWorkspaceKey = "Mod4+P";
-  PTitleColor = "#ffffff";
   RaiseAppIconsWhenBouncing = YES;
   RaiseKey = "Mod4+Z";
   RBCMaximizeKey = "Shift+Mod1+M";
@@ -96,7 +81,6 @@
   SingleClickLaunch = NO;
   THMaximizeKey = "Shift+Mod1+K";
   ToggleKbdModeKey = None;
-  UTitleColor = "#000000";
   ViKeyMenus = YES;
   VMaximizeKey = "Mod4+V";
   WindowListKey = None;
@@ -113,8 +97,6 @@
   WindowShortcut8Key = None;
   WindowShortcut9Key = None;
   WindowTitleExtendSpace = 0;
-  WindowTitleFont = "sans serif:slant=0:weight=200:width=100:pixelsize=12";
-  WorkspaceBack = (solid, "#505075");
   WorkspaceNameDisplayPosition = center;
   IconPath = (
     "$HOME/GNUstep/Library/Icons",
