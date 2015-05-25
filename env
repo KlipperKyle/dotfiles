@@ -28,6 +28,7 @@ for editor in gvim pluma mousepad gedit ; do
         break
     fi
 done
+[ x"$VISUAL" = x"gvim" ] && export VISUAL="gvim -f"
 
 # Allow local overrides
 if [ -d "$HOME/.env.d" ] ; then
