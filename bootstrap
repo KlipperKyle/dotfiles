@@ -39,7 +39,7 @@ copy() {
     # If file exists, ask if we want to merge changes
     if [ -e "$dst" ] ; then
         if ! cmp -s "$src" "$dst" ; then
-            echo -ne "$dst: differs from $src\nMerge changes? [Y/n]: "
+            echo -ne "$dst: differs from '$src'.  Merge changes? [Y/n]: "
             read ans
             if [[ "$ans" != "n" && "$ans" != "N" ]] ; then
                 vimdiff "$dst" "$src"
@@ -81,6 +81,9 @@ link "../dotfiles/bin/xflock4" "bin/xflock4"
 # fontconfig
 [ -d ".config/fontconfig" ] || mkdir -p ".config/fontconfig"
 link "../../dotfiles/fontconfig/fonts.conf" ".config/fontconfig/fonts.conf"
+
+# Git
+copy "dotfiles/gitconfig" ".gitconfig"
 
 # GNUstep (Not touching this for now)
 

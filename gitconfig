@@ -1,0 +1,36 @@
+#
+# User Info
+#
+
+[user]
+	name = Kyle Terrien
+	email = kyleterrien@gmail.com
+[credential]
+	helper = cache
+
+#
+# Be smart when checking stuff out
+#
+
+# Github
+# Comment out if Port 22 is blocked
+[url "ssh://git@github.com/"]
+	pushInsteadOf = https://github.com/
+[url "git://github.com/"]
+	insteadOf = https://github.com/
+
+# AUR4
+# Comment out if Port 22 is blocked
+[url "ssh+git://aur@aur4.archlinux.org/"]
+	InsteadOf = https://aur4.archlinux.org/cgit/
+
+#
+# Aliases
+#
+
+[alias]
+	graph = log --graph --oneline --decorate
+
+#
+# Misc
+#

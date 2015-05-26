@@ -144,6 +144,9 @@ if has("autocmd")
     " Show line numbers when coding
     autocmd FileType    perl\|python\|sh\|php\|js\|c\|cpp\|lua\|html\|css   setlocal number
 
+    " Use tabs in gitconfig files
+    autocmd FileType            gitconfig   setlocal noet
+
     " Add some useful commands to Tex files
     autocmd FileType tex noremap <leader>ll :!latex "%"<CR>
     autocmd FileType tex noremap <leader>lp :!pdflatex "%"<CR>
