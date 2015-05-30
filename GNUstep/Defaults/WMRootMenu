@@ -1,13 +1,13 @@
 (
   "Window Maker",
-  (URxvt, SHORTCUT, "Mod4+Return", EXEC, urxvt),
-  (Gvim, EXEC, gvim),
-  ("Mozilla Firefox", EXEC, firefox),
   (
     Applications,
     OPEN_MENU,
     "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/arch-applications.menu"
   ),
+  (URxvt, SHORTCUT, "Control+Mod1+D", EXEC, urxvt),
+  (Gvim, SHORTCUT, "Control+Mod1+G", EXEC, gvim),
+  ("Mozilla Firefox", SHORTCUT, "Control+Mod1+F", EXEC, firefox),
   (Run..., SHORTCUT, "Mod4+D", EXEC, "dmenu_run -b"),
   (
     Appearance,
@@ -142,12 +142,16 @@
     ("Clear Session", CLEAR_SESSION)
   ),
   (
-    "Configure Window Maker",
+    "Configure WMaker",
     EXEC,
     "/usr/lib/GNUstep/Applications/WPrefs.app/WPrefs"
   ),
   ("Info Panel", INFO_PANEL),
-  (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
-  ("Restart Window Maker", RESTART),
-  ("Exit Window Maker", EXIT)
+  (
+    "Exit/Lock",
+    (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
+    (Suspend, SHORTCUT, XF86Suspend, EXEC, "i3exit suspend"),
+    ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
+    ("Exit Window Maker", EXIT)
+  )
 )
