@@ -6,6 +6,10 @@
   Dropbox = {
     NoAppIcon = Yes;
   };
+  Gitk = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+  };
   Volumeicon = {
     NoAppIcon = Yes;
   };
