@@ -72,9 +72,9 @@
   RBCMaximizeKey = "Shift+Mod1+M";
   ResizeIncrement = 16;
   RHMaximizeKey = "Shift+Mod1+L";
-  RootMenuKey = "Mod4+W";
+  RootMenuKey = "Mod4+R";
   RTCMaximizeKey = "Shift+Mod1+U";
-  RunKey = "Mod4+R";
+  RunKey = "Mod4+W";
   ScreenSwitchKey = "Mod4+colon";
   SelectKey = "Mod4+S";
   ShowClipTitle = YES;
