@@ -150,7 +150,7 @@
   (
     "Exit/Lock",
     (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
-    (Suspend, SHORTCUT, XF86Suspend, EXEC, "i3exit suspend"),
+    (Suspend, SHORTCUT, XF86Sleep, EXEC, "i3exit suspend"),
     ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
     ("Exit Window Maker", EXIT)
   )
