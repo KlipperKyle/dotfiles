@@ -10,6 +10,23 @@
     AlwaysUserIcon = No;
     EmulateAppIcon = Yes;
   };
+  gl.mpv = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/gl.mpv.xpm";
+  };
+  Irc.Firefox = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/Irc.Firefox.xpm";
+  };
+  "polkit-mate-authentication-agent-1" = {
+    NoAppIcon = Yes;
+  };
+  Vncviewer = {
+    AlwaysUserIcon = No;
+    EmulateAppIcon = Yes;
+  };
   Volumeicon = {
     NoAppIcon = Yes;
   };
