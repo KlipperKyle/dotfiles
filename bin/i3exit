@@ -1,6 +1,55 @@
 #!/bin/sh
+#
+# i3exit
+#
+# Various poweroff options for i3wm.
+# Most can be used in other environments.
+#
+# This script works under systemd and openrc (for the most part).
+# If openrc (Gentoo) is used, add the following to /etc/sudoers
+# and add the user to the wheel group.
+#
+# ## Allow some commands
+# %wheel ALL=(root) NOPASSWD: /sbin/shutdown
+# %wheel ALL=(root) NOPASSWD: /sbin/halt
+# %wheel ALL=(root) NOPASSWD: /sbin/reboot
+# %wheel ALL=(root) NOPASSWD: /sbin/poweroff
+# %wheel ALL=(root) NOPASSWD: /usr/sbin/pm-*
+
 lock() {
     i3lock -d -i ~/.icons/i3lock.png -c 285577
+}
+
+sus() {
+    if type systemctl &> /dev/null ; then
+        systemctl suspend
+    else
+        sudo pm-suspend
+    fi
+}
+
+hiber() {
+    if type systemctl &> /dev/null ; then
+        systemctl hibernate
+    else
+        sudo pm-hibernate
+    fi
+}
+
+reb() {
+    if type systemctl &> /dev/null ; then
+        systemctl reboot
+    else
+        sudo reboot
+    fi
+}
+
+off() {
+    if type systemctl &> /dev/null ; then
+        systemctl poweroff
+    else
+        sudo shutdown -h now
+    fi
 }
 
 case "$1" in
@@ -11,16 +60,16 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        lock && systemctl suspend
+        lock && sus
         ;;
     hibernate)
-        lock && systemctl hibernate
+        lock && hiber
         ;;
     reboot)
-        systemctl reboot
+        reb
         ;;
     shutdown)
-        systemctl poweroff
+        off
         ;;
     *)
         echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
