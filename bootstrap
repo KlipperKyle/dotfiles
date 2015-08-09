@@ -63,7 +63,9 @@ link "dotfiles/Xresources" ".Xresources"
 copy "dotfiles/xautorun" ".xautorun"
 #copy "dotfiles/xinitrc" ".xinitrc"
 #copy "dotfiles/xprofile" ".xprofile"
+#copy "dotfiles/xsession" ".xsession"
 copy "dotfiles/xsettingsd" ".xsettingsd"
+copy "dotfiles/gtkrc-2.0" ".gtkrc-2.0"
 
 # Vim
 link "dotfiles/vimrc" ".vimrc"

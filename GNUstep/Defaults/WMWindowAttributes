@@ -13,12 +13,13 @@
   gl.mpv = {
     AlwaysUserIcon = No;
     EmulateAppIcon = Yes;
-    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/gl.mpv.xpm";
   };
   Irc.Firefox = {
     AlwaysUserIcon = No;
     EmulateAppIcon = Yes;
-    Icon = "/home/kyle/GNUstep/Library/WindowMaker/CachedPixmaps/Irc.Firefox.xpm";
+  };
+  "nm-applet.Nm-applet" = {
+    NoAppIcon = Yes;
   };
   "polkit-mate-authentication-agent-1" = {
     NoAppIcon = Yes;

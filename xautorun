@@ -39,13 +39,14 @@ export DE=xfce
 # Core
 dbus-launch --sh-syntax --exit-with-session &
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-/usr/bin/gnome-keyring-daemon --start --components=secrets &
-start-pulseaudio-x11 &
+#/usr/libexec/polkit-gnome-authentication-agent-1 &
+#/usr/bin/gnome-keyring-daemon --start --components=secrets &
+#start-pulseaudio-x11 &
 #/home/kyle/bin/compton-start &
 
 # GTK settings and screensaver
 #xfsettingsd &
-xsettingsd &
+#xsettingsd &
 xset dpms 900 900 900 &
 xset s off &
 xautolock -time 15 -locker 'i3exit lock' &
@@ -53,11 +54,12 @@ xautolock -time 15 -locker 'i3exit lock' &
 #xscreensaver -no-splash &
 
 # Tray/background apps
-nm-applet &
+#nm-applet &
 xfce4-clipman &
 #xfce4-notes &
+volumeicon &
 #system-config-printer-applet &
 #thunar --daemon &
 #conky &
-dropboxd &
+#dropboxd &
 #/home/kyle/bin/xpenguins-start &
