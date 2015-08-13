@@ -49,8 +49,8 @@ Xcursor.size:  16
 
 ! xterm ----------------------------------------------------------------
 
-xterm*VT100.geometry:     80x25
-xterm.*backarrowKey:      true
+xterm*VT100.geometry:     80x24
+xterm.*backarrowKey:      false
 !xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
 xterm*faceName:           Monospace:style=Regular:size=9
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*

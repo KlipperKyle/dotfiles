@@ -24,7 +24,7 @@ set showbreak=>>\ \     " Lead-in char
 set sidescroll=10       " When disabling wrap, show context of 10 chars
 
 " Tab completion
-set wildmode=longest:full,full
+set wildmode=list:longest
 set wildmenu
 
 " Default tabbing settings
