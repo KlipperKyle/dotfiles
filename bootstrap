@@ -99,5 +99,9 @@ copy "dotfiles/i3status/config" ".config/i3status/config"
 [ -d ".icons" ] || mkdir ".icons"
 link "../dotfiles/icons/i3lock.png" ".icons/i3lock.png"
 
+# w3m
+[ -d ".w3m" ] || mkdir ".w3m"
+link "../dotfiles/w3m/keymap" ".w3m/keymap"
+
 # terminfo
 link "dotfiles/terminfo" ".terminfo"

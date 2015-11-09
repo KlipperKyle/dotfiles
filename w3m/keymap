@@ -1,0 +1,27 @@
+# Annoyances to vim users
+keymap b PREV_WORD
+keymap C-f NEXT_PAGE
+keymap C-b PREV_PAGE
+
+# More vim-like actions
+keymap 0 LINE_BEGIN
+keymap C-e UP
+keymap C-y DOWN
+
+# History
+keymap F NEXT
+keymap B PREV
+
+# Don't scroll half a screen when the cursor hits the boundary
+keymap C-n MOVE_DOWN1
+keymap DOWN MOVE_DOWN1
+keymap j MOVE_DOWN1
+keymap C-p MOVE_UP1
+keymap UP MOVE_UP1
+keymap k MOVE_UP1
+
+# Tabs
+keymap d CLOSE_TAB
+keymap C-p TAB_LEFT
+keymap C-n TAB_RIGHT
+keymap t TAB_GOTO
