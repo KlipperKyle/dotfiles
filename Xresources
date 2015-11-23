@@ -217,7 +217,7 @@ xclock*minorColor:  #22CCFF
 ! Xft settings ---------------------------------------------------------------
 
 Xft.dpi:        96
-Xft.antialias:  false
+Xft.antialias:  true
 Xft.rgba:       none
 Xft.hinting:    true
 Xft.hintstyle:  hintfull

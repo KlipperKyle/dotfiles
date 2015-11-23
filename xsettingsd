@@ -31,7 +31,7 @@ Net/IconThemeName "Tango"
 Net/SoundThemeName "default"
 Net/ThemeName "Raleigh"
 
-Xft/Antialias 0
+Xft/Antialias 1
 Xft/DPI 98304
 Xft/Hinting 1
 Xft/HintStyle "hintfull"
