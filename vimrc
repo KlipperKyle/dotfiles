@@ -98,7 +98,7 @@ if has("gui_running")
     "set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar
-    set lines=50 columns=100
+    set lines=30 columns=100
 endif
 
 " Only do this part when compiled with support for autocommands.
