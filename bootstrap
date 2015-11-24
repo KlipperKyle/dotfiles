@@ -108,4 +108,4 @@ link "dotfiles/terminfo" ".terminfo"
 
 # GTK 3
 [ -d ".config/gtk-3.0" ] || mkdir -p ".config/gtk-3.0"
-link "../../dotfiles/gtk-3.0/settings.ini" ".config/gtk-3.0/settings.ini"
+copy "dotfiles/gtk-3.0/settings.ini" ".config/gtk-3.0/settings.ini"
