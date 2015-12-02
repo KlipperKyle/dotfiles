@@ -6,7 +6,4 @@ noremap j 3j
 noremap h 3h
 noremap l 3l
 
-" Set the Window title back from 'Vimperator' to 'Mozilla Firefox'
-set "titlestring=Mozilla Firefox"
-
 " vim: set ft=vimperator:
