@@ -221,3 +221,15 @@ Xft.antialias:  true
 Xft.rgba:       none
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
+
+! xosview --------------------------------------------------------------
+
+xosview*loadGraph:              False
+xosview*cpuGraph:               False
+xosview*memGraph:               False
+xosview*swapGraph:              False
+xosview*pageGraph:              False
+xosview*gfxGraph:               False
+xosview*netGraph:               False
+xosview*irqrateGraph:           False
+xosview*diskGraph:              False
