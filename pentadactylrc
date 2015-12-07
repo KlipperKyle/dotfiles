@@ -7,10 +7,4 @@ set guioptions=bCrsmT
 set defsearch=duckduckgo
 set showstatuslinks=command
 
-" Make scrolling larger
-map -builtin k 3k
-map -builtin j 3j
-map -builtin h 3h
-map -builtin l 3l
-
 " vim: set ft=pentadactyl:

@@ -1,9 +1,3 @@
 "3.9 (created: 2015/02/15 15:49:05)
 
-" Make scrolling larger
-noremap k 3k
-noremap j 3j
-noremap h 3h
-noremap l 3l
-
 " vim: set ft=vimperator:
