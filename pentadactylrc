@@ -5,6 +5,7 @@ group user
 set guioptions=bCrsmT
 
 set defsearch=duckduckgo
-set showstatuslinks=command
+set showstatuslinks=status
+set scrollsteps=1
 
 " vim: set ft=pentadactyl:
