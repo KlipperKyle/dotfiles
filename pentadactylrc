@@ -7,5 +7,6 @@ set guioptions=bCrsmT
 set defsearch=duckduckgo
 set showstatuslinks=status
 set scrollsteps=1
+set cookieaccept=none
 
 " vim: set ft=pentadactyl:
