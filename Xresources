@@ -1,225 +1,92 @@
-! terminal colors ----------------------------------------------------- 
+!
+! ~/.Xresources
+!
 
-*VT100*colorMode: on
-*VT100*boldColors: on
-*VT100*showBlinkAsBold: true
+! Terminal colors ------------------------------------------------------
 
-! Uncomment this for "white" text on a dark background.
-*VT100*foreground: gray70
-*VT100*background: black
+! Default colors: "white" text on a dark background.
+*foreground: gray90
+*background: gray25
+*VT100.background: gray10
 
 ! These are the 8 ANSI colors and their bright equivalents.  Depending on
 ! other resource settings, xterm may use the bright colors when displaying
 ! bold text (see the boldColors resource).
-*VT100*color0: black
-*VT100*color1: red3
-*VT100*color2: green3
-*VT100*color3: yellow3
-*VT100*color4: blue2
-*VT100*color5: magenta3
-*VT100*color6: cyan3
-*VT100*color7: gray70
-*VT100*color8: gray50
-*VT100*color9: red
-*VT100*color10: green
-*VT100*color11: yellow
-*VT100*color12: rgb:5c/5c/ff
-*VT100*color13: magenta
-*VT100*color14: cyan
-*VT100*color15: white
+! <http://people.oregonstate.edu/~morgan/XTerm-color>
+*color0: black
+*color1: red3
+*color2: green3
+*color3: yellow3
+*color4: blue2
+*color5: magenta3
+*color6: cyan3
+*color7: gray90
+*color8: gray50
+*color9: red
+*color10: green
+*color11: yellow
+*color12: rgb:5c/5c/ff
+*color13: magenta
+*color14: cyan
+*color15: white
 
-! Uncomment this to use color for the bold attribute
-*VT100*colorBDMode: on
-*VT100*colorBD: white
-*VT100*veryBoldColors: 4
+!! Vim desert-like theme
+!*foreground: gray90
+!*background: gray20
+!*color0: black
+!*color1: indianred
+!*color2: seagreen
+!*color3: goldenrod
+!*color4: blue
+!*color5: magenta3
+!*color6: darkcyan
+!*color7: gray90
+!*color8: gray50
+!*color9: rgb:ff/a0/a0
+!*color10: palegreen
+!*color11: khaki
+!*color12: skyblue
+!*color13: magenta
+!*color14: cyan
+!*color15: white
 
-! Fix the backspace key
-! <http://www.hypexr.org/linux_ruboff.php>
-! *ttyModes:         erase ^?
-! *VT100.Translations: \
-!         #override <Key>BackSpace: string(0x7f) \n\
-!           <Key>Delete:    string(0x1b) string("[3~")
-*VT100*backarrowKey:        true
+! Enable colors, bold.  Disable blinking.
+*VT100.colorMode: true
+*VT100.boldColors: true
+*VT100.showBlinkAsBold: true
+
+! Use color for the bold attribute
+*VT100.colorBDMode: on
+*VT100.colorBD: white
+*VT100.veryBoldColors: 4
 
 ! <Ctrl> + <Shift> + C/V does clipboard copy/paste
-*VT100*translations:       #override \n\
+*VT100.translations:       #override \n\
     Ctrl Shift <KeyPress> C:  copy-selection(CLIPBOARD) \n\
     Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD)
 
-*VT100*alternateScroll:     true
-*VT100*geometry:            80x24
-!*VT100*faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
-*VT100*faceName:            Monospace:style=Regular:size=9
-!*VT100*font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-!*VT100*font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
-*VT100*cursorColor:         green
-*VT100*saveLines:           4000
-*VT100*scrollKey:           true
-*VT100*scrollTtyOutput:     false
-*VT100*scrollBar:           true
-*VT100*rightScrollBar:      true
-*VT100*jumpScroll:          true
-*VT100*multiScroll:         true
+! Misc terminal settings
+*VT100.alternateScroll:     true
+*VT100.geometry:            80x24
+*VT100.faceName:            Monospace:style=Regular:size=9
+!*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
+!*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+!*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
+*VT100.cursorColor:         green
+*VT100.saveLines:           4096
+*VT100.scrollKey:           true
+*VT100.scrollTtyOutput:     false
+*VT100.scrollBar:           true
+*VT100.rightScrollBar:      true
+*VT100.jumpScroll:          true
+*VT100.multiScroll:         true
 
 ! Xcursor --------------------------------------------------------------
 
-Xcursor.theme: Bluecurve
-Xcursor.size:  16
+Xcursor.theme:  Bluecurve
+Xcursor.size:   16
 
-! xterm ----------------------------------------------------------------
-
-xterm*bellIsUrgent:         true
-xterm*locale:               true
-xterm*metaSendsEscape:      true
-xterm*toolBar:              false
-
-! urxvt ---------------------------------------------------------------
-
-URxvt*termName:                       rxvt-256color
-! URxvt*geometry:                       geometry
-! URxvt*chdir:                          string
-! URxvt*reverseVideo:                   boolean
-! URxvt*loginShell:                     boolean
-! URxvt*jumpScroll:                     boolean
-! URxvt*skipScroll:                     boolean
-! URxvt*pastableTabs:                   boolean
-URxvt*scrollstyle:                    rxvt
-! URxvt*scrollBar:                      boolean
-URxvt*scrollBar_right:                true
-URxvt*scrollBar_floating:             true
-! URxvt*scrollBar_align:                mode
-! URxvt*thickness:                      number
-URxvt*scrollTtyOutput:                false
-URxvt*scrollTtyKeypress:              true
-URxvt*scrollWithBuffer:               false
-! URxvt*inheritPixmap:                  boolean
-! URxvt*transparent:                    boolean
-! URxvt*tintColor:                      color
-! URxvt*shading:                        number
-! URxvt*blurRadius:                     HxV
-! URxvt*fading:                         number
-! URxvt*fadeColor:                      color
-! URxvt*utmpInhibit:                    boolean
-! URxvt*urgentOnBell:                   boolean
-! URxvt*visualBell:                     boolean
-! URxvt*mapAlert:                       boolean
-! URxvt*meta8:                          boolean
-! URxvt*mouseWheelScrollPage:           boolean
-! URxvt*tripleclickwords:               boolean
-! URxvt*insecure:                       boolean
-! URxvt*cursorUnderline:                boolean
-! URxvt*cursorBlink:                    boolean
-! URxvt*pointerBlank:                   boolean
-URxvt*background:                     black
-URxvt*foreground:                     gray70
-URxvt*color0:                         black
-URxvt*color1:                         red3
-URxvt*color2:                         green3
-URxvt*color3:                         yellow3
-URxvt*color4:                         blue2
-URxvt*color5:                         magenta3
-URxvt*color6:                         cyan3
-URxvt*color7:                         gray70
-URxvt*color8:                         gray50
-URxvt*color9:                         red
-URxvt*color10:                        green
-URxvt*color11:                        yellow
-URxvt*color12:                        rgb:5c/5c/ff
-URxvt*color13:                        magenta
-URxvt*color14:                        cyan
-URxvt*color15:                        white
-URxvt*colorBD:                        white
-! URxvt*colorIT:                        color
-! URxvt*colorUL:                        color
-! URxvt*colorRV:                        color
-! URxvt*underlineColor:                 color
-! URxvt*scrollColor:                    color
-! URxvt*troughColor:                    color
-! URxvt*highlightColor:                 color
-! URxvt*highlightTextColor:             color
-URxvt*cursorColor:                    green
-! URxvt*cursorColor2:                   color
-! URxvt*pointerColor:                   color
-! URxvt*pointerColor2:                  color
-! URxvt*borderColor:                    color
-! URxvt*iconFile:                       file
-URxvt*font:                           xft:Monospace:style=Regular:size=9
-! URxvt*font:                           -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
-! URxvt*boldFont:                       fontname
-! URxvt*italicFont:                     fontname
-! URxvt*boldItalicFont:                 fontname
-! URxvt*intensityStyles:                boolean
-! URxvt*inputMethod:                    name
-! URxvt*preeditType:                    style
-! URxvt*imLocale:                       string
-! URxvt*imFont:                         fontname
-! URxvt*title:                          string
-! URxvt*iconName:                       string
-! URxvt*saveLines:                      number
-! URxvt*buffered:                       boolean
-! URxvt*depth:                          number
-! URxvt*visual:                         number
-! URxvt*transient-for:                  windowid
-! URxvt*override-redirect:              boolean
-! URxvt*hold:                           boolean
-! URxvt*externalBorder:                 number
-! URxvt*internalBorder:                 number
-! URxvt*borderLess:                     boolean
-! URxvt*lineSpace:                      number
-! URxvt*letterSpace:                    number
-! URxvt*skipBuiltinGlyphs:              boolean
-! URxvt*pointerBlankDelay:              number
-! URxvt*backspacekey:                   string
-! URxvt*deletekey:                      string
-! URxvt*print-pipe:                     string
-! URxvt*modifier:                       modifier
-! URxvt*cutchars:                       string
-! URxvt*answerbackString:               string
-URxvt*secondaryScreen:                true
-URxvt*secondaryScroll:                false
-URxvt*secondaryWheel:                 true
-! URxvt*perl-lib:                       string
-! URxvt*perl-eval:                      perl-eval
-URxvt*perl-ext-common:                matcher
-! URxvt*perl-ext:                       string
-! URxvt*iso14755:                       boolean
-! URxvt*iso14755_52:                    boolean
-! URxvt*xrm:                            string
-! URxvt*keysym.sym:                     keysym
-! URxvt*background.border:              boolean
-! URxvt*background.expr:                string
-! URxvt*background.interval:            seconds
-! URxvt*bell-command:                   string
-URxvt*matcher.button:                 3
-! URxvt*matcher.launcher:               string
-! URxvt*matcher.launcher.*:             string
-! URxvt*matcher.pattern.*:              string
-! URxvt*matcher.rend.*:                 string
-! URxvt*remote-clipboard.fetch:         string
-! URxvt*remote-clipboard.store:         string
-! URxvt*searchable-scrollback:          string
-! URxvt*selection-autotransform.*:      string
-! URxvt*selection-pastebin.cmd:         string
-! URxvt*selection-pastebin.url:         string
-! URxvt*selection.pattern-0:            string
-URxvt*tab-bg:                         3
-URxvt*tab-fg:                         0
-URxvt*tabbar-bg:                      0
-URxvt*tabbar-fg:                      15
-URxvt*url-launcher:                   xdg-open
-
-! xclock --------------------------------------------------------------
-
-xclock*sharp:       false
-xclock*background:  #233033
-xclock*foreground:  #FFFFFF
-xclock*hourColor:   #22CCFF
-xclock*minuteColor: #22CCFF
-xclock*secondColor: #FF9999
-xclock*majorColor:  #FF9999
-xclock*minorColor:  #22CCFF
-
-! Xft settings ---------------------------------------------------------------
+! Xft settings ---------------------------------------------------------
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -227,14 +94,58 @@ Xft.rgba:       none
 Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
+! xterm ----------------------------------------------------------------
+
+xterm.bellIsUrgent:         true
+xterm.locale:               true
+xterm.metaSendsEscape:      true
+xterm.toolBar:              false
+
+! urxvt ----------------------------------------------------------------
+
+URxvt.termName:             rxvt-256color
+URxvt.scrollstyle:          rxvt
+URxvt.scrollBar_right:      true
+URxvt.scrollBar_floating:   true
+URxvt.scrollTtyOutput:      false
+URxvt.scrollTtyKeypress:    true
+URxvt.scrollWithBuffer:     false
+URxvt.background:           gray10
+URxvt.foreground:           gray90
+URxvt.colorBD:              white
+URxvt.cursorColor:          green
+URxvt.font:                 xft:Monospace:style=Regular:size=9
+URxvt.secondaryScreen:      true
+URxvt.secondaryScroll:      false
+URxvt.secondaryWheel:       true
+URxvt.perl-ext-common:      matcher
+URxvt.matcher.button:       3
+URxvt.tab-bg:               3
+URxvt.tab-fg:               0
+URxvt.tabbar-bg:            0
+URxvt.tabbar-fg:            15
+URxvt.url-launcher:         xdg-open
+
+! xclock ---------------------------------------------------------------
+
+xclock.Clock.update:        1
+xclock.Clock.sharp:         false
+xclock.Clock.background:    #233033
+xclock.Clock.foreground:    #FFFFFF
+xclock.Clock.hourColor:     #22CCFF
+xclock.Clock.minuteColor:   #22CCFF
+xclock.Clock.secondColor:   #FF9999
+xclock.Clock.majorColor:    #FF9999
+xclock.Clock.minorColor:    #22CCFF
+
 ! xosview --------------------------------------------------------------
 
-xosview*loadGraph:              False
-xosview*cpuGraph:               False
-xosview*memGraph:               False
-xosview*swapGraph:              False
-xosview*pageGraph:              False
-xosview*gfxGraph:               False
-xosview*netGraph:               False
-xosview*irqrateGraph:           False
-xosview*diskGraph:              False
+xosview.loadGraph:          False
+xosview.cpuGraph:           False
+xosview.memGraph:           False
+xosview.swapGraph:          False
+xosview.pageGraph:          False
+xosview.gfxGraph:           False
+xosview.netGraph:           False
+xosview.irqrateGraph:       False
+xosview.diskGraph:          False
