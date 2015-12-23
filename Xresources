@@ -2,7 +2,7 @@
 
 *VT100*colorMode: on
 *VT100*boldColors: on
-*VT100*dynamicColors: off
+*VT100*showBlinkAsBold: true
 
 ! Uncomment this for "white" text on a dark background.
 *VT100*foreground: gray70
@@ -29,9 +29,9 @@
 *VT100*color15: white
 
 ! Uncomment this to use color for the bold attribute
-!*VT100*colorBDMode: on
-!*VT100*colorBD: white
-*VT100*colorAttrMode: true
+*VT100*colorBDMode: on
+*VT100*colorBD: white
+*VT100*veryBoldColors: 4
 
 ! Fix the backspace key
 ! <http://www.hypexr.org/linux_ruboff.php>
@@ -39,8 +39,27 @@
 ! *VT100.Translations: \
 !         #override <Key>BackSpace: string(0x7f) \n\
 !           <Key>Delete:    string(0x1b) string("[3~")
+*VT100*backarrowKey:        true
 
-*VT100*alternateScroll:    true
+! <Ctrl> + <Shift> + C/V does clipboard copy/paste
+*VT100*translations:       #override \n\
+    Ctrl Shift <KeyPress> C:  copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <KeyPress> V:  insert-selection(CLIPBOARD)
+
+*VT100*alternateScroll:     true
+*VT100*geometry:            80x24
+!*VT100*faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
+*VT100*faceName:            Monospace:style=Regular:size=9
+!*VT100*font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+!*VT100*font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
+*VT100*cursorColor:         green
+*VT100*saveLines:           4000
+*VT100*scrollKey:           true
+*VT100*scrollTtyOutput:     false
+*VT100*scrollBar:           true
+*VT100*rightScrollBar:      true
+*VT100*jumpScroll:          true
+*VT100*multiScroll:         true
 
 ! Xcursor --------------------------------------------------------------
 
@@ -49,24 +68,10 @@ Xcursor.size:  16
 
 ! xterm ----------------------------------------------------------------
 
-xterm*VT100.geometry:     80x24
-xterm.*backarrowKey:      false
-!xterm*faceName:           Bitstream Vera Sans Mono:style=Roman:size=9
-xterm*faceName:           Monospace:style=Regular:size=9
-!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
-!xterm*font:               -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
-xterm*cursorColor:        green
-xterm*dynamicColors:      false
-xterm*utf8:               2
-xterm*eightBitInput:      true
-xterm*saveLines:          4000
-xterm*scrollKey:          true
-xterm*scrollTtyOutput:    false
-xterm*scrollBar:          true
-xterm*rightScrollBar:     true
-xterm*jumpScroll:         true
-xterm*multiScroll:        true
-xterm*toolBar:            false
+xterm*bellIsUrgent:         true
+xterm*locale:               true
+xterm*metaSendsEscape:      true
+xterm*toolBar:              false
 
 ! urxvt ---------------------------------------------------------------
 
