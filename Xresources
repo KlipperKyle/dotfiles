@@ -5,9 +5,12 @@
 ! Terminal colors ------------------------------------------------------
 
 ! Default colors: "white" text on a dark background.
-*foreground: gray90
-*background: gray25
+*foreground: black
+*background: rgb:b3/b3/b3
+*VT100.foreground: gray90
 *VT100.background: gray10
+*VT100.scrollbar.foreground: gray90
+*VT100.scrollbar.background: gray25
 
 ! These are the 8 ANSI colors and their bright equivalents.  Depending on
 ! other resource settings, xterm may use the bright colors when displaying
@@ -31,8 +34,8 @@
 *color15: white
 
 !! Vim desert-like theme
-!*foreground: gray90
-!*background: gray20
+!*VT100.foreground: gray90
+!*VT100.background: gray20
 !*color0: black
 !*color1: indianred
 !*color2: seagreen
