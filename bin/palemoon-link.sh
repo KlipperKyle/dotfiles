@@ -45,6 +45,7 @@ EOF
 
 # Refresh app list
 update-desktop-database -q
+gtk-update-icon-cache -q
 
 echo "Links created"
 echo "For more info: <http://linux.palemoon.org/help/installation/>"
