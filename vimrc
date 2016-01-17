@@ -184,3 +184,6 @@ function! DiffToggle()
         diffthis
     end
 endfunction
+
+" Activate Pathogen
+execute pathogen#infect()
