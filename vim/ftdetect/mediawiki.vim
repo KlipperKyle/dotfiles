@@ -1,7 +1,11 @@
-au BufRead,BufNewFile *.wiki                set filetype=mediawiki
-au BufRead,BufNewFile *.wikipedia.org*      set filetype=mediawiki
-au BufRead,BufNewFile *.wikibooks.org*      set filetype=mediawiki
-au BufRead,BufNewFile *.wikimedia.org*      set filetype=mediawiki
+if has("autocmd")
+    au BufRead,BufNewFile *.mw              set filetype=mediawiki
+    "au BufRead,BufNewFile *.wiki            set filetype=mediawiki
+    au BufRead,BufNewFile *.mediawiki       set filetype=mediawiki
+    au BufRead,BufNewFile *.wikipedia.org*  set filetype=mediawiki
+    au BufRead,BufNewFile *.wikibooks.org*  set filetype=mediawiki
+    au BufRead,BufNewFile *.wikimedia.org*  set filetype=mediawiki
+endif
 
 " utf-8 should be set if not already done globally
 setlocal fileencoding=utf-8
