@@ -48,7 +48,7 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap <C-BS> <C-W>
 
 " Shortcut to wrap a paragraph quickly
-noremap <leader>w gwap
+noremap <leader>g gwap
 
 " Redraw
 noremap <leader>r :redraw!<CR>
@@ -130,10 +130,11 @@ if has("autocmd")
     augroup END
 
     " Wiki formats
-    autocmd FileType            markdown    setlocal spell tw=72 autoindent
+    autocmd FileType            markdown    setlocal spell tw=78 autoindent
     autocmd BufNewFile,BufRead *.md         setlocal ft=markdown
     autocmd FileType            twiki       setlocal spell tw=0 wrap et ts=3 sw=3
     autocmd BufNewFile,BufRead *.tmpl       setlocal ft=twiki
+    autocmd FileType            vimwiki     setlocal spell tw=78 autoindent
 
     " Cheap/simple spreadsheets in Vim
     autocmd BufNewFile,BufRead *.tsv  setlocal ts=16 noet number
