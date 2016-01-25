@@ -79,6 +79,8 @@ link "../dotfiles/bin/encrypt" "bin/encrypt"
 link "../dotfiles/bin/fix-permissions" "bin/fix-permissions"
 link "../dotfiles/bin/hid-init" "bin/hid-init"
 link "../dotfiles/bin/i3exit" "bin/i3exit"
+link "../dotfiles/bin/pull-seamonkey.sh" "bin/pull-seamonkey.sh"
+link "../dotfiles/bin/push-seamonkey.sh" "bin/push-seamonkey.sh"
 link "../dotfiles/bin/xflock4" "bin/xflock4"
 
 # fontconfig
