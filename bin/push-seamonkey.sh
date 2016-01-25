@@ -23,6 +23,7 @@ fi
 profile_dir=".mozilla/seamonkey/$profile"
 
 [[ -h "$HOME/$profile_dir/lock" ]] && fatal "Profile $profile is running.  Exit SeaMonkey."
+ssh "$host" test -h "$profile_dir/lock" && fatal "Profile $profile is running on remote host.  Exit remote SeaMonkey."
 
 set -x
 rsync -av --delete "$HOME/$profile_dir/" "$host:$profile_dir/"
