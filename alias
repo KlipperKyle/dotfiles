@@ -56,20 +56,6 @@ ssh() {
     env ssh "$@"
 }
 
-# fortune is a simple program that displays a pseudorandom message
-# from a database of quotations at logon and/or logout.
-if type fortune &> /dev/null ; then
-    FORTUNE="fortune"
-    FORTUNE_FILE="$HOME/Dropbox/fortunes-custom"
-    if [ -r "$FORTUNE_FILE" ] ; then
-        FORTUNE="fortune /home/kyle/Dropbox/fortunes-custom all"
-    fi
-    #$FORTUNE
-    echo -e "\e[00;33m$($FORTUNE)\e[00m"  # Color: Brown
-    unset FORTUNE_FILE
-    unset FORTUNE
-fi
-
 # Try to enable the auto-completion (type: "pacman -S bash-completion" to install it).
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
