@@ -21,9 +21,11 @@ fi
 [[ ! -z "$host" ]] || fatal "Missing Hostname"
 
 profile_dir=".mozilla/seamonkey/$profile"
+cache_dir=".cache/mozilla/seamonkey/$profile"
 
 [[ -h "$HOME/$profile_dir/lock" ]] && fatal "Profile $profile is running.  Exit SeaMonkey."
 ssh "$host" test -h "$profile_dir/lock" && fatal "Profile $profile is running on remote host.  Exit remote SeaMonkey."
 
 set -x
 rsync -av --delete "$host:$profile_dir/" "$HOME/$profile_dir/"
+rsync -av --delete "$host:$cache_dir/" "$HOME/$cache_dir/"
