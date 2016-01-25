@@ -4,7 +4,7 @@
 # Usage: pull-seamonkey.sh [-P <profile>] [user@]host
 
 function fatal {
-    echo "$@" 1>&2
+    echo "ERROR: $@" 1>&2
     echo "Usage: $0 [-P <profile>] [user@]host"
     exit 1
 }
