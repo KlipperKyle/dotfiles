@@ -103,6 +103,8 @@ xterm.bellIsUrgent:         true
 xterm.locale:               true
 xterm.metaSendsEscape:      true
 xterm.toolBar:              false
+xterm.backarrowKeyIsErase:  true
+xterm.ptyInitialErase:      true
 
 ! urxvt ----------------------------------------------------------------
 
