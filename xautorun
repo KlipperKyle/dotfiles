@@ -55,7 +55,7 @@ xautolock -time 15 -locker 'i3exit lock' &
 
 # Tray/background apps
 #nm-applet &
-xfce4-clipman &
+#xfce4-clipman &
 #xfce4-notes &
 #volumeicon &
 pasystray &
