@@ -5,8 +5,6 @@
 ! Terminal colors ------------------------------------------------------
 
 ! Default colors: "white" text on a dark background.
-*foreground: black
-*background: rgb:b3/b3/b3
 *VT100.foreground: gray90
 *VT100.background: gray10
 *VT100.scrollbar.foreground: gray90
