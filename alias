@@ -40,7 +40,8 @@ alias ll='ls -l'
 alias la='ls -la'
 alias xyzzy='cd ~-/'
 alias clip='xclip -selection c'
-function qr { qrencode -o - $@ | display; }
+function qr { qrencode -o - "$@" | display; }
+alias killme="loginctl terminate-user $USER"
 
 # SSH alias
 ssh() {
