@@ -28,7 +28,7 @@ set wildmode=full
 set wildmenu
 
 " Default tabbing settings
-set expandtab
+"set expandtab
 set shiftwidth=4
 set tabstop=4
 
@@ -189,3 +189,5 @@ endfunction
 
 " Activate Pathogen
 execute pathogen#infect()
+
+" vim: et ts=4 sw=4
