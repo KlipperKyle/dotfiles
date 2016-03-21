@@ -17,7 +17,7 @@
 # %wheel ALL=(root) NOPASSWD: /usr/sbin/pm-*
 
 lock() {
-    i3lock -d -i ~/.icons/i3lock.png -c 285577
+    i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
 }
 
 sus() {
