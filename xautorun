@@ -27,6 +27,7 @@ xset m 4/1 4
 xset r rate 250 40
 #setxkbmap -option compose:caps
 #setxkbmap -option 'ctrl:swapcaps,compose:lctrl'
+#setxkbmap -option 'ctrl:nocaps'
 setxkbmap -option 'caps:escape'
 numlockx on
 
