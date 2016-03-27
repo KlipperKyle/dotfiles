@@ -116,3 +116,7 @@ link "dotfiles/terminfo" ".terminfo"
 # GTK 3
 [ -d ".config/gtk-3.0" ] || mkdir -p ".config/gtk-3.0"
 copy "dotfiles/gtk-3.0/settings.ini" ".config/gtk-3.0/settings.ini"
+
+# GTK "Unix" keyboard theme
+[ -d ".themes" ] || mkdir ".themes"
+link "../dotfiles/themes/Unix" ".themes/Unix"

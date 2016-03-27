@@ -1,0 +1,20 @@
+/* Standard Unix bindings for GtkTextView and GtkEntry
+ * Based on <http://unix-kb.cat-v.org/GTK_2/>
+ */
+@binding-set gtk-unix-text-entry
+{
+	bind "<ctrl>u" { "delete-from-cursor" (paragraph-ends, -1) };
+	bind "<ctrl>h" { "delete-from-cursor" (chars, -1) };
+	bind "<ctrl>w" { "delete-from-cursor" (word-ends, -1) };
+	bind "<ctrl>a" { "move-cursor" (paragraph-ends, -1, 0) };
+	bind "<ctrl>e" { "move-cursor" (paragraph-ends, 1, 0) };
+}
+
+
+GtkEntry {
+  gtk-key-bindings: gtk-unix-text-entry;
+}
+
+GtkTextView {
+  gtk-key-bindings: gtk-unix-text-entry;
+}

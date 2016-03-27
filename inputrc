@@ -1,4 +1,6 @@
 set editing-mode vi
 set keymap vi-insert
 "\C-r": history-search-backward
-"\C-e": history-search-forward
+"\C-o": history-search-forward
+"\C-a": beginning-of-line
+"\C-e": end-of-line

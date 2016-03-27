@@ -25,11 +25,10 @@ xset m 4/1 4
 
 # Keyboard
 xset r rate 250 40
-setxkbmap -option compose:caps
+#setxkbmap -option compose:caps
+#setxkbmap -option 'ctrl:swapcaps,compose:lctrl'
+setxkbmap -option 'caps:escape'
 numlockx on
-
-# Set the Desktop Environment
-export DE=xfce
 
 #
 # Startup programs

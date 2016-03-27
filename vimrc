@@ -24,7 +24,7 @@ set showbreak=>>\ \     " Lead-in char
 set sidescroll=10       " When disabling wrap, show context of 10 chars
 
 " Tab completion
-set wildmode=full
+set wildmode=longest:list
 set wildmenu
 
 " Default tabbing settings
@@ -77,6 +77,23 @@ inoremap # X#
 " Map kj as escape
 inoremap kj 
 
+" Unix keybindings (based on <http://unix-kb.cat-v.org/vim/>)
+inoremap <C-E> <C-O>$
+inoremap <C-A> <C-O>^
+noremap <C-A> ^
+"noremap <C-E> $
+
+" tcsh-style (From vimhelp)
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+"cnoremap <Esc>b <S-Left>
+"cnoremap <Esc>f <S-Right>
+
+" Some Emacs
+inoremap <C-B> <C-O>h
+inoremap <C-F> <C-O>l
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
     set mouse=a
@@ -86,7 +103,8 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
-    colorscheme desert256
+    hi Normal guibg=#ffffea guifg=#000000
+    "hi Cursor guibg=#8888cc
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
     let g:Twiki_SourceHTMLSyntax=1
