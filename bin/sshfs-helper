@@ -1,0 +1,24 @@
+#!/bin/bash
+# sshfs-helper
+# A simple sshfs helper script
+
+function fatal {
+    echo "ERROR: $@" 1>&2
+    echo "Usage: $0 [user@]host:[/remote-path]"
+    exit 1
+}
+
+# Place to mount stuff
+n="$HOME/n"
+
+# Host and path to mount
+host="$1"
+shorthost="${host%:*}"
+shorthost="${shorthost#*@}"
+shift
+
+[[ ! -z "$host" ]] || fatal "Missing Hostname/path"
+[[ -d "$n/$shorthost" ]] || mkdir "$n/$shorthost"
+
+set +x
+exec sshfs "$host" "$n/$shorthost" -o transform_symlinks "$@"

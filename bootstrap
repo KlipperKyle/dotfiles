@@ -85,6 +85,7 @@ link "../dotfiles/bin/pull-zotero.sh" "bin/pull-zotero.sh"
 link "../dotfiles/bin/push-seamonkey.sh" "bin/push-seamonkey.sh"
 link "../dotfiles/bin/push-vimwiki.sh" "bin/push-vimwiki.sh"
 link "../dotfiles/bin/push-zotero.sh" "bin/push-zotero.sh"
+link "../dotfiles/bin/sshfs-helper" "bin/sshfs-helper"
 link "../dotfiles/bin/xflock4" "bin/xflock4"
 
 # fontconfig
