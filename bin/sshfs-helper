@@ -12,13 +12,19 @@ function fatal {
 n="$HOME/n"
 
 # Host and path to mount
+# user@bar.foo.com:/srv/share/
 host="$1"
+# user@bar.foo.com
 shorthost="${host%:*}"
+# bar.foo.com
 shorthost="${shorthost#*@}"
+# bar
+shorthost="${shorthost%%.*}"
 shift
 
 [[ ! -z "$host" ]] || fatal "Missing Hostname/path"
 [[ -d "$n/$shorthost" ]] || mkdir "$n/$shorthost"
 
-set +x
+cd
+set -x
 exec sshfs "$host" "$n/$shorthost" -o transform_symlinks "$@"
