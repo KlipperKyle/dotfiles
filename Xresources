@@ -59,7 +59,7 @@
 
 ! Enable colors, bold.  Disable blinking.
 *VT100.colorMode: true
-*VT100.boldColors: true
+*VT100.boldColors: false
 *VT100.showBlinkAsBold: true
 
 ! Use color for the bold attribute

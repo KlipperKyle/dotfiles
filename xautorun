@@ -18,7 +18,7 @@ fi
 type configure-monitors &> /dev/null && configure-monitors
 
 # Load Xresources
-xrdb "$HOME/.Xresources"
+xrdb -merge "$HOME/.Xresources"
 
 # Mouse acceleration
 xset m 4/1 4
@@ -60,7 +60,7 @@ xautolock -time 15 -locker 'i3exit lock' &
 #volumeicon &
 pasystray &
 #system-config-printer-applet &
-#thunar --daemon &
+thunar --daemon &
 #conky &
 #dropboxd &
 #/home/kyle/bin/xpenguins-start &
