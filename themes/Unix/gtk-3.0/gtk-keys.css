@@ -12,9 +12,9 @@
 
 
 GtkEntry {
-  gtk-key-bindings: gtk-unix-text-entry;
+  -gtk-key-bindings: gtk-unix-text-entry;
 }
 
 GtkTextView {
-  gtk-key-bindings: gtk-unix-text-entry;
+  -gtk-key-bindings: gtk-unix-text-entry;
 }
