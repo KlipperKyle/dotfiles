@@ -171,6 +171,9 @@ if has("autocmd")
     autocmd FileType tex noremap <leader>ll :!latex "%"<CR>
     autocmd FileType tex noremap <leader>lp :!pdflatex "%"<CR>
 
+    " Spell check email to avoid embarrassment
+    autocmd FileType            mail        setlocal spell
+
 else
 
     set autoindent        " always set autoindenting on
