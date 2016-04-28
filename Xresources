@@ -87,6 +87,7 @@
 *VT100.rightScrollBar:      true
 *VT100.jumpScroll:          true
 *VT100.multiScroll:         true
+*VT100.pointerShape:        left_ptr
 
 ! Xcursor --------------------------------------------------------------
 
