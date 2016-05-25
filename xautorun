@@ -31,6 +31,9 @@ xset r rate 250 40
 setxkbmap -option 'caps:escape'
 numlockx on
 
+# Set the Desktop Environment
+#export DE=xfce
+
 #
 # Startup programs
 # These will likely be different on each machine
@@ -46,7 +49,7 @@ start-pulseaudio-x11 &
 
 # GTK settings and screensaver
 #xfsettingsd &
-#xsettingsd &
+xsettingsd &
 xset dpms 900 900 900 &
 xset s off &
 xautolock -time 15 -locker 'i3exit lock' &
