@@ -7,6 +7,10 @@
 	email = kyleterrien@gmail.com
 [credential]
 	helper = cache
+[diff]
+	tool = diffuse
+[merge]
+	tool = diffuse
 
 #
 # Be smart when checking stuff out
