@@ -3,19 +3,24 @@
 # ~/.xautorun
 #
 
-# Start the GnuPG agent and enable OpenSSH agent emulation
-gnupginf="${HOME}/.gpg-agent-info"
-
-if pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-    eval `cat $gnupginf`
-    eval `cut -d= -f1 $gnupginf | xargs echo export`
-    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-else
-    eval `gpg-agent -s --enable-ssh-support --daemon --write-env-file "$gnupginf"`
+# gpg-agent
+# <https://wiki.archlinux.org/index.php/GnuPG#SSH_agent>
+if which gpg-connect-agent &> /dev/null; then
+	## Start the gpg-agent if not already running
+	## Normally, this is handled by systemd
+	#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
+	#	gpg-connect-agent /bye >/dev/null 2>&1
+	#fi
+	# Set SSH to use gpg-agent
+	unset SSH_AGENT_PID
+	if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+		export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+	fi
+	# Set GPG TTY
+	export GPG_TTY=$(tty)
+	# Refresh gpg-agent tty in case user switches into an X session
+	gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
-
-# Set monitor settings
-type configure-monitors &> /dev/null && configure-monitors
 
 # Load Xresources
 xrdb -merge "$HOME/.Xresources"
@@ -48,22 +53,25 @@ start-pulseaudio-x11 &
 #/home/kyle/bin/compton-start &
 
 # GTK settings and screensaver
-#xfsettingsd &
-xsettingsd &
+#xsettingsd &
+/usr/lib/mate-settings-daemon/mate-settings-daemon &
 xset dpms 900 900 900 &
 xset s off &
 xautolock -time 15 -locker 'i3exit lock' &
-#xfce4-power-manager &
+light-locker &
+#mate-power-manager &
+#mate-screensaver &
 #xscreensaver -no-splash &
+
+# MATE applications
+#/usr/lib/mate-user-share/mate-user-share &
+#mate-volume-control-applet &
 
 # Tray/background apps
 #nm-applet &
-#xfce4-clipman &
-#xfce4-notes &
 #volumeicon &
 pasystray &
 #system-config-printer-applet &
-thunar --daemon &
 #conky &
 #dropboxd &
 #/home/kyle/bin/xpenguins-start &

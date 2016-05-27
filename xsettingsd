@@ -6,17 +6,27 @@
 # <https://developer.gnome.org/gtk3/unstable/GtkSettings.html>
 # <https://github.com/derat/xsettingsd/wiki/Settings>
 
+Gtk/AutoMnemonics 0
 Gtk/ButtonImages 0
 Gtk/CanChangeAccels 0
 Gtk/ColorPalette "black:white:gray50:red:purple:blue:light blue:green:yellow:orange:lavender:brown:goldenrod4:dodger blue:pink:light green:gray10:gray30:gray75:gray90"
+Gtk/ColorScheme ""
 Gtk/CursorThemeName "Bluecurve"
 Gtk/CursorThemeSize 16
 Gtk/DecorationLayout "menu:minimize,maximize,close"
+Gtk/DialogsUseHeader 0
+Gtk/EnableAnimations 1
+Gtk/FileChooserBackend "gio"
 Gtk/FontName "Sans 10"
 Gtk/IconSizes ""
+Gtk/IMModule ""
+Gtk/IMPreeditStyle "callback"
+Gtk/IMStatusStyle "callback"
 Gtk/KeyThemeName "Unix"
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 0
+Gtk/ShowInputMethodMenu 1
+Gtk/ShowUnicodeMenu 1
 Gtk/ToolbarIconSize 3
 Gtk/ToolbarStyle "both-horiz"
 
@@ -27,6 +37,7 @@ Net/DoubleClickDistance 5
 Net/DoubleClickTime 400
 Net/EnableEventSounds 0
 Net/EnableInputFeedbackSounds 0
+Net/FallbackIconTheme "Tango"
 Net/IconThemeName "BluecurveRH"
 Net/SoundThemeName "default"
 Net/ThemeName "OneStepBack"
@@ -36,3 +47,4 @@ Xft/DPI -1
 Xft/Hinting 1
 Xft/HintStyle "hintfull"
 Xft/RGBA "none"
+Xft/lcdfilter "none"
