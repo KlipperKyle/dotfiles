@@ -57,10 +57,10 @@ start-pulseaudio-x11 &
 /usr/lib/mate-settings-daemon/mate-settings-daemon &
 xset dpms 900 900 900 &
 xset s off &
-xautolock -time 15 -locker 'i3exit lock' &
-light-locker &
+#xautolock -time 15 -locker 'i3exit lock' &
+#light-locker &
 #mate-power-manager &
-#mate-screensaver &
+mate-screensaver &
 #xscreensaver -no-splash &
 
 # MATE applications

@@ -18,7 +18,8 @@
 
 lock() {
     #i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
-    light-locker-command -l
+    mate-screensaver-command -l
+	xset dpms force off
 }
 
 sus() {
