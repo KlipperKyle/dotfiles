@@ -17,9 +17,25 @@
 # %wheel ALL=(root) NOPASSWD: /usr/sbin/pm-*
 
 lock() {
-	#i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
-	mate-screensaver-command -l
-	xset dpms force off
+	if mate-screensaver-command -q > /dev/null 2>&1 ; then
+		# mate-screensaver is running
+		mate-screensaver-command -l
+		xset dpms force off
+	elif pgrep xscreensaver > /dev/null ; then
+		# xscreensaver is running
+		xscreensaver-command -lock
+	elif pgrep light-locker > /dev/null ; then
+		# light-locker is running
+		dm-tool lock
+	elif which i3lock > /dev/null 2>&1 ; then
+		i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
+	else
+		echo "i3exit: cannot find a locker."
+	fi
+}
+
+switch_users() {
+	dm-tool switch-to-greeter
 }
 
 sus() {
@@ -58,6 +74,9 @@ case "$1" in
 	lock)
 		lock
 		;;
+	switch)
+		lock && switch_users
+		;;
 	logout)
 		i3-msg exit
 		;;
@@ -74,7 +93,7 @@ case "$1" in
 		off
 		;;
 	*)
-		echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+		echo "Usage: $0 {lock|switch|logout|suspend|hibernate|reboot|shutdown}"
 		exit 2
 esac
 
