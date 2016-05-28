@@ -19,7 +19,7 @@
 lock() {
     #i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
     mate-screensaver-command -l
-	xset dpms force off
+    xset dpms force off
 }
 
 sus() {
