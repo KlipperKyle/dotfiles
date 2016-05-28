@@ -17,65 +17,65 @@
 # %wheel ALL=(root) NOPASSWD: /usr/sbin/pm-*
 
 lock() {
-    #i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
-    mate-screensaver-command -l
-    xset dpms force off
+	#i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
+	mate-screensaver-command -l
+	xset dpms force off
 }
 
 sus() {
-    if type systemctl &> /dev/null ; then
-        systemctl suspend
-    else
-        sudo pm-suspend
-    fi
+	if type systemctl &> /dev/null ; then
+		systemctl suspend
+	else
+		sudo pm-suspend
+	fi
 }
 
 hiber() {
-    if type systemctl &> /dev/null ; then
-        systemctl hibernate
-    else
-        sudo pm-hibernate
-    fi
+	if type systemctl &> /dev/null ; then
+		systemctl hibernate
+	else
+		sudo pm-hibernate
+	fi
 }
 
 reb() {
-    if type systemctl &> /dev/null ; then
-        systemctl reboot
-    else
-        sudo reboot
-    fi
+	if type systemctl &> /dev/null ; then
+		systemctl reboot
+	else
+		sudo reboot
+	fi
 }
 
 off() {
-    if type systemctl &> /dev/null ; then
-        systemctl poweroff
-    else
-        sudo shutdown -h now
-    fi
+	if type systemctl &> /dev/null ; then
+		systemctl poweroff
+	else
+		sudo shutdown -h now
+	fi
 }
 
 case "$1" in
-    lock)
-        lock
-        ;;
-    logout)
-        i3-msg exit
-        ;;
-    suspend)
-        lock && sus
-        ;;
-    hibernate)
-        lock && hiber
-        ;;
-    reboot)
-        reb
-        ;;
-    shutdown)
-        off
-        ;;
-    *)
-        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
-        exit 2
+	lock)
+		lock
+		;;
+	logout)
+		i3-msg exit
+		;;
+	suspend)
+		lock && sus
+		;;
+	hibernate)
+		lock && hiber
+		;;
+	reboot)
+		reb
+		;;
+	shutdown)
+		off
+		;;
+	*)
+		echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+		exit 2
 esac
 
 exit 0
