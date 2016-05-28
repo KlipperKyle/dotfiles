@@ -124,4 +124,5 @@ copy "dotfiles/gtk-3.0/settings.ini" ".config/gtk-3.0/settings.ini"
 link "../dotfiles/themes/Unix" ".themes/Unix"
 
 # Systemd
+[ -d ".config/systemd/user" ] || mkdir -p ".config/systemd/user"
 copy "dotfiles/systemd/user/gpg-agent.service" ".config/systemd/user/gpg-agent.service"
