@@ -55,13 +55,13 @@ start-pulseaudio-x11 &
 # GTK settings and screensaver
 #xsettingsd &
 /usr/lib/mate-settings-daemon/mate-settings-daemon &
-#xset dpms 900 900 900 &
-#xset s off &
-#xautolock -time 15 -locker 'i3exit lock' &
+xset dpms 900 900 900 &
+xset s off &
+xautolock -time 15 -locker 'i3exit lock' &
 #light-locker &
 #mate-power-manager &
-#mate-screensaver &
-xscreensaver -no-splash &
+mate-screensaver &
+#xscreensaver -no-splash &
 
 # MATE applications
 #/usr/lib/mate-user-share/mate-user-share &

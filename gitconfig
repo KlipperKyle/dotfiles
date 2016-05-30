@@ -14,17 +14,16 @@
 
 #
 # Be smart when checking stuff out
+# Comment out if ports ssh and git are blocked
 #
 
 # Github
-# Comment out if Port 22 is blocked
 [url "ssh://git@github.com/"]
 	pushInsteadOf = https://github.com/
 [url "git://github.com/"]
 	insteadOf = https://github.com/
 
 # AUR4
-# Comment out if Port 22 is blocked
 [url "ssh+git://aur@aur4.archlinux.org/"]
 	InsteadOf = https://aur4.archlinux.org/cgit/
 
