@@ -63,6 +63,13 @@ ssh() {
     env ssh "$@"
 }
 
+# Detach-sign a bunch of stuff
+signoff() {
+	for f in "$@" ; do
+		gpg --detach-sign "$f"
+	done
+}
+
 # Try to enable the auto-completion (type: "pacman -S bash-completion" to install it).
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
@@ -78,3 +85,5 @@ if [ -d "$HOME/.alias.d" ] ; then
 fi
 
 :
+
+# vim: ft=sh :

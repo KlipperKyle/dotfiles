@@ -12,9 +12,10 @@ export EDITOR=/usr/bin/vim
 export GNUSTEP_USER_ROOT="${HOME}/GNUstep"
 export QT_STYLE_OVERRIDE=gtk
 export QT_QPA_PLATFORMTHEME=gtk2
+export GTK_OVERLAY_SCROLLING=0
 
 # Get a GUI terminal
-for terminal in urxvt rxvt xterm xfce4-terminal mate-terminal gnome-terminal ; do
+for terminal in mate-terminal xfce4-terminal gnome-terminal urxvt rxvt xterm ; do
     if type $terminal > /dev/null 2>&1; then
         export TERMINAL=$terminal
         break
