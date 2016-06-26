@@ -5,10 +5,20 @@
     OPEN_MENU,
     "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/arch-applications.menu"
   ),
-  (URxvt, SHORTCUT, "Control+Mod1+D", EXEC, urxvt),
+  (Terminal, SHORTCUT, "Control+Mod1+D", EXEC, "mate-terminal"),
   (Gvim, SHORTCUT, "Control+Mod1+G", EXEC, gvim),
-  ("Mozilla Firefox", SHORTCUT, "Control+Mod1+F", EXEC, firefox),
-  (Run..., SHORTCUT, "Mod4+D", EXEC, "dmenu_run -b"),
+  ("Pale Moon", SHORTCUT, "Control+Mod1+V", EXEC, palemoon),
+  (SeaMonkey, SHORTCUT, "Control+Mod1+C", EXEC, seamonkey),
+  (Chromium, SHORTCUT, "Control+Mod1+S", EXEC, chromium),
+  (xosview, EXEC, "xosview +cpus -page"),
+  (VNC, OPEN_MENU, "$HOME/bin/vnc WITH sh"),
+  (
+    Run...,
+    SHORTCUT,
+    "Mod4+D",
+    SHEXEC,
+    "dmenu_run -b -fn 'Monospace:size=9'"
+  ),
   (
     Appearance,
     (
@@ -150,8 +160,9 @@
   (
     "Exit/Lock",
     (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
-    (Suspend, SHORTCUT, XF86Sleep, EXEC, "i3exit suspend"),
+    (Suspend, SHORTCUT, "Mod4+Insert", EXEC, "i3exit suspend"),
     ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
-    ("Exit Window Maker", EXIT)
+    (Logout..., EXEC, "mate-session-save --logout-dialog"),
+    (Shutdown..., EXEC, "mate-session-save --shutdown-dialog")
   )
 )

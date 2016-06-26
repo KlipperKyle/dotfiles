@@ -15,10 +15,10 @@
   CycleActiveHeadOnly = NO;
   CycleIgnoreMinimized = NO;
   DisableBlinking = NO;
-  DisableClip = YES;
   DockRaiseLowerKey = "Mod4+F";
   DoNotMakeAppIconsBounce = NO;
-  DontConfirmKill = YES;
+  DragMaximizedWindow = Move;
+  EnableWorkspacePager = NO;
   FocusMode = sloppy;
   GroupNextKey = None;
   GroupPrevKey = None;
@@ -27,6 +27,7 @@
   HideOthersKey = "Shift+Mod4+C";
   HighlightActiveApp = YES;
   HMaximizeKey = "Mod4+B";
+  IgnoreGtkHints = YES;
   KbdModeLock = NO;
   LastWorkspaceKey = None;
   LBCMaximizeKey = "Shift+Mod1+N";
@@ -43,8 +44,9 @@
   MiniwindowPreviewBalloons = NO;
   MiniwindowTitleBalloons = YES;
   ModifierKey = Mod4;
-  MouseBackwardButtonAction = None;
-  MouseForwardButtonAction = None;
+  MouseBackwardButtonAction = MoveToPrevWorkspace;
+  MouseForwardButtonAction = MoveToNextWorkspace;
+  MouseWheelAction = SwitchWorkspaces;
   MouseWheelTiltAction = None;
   MoveResizeKey = "Mod4+T";
   MoveToLastWorkspaceKey = None;
@@ -65,29 +67,33 @@
   NextWorkspaceKey = "Mod4+N";
   NormalCursor = (builtin, left_ptr);
   NoWindowOverDock = YES;
+  OmnipresentKey = "Mod4+W";
   OpaqueMoveResizeKeyboard = YES;
   OpaqueResize = YES;
   PrevWorkspaceKey = "Mod4+P";
   RaiseAppIconsWhenBouncing = YES;
   RaiseKey = "Mod4+Z";
+  RaiseLowerKey = "Mod4+A";
   RBCMaximizeKey = "Shift+Mod1+M";
-  ResizeIncrement = 16;
+  ResizeDisplay = floating;
+  ResizeIncrement = 8;
   RHMaximizeKey = "Shift+Mod1+L";
   RootMenuKey = "Mod4+space";
   RTCMaximizeKey = "Shift+Mod1+U";
-  RunKey = "Mod4+W";
+  RunKey = "Shift+Mod4+W";
   ScreenSwitchKey = "Mod4+colon";
   SelectKey = "Mod4+S";
   ShadeKey = "Mod4+Q";
   ShowClipTitle = YES;
   SingleClickLaunch = NO;
+  SmoothWorkspaceBack = YES;
   THMaximizeKey = "Shift+Mod1+K";
   ToggleKbdModeKey = None;
   ViKeyMenus = YES;
   VMaximizeKey = "Mod4+V";
   WindowListKey = "Shift+Mod4+space";
   WindowMenuKey = "Mod4+R";
-  WindowRelaunchKey = "Mod4+A";
+  WindowRelaunchKey = "Shift+Mod4+A";
   WindowShortcut10Key = None;
   WindowShortcut1Key = None;
   WindowShortcut2Key = None;
@@ -99,7 +105,7 @@
   WindowShortcut8Key = None;
   WindowShortcut9Key = None;
   WindowTitleExtendSpace = 0;
-  WorkspaceBack = (tpixmap, BlueImage.jpeg, gray20);
+  WorkspaceMapKey = None;
   WorkspaceNameDisplayPosition = center;
   IconPath = (
     "$HOME/GNUstep/Library/Icons",
@@ -110,7 +116,12 @@
     "$HOME/GNUstep/Library/WindowMaker/CachedPixmaps",
     "/usr/share/icons",
     "/usr/local/share/pixmaps",
-    "/usr/share/pixmaps"
+    "/usr/share/pixmaps",
+    "/usr/share/icons/Tango/64x64/apps",
+    "/usr/share/icons/Tango/48x48/apps",
+    "/usr/share/icons/gnome/48x48/apps",
+    "/usr/share/icons/hicolor/64x64/apps",
+    "/usr/share/icons/hicolor/48x48/apps"
   );
   PixmapPath = (
     "$HOME/GNUstep/Library/WindowMaker/Pixmaps",

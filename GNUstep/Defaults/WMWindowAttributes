@@ -18,7 +18,17 @@
     AlwaysUserIcon = No;
     EmulateAppIcon = Yes;
   };
+  "mate-power-manager" = {
+    NoAppIcon = Yes;
+    AlwaysUserIcon = No;
+  };
+  "mate-session" = {
+    NoAppIcon = Yes;
+  };
   "nm-applet.Nm-applet" = {
+    NoAppIcon = Yes;
+  };
+  pasystray = {
     NoAppIcon = Yes;
   };
   "polkit-mate-authentication-agent-1" = {
