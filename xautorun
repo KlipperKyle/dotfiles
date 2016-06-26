@@ -37,42 +37,14 @@ xset r rate 250 40
 setxkbmap -option 'caps:escape'
 numlockx on
 
+# Some "power management"
+xset dpms 900 900 900 &
+xset s off &
+
 # Set the Desktop Environment
 #export DE=xfce
 
 #
 # Startup programs
-# These will likely be different on each machine
+# This is handled by the session manager now.
 #
-
-# Core
-#dbus-launch --sh-syntax --exit-with-session &
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-#/usr/libexec/polkit-gnome-authentication-agent-1 &
-#/usr/bin/gnome-keyring-daemon --start --components=secrets &
-start-pulseaudio-x11 &
-#/home/kyle/bin/compton-start &
-
-# GTK settings and screensaver
-#xsettingsd &
-/usr/lib/mate-settings-daemon/mate-settings-daemon &
-xset dpms 900 900 900 &
-xset s off &
-xautolock -time 15 -locker 'i3exit lock' &
-#light-locker &
-#mate-power-manager &
-mate-screensaver &
-#xscreensaver -no-splash &
-
-# MATE applications
-#/usr/lib/mate-user-share/mate-user-share &
-#mate-volume-control-applet &
-
-# Tray/background apps
-#nm-applet &
-#volumeicon &
-pasystray &
-#system-config-printer-applet &
-#conky &
-#dropboxd &
-#/home/kyle/bin/xpenguins-start &
