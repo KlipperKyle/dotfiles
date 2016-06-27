@@ -13,32 +13,42 @@ shopt -s checkwinsize
 shopt -s histappend
 
 # Enable colors
-# TODO: disable colors on non-color terminals
-alias ls="ls --color=auto"
-alias dir="dir --color=auto"
-alias grep="grep --color=auto"
-alias dmesg='dmesg --color'
-man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
-    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[07m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
-    man "$@"
-}
+if [ "$TERM" != dumb ]; then
+	[[ $(type -t ls) == "alias" ]] && unalias ls
+	[[ $(type -t ls) == "alias" ]] && unalias dir
+	[[ $(type -t ls) == "alias" ]] && unalias grep
+	[[ $(type -t ls) == "alias" ]] && unalias dmesg
+	alias ls="ls --color=auto"
+	alias dir="dir --color=auto"
+	alias grep="grep --color=auto"
+	alias dmesg='dmesg --color'
+	man() {
+		env LESS_TERMCAP_mb=$'\E[01;31m' \
+		LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+		LESS_TERMCAP_me=$'\E[0m' \
+		LESS_TERMCAP_se=$'\E[0m' \
+		LESS_TERMCAP_so=$'\E[07m' \
+		LESS_TERMCAP_ue=$'\E[0m' \
+		LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+		man "$@"
+	}
 
-# Set a nice PS1
-#PS1='[\u@\h \W]\$ '
-#PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
-PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\n\[\033[00;01m\]\$\[\033[00m\] "
-# (A) Cygwin-like prompt
-#PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
-# (B) Cygwin-like prompt (no preceding \n)
-#PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
-# (C) One line Cygwin-like prompt
-#PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \$ \[\e[0m\]'
+	# Set a nice PS1
+	PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+
+	# Other PS1's
+	#PS1='\[\033[01;35m\]\$\[\033[00m\] '
+	#PS1='[\u@\h \W]\$ '
+	#PS1='\[\033[35;01m\][\u@\h \W]\$\[\033[0m\] '
+	#PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
+	#PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\n\[\033[00;01m\]\$\[\033[00m\] "
+	# (A) Cygwin-like prompt
+	#PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+	# (B) Cygwin-like prompt (no preceding \n)
+	#PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+	# (C) One line Cygwin-like prompt
+	#PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w \$ \[\e[0m\]'
+fi
 
 # Aliases
 #alias x='exec startx'
@@ -48,20 +58,6 @@ alias xyzzy='cd ~-/'
 alias clip='xclip -selection c'
 function qr { qrencode -o - "$@" | display; }
 alias killme="loginctl terminate-user $USER"
-
-# SSH alias
-ssh() {
-    case ${TERM} in
-        xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
-            printf "\033]0;%s %s\007" "ssh" "$*"
-
-        ;;
-        screen)
-            printf "\033_%s %s\033\\" "ssh" "$*"
-        ;;
-    esac
-    env ssh "$@"
-}
 
 # Detach-sign a bunch of stuff
 signoff() {

@@ -55,19 +55,10 @@ copy() {
 
 # Simple config files
 link "dotfiles/alias" ".alias"
-#copy "dotfiles/conkyrc" "conkyrc"
 link "dotfiles/env" ".env"
 link "dotfiles/inputrc" ".inputrc"
-link "dotfiles/vimperatorrc" ".vimperatorrc"
-link "dotfiles/pentadactylrc" ".pentadactylrc"
 link "dotfiles/Xresources" ".Xresources"
 copy "dotfiles/xautorun" ".xautorun"
-#copy "dotfiles/xinitrc" ".xinitrc"
-#copy "dotfiles/xprofile" ".xprofile"
-#copy "dotfiles/xsession" ".xsession"
-copy "dotfiles/xsettingsd" ".xsettingsd"
-copy "dotfiles/gtkrc-2.0" ".gtkrc-2.0"
-copy "dotfiles/gtkrc-2.0.mine" ".gtkrc-2.0.mine"
 
 # Vim
 link "dotfiles/vimrc" ".vimrc"
@@ -96,33 +87,6 @@ link "../../dotfiles/fontconfig/fonts.conf" ".config/fontconfig/fonts.conf"
 # Git
 copy "dotfiles/gitconfig" ".gitconfig"
 
-# GNUstep (Not touching this for now)
-
-# i3
-[ -d ".config/i3" ] || mkdir -p ".config/i3"
-copy "dotfiles/i3/config" ".config/i3/config"
-[ -d ".config/i3status" ] || mkdir -p ".config/i3status"
-copy "dotfiles/i3status/config" ".config/i3status/config"
-
 # icons
 [ -d ".icons" ] || mkdir ".icons"
 link "../dotfiles/icons/i3lock.png" ".icons/i3lock.png"
-
-# w3m
-[ -d ".w3m" ] || mkdir ".w3m"
-link "../dotfiles/w3m/keymap" ".w3m/keymap"
-
-# terminfo
-link "dotfiles/terminfo" ".terminfo"
-
-# GTK 3
-[ -d ".config/gtk-3.0" ] || mkdir -p ".config/gtk-3.0"
-copy "dotfiles/gtk-3.0/settings.ini" ".config/gtk-3.0/settings.ini"
-
-# GTK "Unix" keyboard theme
-[ -d ".themes" ] || mkdir ".themes"
-link "../dotfiles/themes/Unix" ".themes/Unix"
-
-# Systemd
-[ -d ".config/systemd/user" ] || mkdir -p ".config/systemd/user"
-copy "dotfiles/systemd/user/gpg-agent.service" ".config/systemd/user/gpg-agent.service"

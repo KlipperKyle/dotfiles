@@ -89,19 +89,6 @@
 *VT100.multiScroll:         true
 *VT100.pointerShape:        left_ptr
 
-! Xcursor --------------------------------------------------------------
-
-Xcursor.theme:  Bluecurve
-Xcursor.size:   16
-
-! Xft settings ---------------------------------------------------------
-
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.rgba:       none
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
-
 ! xterm ----------------------------------------------------------------
 
 xterm.bellIsUrgent:         true
