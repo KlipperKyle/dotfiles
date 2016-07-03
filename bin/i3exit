@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # i3exit
 #
@@ -30,12 +30,22 @@ lock() {
 	elif which i3lock > /dev/null 2>&1 ; then
 		i3lock -d -i ~/.icons/i3lock.png -c 285577 -ef
 	else
-		echo "i3exit: cannot find a locker."
+		echo "i3exit: cannot find a locker." 1>&2
 	fi
 }
 
 switch_users() {
 	dm-tool switch-to-greeter
+}
+
+logout() {
+	if pgrep mate-session > /dev/null ; then
+		mate-session-save --logout-dialog
+	elif pgrep i3 > /dev/null ; then
+		i3-msg exit
+	else
+		echo "i3exit: not sure how to logout." 1>&2
+	fi
 }
 
 sus() {
@@ -63,7 +73,9 @@ reb() {
 }
 
 off() {
-	if type systemctl &> /dev/null ; then
+	if pgrep mate-session > /dev/null ; then
+		mate-session-save --shutdown-dialog
+	elif type systemctl &> /dev/null ; then
 		systemctl poweroff
 	else
 		sudo shutdown -h now
@@ -78,7 +90,7 @@ case "$1" in
 		lock && switch_users
 		;;
 	logout)
-		i3-msg exit
+		logout
 		;;
 	suspend)
 		lock && sus

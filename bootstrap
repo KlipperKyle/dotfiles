@@ -67,6 +67,7 @@ link "dotfiles/vim" ".vim"
 # bin
 [ -d "bin" ] || mkdir "bin"
 link "../dotfiles/bin/decrypt" "bin/decrypt"
+link "../dotfiles/bin/dwm-wrapper" "bin/dwm-wrapper"
 link "../dotfiles/bin/encrypt" "bin/encrypt"
 link "../dotfiles/bin/fix-permissions" "bin/fix-permissions"
 link "../dotfiles/bin/hid-init" "bin/hid-init"

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+WM=dwm
+
+if which i3status > /dev/null 2>&1 ; then
+	i3status | while read -r ; do xsetroot -name "$REPLY" ; done &
+	trap 'kill %1' 0
+fi
+
+while "$WM" ; do
+	echo "Restarting $WM"
+done
+
+status=$?
+echo "$WM died.  Quitting..."
+exit $status
