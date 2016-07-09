@@ -5,7 +5,7 @@
 
 # gpg-agent
 # <https://wiki.archlinux.org/index.php/GnuPG#SSH_agent>
-if which gpg-connect-agent &> /dev/null; then
+if which gpg-connect-agent > /dev/null 2>&1 ; then
 	## Start the gpg-agent if not already running
 	## Normally, this is handled by systemd
 	#if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
@@ -38,11 +38,8 @@ setxkbmap -option 'caps:escape'
 numlockx on
 
 # Some "power management"
-xset dpms 900 900 900 &
-xset s off &
-
-# Set the Desktop Environment
-#export DE=xfce
+xset dpms 900 900 900
+xset s off
 
 #
 # Startup programs
