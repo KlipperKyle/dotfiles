@@ -57,7 +57,7 @@ noremap <leader>r :redraw!<CR>
 noremap <leader>l :set list!<CR>
 
 " Toggle line numbers
-noremap <leader>n :set number!<CR>
+noremap <leader>n :setl number!<CR>
 
 " Toggle paste mode
 noremap <leader>p :setlocal paste!<CR>
@@ -103,7 +103,7 @@ endif
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
     syntax on
-    hi Normal guibg=#ffffea guifg=#000000
+    "hi Normal guibg=#ffffea guifg=#000000
     "hi Cursor guibg=#8888cc
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
@@ -112,11 +112,12 @@ endif
 
 " GUI specific options
 if has("gui_running")
-    set guifont=Monospace\ 9
+    set guifont=Screen\ 10
+    "set guifont=Monospace\ 9
     "set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar
-    "set guioptions-=m                       " Hide the menu
+    set guioptions-=m                       " Hide the menu
     set lines=30 columns=100
 endif
 

@@ -2,7 +2,7 @@
 
 loadplugins '\.(js|penta)$'
 group user
-set guioptions=bCrsmT
+"set guioptions=bCrsmT
 
 set defsearch=duckduckgo
 set cookieaccept=samesite
