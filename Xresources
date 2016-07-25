@@ -146,3 +146,8 @@ xosview.gfxGraph:           False
 xosview.netGraph:           False
 xosview.irqrateGraph:       False
 xosview.diskGraph:          False
+
+! Xcursor --------------------------------------------------------------
+
+Xcursor.theme: redglass
+Xcursor.size: 18
