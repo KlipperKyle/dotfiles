@@ -18,6 +18,7 @@
 :VimwikiIndex	vimwiki.txt	/*:VimwikiIndex*
 :VimwikiListChangeLevel	vimwiki.txt	/*:VimwikiListChangeLevel*
 :VimwikiMakeDiaryNote	vimwiki.txt	/*:VimwikiMakeDiaryNote*
+:VimwikiMakeYesterdayDiaryNote	vimwiki.txt	/*:VimwikiMakeYesterdayDiaryNote*
 :VimwikiNextLink	vimwiki.txt	/*:VimwikiNextLink*
 :VimwikiPrevLink	vimwiki.txt	/*:VimwikiPrevLink*
 :VimwikiRebuildTags	vimwiki.txt	/*:VimwikiRebuildTags*
@@ -38,8 +39,6 @@
 VimwikiLinkConverter	vimwiki.txt	/*VimwikiLinkConverter*
 VimwikiLinkHandler	vimwiki.txt	/*VimwikiLinkHandler*
 VimwikiWikiIncludeHandler	vimwiki.txt	/*VimwikiWikiIncludeHandler*
-alternative	vimwiki.txt	/*alternative*
-dog	vimwiki.txt	/*dog*
 g:vimwiki_CJK_length	vimwiki.txt	/*g:vimwiki_CJK_length*
 g:vimwiki_auto_chdir	vimwiki.txt	/*g:vimwiki_auto_chdir*
 g:vimwiki_autowriteall	vimwiki.txt	/*g:vimwiki_autowriteall*
@@ -67,9 +66,6 @@ g:vimwiki_use_mouse	vimwiki.txt	/*g:vimwiki_use_mouse*
 g:vimwiki_user_htmls	vimwiki.txt	/*g:vimwiki_user_htmls*
 g:vimwiki_valid_html_tags	vimwiki.txt	/*g:vimwiki_valid_html_tags*
 g:vimwiki_w32_dir_enc	vimwiki.txt	/*g:vimwiki_w32_dir_enc*
-one	vimwiki.txt	/*one*
-pig	vimwiki.txt	/*pig*
-two	vimwiki.txt	/*two*
 vimwiki	vimwiki.txt	/*vimwiki*
 vimwiki-anchors	vimwiki.txt	/*vimwiki-anchors*
 vimwiki-calendar	vimwiki.txt	/*vimwiki-calendar*
@@ -95,6 +91,7 @@ vimwiki-nohtml	vimwiki.txt	/*vimwiki-nohtml*
 vimwiki-option-auto_export	vimwiki.txt	/*vimwiki-option-auto_export*
 vimwiki-option-auto_tags	vimwiki.txt	/*vimwiki-option-auto_tags*
 vimwiki-option-auto_toc	vimwiki.txt	/*vimwiki-option-auto_toc*
+vimwiki-option-automatic_nested_syntaxes	vimwiki.txt	/*vimwiki-option-automatic_nested_syntaxes*
 vimwiki-option-css_name	vimwiki.txt	/*vimwiki-option-css_name*
 vimwiki-option-custom_wiki2html	vimwiki.txt	/*vimwiki-option-custom_wiki2html*
 vimwiki-option-diary_header	vimwiki.txt	/*vimwiki-option-diary_header*
