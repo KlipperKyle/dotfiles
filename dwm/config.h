@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 8;        /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -17,10 +17,11 @@ static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_blue[]        = "#4464ac";
 static const char col_bright[]      = "#6594ff";
+static const char col_red[]         = "#ff0000";
 static const char *colors[SchemeLast][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel] =  { col_gray4, col_blue,  col_bright  },
+	[SchemeSel] =  { col_gray4, col_blue,  col_red },
 };
 
 /* tagging */
@@ -39,7 +40,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -84,8 +85,8 @@ static Key keys[] = {
 	{ SUPKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ SUPKEY,                       XK_space,  setlayout,      {0} },
 	{ SUPKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ SUPKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ SUPKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ SUPKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ SUPKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ SUPKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
