@@ -112,8 +112,7 @@ endif
 
 " GUI specific options
 if has("gui_running")
-    set guifont=Screen\ 10
-    "set guifont=Monospace\ 9
+    set guifont=Monospace\ 10
     "set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar
