@@ -43,5 +43,33 @@ xset s off
 
 #
 # Startup programs
-# This is handled by the session manager now.
 #
+
+# Core
+#dbus-launch --sh-syntax --exit-with-session &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+#/usr/libexec/polkit-gnome-authentication-agent-1 &
+#/usr/bin/gnome-keyring-daemon --start --components=secrets &
+start-pulseaudio-x11 &
+
+# GTK settings and screensaver
+#xsettingsd &
+/usr/lib/mate-settings-daemon/mate-settings-daemon &
+xautolock -time 15 -locker 'i3exit lock' &
+#light-locker &
+#xscreensaver -no-splash &
+
+# Tray/background apps
+#mate-power-manager &
+#nm-applet &
+#volumeicon &
+pasystray &
+#system-config-printer-applet &
+#conky &
+#dropboxd &
+#/home/kyle/bin/xpenguins-start &
+
+# MATE applications
+#/usr/lib/mate-user-share/mate-user-share &
+#mate-volume-control-applet &
+#mate-maximus
