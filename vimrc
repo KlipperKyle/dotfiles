@@ -105,6 +105,7 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     "hi Normal guibg=#ffffea guifg=#000000
     "hi Cursor guibg=#8888cc
+    colorscheme desert256
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
     let g:Twiki_SourceHTMLSyntax=1
