@@ -46,8 +46,8 @@
 *color3: rgb:f0/e6/8c
 *color4: rgb:72/9f/cf
 *color5: rgb:cd/5c/5c
-*color6: cyan3
-*color7: gray70
+*color6: cyan
+*color7: white
 *color8: gray50
 *color9: rgb:ff/a0/a0
 *color10: rgb:98/fb/98
@@ -125,7 +125,7 @@ URxvt.secondaryWheel:       true
 URxvt.perl-ext-common:      tabbed
 URxvt.tab-bg:               15
 URxvt.tab-fg:               0
-URxvt.tabbar-bg:            7
+URxvt.tabbar-bg:            8
 URxvt.tabbar-fg:            0
 URxvt.url-launcher:         xdg-open
 
