@@ -4,63 +4,25 @@
 
 ! Terminal colors ------------------------------------------------------
 
-! Default colors: "white" text on a dark background.
-!*VT100.foreground: gray70
-!*VT100.background: gray10
-*VT100.scrollbar.foreground: gray70
-*VT100.scrollbar.background: gray25
-
-! Plan9-like colors
-!*VT100.foreground: black
-!*VT100.background: rgb:ff/ff/ea
-!*VT100.scrollbar.foreground: rgb:4d/4d/26
-!*VT100.scrollbar.background: rgb:ff/ff/ea
-
-! These are the 8 ANSI colors and their bright equivalents.  Depending on
-! other resource settings, xterm may use the bright colors when displaying
-! bold text (see the boldColors resource).
-! <http://people.oregonstate.edu/~morgan/XTerm-color>
-!*color0: black
-!*color1: red3
-!*color2: green3
-!*color3: yellow3
-!*color4: blue2
-!*color5: magenta3
-!*color6: cyan3
-!*color7: gray70
-!*color8: gray50
-!*color9: red
-!*color10: green
-!*color11: yellow
-!*color12: rgb:5c/5c/ff
-!*color13: magenta
-!*color14: cyan
-!*color15: white
-
-! Vim desert-like theme
-*VT100.foreground: white
-*VT100.background: rgb:33/33/33
+! Tango colors
+!*VT100.foreground: rgb:ee/ee/ec
+!*VT100.background: rgb:33/33/33
 *color0: black
-*color1: rgb:ff/a0/a0
-*color2: rgb:98/fb/98
-*color3: rgb:f0/e6/8c
-*color4: rgb:72/9f/cf
-*color5: rgb:cd/5c/5c
-*color6: cyan
-*color7: white
-*color8: gray50
-*color9: rgb:ff/a0/a0
-*color10: rgb:98/fb/98
-*color11: rgb:f0/e6/8c
+*color1: rgb:cc/00/00
+*color2: rgb:4e/9a/06
+*color3: rgb:c4/a0/00
+*color4: rgb:34/65/a4
+*color5: rgb:75/50/7b
+*color6: rgb:06/98/9a
+*color7: rgb:d3/d7/cf
+*color8: rgb:55/57/53
+*color9: rgb:ef/29/29
+*color10: rgb:8a/e2/34
+*color11: rgb:fc/e9/4f
 *color12: rgb:72/9f/cf
-*color13: rgb:cd/5c/5c
-*color14: cyan
-*color15: white
-
-! cyan3 := rgb:00/cd/cd
-! gray70 := rgb:b3/b3/b3
-! gray50 := rgb:7f/7f/7f
-! cyan := rgb:00/ff/ff
+*color13: rgb:ad/7f/a8
+*color14: rgb:34/e2/e2
+*color15: rgb:ee/ee/ec
 
 ! Enable colors, bold.  Disable blinking.
 *VT100.colorMode: true
@@ -84,7 +46,7 @@
 !*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
 !*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 !*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
-*VT100.cursorColor:         rgb:f0/e6/8c
+!*VT100.cursorColor:         rgb:f0/e6/8c
 *VT100.saveLines:           4096
 *VT100.scrollKey:           true
 *VT100.scrollTtyOutput:     false
@@ -92,7 +54,6 @@
 *VT100.rightScrollBar:      true
 *VT100.jumpScroll:          true
 *VT100.multiScroll:         true
-*VT100.pointerShape:        left_ptr
 
 ! xterm ----------------------------------------------------------------
 
@@ -105,29 +66,31 @@ xterm.ptyInitialErase:      true
 
 ! urxvt ----------------------------------------------------------------
 
-!URxvt.termName:             rxvt-256color
+URxvt.termName:             rxvt-256color
 URxvt.scrollstyle:          next
 URxvt.scrollBar_right:      true
 URxvt.scrollBar_floating:   true
 URxvt.scrollTtyOutput:      false
 URxvt.scrollTtyKeypress:    true
 URxvt.scrollWithBuffer:     false
-URxvt.background:           rgb:33/33/33
-URxvt.foreground:           white
+!URxvt.background:           rgb:33/33/33
+!URxvt.foreground:           rgb:ee/ee/ec
 !URxvt.colorBD:              white
-URxvt.cursorColor:          rgb:f0/e6/8c
+!URxvt.cursorColor:          rgb:f0/e6/8c
 URxvt.font:                 xft:Monospace:style=Regular:size=10
 URxvt.secondaryScreen:      true
 URxvt.secondaryScroll:      false
 URxvt.secondaryWheel:       true
+URxvt.geometry:             84x26
+URxvt.saveLines:            4096
 !URxvt.perl-ext-common:      matcher
 !URxvt.matcher.button:       3
+!URxvt.url-launcher:         xdg-open
 URxvt.perl-ext-common:      tabbed
-URxvt.tab-bg:               15
+URxvt.tab-bg:               3
 URxvt.tab-fg:               0
-URxvt.tabbar-bg:            8
+URxvt.tabbar-bg:            15
 URxvt.tabbar-fg:            0
-URxvt.url-launcher:         xdg-open
 
 ! xclock ---------------------------------------------------------------
 
