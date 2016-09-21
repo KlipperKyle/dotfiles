@@ -12,10 +12,20 @@ set backspace=indent,eol,start
 
 set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 set laststatus=2    " Always show the filename
 set timeoutlen=500  " Don't wait long for keymaps
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+
+" Show @@@ in the last line if it is truncated.
+set display=truncate
+
+" Show a few lines of context around the cursor.  Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
 
 " Line wrapping options
 set linebreak           " enable line wrap
@@ -80,7 +90,7 @@ inoremap kj 
 " Unix keybindings (based on <http://unix-kb.cat-v.org/vim/>)
 inoremap <C-E> <C-O>$
 inoremap <C-A> <C-O>^
-noremap <C-A> ^
+"noremap <C-A> ^
 "noremap <C-E> $
 
 " tcsh-style (From vimhelp)
@@ -109,16 +119,20 @@ if &t_Co > 2 || has("gui_running")
     set hlsearch
     nmap <leader>q :nohlsearch<CR>
     let g:Twiki_SourceHTMLSyntax=1
+    let c_comment_strings=1
 endif
 
 " GUI specific options
 if has("gui_running")
-    set guifont=Monospace\ 10
+    set guifont=Screen\ 10,\ Monospace\ 9
     "set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar
     set guioptions-=m                       " Hide the menu
     set lines=30 columns=100
+    " Make shift-insert work like in Xterm
+    map <S-Insert> <MiddleMouse>
+    map! <S-Insert> <MiddleMouse>
 endif
 
 " Only do this part when compiled with support for autocommands.
