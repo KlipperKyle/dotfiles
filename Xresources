@@ -5,8 +5,8 @@
 ! Terminal colors ------------------------------------------------------
 
 ! Tango colors
-!*VT100.foreground: rgb:ee/ee/ec
-!*VT100.background: rgb:33/33/33
+*VT100.foreground: black
+*VT100.background: white
 *color0: black
 *color1: rgb:cc/00/00
 *color2: rgb:4e/9a/06
@@ -42,7 +42,7 @@
 ! Misc terminal settings
 *VT100.alternateScroll:     true
 *VT100.geometry:            80x24
-*VT100.faceName:            Monospace:style=Regular:size=10
+*VT100.faceName:            xft:Monospace:size=10
 !*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
 !*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 !*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
@@ -73,11 +73,11 @@ URxvt.scrollBar_floating:   true
 URxvt.scrollTtyOutput:      false
 URxvt.scrollTtyKeypress:    true
 URxvt.scrollWithBuffer:     false
-!URxvt.background:           rgb:33/33/33
-!URxvt.foreground:           rgb:ee/ee/ec
+URxvt.background:           white
+URxvt.foreground:           black
 !URxvt.colorBD:              white
 !URxvt.cursorColor:          rgb:f0/e6/8c
-URxvt.font:                 xft:Monospace:style=Regular:size=10
+URxvt.font:                 xft:Monospace:size=10
 URxvt.secondaryScreen:      true
 URxvt.secondaryScroll:      false
 URxvt.secondaryWheel:       true
