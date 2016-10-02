@@ -39,6 +39,10 @@ set wildmenu
 set shiftwidth=4
 set tabstop=4
 
+" No undofiles (Slackware seems fond of them)
+set noundofile
+set nobackup
+
 " Always use Unix-style line-endings
 if (&modifiable)
     set fileformat=unix
@@ -121,7 +125,7 @@ endif
 
 " GUI specific options
 if has("gui_running")
-    set guifont=Screen\ 10,\ Monospace\ 9
+    set guifont=Monospace\ 9
     "set guifont=DejaVu_Sans_Mono:h9:cANSI
     "set guifont=Lucida_Console:h9:cANSI
     set guioptions-=T                       " Hide the toolbar

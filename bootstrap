@@ -83,7 +83,7 @@ link "../dotfiles/bin/xflock4" "bin/xflock4"
 
 # fontconfig
 [ -d ".config/fontconfig" ] || mkdir -p ".config/fontconfig"
-link "../../dotfiles/fontconfig/fonts.conf" ".config/fontconfig/fonts.conf"
+copy "dotfiles/fontconfig/fonts.conf" ".config/fontconfig/fonts.conf"
 
 # Git
 copy "dotfiles/gitconfig" ".gitconfig"

@@ -7,6 +7,8 @@
 	email = kyleterrien@gmail.com
 [credential]
 	helper = cache
+[core]
+	pager = "less -R"
 [diff]
 	tool = diffuse
 [merge]

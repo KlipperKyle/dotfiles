@@ -18,8 +18,8 @@ if [ "$TERM" != dumb ]; then
 	[[ $(type -t ls) == "alias" ]] && unalias dir
 	[[ $(type -t ls) == "alias" ]] && unalias grep
 	[[ $(type -t ls) == "alias" ]] && unalias dmesg
-	alias ls="ls --color=auto"
-	alias dir="dir --color=auto"
+	alias ls='ls $LS_OPTIONS'
+	alias dir='ls $LS_OPTIONS --format=vertical'
 	alias grep="grep --color=auto"
 	alias dmesg='dmesg --color'
 
@@ -41,13 +41,11 @@ if [ "$TERM" != dumb ]; then
 fi
 
 # Aliases
-#alias x='exec startx'
 alias ll='ls -l'
 alias la='ls -la'
 alias xyzzy='cd ~-/'
 alias clip='xclip -selection c'
 function qr { qrencode -o - "$@" | display; }
-alias killme="loginctl terminate-user $USER"
 
 # Detach-sign a bunch of stuff
 signoff() {

@@ -9,13 +9,11 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export EDITOR=/usr/bin/vim
-export GNUSTEP_USER_ROOT="${HOME}/GNUstep"
-export QT_STYLE_OVERRIDE=gtk
-export QT_QPA_PLATFORMTHEME=gtk2
 export GTK_OVERLAY_SCROLLING=0
+export LS_OPTIONS=${LS_OPTIONS:-"-F -b -T 0 --color=auto"}
 
 # Get a GUI terminal
-for terminal in mate-terminal xfce4-terminal gnome-terminal urxvt rxvt xterm ; do
+for terminal in konsole mate-terminal xfce4-terminal gnome-terminal urxvt rxvt xterm ; do
     if type $terminal > /dev/null 2>&1; then
         export TERMINAL=$terminal
         break

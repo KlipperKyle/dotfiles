@@ -115,8 +115,3 @@ xosview.gfxGraph:           False
 xosview.netGraph:           False
 xosview.irqrateGraph:       False
 xosview.diskGraph:          False
-
-! Xcursor --------------------------------------------------------------
-
-Xcursor.theme: Bluecurve
-Xcursor.size: 18
