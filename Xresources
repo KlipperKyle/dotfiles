@@ -42,7 +42,7 @@
 ! Misc terminal settings
 *VT100.alternateScroll:     true
 *VT100.geometry:            80x24
-*VT100.faceName:            xft:Monospace:size=10
+*VT100.faceName:            xft:Monospace:size=9
 !*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
 !*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 !*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
@@ -77,7 +77,7 @@ URxvt.background:           white
 URxvt.foreground:           black
 !URxvt.colorBD:              white
 !URxvt.cursorColor:          rgb:f0/e6/8c
-URxvt.font:                 xft:Monospace:size=10
+URxvt.font:                 xft:Monospace:size=9
 URxvt.secondaryScreen:      true
 URxvt.secondaryScroll:      false
 URxvt.secondaryWheel:       true
