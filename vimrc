@@ -36,8 +36,8 @@ set wildmenu
 
 " Default tabbing settings
 "set expandtab
-set shiftwidth=4
-set tabstop=4
+"set shiftwidth=4
+"set tabstop=4
 
 " No undofiles (Slackware seems fond of them)
 set noundofile
