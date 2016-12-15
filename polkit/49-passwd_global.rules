@@ -1,0 +1,11 @@
+/* /etc/polkit-1/rules.d/49-passwd_global.rules
+ *
+ * Allow members of the users group to execute any actions
+ * with password authentication, similar to su.
+ * <https://wiki.archlinux.org/index.php/Polkit#Bypass_password_prompt>
+ */
+polkit.addRule(function(action, subject) {
+	if (subject.isInGroup("users")) {
+		return polkit.Result.AUTH_ADMIN;
+	}
+});
