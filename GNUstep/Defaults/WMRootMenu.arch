@@ -3,24 +3,21 @@
   (
     Applications,
     OPEN_MENU,
-    "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/applications.menu"
+    "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/arch-applications.menu"
   ),
-  (Konsole, SHORTCUT, "Control+Mod1+D", EXEC, konsole),
-  (GVIM, SHORTCUT, "Control+Mod1+G", EXEC, gvim),
-  (SeaMonkey, SHORTCUT, "Control+Mod1+F", EXEC, seamonkey),
-  (
-    "Google Chrome",
-    SHORTCUT,
-    "Control+Mod1+C",
-    EXEC,
-    "google-chrome-stable"
-  ),
+  (Terminal, SHORTCUT, "Control+Mod1+D", EXEC, "mate-terminal"),
+  (Gvim, SHORTCUT, "Control+Mod1+G", EXEC, gvim),
+  ("Pale Moon", SHORTCUT, "Control+Mod1+V", EXEC, palemoon),
+  (SeaMonkey, SHORTCUT, "Control+Mod1+C", EXEC, seamonkey),
+  (Chromium, SHORTCUT, "Control+Mod1+S", EXEC, chromium),
+  (xosview, EXEC, "xosview +cpus -page"),
+  (VNC, OPEN_MENU, "$HOME/bin/vnc WITH sh"),
   (
     Run...,
     SHORTCUT,
     "Mod4+D",
     SHEXEC,
-    "dmenu_run -b -fn 'monospace:size=9'"
+    "dmenu_run -b -fn 'Monospace:size=9'"
   ),
   (
     Appearance,
@@ -157,17 +154,15 @@
   (
     "Configure WMaker",
     EXEC,
-    "/usr/lib64/GNUstep/Applications/WPrefs.app/WPrefs"
+    "/usr/lib/GNUstep/Applications/WPrefs.app/WPrefs"
   ),
   ("Info Panel", INFO_PANEL),
   (
     "Exit/Lock",
-    ("Lock Screen", SHORTCUT, "Control+Mod1+L", EXEC, "slacklock lock"),
-    (Suspend, EXEC, "slacklock suspend"),
-    (Hibernate, EXEC, "slacklock hibernate"),
+    (Lock, SHORTCUT, "Mod4+Delete", EXEC, "i3exit lock"),
+    (Suspend, SHORTCUT, "Mod4+Insert", EXEC, "i3exit suspend"),
     ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
-    ("Exit Window Maker", SHORTCUT, "Shift+Mod4+Q", EXIT),
-    (Reboot, EXEC, "slacklock reboot"),
-    ("Shut Down", EXEC, "slacklock off")
+    (Logout..., EXEC, "mate-session-save --logout-dialog"),
+    (Shutdown..., EXEC, "mate-session-save --shutdown-dialog")
   )
 )

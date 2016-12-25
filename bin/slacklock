@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+# slacklock
+#
+# Lock and suspend for Slackware (minimal environments)
+# These were taken from
+# <https://wiki.archlinux.org/index.php/Consolekit#Use_D-Bus_for_power_operations>
+
+lock() {
+	xlock -allowroot -usefirst -mode blank -dpmsoff 1
+}
+
+sus() {
+	dbus-send --system --print-reply \
+		--dest="org.freedesktop.ConsoleKit" \
+		/org/freedesktop/ConsoleKit/Manager \
+		org.freedesktop.ConsoleKit.Manager.Suspend  \
+		boolean:true
+}
+
+hiber() {
+	dbus-send --system --print-reply \
+		--dest="org.freedesktop.ConsoleKit" \
+		/org/freedesktop/ConsoleKit/Manager \
+		org.freedesktop.ConsoleKit.Manager.Hibernate  \
+		boolean:true
+}
+
+reb() {
+	dbus-send --system --print-reply \
+		--dest="org.freedesktop.ConsoleKit" \
+		/org/freedesktop/ConsoleKit/Manager \
+		org.freedesktop.ConsoleKit.Manager.Restart
+}
+
+hybsleep() {
+	dbus-send --system --print-reply \
+		--dest="org.freedesktop.ConsoleKit" \
+		/org/freedesktop/ConsoleKit/Manager \
+		org.freedesktop.ConsoleKit.Manager.HybridSleep  \
+		boolean:true
+}
+
+off() {
+	dbus-send --system --print-reply \
+		--dest="org.freedesktop.ConsoleKit" \
+		/org/freedesktop/ConsoleKit/Manager \
+		org.freedesktop.ConsoleKit.Manager.Stop
+}
+
+case "$1" in
+	lock)
+		lock
+		;;
+	sus|suspend)
+		lock & sus
+		;;
+	hib|hibernate)
+		lock & hiber
+		;;
+	reb|reboot)
+		reb
+		;;
+	hybsleep)
+		lock & hybsleep
+		;;
+	off)
+		off
+		;;
+	*)
+		echo "Usage: $0 {lock|suspend|hibernate|reboot|off}"
+		exit 2
+esac
+
+exit 0
