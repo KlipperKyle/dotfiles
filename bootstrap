@@ -58,7 +58,7 @@ link "dotfiles/alias" ".alias"
 link "dotfiles/env" ".env"
 link "dotfiles/inputrc" ".inputrc"
 link "dotfiles/Xresources" ".Xresources"
-link "dotfiles/xautorun" ".xautorun"
+copy "dotfiles/xautorun" ".xautorun"
 
 # Vim
 link "dotfiles/vimrc" ".vimrc"
