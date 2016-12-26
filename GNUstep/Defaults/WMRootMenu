@@ -15,6 +15,7 @@
     EXEC,
     "google-chrome-stable"
   ),
+  (xosview, SHORTCUT, "Control+Mod1+X", EXEC, "xosview +cpus -page"),
   (
     Run...,
     SHORTCUT,
@@ -161,13 +162,17 @@
   ),
   ("Info Panel", INFO_PANEL),
   (
-    "Exit/Lock",
-    ("Lock Screen", SHORTCUT, "Control+Mod1+L", EXEC, "slacklock lock"),
+    Power,
     (Suspend, EXEC, "slacklock suspend"),
     (Hibernate, EXEC, "slacklock hibernate"),
-    ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
-    ("Exit Window Maker", SHORTCUT, "Shift+Mod4+Q", EXIT),
+    ("Hybrid Sleep", EXEC, "slacklock hybsleep"),
     (Reboot, EXEC, "slacklock reboot"),
     ("Shut Down", EXEC, "slacklock off")
+  ),
+  (
+    "Exit/Lock",
+    ("Lock Screen", SHORTCUT, "Control+Mod1+L", EXEC, "slacklock lock"),
+    ("Restart Window Maker", SHORTCUT, "Shift+Mod4+R", RESTART),
+    ("Exit Window Maker", SHORTCUT, "Shift+Mod4+Q", EXIT)
   )
 )
