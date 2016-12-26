@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# ~/.xautorun
+#
+# This script is run very often during an X11 session.
+# * On start (called by WM)
+# * On restart of WM (called by WM)
+# * On resume from suspend/hibernate (called by slacklock)
+#
+# It must be called under a ConsoleKit context because
+# it launches a polkit agent.
+#
+# This script must be executable
+
+# Mouse acceleration
+xset m 20/10 4
+
+# Keyboard
+xset r rate 250 40
+#setxkbmap -option compose:caps
+#setxkbmap -option 'ctrl:swapcaps,compose:lctrl'
+#setxkbmap -option 'ctrl:nocaps'
+setxkbmap -option 'caps:escape'
+
+# Polkit agent (quits if it is already running)
+/usr/lib64/kde4/libexec/polkit-kde-authentication-agent-1

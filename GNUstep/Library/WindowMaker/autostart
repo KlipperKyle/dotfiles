@@ -14,15 +14,5 @@
 #
 # This file must be executable.
 #
-# Mouse acceleration
-xset m 20/10 4
 
-# Keyboard
-xset r rate 250 40
-#setxkbmap -option compose:caps
-#setxkbmap -option 'ctrl:swapcaps,compose:lctrl'
-#setxkbmap -option 'ctrl:nocaps'
-setxkbmap -option 'caps:escape'
-
-# Polkit agent (quits if it is already running)
-/usr/lib64/kde4/libexec/polkit-kde-authentication-agent-1
+[ -x "$HOME/.xautorun" ] && sh "$HOME/.xautorun"

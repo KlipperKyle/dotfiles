@@ -46,6 +46,7 @@ alias la='ls -la'
 alias xyzzy='cd ~-/'
 alias clip='xclip -selection c'
 function qr { qrencode -o - "$@" | display; }
+alias sk='slacklock'
 
 # Detach-sign a bunch of stuff
 signoff() {

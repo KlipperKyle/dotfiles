@@ -48,27 +48,41 @@ off() {
 		org.freedesktop.ConsoleKit.Manager.Stop
 }
 
+res() {
+	# Run some re-init commands for Xorg (e.g. mouse accel)
+	[ -x "$HOME/.xautorun" ] && "$HOME/.xautorun"
+}
+
 case "$1" in
 	lock)
 		lock
 		;;
 	sus|suspend)
-		lock & sus
+		lock &
+		sus
+		wait
+		res
 		;;
 	hib|hibernate)
-		lock & hiber
+		lock &
+		hiber
+		wait
+		res
 		;;
 	reb|reboot)
 		reb
 		;;
-	hybsleep)
-		lock & hybsleep
+	hyb|hybsleep)
+		lock &
+		hybsleep
+		wait
+		res
 		;;
 	off)
 		off
 		;;
 	*)
-		echo "Usage: $0 {lock|suspend|hibernate|reboot|off}"
+		echo "Usage: $0 {lock|suspend|hibernate|hybsleep|reboot|off}"
 		exit 2
 esac
 
