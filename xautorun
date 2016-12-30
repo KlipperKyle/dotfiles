@@ -22,5 +22,7 @@ xset r rate 250 40
 #setxkbmap -option 'ctrl:nocaps'
 setxkbmap -option 'caps:escape'
 
-# Polkit agent (quits if it is already running)
-/usr/lib64/kde4/libexec/polkit-kde-authentication-agent-1
+# Polkit agent
+if ! pgrep polkit-kde-auth > /dev/null ; then
+	/usr/lib64/kde4/libexec/polkit-kde-authentication-agent-1 &
+fi
