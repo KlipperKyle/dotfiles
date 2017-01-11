@@ -1,0 +1,2 @@
+* Tango (light).colorscheme := Install into ~/.kde/share/apps/konsole/
+* kwin.kksrc := Import into the Global Keyboard Shortcuts settings dialog
