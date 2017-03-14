@@ -1,0 +1,9 @@
+#!/usr/bin/env perl
+# colorstrip
+# Strip colors from input
+# http://perldoc.perl.org/Term/ANSIColor.html
+
+use Term::ANSIColor 2.01 qw(colorstrip);
+while (<>) {
+	print colorstrip($_);
+}
