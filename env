@@ -5,7 +5,7 @@
 #
 
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    export PATH="$HOME/bin:$PATH"
 fi
 
 export EDITOR=/usr/bin/vim
@@ -14,20 +14,25 @@ export LS_OPTIONS=${LS_OPTIONS:-"-F -b -T 0 --color=auto"}
 
 # Get a GUI terminal
 for terminal in konsole mate-terminal xfce4-terminal gnome-terminal urxvt rxvt xterm ; do
-    if type $terminal > /dev/null 2>&1; then
+    if which $terminal > /dev/null 2>&1; then
         export TERMINAL=$terminal
         break
     fi
 done
 
 # Get a GUI editor
-for editor in gvim pluma mousepad gedit ; do
-    if type $editor > /dev/null 2>&1; then
+for editor in gvim kate pluma mousepad gedit ; do
+    if which $editor > /dev/null 2>&1; then
         export VISUAL=$editor
         break
     fi
 done
 [ x"$VISUAL" = x"gvim" ] && export VISUAL="gvim -f"
+
+# Go environment
+if which go > /dev/null 2>&1; then
+	export GOPATH="$HOME/go"
+fi
 
 # Allow local overrides
 if [ -d "$HOME/.env.d" ] ; then
