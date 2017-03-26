@@ -8,11 +8,11 @@
 [credential]
 	helper = cache
 [core]
-	pager = "less -R"
+	pager = "less -RM"
 [diff]
-	tool = diffuse
+	tool = tkdiff
 [merge]
-	tool = diffuse
+	tool = tkdiff
 
 #
 # Be smart when checking stuff out
