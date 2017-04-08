@@ -5,7 +5,7 @@ if [ "$UID" -ne 0 ] ; then
     exit 1
 fi
 
-rsync -aAXHv \
-    --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/srv/*","/lost+found","/backup/*","/home/*/.cache/*","/home/*/.ccache/*","/home/*/.thumbnails/*","/home/*/.gvfs"} \
+rsync -aAXHSv \
+    --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*/.cache/*","/home/*/.ccache/*","/home/*/.thumbnails/*","/home/*/.gvfs"} \
     --delete \
-    / /backup/wopr/
+    / /mnt/backup/wopr/
