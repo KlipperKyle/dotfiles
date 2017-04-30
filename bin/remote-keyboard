@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+    echo "Usage: remote-keyboard <IP-of-phone>"
+    exit 1
+fi
+
+# Open up a secure connection to Android remote keyboard
+#ssh -f -L 2323:localhost:2323 -p 22 "root@$1" sleep 5 && exec telnet localhost 2323
+ssh -p 22 "root@$1" -t telnet localhost 2323
