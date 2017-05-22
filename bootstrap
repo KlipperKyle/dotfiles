@@ -56,7 +56,7 @@ copy() {
 # Simple config files
 link "dotfiles/alias" ".alias"
 link "dotfiles/env" ".env"
-link "dotfiles/inputrc" ".inputrc"
+link "dotfiles/emacs" ".emacs"
 link "dotfiles/Xresources" ".Xresources"
 copy "dotfiles/xautorun" ".xautorun"
 

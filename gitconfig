@@ -10,9 +10,9 @@
 [core]
 	pager = "less -RM"
 [diff]
-	tool = tkdiff
+	tool = diffuse
 [merge]
-	tool = tkdiff
+	tool = diffuse
 
 #
 # Be smart when checking stuff out
