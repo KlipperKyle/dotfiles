@@ -9,6 +9,7 @@
     ((java-mode . "java")
      (awk-mode . "awk")
      (other . "k&r"))))
+ '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(tool-bar-mode nil))
 (custom-set-faces
