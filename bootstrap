@@ -7,6 +7,7 @@
 #
 
 DOTFILES="$HOME/dotfiles"
+DIFFTOOL="${DIFFTOOL:-vimdiff}"
 cd "$HOME"
 
 link() {
@@ -42,7 +43,7 @@ copy() {
             echo -ne "$dst: differs from '$src'.  Merge changes? [Y/n]: "
             read ans
             if [[ "$ans" != "n" && "$ans" != "N" ]] ; then
-                vimdiff "$dst" "$src"
+                "$DIFFTOOL" "$dst" "$src"
             fi
         else
             echo "$dst: No changes"
