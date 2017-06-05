@@ -12,6 +12,7 @@
  '(column-number-mode t)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
+ '(show-paren-mode t)
  '(text-mode-hook
    (quote
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
@@ -25,7 +26,21 @@
 
 ;; Hooks
 ;;(setq flyspell-mode-hook nil)
-(add-hook 'flyspell-mode-hook
-	  (lambda () (
-		      if (bound-and-true-p flyspell-mode)
-			 (flyspell-buffer))))
+;;(add-hook 'flyspell-mode-hook
+;;	  (lambda () (
+;;		      if (bound-and-true-p flyspell-mode)
+;;			 (flyspell-buffer))))
+
+(add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
+
+;; Markdown Mode
+;; <http://jblevins.org/projects/markdown-mode/>
+;; <https://github.com/jrblevin/markdown-mode/tree/stable>
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
