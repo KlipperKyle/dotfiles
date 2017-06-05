@@ -13,7 +13,7 @@
 # This script must be executable
 
 # Mouse acceleration
-xset m 20/10 4
+xset m 10/10 4
 
 # Keyboard
 xset r rate 250 40
