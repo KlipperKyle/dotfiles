@@ -12,6 +12,8 @@
  '(column-number-mode t)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
+ '(perl-indent-level 8)
+ '(sh-basic-offset 8)
  '(show-paren-mode t)
  '(text-mode-hook
    (quote
@@ -44,3 +46,17 @@
 (autoload 'gfm-mode "markdown-mode"
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; TWiki Mode
+;; <https://github.com/christopherjwhite/emacs-twiki-mode>
+;; Also: <http://www.twiki.org/cgi-bin/view/Support/UsingEmacsToEditTwiki>
+;; Also: <https://addons.mozilla.org/en-US/seamonkey/addon/its-all-text/>
+(autoload 'twiki-mode "twiki"
+  "Major mode for editing TWiki markup" t)
+(add-hook 'twiki-mode-hook 'turn-on-flyspell)
+(add-hook 'twiki-mode-hook 'turn-on-visual-line-mode)
+(add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
+(add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
+
+;; Misc (stuff appends here)
+(put 'scroll-left 'disabled nil)
