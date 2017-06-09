@@ -5,17 +5,18 @@
     OPEN_MENU,
     "|| xdg_menu --format WindowMaker --root-menu /etc/xdg/menus/applications.menu"
   ),
-  (Konsole, SHORTCUT, "Control+Mod1+D", EXEC, konsole),
-  (GVIM, SHORTCUT, "Control+Mod1+G", EXEC, gvim),
-  (SeaMonkey, SHORTCUT, "Control+Mod1+F", EXEC, seamonkey),
+  (Konsole, SHORTCUT, "Mod1+Mod4+d", EXEC, konsole),
   (
-    "Google Chrome",
+    "Emacs (Client)",
     SHORTCUT,
-    "Control+Mod1+C",
-    EXEC,
-    "google-chrome-stable"
+    "Mod1+Mod4+v",
+    SHEXEC,
+    "emacsclient -n \"$(xclip -o)\""
   ),
-  (xosview, SHORTCUT, "Control+Mod1+X", EXEC, "xosview +cpus -page"),
+  (Gvim, SHORTCUT, "Mod1+Mod4+g", EXEC, gvim),
+  (SeaMonkey, SHORTCUT, "Mod1+Mod4+f", EXEC, seamonkey),
+  ("Google Chrome", SHORTCUT, "Mod1+Mod4+c", EXEC, "google-chrome-stable"),
+  (xosview, SHORTCUT, "Mod1+Mod4+x", EXEC, "xosview +cpus -page"),
   (
     Run...,
     SHORTCUT,

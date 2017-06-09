@@ -82,7 +82,6 @@
   RaiseLowerKey = "Mod4+A";
   ResizeDisplay = floating;
   ResizeIncrement = 8;
-  RHMaximizeKey = "Shift+Mod1+L";
   RootMenuKey = "Mod4+space";
   RunKey = "Shift+Mod4+D";
   ScreenSwitchKey = None;
@@ -110,6 +109,16 @@
   WindowShortcut8Key = None;
   WindowShortcut9Key = None;
   WindowSnapping = NO;
+  Workspace10Key = "Mod4+0";
+  Workspace1Key = "Mod4+1";
+  Workspace2Key = "Mod4+2";
+  Workspace3Key = "Mod4+3";
+  Workspace4Key = "Mod4+4";
+  Workspace5Key = "Mod4+5";
+  Workspace6Key = "Mod4+6";
+  Workspace7Key = "Mod4+7";
+  Workspace8Key = "Mod4+8";
+  Workspace9Key = "Mod4+9";
   WorkspaceMapKey = None;
   WorkspaceNameDisplayPosition = center;
   IconPath = (

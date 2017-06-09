@@ -8,7 +8,6 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-export EDITOR=/usr/bin/vim
 export GTK_OVERLAY_SCROLLING=0
 export LS_OPTIONS=${LS_OPTIONS:-"-F -b -T 0 --color=auto"}
 
@@ -20,14 +19,13 @@ for terminal in konsole mate-terminal xfce4-terminal gnome-terminal urxvt rxvt x
     fi
 done
 
-# Get a GUI editor
-for editor in gvim kate pluma mousepad gedit ; do
+# Get an editor
+for editor in emacsclient emacs gvim vim vi ; do
     if which $editor > /dev/null 2>&1; then
-        export VISUAL=$editor
+        export EDITOR=$editor
         break
     fi
 done
-[ x"$VISUAL" = x"gvim" ] && export VISUAL="gvim -f"
 
 # Go environment
 if which go > /dev/null 2>&1; then
