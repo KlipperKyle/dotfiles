@@ -15,6 +15,7 @@
  '(perl-indent-level 8)
  '(sh-basic-offset 8)
  '(show-paren-mode t)
+ '(standard-indent 8)
  '(text-mode-hook
    (quote
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
