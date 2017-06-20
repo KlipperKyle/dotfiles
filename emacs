@@ -14,6 +14,7 @@
  '(mouse-wheel-progressive-speed nil)
  '(perl-indent-level 8)
  '(sh-basic-offset 8)
+ '(sh-indentation 8)
  '(show-paren-mode t)
  '(standard-indent 8)
  '(text-mode-hook
