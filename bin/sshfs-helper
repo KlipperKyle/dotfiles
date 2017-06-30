@@ -17,7 +17,7 @@ host="$1"
 # user@bar.foo.com
 shorthost="${host%:*}"
 # bar.foo.com
-shorthost="${shorthost#*@}"
+#shorthost="${shorthost#*@}"
 # bar
 shorthost="${shorthost%%.*}"
 shift
