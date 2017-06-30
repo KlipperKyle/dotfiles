@@ -54,6 +54,7 @@
 *VT100.rightScrollBar:      false
 *VT100.jumpScroll:          true
 *VT100.multiScroll:         true
+*VT100.metaSendsEscape:     true
 
 ! xterm ----------------------------------------------------------------
 
