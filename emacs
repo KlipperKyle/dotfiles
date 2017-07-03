@@ -28,14 +28,12 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
 
-;; Hooks
-;;(setq flyspell-mode-hook nil)
-;;(add-hook 'flyspell-mode-hook
-;;	  (lambda () (
-;;		      if (bound-and-true-p flyspell-mode)
-;;			 (flyspell-buffer))))
-
+;; Custom lisp dir
 (add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
+
+;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
+(global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
+(global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 
 ;; Markdown Mode
 ;; <http://jblevins.org/projects/markdown-mode/>
