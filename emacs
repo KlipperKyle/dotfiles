@@ -10,6 +10,17 @@
      (awk-mode . "awk")
      (other . "k&r"))))
  '(column-number-mode t)
+ '(dired-mode-hook
+   (quote
+    (dired-extra-startup
+     (lambda nil
+       (set
+	(make-local-variable
+	 (quote mouse-1-click-follows-link))
+	nil)
+       (defun dired-insert-set-properties
+	   (beg end)
+	 nil)))))
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(perl-indent-level 8)
