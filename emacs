@@ -12,8 +12,7 @@
  '(column-number-mode t)
  '(dired-mode-hook
    (quote
-    (dired-extra-startup
-     (lambda nil
+    ((lambda nil
        (set
 	(make-local-variable
 	 (quote mouse-1-click-follows-link))
