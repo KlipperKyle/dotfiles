@@ -70,3 +70,4 @@
 
 ;; Misc (stuff appends here)
 (put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
