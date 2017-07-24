@@ -1,0 +1,3 @@
+#!/bin/sh
+# cht - Change Title (of terminal)
+printf "\033]0;%s\007" "$*"

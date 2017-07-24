@@ -1,0 +1,4 @@
+#!/bin/sh
+# chte - Change Title (of terminal) and Execute
+printf "\033]0;%s\007" "$*"
+exec "$@"
