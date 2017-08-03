@@ -20,6 +20,7 @@
        (defun dired-insert-set-properties
 	   (beg end)
 	 nil)))))
+ '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-link-frame-setup
