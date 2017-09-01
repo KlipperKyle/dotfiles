@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-browser-function (quote browse-url-xdg-open))
  '(c-basic-offset 8)
  '(c-default-style
    (quote
@@ -23,6 +24,7 @@
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
+ '(org-export-backends (quote (ascii html icalendar latex md odt texinfo)))
  '(org-link-frame-setup
    (quote
     ((vm . vm-visit-folder-other-frame)
@@ -68,7 +70,6 @@
 (autoload 'twiki-mode "twiki"
   "Major mode for editing TWiki markup" t)
 (add-hook 'twiki-mode-hook 'turn-on-flyspell)
-(add-hook 'twiki-mode-hook 'turn-on-visual-line-mode)
 (add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
 
