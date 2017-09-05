@@ -1,3 +1,6 @@
+;; -*- mode: emacs-lisp -*-
+;; ~/.emacs
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -72,6 +75,18 @@
 (add-hook 'twiki-mode-hook 'turn-on-flyspell)
 (add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
+
+;; Org
+(setq org-publish-project-alist
+      '(("org"
+	 :base-directory "~/org"
+	 :publishing-directory "~/org"
+	 :publishing-function org-html-publish-to-html)))
+
+;; Local overrides
+(if (file-readable-p "~/.emacs.local")
+    (load "~/.emacs.local")
+  nil)
 
 ;; Misc (stuff appends here)
 (put 'scroll-left 'disabled nil)
