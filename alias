@@ -13,7 +13,7 @@ shopt -s checkwinsize
 shopt -s histappend
 
 # Enable colors
-if [ "$TERM" != dumb -o "$EMACS" = "t" ]; then
+if [ "$TERM" != dumb -o "$EMACS" = "t" -o -n "$INSIDE_EMACS" ]; then
 	[[ $(type -t ls) == "alias" ]] && unalias ls
 	[[ $(type -t ls) == "alias" ]] && unalias dir
 	[[ $(type -t ls) == "alias" ]] && unalias grep
