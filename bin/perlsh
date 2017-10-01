@@ -1,0 +1,37 @@
+#!/usr/bin/env perl
+#
+# perlsh - a simple interactive Perl interpreter
+#
+# From Holzner's *Perl Core Language - Little Black Book*, p14-15
+# With some modifications by Kyle Terrien
+#
+
+use warnings;
+use Data::Dumper;
+my $count = 0;
+my $statement = "";
+my $prompt = "perlsh> ";
+
+# Suppress error reporting
+#local $SIG{__WARN__} = sub {};
+
+print $prompt;
+while (<>) {
+    chomp;
+
+    # Watch for {, (, etc. and pair with }, ), etc.
+    while (/{|\(|\[/g) {$count++; $prompt = "perlsh+ "};
+    while (/}|\)|\]/g) {$count--};
+
+    $statement .= $_;
+
+    # Only eval if {, ( matches }, )
+    if (!$count) {
+	print Dumper eval $statement;
+	if ($@) {print "perlsh: Syntax error.\n"};
+	$statement = "";
+	$count = 0;
+	$prompt = "perlsh> ";
+    }
+    print $prompt;
+}
