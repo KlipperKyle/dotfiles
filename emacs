@@ -50,6 +50,15 @@
 ;; Custom lisp dir
 (add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
 
+;; Scroll the screen "up" or "down" one line with C-z and M-z
+;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
+(defun scroll-up-one () "Scroll up 1 line." (interactive)
+       (scroll-up (prefix-numeric-value current-prefix-arg)))
+(defun scroll-down-one () "Scroll down 1 line." (interactive)
+       (scroll-down (prefix-numeric-value current-prefix-arg)))
+(define-key global-map "\C-z" 'scroll-up-one)
+(define-key global-map "\M-z" 'scroll-down-one)
+
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
 (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
 (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
