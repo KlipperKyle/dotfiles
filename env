@@ -4,7 +4,15 @@
 # Source from .bash_profile
 #
 
-if [ -d "$HOME/bin" ] ; then
+# Add sbin directories to the PATH (to make sudo easier)
+echo $PATH | grep /usr/local/sbin 1> /dev/null 2> /dev/null
+if [ ! $? = 0 ]; then
+    export PATH=/usr/local/sbin:/usr/sbin:/sbin:$PATH
+fi
+
+# Add ~/bin to PATH
+echo $PATH | grep "$HOME/bin" 1> /dev/null 2> /dev/null
+if [ ! $? = 0 ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
