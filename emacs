@@ -85,6 +85,10 @@
 (add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
 
+;; Go Mode
+;; <https://github.com/dominikh/go-mode.el>
+(require 'go-mode-autoloads)
+
 ;; Org
 (setq org-publish-project-alist
       '(("org"
