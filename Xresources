@@ -42,7 +42,7 @@
 ! Misc terminal settings
 *VT100.alternateScroll:     true
 *VT100.geometry:            80x24
-*VT100.faceName:            xft:Monospace:size=9
+*VT100.faceName:            xft:Monospace:size=10
 !*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
 !*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 !*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
