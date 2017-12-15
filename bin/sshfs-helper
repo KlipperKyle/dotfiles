@@ -9,7 +9,7 @@ function fatal {
 }
 
 # Place to mount stuff
-n="/mnt/$USER"
+n="/n/$USER"
 
 # Host and path to mount
 # user@bar.foo.com:/srv/share/
