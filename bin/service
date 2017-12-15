@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# service - run a Slackware init script in a clean environment
+#
+
+if [ "$EUID" != 0 ] ; then
+    echo "$0: must be root"
+    exit 1
+fi
+cd /
+exec /usr/bin/env -i /bin/sh /etc/rc.d/"$@"
