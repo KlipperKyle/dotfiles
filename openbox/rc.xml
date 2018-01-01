@@ -396,7 +396,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>100%</height>
 	</action>
       </keybind>
-      <keybind key="h">
+      <keybind key="h W-h">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -404,7 +404,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>100%</height>
 	</action>
       </keybind>
-      <keybind key="k">
+      <keybind key="k W-k">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -412,7 +412,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="j">
+      <keybind key="j W-j">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>-0</y>
@@ -420,7 +420,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="y">
+      <keybind key="y W-y">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -428,7 +428,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="u">
+      <keybind key="u W-u">
 	<action name="MoveResizeTo">
 	  <x>-0</x>
 	  <y>0</y>
@@ -436,7 +436,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="b">
+      <keybind key="b W-b">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>-0</y>
@@ -444,7 +444,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="n">
+      <keybind key="n W-n">
 	<action name="MoveResizeTo">
 	  <x>-0</x>
 	  <y>-0</y>
