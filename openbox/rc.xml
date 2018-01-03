@@ -495,7 +495,8 @@ Differences:
 + Scrolling does not focus a window
 + Double-clicking titlebar maximizes instead of shading a window.
 + Super-clicking the titlebar raises a window.  (Window Maker would
-lower the window.)
+lower the window.)  Instead, middle-click the title bar to lower a
+window.
 
 http://openbox.org/wiki/Help:Bindings
 http://openbox.org/wiki/Help:Actions
@@ -557,7 +558,7 @@ http://openbox.org/wiki/Help:Actions
       </mousebind>
     </context>
     <context name="Titlebar">
-      <mousebind action="Drag" button="Left Middle Right">
+      <mousebind action="Drag" button="Left Middle">
         <action name="Move"/>
       </mousebind>
       <mousebind action="DoubleClick" button="Left">
@@ -586,11 +587,14 @@ http://openbox.org/wiki/Help:Actions
       </mousebind>
     </context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
-      <mousebind action="Press" button="Left Middle Right Up Down">
+      <mousebind action="Press" button="Left Middle Right">
         <action name="Focus"/>
       </mousebind>
       <mousebind action="Press" button="Left">
         <action name="Raise"/>
+      </mousebind>
+      <mousebind action="Press" button="Middle">
+        <action name="Lower"/>
       </mousebind>
     </context>
     <context name="Top">
