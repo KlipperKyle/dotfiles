@@ -56,6 +56,14 @@
 *VT100.multiScroll:         true
 *VT100.metaSendsEscape:     true
 
+! Xft (font rendering) ------------------------------------------------
+
+Xft.antialias:	1
+Xft.dpi:	96
+Xft.hinting:	1
+Xft.hintstyle:	hintfull
+Xft.rgba:	none
+
 ! xterm ----------------------------------------------------------------
 
 xterm.bellIsUrgent:         true
