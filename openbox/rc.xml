@@ -389,14 +389,26 @@ http://openbox.org/wiki/Help:Actions
 	<action name="ToggleOmnipresent"/>
       </keybind>
       <keybind key="l W-l">
-	<action name="MoveResizeTo">
-	  <x>-0</x>
-	  <y>0</y>
-	  <width>50%</width>
-	  <height>100%</height>
-	</action>
+	<action name="MoveToEdgeEast"/>
       </keybind>
       <keybind key="h W-h">
+	<action name="MoveToEdgeWest"/>
+      </keybind>
+      <keybind key="k W-k">
+	<action name="MoveToEdgeNorth"/>
+      </keybind>
+      <keybind key="j W-j">
+	<action name="MoveToEdgeSouth"/>
+      </keybind>
+      <keybind key="S-l W-S-l">
+	<action name="MoveResizeTo">
+	  <x>-0</x>
+	  <y>0</y>
+	  <width>50%</width>
+	  <height>100%</height>
+	</action>
+      </keybind>
+      <keybind key="S-h W-S-h">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -404,7 +416,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>100%</height>
 	</action>
       </keybind>
-      <keybind key="k W-k">
+      <keybind key="S-k W-S-k">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -412,7 +424,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="j W-j">
+      <keybind key="S-j W-S-j">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>-0</y>
@@ -420,7 +432,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="y W-y">
+      <keybind key="S-y W-S-y">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>0</y>
@@ -428,7 +440,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="u W-u">
+      <keybind key="S-u W-S-u">
 	<action name="MoveResizeTo">
 	  <x>-0</x>
 	  <y>0</y>
@@ -436,7 +448,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="b W-b">
+      <keybind key="S-b W-S-b">
 	<action name="MoveResizeTo">
 	  <x>0</x>
 	  <y>-0</y>
@@ -444,7 +456,7 @@ http://openbox.org/wiki/Help:Actions
 	  <height>50%</height>
 	</action>
       </keybind>
-      <keybind key="n W-n">
+      <keybind key="S-n W-S-n">
 	<action name="MoveResizeTo">
 	  <x>-0</x>
 	  <y>-0</y>
