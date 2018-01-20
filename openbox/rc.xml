@@ -472,6 +472,16 @@ http://openbox.org/wiki/Help:Actions
         <command>slacklock lock</command>
       </action>
     </keybind>
+    <keybind key="XF86Sleep">
+      <action name="Execute">
+        <command>slacklock suspend</command>
+      </action>
+    </keybind>
+    <keybind key="S-XF86Sleep">
+      <action name="Execute">
+        <command>slacklock hibernate</command>
+      </action>
+    </keybind>
     <keybind key="A-W-d">
       <action name="Execute">
         <command>xterm</command>
