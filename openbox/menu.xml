@@ -86,14 +86,14 @@ http://openbox.org/wiki/Help:Menus
 	<execute>palemoon</execute>
       </action>
     </item>
-    <item label="Thunar">
-      <action name="Execute">
-	<execute>thunar</execute>
-      </action>
-    </item>
     <item label="Google Chrome">
       <action name="Execute">
 	<execute>google-chrome-stable</execute>
+      </action>
+    </item>
+    <item label="Claws Mail">
+      <action name="Execute">
+	<execute>claws-mail</execute>
       </action>
     </item>
     <item label="Emacs">
@@ -101,9 +101,14 @@ http://openbox.org/wiki/Help:Menus
 	<execute>emacs</execute>
       </action>
     </item>
-    <item label="Claws Mail">
+    <item label="Thunar">
       <action name="Execute">
-	<execute>claws-mail</execute>
+	<execute>thunar</execute>
+      </action>
+    </item>
+    <item label="KeePassXC">
+      <action name="Execute">
+	<execute>keepassxc</execute>
       </action>
     </item>
     <item label="xosview">
