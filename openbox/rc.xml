@@ -131,7 +131,7 @@ and back in -->
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>Nonpixel</popupShow>
+    <popupShow>Always</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
     <!-- 'Center', 'Top', or 'Fixed' -->
@@ -495,6 +495,11 @@ http://openbox.org/wiki/Help:Actions
     <keybind key="A-W-c">
       <action name="Execute">
         <command>google-chrome-stable</command>
+      </action>
+    </keybind>
+    <keybind key="A-W-v">
+      <action name="Execute">
+        <command>emacsclient -nc</command>
       </action>
     </keybind>
     <keybind key="A-W-x">
