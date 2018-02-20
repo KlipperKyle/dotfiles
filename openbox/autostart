@@ -19,6 +19,8 @@
 #
 #xfce-mcs-manager &
 
-xsetroot -solid \#303030 &
+#xsetroot -solid \#303030 &
+xsetroot -solid \#808080 &
+#xsetroot -solid \#505075 &
 tint2 &
 [ -x "$HOME/.xautorun" ] && "$HOME/.xautorun" &
