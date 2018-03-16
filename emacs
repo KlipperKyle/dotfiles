@@ -39,7 +39,10 @@
  '(text-mode-hook
    (quote
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(tramp-shell-prompt-pattern
+   "\\(?:^\\|\\)[^]#$%>
+]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -88,6 +91,12 @@
 ;; Go Mode
 ;; <https://github.com/dominikh/go-mode.el>
 (require 'go-mode-autoloads)
+
+;; YAML Mode
+;; <https://github.com/yoshiki/yaml-mode>
+(autoload 'yaml-mode "yaml-mode")
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
 ;; Org
 (setq org-publish-project-alist
