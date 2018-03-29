@@ -7,7 +7,7 @@
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
 	 apply -->
-    <followMouse>yes</followMouse>
+    <followMouse>no</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!-- focus the last used window when changing desktops, instead of the one
@@ -241,7 +241,7 @@ http://openbox.org/wiki/Help:Actions
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
     </keybind>
-    <keybind key="A-space">
+    <keybind key="W-A-space">
       <action name="ShowMenu"><menu>client-menu</menu></action>
     </keybind>
 
@@ -372,6 +372,9 @@ http://openbox.org/wiki/Help:Actions
     <keybind key="W-c">
       <keybind key="c">
 	<action name="Close"/>
+      </keybind>
+      <keybind key="v W-v">
+	<action name="ToggleMaximize"><direction>horizontal</direction></action>
       </keybind>
       <keybind key="a W-a">
 	<action name="AddDesktop"/>
