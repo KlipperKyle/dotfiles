@@ -35,11 +35,11 @@
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame))))
- '(scroll-bar-mode (quote right))
+ '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
  '(text-mode-hook
    (quote
-    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
+    (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|\\)[^]#$%>
