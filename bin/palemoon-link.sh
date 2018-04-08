@@ -45,7 +45,7 @@ EOF
 
 # Refresh app list
 update-desktop-database -q
-gtk-update-icon-cache -q
+gtk-update-icon-cache -q -t /usr/local/share/icons/hicolor
 
 echo "Links created"
 echo "For more info: <http://linux.palemoon.org/help/installation/>"
