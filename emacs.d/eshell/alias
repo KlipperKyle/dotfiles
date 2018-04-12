@@ -1,0 +1,8 @@
+alias ffroof find-file-read-only-other-frame $1
+alias ffroow find-file-read-only-other-window $1
+alias ffof find-file-other-frame $1
+alias ffro find-file-read-only $1
+alias ffow find-file-other-window $1
+alias ff find-file $1
+alias la ls -la $*
+alias ll ls -l $*

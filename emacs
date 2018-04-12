@@ -24,6 +24,7 @@
        (defun dired-insert-set-properties
 	   (beg end)
 	 nil)))))
+ '(eshell-cmpl-cycle-completions nil)
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
@@ -37,9 +38,7 @@
      (wl . wl-other-frame))))
  '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
- '(text-mode-hook
-   (quote
-    (turn-on-flyspell text-mode-hook-identify)))
+ '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|\\)[^]#$%>
