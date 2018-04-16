@@ -228,7 +228,7 @@ http://openbox.org/wiki/Help:Actions
     </keybind>
     <keybind key="W-d">
       <action name="Execute">
-        <command>dmenu_run -b -fn monospace:size=10</command>
+        <command>dmenu_run -b -fn monospace:size=12</command>
       </action>
     </keybind>
 
