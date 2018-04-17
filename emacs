@@ -38,6 +38,7 @@
      (wl . wl-other-frame))))
  '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
+ '(term-mode-hook (quote ((lambda nil (term-set-escape-char 24)))))
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
