@@ -127,7 +127,7 @@ taskbar_name_background_id = 0
 taskbar_name_active_background_id = 0
 taskbar_name_font_color = #e7e7e7 100
 taskbar_name_active_font_color = #ffffff 100
-taskbar_distribute_size = 0
+taskbar_distribute_size = 1
 taskbar_sort_order = none
 task_align = left
 

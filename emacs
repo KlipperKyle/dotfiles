@@ -61,7 +61,7 @@
 (defun scroll-down-one () "Scroll down 1 line." (interactive)
        (scroll-down (prefix-numeric-value current-prefix-arg)))
 (define-key global-map "\C-z" 'scroll-up-one)
-(define-key global-map "\M-z" 'scroll-down-one)
+(define-key global-map "\C-\M-z" 'scroll-down-one)
 
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
 (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
