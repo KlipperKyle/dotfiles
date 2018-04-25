@@ -6,7 +6,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(browse-url-browser-function (quote browse-url-xdg-open))
  '(c-basic-offset 8)
  '(c-default-style
    (quote
@@ -50,6 +49,21 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
+
+;; Use xdg-open, even if we are not running a full-fledged desktop
+;; environment.  (See net/browse-url.el.gz)
+(with-eval-after-load 'browse-url
+  (defun browse-url-can-use-xdg-open ()
+    "Return non-nil if the \"xdg-open\" program can be used.
+xdg-open is a desktop utility that calls your preferred web
+browser."
+    (and (getenv "DISPLAY")
+	 (executable-find "xdg-open")
+	 ;; xdg-open may call gnome-open and that does not wait for its child
+	 ;; to finish.  This child may then be killed when the parent dies.
+	 ;; Use nohup to work around.  See bug#7166, bug#8917, bug#9779 and
+	 ;; http://lists.gnu.org/archive/html/emacs-devel/2009-07/msg00279.html
+	 (executable-find "nohup"))))
 
 ;; Custom lisp dir
 (add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
