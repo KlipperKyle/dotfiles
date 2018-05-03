@@ -42,6 +42,23 @@ http://openbox.org/wiki/Help:Menus
       <action name="Restart"/>
     </item>
   </menu>
+  <menu id="snapshot" label="Snapshot">
+    <item label="Snapshot">
+      <action name="Execute">
+	<execute>bash -c "xwd | convert - ~/tmp/screenshot-$(date +%s).png"</execute>
+      </action>
+    </item>
+    <item label="Snapshot with Frame">
+      <action name="Execute">
+	<execute>bash -c "xwd -frame | convert - ~/tmp/screenshot-$(date +%s).png"</execute>
+      </action>
+    </item>
+    <item label="Snapshot Fullscreen">
+      <action name="Execute">
+	<execute>bash -c "xwd -root | convert - ~/tmp/screenshot-$(date +%s).png"</execute>
+      </action>
+    </item>
+  </menu>
   <menu id="power" label="Power">
     <item label="Suspend">
       <action name="Execute">
@@ -119,6 +136,7 @@ http://openbox.org/wiki/Help:Menus
     <menu execute="xdg_menu --format openbox3-pipe --root-menu /etc/xdg/menus/applications.menu" id="applications" label="More..."/>
     <separator label="System"/>
     <menu id="openbox"/>
+    <menu id="snapshot"/>
     <menu id="power"/>
     <item label="Lock Screen">
       <action name="Execute">

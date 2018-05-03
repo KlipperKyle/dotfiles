@@ -469,6 +469,37 @@ http://openbox.org/wiki/Help:Actions
       </keybind>
     </keybind>
 
+    <!-- Print screen (courtesy of IgnorantGuru)
+	 https://igurublog.wordpress.com/2010/06/07/screen-snapshots-using-xwd/
+    -->
+    <keybind key="Print">
+      <action name="Execute">
+	<startupnotify>
+          <enabled>false</enabled>
+          <name>Snapshot</name>
+	</startupnotify>
+	<command>bash -c "xwd | convert - ~/tmp/screenshot-$(date +%s).png"</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+	<startupnotify>
+          <enabled>false</enabled>
+          <name>Snapshot with Frame</name>
+	</startupnotify>
+	<command>bash -c "xwd -frame | convert - ~/tmp/screenshot-$(date +%s).png"</command>
+      </action>
+    </keybind>
+    <keybind key="C-Print">
+      <action name="Execute">
+	<startupnotify>
+          <enabled>false</enabled>
+          <name>Snapshot Fullscreen</name>
+	</startupnotify>
+	<command>bash -c "xwd -root | convert - ~/tmp/screenshot-$(date +%s).png"</command>
+      </action>
+    </keybind>
+
     <!-- Keybindings for running applications -->
     <keybind key="C-A-l">
       <action name="Execute">
