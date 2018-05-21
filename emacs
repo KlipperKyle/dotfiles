@@ -24,6 +24,7 @@
 	   (beg end)
 	 nil)))))
  '(eshell-cmpl-cycle-completions nil)
+ '(eww-header-line-format "%u | %t")
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
@@ -42,7 +43,21 @@
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|\\)[^]#$%>
-]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*"))
+]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
+ '(w3m-fill-column 80)
+ '(w3m-home-page "~/org/index.html")
+ '(w3m-key-binding (quote info))
+ '(w3m-search-default-engine "duckduckgo")
+ '(w3m-uri-replace-alist
+   (quote
+    (("\\`gg:" w3m-search-uri-replace "google")
+     ("\\`ya:" w3m-search-uri-replace "yahoo")
+     ("\\`bts:" w3m-search-uri-replace "debian-bts")
+     ("\\`dpkg:" w3m-search-uri-replace "debian-pkg")
+     ("\\`alc:" w3m-search-uri-replace "alc")
+     ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
+     ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
+     ("\\`ddg:" w3m-search-uri-replace "duckduckgo")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -80,6 +95,18 @@ browser."
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
 (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
 (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
+
+;; New eww (web browser) buffer
+(defun eww-new (url)
+  (interactive
+   (let* ((uris (eww-suggested-uris))
+	  (prompt (concat "Enter URL or keywords"
+			  (if uris (format " (default %s)" (car uris)) "")
+			  ": ")))
+     (list (read-string prompt nil nil uris))))
+  (switch-to-buffer (generate-new-buffer "*eww*"))
+  (eww-mode)
+  (eww url))
 
 ;; Markdown Mode
 ;; <http://jblevins.org/projects/markdown-mode/>
