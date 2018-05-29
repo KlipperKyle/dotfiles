@@ -28,17 +28,8 @@
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
- '(org-export-backends (quote (ascii html icalendar latex md odt texinfo)))
- '(org-link-frame-setup
-   (quote
-    ((vm . vm-visit-folder-other-frame)
-     (vm-imap . vm-visit-imap-folder-other-frame)
-     (gnus . org-gnus-no-new-news)
-     (file . find-file)
-     (wl . wl-other-frame))))
  '(scroll-bar-mode (quote left))
  '(show-paren-mode t)
- '(term-mode-hook (quote ((lambda nil (term-set-escape-char 24)))))
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
