@@ -23,6 +23,7 @@
        (defun dired-insert-set-properties
 	   (beg end)
 	 nil)))))
+ '(echo-keystrokes 0.001)
  '(eshell-cmpl-cycle-completions nil)
  '(eww-header-line-format "%u | %t")
  '(flyspell-use-meta-tab nil)
@@ -34,7 +35,7 @@
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|\\)[^]#$%>
-]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
+]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*" nil (tramp))
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
  '(w3m-key-binding (quote info))

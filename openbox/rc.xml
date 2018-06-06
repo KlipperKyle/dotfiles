@@ -501,7 +501,7 @@ http://openbox.org/wiki/Help:Actions
     </keybind>
 
     <!-- Keybindings for running applications -->
-    <keybind key="C-A-l">
+    <keybind key="C-A-Delete">
       <action name="Execute">
         <command>slacklock lock</command>
       </action>
