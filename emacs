@@ -59,11 +59,13 @@
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
-(with-eval-after-load 'browse-url
-  (defun browse-url-can-use-xdg-open ()
+(eval-after-load 'browse-url
+  '(defun browse-url-can-use-xdg-open ()
     "Return non-nil if the \"xdg-open\" program can be used.
 xdg-open is a desktop utility that calls your preferred web
-browser."
+browser.
+
+This is customized in ‘~/.emacs’."
     (and (getenv "DISPLAY")
 	 (executable-find "xdg-open")
 	 ;; xdg-open may call gnome-open and that does not wait for its child

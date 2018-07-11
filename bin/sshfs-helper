@@ -9,7 +9,7 @@ function fatal {
 }
 
 # Place to mount stuff
-n="/n/$USER"
+n="/mnt/$USER"
 
 # Host and path to mount
 # user@bar.foo.com:/srv/share/
@@ -27,4 +27,4 @@ shift
 
 cd
 set -x
-exec sshfs "$host" "$n/$shorthost" -o transform_symlinks "$@"
+exec sshfs "$host" "$n/$shorthost" -o transform_symlinks,allow_root "$@"
