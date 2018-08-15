@@ -98,6 +98,11 @@ http://openbox.org/wiki/Help:Menus
 	<execute>xterm</execute>
       </action>
     </item>
+    <item label="Konsole">
+      <action name="Execute">
+	<execute>konsole</execute>
+      </action>
+    </item>
     <item label="Pale Moon">
       <action name="Execute">
 	<execute>palemoon</execute>
