@@ -46,7 +46,8 @@
      ("\\`alc:" w3m-search-uri-replace "alc")
      ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
      ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
-     ("\\`ddg:" w3m-search-uri-replace "duckduckgo")))))
+     ("\\`ddg:" w3m-search-uri-replace "duckduckgo"))))
+ '(wdired-allow-to-change-permissions (quote advanced)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

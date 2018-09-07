@@ -8,7 +8,8 @@
 [credential]
 	helper = cache
 [core]
-	pager = "less -RM"
+#	pager = "less -FMRXi"
+	pager = "cat"
 [diff]
 	tool = diffuse
 [merge]
