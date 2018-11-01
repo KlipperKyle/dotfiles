@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# SSH alias
+ssh() {
+    case ${TERM} in
+        xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+            printf "\033]0;%s %s\007" "ssh" "$*"
+        ;;
+        screen)
+            printf "\033_%s %s\033\\" "ssh" "$*"
+        ;;
+    esac
+    env ssh "$@"
+}
+
+# Update the caption bar with the current working directory
+case ${TERM} in
+    xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
+        PROMPT_COMMAND='printf "\033]0;%s\007" "${HOSTNAME%%.*}:${PWD/#$HOME/\~}"'
+        ;;
+    screen)
+        PROMPT_COMMAND='printf "\033_%s\033\\" "${HOSTNAME%%.*}:${PWD/#$HOME/\~}"'
+        ;;
+esac

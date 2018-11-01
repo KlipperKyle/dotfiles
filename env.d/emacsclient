@@ -1,0 +1,3 @@
+#!/bin/sh
+export EMACS_SERVER_FILE=server
+#export EMACSCLIENT_TRAMP="/-:$(uname -n):/"
