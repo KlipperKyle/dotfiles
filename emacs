@@ -7,7 +7,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-width 78)
- '(column-number-mode t)
+ '(c-basic-offset 8)
+ '(c-default-style
+   (quote
+    ((java-mode . "java")
+     (awk-mode . "awk")
+     (other . "k&r"))))
+'(column-number-mode t)
  '(dired-mode-hook
    (quote
     ((lambda nil
