@@ -48,6 +48,8 @@
 #   to add support for TRIM on LUKS root devs 
 # Modified by Patrick Volkerding <volkerdi@slackware.com> 29 June 2017
 #   Add support for prepending a microcode update archive (-P).
+# Modified by Kyle Terrien <kyleterrien@gmail.com> 4 November 2018
+#   Add option to copy xfs_repair (-X).
 
 MKINITRD_VERSION=1.4.10
 
@@ -114,6 +116,8 @@ initrd, and the script is easy to modify.  Be creative.  :-)
           then you need to pass: -K LABEL=TRAVELSTICK:/keys/alien.luks
   -B      Add /sbin/btrfs to enable scanning for a root filesystem that is
           part of a Btrfs multi-device filesystem.
+  -X      Add /sbin/xfs_repair to make it possible to manually repair a broken
+          XFS root filesystem from the initrd.
   -M      Add the files in /etc/modprobe.d/ and /lib/modprobe.d/ to the initrd
   -P      Prepend the output image with the microcode CPIO archive given in arguments.
   -R      Add support for RAID partitions
@@ -390,6 +394,10 @@ while [ ! -z "$1" ]; do
       BTRFS=1
       shift
       ;;
+    -X)
+      XFS=1
+      shift
+      ;;
     -M)
       MODCONF=1
       shift
@@ -537,6 +545,17 @@ if [ ! -z "$BTRFS" ]; then
     chmod 0755 $SOURCE_TREE/sbin/btrfs
   else
     echo "ERROR:  btrfs binary is missing, Btrfs support not installed"
+  fi
+fi
+
+# Include xfs_repair in initrd
+if [ ! -z "$XFS" ]; then
+  if [ -r /sbin/xfs_repair ]; then
+    mkdir -p $SOURCE_TREE/sbin
+    cp /sbin/xfs_repair $SOURCE_TREE/sbin/xfs_repair
+    chmod 0755 $SOURCE_TREE/sbin/xfs_repair
+  else
+    echo "ERROR:  xfs_repair binary is missing, not installed"
   fi
 fi
 
