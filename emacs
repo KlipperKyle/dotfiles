@@ -13,7 +13,8 @@
     ((java-mode . "java")
      (awk-mode . "awk")
      (other . "k&r"))))
-'(column-number-mode t)
+ '(column-number-mode t)
+ '(completions-format (quote vertical))
  '(dired-mode-hook
    (quote
     ((lambda nil
@@ -33,6 +34,14 @@
  '(scroll-bar-mode (quote left))
  '(server-port "9999")
  '(server-use-tcp t)
+ '(sh-set-shell-hook
+   (quote
+    ((lambda nil
+       (if
+	   (eq sh-shell
+	       (quote rc))
+	   (font-lock-mode 0)
+	 (font-lock-mode 1))))))
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
