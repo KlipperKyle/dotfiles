@@ -98,6 +98,11 @@ http://openbox.org/wiki/Help:Menus
 	<execute>xterm</execute>
       </action>
     </item>
+    <item label="9term (9 rc)">
+      <action name="Execute">
+	<execute>9 9term -W 754x500 rc</execute>
+      </action>
+    </item>
     <item label="Konsole">
       <action name="Execute">
 	<execute>konsole</execute>
@@ -121,6 +126,11 @@ http://openbox.org/wiki/Help:Menus
     <item label="Emacs">
       <action name="Execute">
 	<execute>emacsclient -nc</execute>
+      </action>
+    </item>
+    <item label="Acme">
+      <action name="Execute">
+	<execute>sh -c 'tabstop=8 SHELL=$PLAN9/bin/rc exec 9 acme'</execute>
       </action>
     </item>
     <item label="Thunar">
