@@ -43,6 +43,7 @@
 	   (font-lock-mode 0)
 	 (font-lock-mode 1))))))
  '(show-paren-mode t)
+ '(split-height-threshold 90)
  '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
@@ -68,7 +69,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 80 :width normal)))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -102,6 +103,7 @@ This is customized in ‘~/.emacs’."
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
 (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
 (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
+(global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
 
 ;; New eww (web browser) buffer
 (defun eww-new (url)

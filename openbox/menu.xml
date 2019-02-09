@@ -100,7 +100,7 @@ http://openbox.org/wiki/Help:Menus
     </item>
     <item label="9term (9 rc)">
       <action name="Execute">
-	<execute>9 9term -W 754x500 rc</execute>
+	<execute>9 9term -W 760x500 rc</execute>
       </action>
     </item>
     <item label="Konsole">

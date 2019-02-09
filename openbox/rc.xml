@@ -40,7 +40,7 @@
   </placement>
   <theme>
     <name>Bear2</name>
-    <titleLayout>NDLIMC</titleLayout>
+    <titleLayout>ILC</titleLayout>
     <!--
 	available characters are NDSLIMC, each can occur at most once.
 	N: window icon
@@ -52,7 +52,7 @@
 	D: omnipresent (on all desktops).
     -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>sans</name>
       <size>8</size>
@@ -130,7 +130,7 @@ and back in -->
 	 desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
-    <drawContents>yes</drawContents>
+    <drawContents>no</drawContents>
     <popupShow>Always</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
@@ -523,7 +523,7 @@ http://openbox.org/wiki/Help:Actions
     </keybind>
     <keybind key="A-W-c">
       <action name="Execute">
-        <command>9 9term -W 754x500 rc</command>
+        <command>9 9term -W 760x500 rc</command>
       </action>
     </keybind>
     <keybind key="A-W-f">
