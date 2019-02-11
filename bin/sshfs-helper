@@ -19,7 +19,7 @@ shorthost="${host%:*}"
 # bar.foo.com
 #shorthost="${shorthost#*@}"
 # bar
-shorthost="${shorthost%%.*}"
+#shorthost="${shorthost%%.*}"
 shift
 
 [[ ! -z "$host" ]] || fatal "Missing Hostname/path"
