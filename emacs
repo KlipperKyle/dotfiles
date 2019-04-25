@@ -26,11 +26,13 @@
 	   (beg end)
 	 nil)))))
  '(echo-keystrokes 0.001)
+ '(electric-quote-mode t)
  '(eshell-cmpl-cycle-completions nil)
  '(eww-header-line-format "%u | %t")
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
+ '(org-export-backends (quote (ascii html icalendar man md odt texinfo)))
  '(scroll-bar-mode (quote left))
  '(server-port "9999")
  '(server-use-tcp t)
@@ -44,11 +46,13 @@
 	 (font-lock-mode 1))))))
  '(show-paren-mode t)
  '(split-height-threshold 90)
- '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
+ '(text-mode-hook
+   (quote
+    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|\\)[^]#$%>
-]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*" nil (tramp))
+]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
  '(w3m-key-binding (quote info))
@@ -69,7 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 80 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
