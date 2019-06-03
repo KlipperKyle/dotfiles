@@ -7,7 +7,11 @@
 # <https://wiki.archlinux.org/index.php/Consolekit#Use_D-Bus_for_power_operations>
 
 lock() {
+    if pgrep -x xscreensaver > /dev/null ; then
+	xscreensaver-command -lock
+    else
 	xlock -allowroot -usefirst -mode blank -dpmsoff 1
+    fi
 }
 
 sus() {
