@@ -109,6 +109,14 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 (global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
 
+;; Use cperl-mode instead of perl-mode
+;; <https://www.emacswiki.org/emacs/CPerlMode>
+(mapc
+ (lambda (pair)
+   (if (eq (cdr pair) 'perl-mode)
+       (setcdr pair 'cperl-mode)))
+ (append auto-mode-alist interpreter-mode-alist))
+
 ;; New eww (web browser) buffer
 (defun eww-new (url)
   (interactive
