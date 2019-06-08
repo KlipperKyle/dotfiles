@@ -27,7 +27,7 @@ ln -s /opt/palemoon/browser/icons/mozicon128.png /usr/local/share/icons/hicolor/
 
 # Desktop file
 [ -d /usr/local/share/applications/ ] || mkdir -p /usr/local/share/applications/
-cat > /usr/local/share/applications/palemoon.desktop << "EOF"
+cat > /usr/local/share/applications/palemoon.desktop << 'EOF'
 [Desktop Entry]
 Version=1.0
 Name=Pale Moon Web Browser
@@ -38,14 +38,14 @@ Terminal=false
 X-MultipleArgs=false
 Type=Application
 Icon=palemoon
-Categories=Network;WebBrowser;
+Categories=Network;WebBrowser;Internet
 MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
 StartupNotify=true
 EOF
 
 # Refresh app list
-update-desktop-database -q
-gtk-update-icon-cache -q -t /usr/local/share/icons/hicolor
+#update-desktop-database -q
+#gtk-update-icon-cache -q -t /usr/local/share/icons/hicolor
 
 echo "Links created"
 echo "For more info: <http://linux.palemoon.org/help/installation/>"
