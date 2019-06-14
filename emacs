@@ -171,11 +171,11 @@ This is customized in ‘~/.emacs’."
 (setq org-todo-keywords
       '((sequence "TODO(t)" "INPROG(p)" "|" "DONE(d)")
 	(sequence "BLOCKED(b)" "|")
-	(sequence "|" "CANCELLED(c)")))
+	(sequence "|" "CANCELED(c)")))
 (setq org-todo-keyword-faces
       '(("INPROG" . "orange")
 	("BLOCKED" . "purple")
-	("CANCELLED" . "blue")))
+	("CANCELED" . "blue")))
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")
