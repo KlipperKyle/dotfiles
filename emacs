@@ -116,6 +116,7 @@ This is customized in ‘~/.emacs’."
    (if (eq (cdr pair) 'perl-mode)
        (setcdr pair 'cperl-mode)))
  (append auto-mode-alist interpreter-mode-alist))
+(setq cperl-indent-level 4)
 
 ;; New eww (web browser) buffer
 (defun eww-new (url)
@@ -161,12 +162,20 @@ This is customized in ‘~/.emacs’."
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
-;; Org
+;; Org Mode
 (setq org-publish-project-alist
       '(("org"
 	 :base-directory "~/org"
 	 :publishing-directory "~/org"
 	 :publishing-function org-html-publish-to-html)))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "INPROG(p)" "|" "DONE(d)")
+	(sequence "BLOCKED(b)" "|")
+	(sequence "|" "CANCELLED(c)")))
+(setq org-todo-keyword-faces
+      '(("INPROG" . "orange")
+	("BLOCKED" . "purple")
+	("CANCELLED" . "blue")))
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")
