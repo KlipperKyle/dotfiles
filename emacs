@@ -116,7 +116,9 @@ This is customized in ‘~/.emacs’."
    (if (eq (cdr pair) 'perl-mode)
        (setcdr pair 'cperl-mode)))
  (append auto-mode-alist interpreter-mode-alist))
-(setq cperl-indent-level 4)
+(setq cperl-indent-level 4
+      cperl-continued-statement-offset 4
+      cperl-label-offset -4)
 
 ;; New eww (web browser) buffer
 (defun eww-new (url)
