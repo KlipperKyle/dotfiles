@@ -171,7 +171,7 @@ This is customized in ‘~/.emacs’."
 	 :publishing-directory "~/org"
 	 :publishing-function org-html-publish-to-html)))
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "INPROG(p)" "|" "DONE(d)")
+      '((sequence "TODO(t)" "INPROG(i)" "|" "DONE(d)")
 	(sequence "BLOCKED(b)" "|")
 	(sequence "|" "CANCELED(c)")))
 (setq org-todo-keyword-faces
