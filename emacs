@@ -7,6 +7,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-width 78)
+ '(ansi-color-names-vector
+   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(c-basic-offset 8)
  '(c-default-style
    (quote
@@ -15,6 +17,7 @@
      (other . "k&r"))))
  '(column-number-mode t)
  '(completions-format (quote vertical))
+ '(custom-enabled-themes (quote (adwaita)))
  '(dired-mode-hook
    (quote
     ((lambda nil
