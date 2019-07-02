@@ -41,9 +41,6 @@ if [ "$TERM" != dumb -o "$EMACS" = "t" -o -n "$INSIDE_EMACS" ]; then
 fi
 
 # Aliases
-alias ll='ls -l'
-alias la='ls -la'
-alias xyzzy='cd ~-/'
 alias clip='xclip -selection c'
 function qr { qrencode -o - "$@" | display; }
 alias sk='slacklock'
