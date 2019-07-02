@@ -25,6 +25,8 @@
 
 wmsetbg -p '(solid, "#303030")' &
 #xcompmgr &
+#compton -cCG -r6 -l-8 -t-8 &
+#compton -cCG &
 
 tint2 &
 [ -x "$HOME/.xautorun" ] && "$HOME/.xautorun" &
