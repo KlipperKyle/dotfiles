@@ -12,8 +12,12 @@ if [ "$USER" != "root" ] ; then
     exit 1
 fi
 
-# Binary
-ln -s /opt/palemoon/palemoon /usr/local/bin/palemoon
+# Wrapper script for binary
+[ -L /usr/local/bin/palemoon ] && rm -f /usr/local/bin/palemoon
+cat > /usr/local/bin/palemoon << 'EOF'
+#!/bin/bash
+exec /opt/palemoon/palemoon "$@"
+EOF
 
 # Icons
 mkdir -p /usr/local/share/icons/hicolor/16x16/apps/
