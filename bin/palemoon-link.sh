@@ -18,6 +18,7 @@ cat > /usr/local/bin/palemoon << 'EOF'
 #!/bin/bash
 exec /opt/palemoon/palemoon "$@"
 EOF
+chmod 755 /usr/local/bin/palemoon
 
 # Icons
 mkdir -p /usr/local/share/icons/hicolor/16x16/apps/
