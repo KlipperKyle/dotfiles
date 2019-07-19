@@ -144,6 +144,8 @@ This is customized in ‘~/.emacs’."
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
+(setq markdown-content-type "text/html; charset=utf-8")
+
 ;; TWiki Mode
 ;; <https://github.com/christopherjwhite/emacs-twiki-mode>
 ;; Also: <http://www.twiki.org/cgi-bin/view/Support/UsingEmacsToEditTwiki>
