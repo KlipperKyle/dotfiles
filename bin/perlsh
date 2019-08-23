@@ -35,3 +35,4 @@ while (<>) {
     }
     print $prompt;
 }
+print "\n";
