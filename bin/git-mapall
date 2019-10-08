@@ -1,0 +1,10 @@
+#!/bin/sh
+# git-mapall: For each (git) directory under the current directory,
+# run the specified git command.
+
+for d in * ; do
+    if [ -d "$d" ] ; then
+	echo + git -C "$d" "$@"
+	git -C "$d" "$@"
+    fi
+done
