@@ -1,0 +1,27 @@
+;; -*- mode: emacs-lisp -*-
+;;
+;; This contains some old elisp that ties together old static versions
+;; of various elisp libraries that I have.
+;;
+
+;; Markdown Mode
+;; <http://jblevins.org/projects/markdown-mode/>
+;; <https://github.com/jrblevin/markdown-mode/tree/stable>
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+;; Go Mode
+;; <https://github.com/dominikh/go-mode.el>
+(require 'go-mode-autoloads)
+
+;; YAML Mode
+;; <https://github.com/yoshiki/yaml-mode>
+(autoload 'yaml-mode "yaml-mode")
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))

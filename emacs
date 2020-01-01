@@ -1,6 +1,13 @@
 ;; -*- mode: emacs-lisp -*-
 ;; ~/.emacs
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -33,6 +40,7 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-export-backends (quote (ascii html icalendar man md odt texinfo)))
+ '(package-selected-packages (quote (go-mode yaml-mode markdown-mode htmlize)))
  '(scroll-bar-mode (quote left))
  '(server-port "9999")
  '(server-use-tcp t)
@@ -73,7 +81,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
+ '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal))))
+ '(region ((t (:background "LightGoldenrod2")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -91,6 +100,10 @@ This is customized in ‘~/.emacs’."
 	 ;; Use nohup to work around.  See bug#7166, bug#8917, bug#9779 and
 	 ;; http://lists.gnu.org/archive/html/emacs-devel/2009-07/msg00279.html
 	 (executable-find "nohup"))))
+
+;; Setup ELPA and MELPA
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
 
 ;; Custom lisp dir
 (add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
@@ -133,17 +146,7 @@ This is customized in ‘~/.emacs’."
   (eww url))
 
 ;; Markdown Mode
-;; <http://jblevins.org/projects/markdown-mode/>
-;; <https://github.com/jrblevin/markdown-mode/tree/stable>
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
+;; Install from MELPA
 (setq markdown-content-type "text/html; charset=utf-8")
 
 ;; TWiki Mode
@@ -155,16 +158,6 @@ This is customized in ‘~/.emacs’."
 (add-hook 'twiki-mode-hook 'turn-on-flyspell)
 (add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
-
-;; Go Mode
-;; <https://github.com/dominikh/go-mode.el>
-(require 'go-mode-autoloads)
-
-;; YAML Mode
-;; <https://github.com/yoshiki/yaml-mode>
-(autoload 'yaml-mode "yaml-mode")
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml\\'" . yaml-mode))
 
 ;; Org Mode
 (setq org-publish-project-alist
