@@ -1,5 +1,5 @@
 ;; -*- mode: emacs-lisp -*-
-;; ~/.emacs
+;; ~/.emacs.d/init.el
 
 
 ;; Added by Package.el.  This must come before configurations of
@@ -7,6 +7,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+
+;; Setup ELPA and MELPA
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -100,10 +104,6 @@ This is customized in ‘~/.emacs’."
 	 ;; Use nohup to work around.  See bug#7166, bug#8917, bug#9779 and
 	 ;; http://lists.gnu.org/archive/html/emacs-devel/2009-07/msg00279.html
 	 (executable-find "nohup"))))
-
-;; Setup ELPA and MELPA
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			 ("melpa" . "https://melpa.org/packages/")))
 
 ;; Custom lisp dir
 (add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
