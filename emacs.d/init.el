@@ -43,8 +43,14 @@
  '(flyspell-use-meta-tab nil)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
+ '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-export-backends (quote (ascii html icalendar man md odt texinfo)))
- '(package-selected-packages (quote (go-mode yaml-mode markdown-mode htmlize)))
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-mouse org-rmail org-w3m)))
+ '(package-selected-packages
+   (quote
+    (atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
  '(scroll-bar-mode (quote left))
  '(server-port "9999")
  '(server-use-tcp t)
@@ -63,7 +69,8 @@
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
-   "\\(?:^\\|\\)[^]#$%>
+   "\\(?:^\\|
+\\)[^]#$%>
 ]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
@@ -149,17 +156,11 @@ This is customized in ‘~/.emacs’."
 ;; Install from MELPA
 (setq markdown-content-type "text/html; charset=utf-8")
 
-;; TWiki Mode
-;; <https://github.com/christopherjwhite/emacs-twiki-mode>
-;; Also: <http://www.twiki.org/cgi-bin/view/Support/UsingEmacsToEditTwiki>
-;; Also: <https://addons.mozilla.org/en-US/seamonkey/addon/its-all-text/>
-(autoload 'twiki-mode "twiki"
-  "Major mode for editing TWiki markup" t)
-(add-hook 'twiki-mode-hook 'turn-on-flyspell)
-(add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
-(add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
-
 ;; Org Mode
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-switchb)
 (setq org-publish-project-alist
       '(("org"
 	 :base-directory "~/org"
@@ -167,12 +168,18 @@ This is customized in ‘~/.emacs’."
 	 :publishing-function org-html-publish-to-html)))
 (setq org-todo-keywords
       '((sequence "TODO(t)" "INPROG(i)" "|" "DONE(d)")
-	(sequence "BLOCKED(b)" "|")
-	(sequence "|" "CANCELED(c)")))
+	(sequence "BLOCKED(b)" "|" "CANCELED(c)")))
 (setq org-todo-keyword-faces
       '(("INPROG" . "orange")
 	("BLOCKED" . "purple")
 	("CANCELED" . "blue")))
+(setq org-log-done 'time)
+
+;; atomic-chrome
+(setq atomic-chrome-buffer-open-style 'full)
+
+;; ebuild-mode
+(setq ebuild-mode-update-copyright nil)
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")
