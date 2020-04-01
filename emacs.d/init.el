@@ -69,8 +69,7 @@
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
-   "\\(?:^\\|
-\\)[^]#$%>
+   "\\(?:^\\|\\)[^]#$%>
 ]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
@@ -125,9 +124,17 @@ This is customized in ‘~/.emacs’."
 (define-key global-map "\C-\M-z" 'scroll-down-one)
 
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
-(global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
-(global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
-(global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
+(define-key global-map (kbd "<mouse-6>") (lambda () (interactive) ()))
+(define-key global-map (kbd "<mouse-7>") (lambda () (interactive) ()))
+
+;; Annoyances with KVM switch
+(define-key global-map (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
+(define-key global-map (kbd "<scroll>") (lambda () (interactive) ()))
+
+;; Annoyances with Windows
+(define-key global-map (kbd "<apps>") 'execute-extended-command)
+(define-key global-map (kbd "<C-lwindow>") (lambda () (interactive) ()))
+(define-key global-map (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
