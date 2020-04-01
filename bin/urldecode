@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# https://unix.stackexchange.com/a/187256
+sed "s@+@ @g;s@%@\\\\x@g" | xargs -0 printf "%b"

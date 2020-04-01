@@ -23,8 +23,9 @@
 #xsetroot -solid \#808080 &
 #xsetroot -solid \#505075 &
 
-wmsetbg -p '(solid, "#303030")' &
-#xcompmgr &
+#wmsetbg -p '(solid, "#303030")' &
+wmsetbg -p '(solid, "#505075")' &
+#xcompmgr -cC &
 #compton -cCG -r6 -l-8 -t-8 &
 #compton -cCG &
 
