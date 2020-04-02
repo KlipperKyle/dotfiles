@@ -120,21 +120,24 @@ This is customized in ‘~/.emacs’."
        (scroll-up (prefix-numeric-value current-prefix-arg)))
 (defun scroll-down-one () "Scroll down 1 line." (interactive)
        (scroll-down (prefix-numeric-value current-prefix-arg)))
-(define-key global-map "\C-z" 'scroll-up-one)
-(define-key global-map "\C-\M-z" 'scroll-down-one)
+(global-set-key "\C-z" 'scroll-up-one)
+(global-set-key "\C-\M-z" 'scroll-down-one)
 
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
-(define-key global-map (kbd "<mouse-6>") (lambda () (interactive) ()))
-(define-key global-map (kbd "<mouse-7>") (lambda () (interactive) ()))
+(global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
+(global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 
 ;; Annoyances with KVM switch
-(define-key global-map (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
-(define-key global-map (kbd "<scroll>") (lambda () (interactive) ()))
+(global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
+(global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
 
 ;; Annoyances with Windows
-(define-key global-map (kbd "<apps>") 'execute-extended-command)
-(define-key global-map (kbd "<C-lwindow>") (lambda () (interactive) ()))
-(define-key global-map (kbd "<C-rwindow>") (lambda () (interactive) ()))
+(global-set-key (kbd "<apps>") 'execute-extended-command)
+(global-set-key (kbd "<C-lwindow>") (lambda () (interactive) ()))
+(global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
+
+;; quit-window keybinding
+(global-set-key (kbd "C-c q") 'quit-window)
 
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
