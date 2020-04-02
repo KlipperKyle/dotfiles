@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Launch ssh-agent if it is not running.  Source the ssh-agent
+# environment variables if it is running.
+if ps -u $UID | grep -q /usr/bin/ssh-agent ; then
+    if [ -e "${HOME}/.ssh/ssh-agent.vars" ] ; then
+	source "${HOME}/.ssh/ssh-agent.vars"
+    else
+	echo 'ssh-agent running, but ~/.ssh/ssh-agent.vars environment file does not exist.'
+    fi
+else
+    touch "${HOME}/.ssh/ssh-agent.vars" && \
+    chmod 600 "${HOME}/.ssh/ssh-agent.vars" && \
+    ssh-agent > "${HOME}/.ssh/ssh-agent.vars" && \
+    source "${HOME}/.ssh/ssh-agent.vars"
+fi
