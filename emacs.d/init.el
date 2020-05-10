@@ -18,12 +18,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-width 78)
- '(c-basic-offset 8)
- '(c-default-style
-   (quote
-    ((java-mode . "java")
-     (awk-mode . "awk")
-     (other . "k&r"))))
  '(column-number-mode t)
  '(completions-format (quote vertical))
  '(dired-mode-hook
@@ -45,13 +39,10 @@
  '(mouse-wheel-progressive-speed nil)
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-export-backends (quote (ascii html icalendar man md odt texinfo)))
- '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-mouse org-rmail org-w3m)))
- '(package-selected-packages
-   (quote
-    (atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
- '(scroll-bar-mode (quote left))
+ ;; '(package-selected-packages
+ ;;   (quote
+ ;;    (w3m go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
+ '(safe-local-variable-values (quote ((sgml-basic-offset . 2))))
  '(server-port "9999")
  '(server-use-tcp t)
  '(sh-set-shell-hook
@@ -69,7 +60,8 @@
     (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
-   "\\(?:^\\|\\)[^]#$%>
+   "\\(?:^\\|
+\\)[^]#$%>
 ]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
@@ -112,7 +104,10 @@ This is customized in ‘~/.emacs’."
 	 (executable-find "nohup"))))
 
 ;; Custom lisp dir
-(add-to-list 'load-path (concat (getenv "HOME") "/.emacs.d/lisp"))
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
+;; Custom theme dir
+(setq custom-theme-directory "~/.emacs.d/themes")
 
 ;; Scroll the screen "up" or "down" one line with C-z and M-z
 ;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
@@ -139,6 +134,21 @@ This is customized in ‘~/.emacs’."
 ;; quit-window keybinding
 (global-set-key (kbd "C-c q") 'quit-window)
 
+(defun infer-indentation-style () (interactive)
+  "Infer indentation style from buffer contents.
+
+If our source file uses tabs, we use tabs, if spaces spaces, and
+if neither, we use the current indent-tabs-mode.
+
+See https://www.emacswiki.org/emacs/NoTabs"
+  (let ((space-count (how-many "^  " (point-min) (point-max)))
+	(tab-count (how-many "^\t" (point-min) (point-max))))
+    (if (> space-count tab-count) (setq indent-tabs-mode nil))
+    (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+;; atomic-chrome
+(setq atomic-chrome-buffer-open-style 'full)
+
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
 (mapc
@@ -149,6 +159,9 @@ This is customized in ‘~/.emacs’."
 (setq cperl-indent-level 4
       cperl-continued-statement-offset 4
       cperl-label-offset -4)
+
+;; ebuild-mode
+(setq-default ebuild-mode-update-copyright nil)
 
 ;; New eww (web browser) buffer
 (defun eww-new (url)
@@ -162,9 +175,14 @@ This is customized in ‘~/.emacs’."
   (eww-mode)
   (eww url))
 
-;; Markdown Mode
+;; go-mode
 ;; Install from MELPA
-(setq markdown-content-type "text/html; charset=utf-8")
+(require 'mode-local)
+(setq-mode-local go-mode tab-width 4)
+
+;; markdown-mode
+;; Install from MELPA
+(setq-default markdown-content-type "text/html; charset=utf-8")
 
 ;; Org Mode
 (global-set-key "\C-cl" 'org-store-link)
@@ -177,19 +195,36 @@ This is customized in ‘~/.emacs’."
 	 :publishing-directory "~/org"
 	 :publishing-function org-html-publish-to-html)))
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "INPROG(i)" "|" "DONE(d)")
-	(sequence "BLOCKED(b)" "|" "CANCELED(c)")))
+      '((sequence "TODO(t)" "INPROG(i!/!)" "|" "DONE(d!/!)")
+	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
 (setq org-todo-keyword-faces
       '(("INPROG" . "orange")
 	("BLOCKED" . "purple")
 	("CANCELED" . "blue")))
 (setq org-log-done 'time)
 
-;; atomic-chrome
-(setq atomic-chrome-buffer-open-style 'full)
+(defun org-todo-at-date (date)
+  "Run org-todo as though it had been executed at some prior time
+that is interactively selected using org-read-date.
 
-;; ebuild-mode
-(setq ebuild-mode-update-copyright nil)
+This is particularly useful if you use the org-habits module and
+you are late to file the completion of a habit.  If you complete
+the habit with org-todo it will be completed for the current day,
+and scheduled to repeat at the next repeat interval based on the
+current date.  If you use org-todo-at-date and set the
+appropriate date, the task will be scheduled to repeat as though
+the task had been completed on the specified date.
+
+https://www.emacswiki.org/emacs/OrgMode"
+  (interactive (list (org-time-string-to-time (org-read-date))))
+  (cl-flet ((org-current-effective-time (&rest r) date)
+	    (org-today (&rest r) (time-to-days date)))
+    (org-todo)))
+
+;; python-mode
+(add-hook 'python-mode-hook 'infer-indentation-style)
+(require 'mode-local)
+(setq-mode-local python-mode tab-width 4)
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")

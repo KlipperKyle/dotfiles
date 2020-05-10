@@ -36,3 +36,12 @@
 (add-to-list 'auto-mode-alist'("\\.twiki$" . twiki-mode))
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
 
+;; Acme keybindings
+;; (if (not (require 'acme-search nil t))
+;;     (message "‘acme-search’ not found")
+;;   (global-set-key [(mouse-3)] 'acme-search-forward)
+;;   (global-set-key [(shift mouse-3)] 'acme-search-backward))
+
+;; (if (not (require 'acme-mouse nil t))
+;;     (message "‘acme-mouse’ not found"))
+
