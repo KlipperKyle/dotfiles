@@ -134,6 +134,9 @@ This is customized in ‘~/.emacs’."
 ;; quit-window keybinding
 (global-set-key (kbd "C-c q") 'quit-window)
 
+;; Show inline completions
+(icomplete-mode)
+
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
 
