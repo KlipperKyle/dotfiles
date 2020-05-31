@@ -28,13 +28,34 @@ rsync -aHAXx --delete --info=progress2 /boot/ /mnt/alt/boot/ || exit 1
 # Prepare the script to run within the chroot
 cat > /mnt/alt/prepme <<'EOF'
 #!/bin/bash
-echo "$0: installing Grub to /dev/sdc"
-grub-install --target=i386-pc --no-floppy /dev/sdc || exit 1
-echo "$0: Swapping /dev/sda and /dev/sdc in /etc/fstab"
-sed -i.bak -e 's/sda/sdx/' -e 's/sdc/sda/' -e 's/sdx/sdc/' /etc/fstab || exit 1
+
+# Get the drive letter of the drive to which to install the bootloader.
+TARGETDRIVE="$(readlink -f /dev/disk/by-label/rootalt)"
+TARGETDRIVE="${TARGETDRIVE%%[[:digit:]]}"
+if [ ! -e "$TARGETDRIVE" ] ; then
+    echo "$0: Target drive $TARGETDRIVE does not exist." >&2
+    exit 1
+fi
+
+echo "$0: installing Grub to $TARGETDRIVE"
+grub-install --target=i386-pc --no-floppy $TARGETDRIVE || exit 1
+
+echo "$0: Swapping root, rootalt, and friends in /etc/fstab"
+sed -i.bak -e '
+	s/^LABEL=boot\b/LABEL=bootalt/
+	s/^LABEL=swap\b/LABEL=swapalt/
+	s/^LABEL=root\b/LABEL=rootalt/
+	t
+	s/^LABEL=bootalt\b/LABEL=boot/
+	s/^LABEL=swapalt\b/LABEL=swap/
+	s/^LABEL=rootalt\b/LABEL=root/
+	' /etc/fstab || exit 1
+
 echo "$0: boot-update"
 boot-update || exit 1
+
 rm /prepme
+
 EOF
 
 # chroot and update the bootloader and fstab
