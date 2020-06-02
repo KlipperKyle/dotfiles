@@ -20,6 +20,7 @@
  '(Man-width 78)
  '(column-number-mode t)
  '(completions-format (quote vertical))
+ '(confirm-kill-emacs (quote y-or-n-p))
  '(dired-mode-hook
    (quote
     ((lambda nil
@@ -38,10 +39,9 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-agenda-files (quote ("~/org/todo.org")))
- '(org-export-backends (quote (ascii html icalendar man md odt texinfo)))
  ;; '(package-selected-packages
  ;;   (quote
- ;;    (w3m go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
+ ;;    (web-mode php-mode w3m go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
  '(safe-local-variable-values (quote ((sgml-basic-offset . 2))))
  '(server-port "9999")
  '(server-use-tcp t)
@@ -180,8 +180,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; go-mode
 ;; Install from MELPA
-(require 'mode-local)
-(setq-mode-local go-mode tab-width 4)
+;; (require 'mode-local)
+;; (setq-mode-local go-mode tab-width 4)
 
 ;; markdown-mode
 ;; Install from MELPA
@@ -224,10 +224,28 @@ https://www.emacswiki.org/emacs/OrgMode"
 	    (org-today (&rest r) (time-to-days date)))
     (org-todo)))
 
+;; php-mode
+;; [f5] switches between mhtml-mode and php-mode
+;; (if (fboundp 'php-mode)
+;;     (progn
+;;       (add-hook 'php-mode-hook (lambda ()
+;; 				 (define-key php-mode-map [f5] 'mhtml-mode)))
+;;       (add-hook 'mhtml-mode-hook (lambda ()
+;; 				   (define-key mhtml-mode-map [f5]
+;; 				     (lambda () (interactive)
+;; 				       (flyspell-mode 0)
+;; 				       (php-mode)))))))
+
 ;; python-mode
+;; (add-hook 'python-mode-hook
+;; 	  (lambda ()
+;; 	    (if indent-tabs-mode
+;; 		(setq tab-width 4
+;; 		      python-indent-offset 4))))
 (add-hook 'python-mode-hook 'infer-indentation-style)
-(require 'mode-local)
-(setq-mode-local python-mode tab-width 4)
+
+;; web-mode
+(setq-default web-mode-markup-indent-offset 2)
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")
