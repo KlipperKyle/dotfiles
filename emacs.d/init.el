@@ -32,6 +32,7 @@
 	   (beg end)
 	 nil)))))
  '(echo-keystrokes 0.001)
+ '(electric-pair-mode t)
  '(electric-quote-mode t)
  '(eshell-cmpl-cycle-completions nil)
  '(eww-header-line-format "%u | %t")
@@ -55,9 +56,8 @@
 	 (font-lock-mode 1))))))
  '(show-paren-mode t)
  '(split-height-threshold 90)
- '(text-mode-hook
-   (quote
-    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
+ '(sql-mysql-options (quote ("--prompt=mysql> ")))
+ '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|
@@ -131,11 +131,15 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "<C-lwindow>") (lambda () (interactive) ()))
 (global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
-;; quit-window keybinding
+;; Global keybindings
 (global-set-key (kbd "C-c q") 'quit-window)
+(global-set-key (kbd "C-c r") 'revert-buffer)
 
-;; Show inline completions
+;; Show inline completions.
 (icomplete-mode)
+
+;; Delete selection when typing over it.
+(delete-selection-mode t)
 
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
@@ -159,9 +163,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
    (if (eq (cdr pair) 'perl-mode)
        (setcdr pair 'cperl-mode)))
  (append auto-mode-alist interpreter-mode-alist))
-(setq cperl-indent-level 4
-      cperl-continued-statement-offset 4
-      cperl-label-offset -4)
+(setq cperl-indent-level 8
+      cperl-continued-statement-offset 8
+      cperl-label-offset -8)
 
 ;; ebuild-mode
 (setq-default ebuild-mode-update-copyright nil)
