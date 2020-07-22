@@ -6,6 +6,7 @@ if [ "$UID" -ne 0 ] ; then
 fi
 
 rsync -aAXHS \
-    --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*/.cache/*","/home/*/.ccache/*","/home/*/.thumbnails/*","/home/*/.gvfs"} \
+    --exclude={"/d1/*","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found","/home/*/.cache/*","/home/*/.ccache/*","/home/*/.thumbnails/*","/home/*/.gvfs"} \
     --delete \
+    --info=progress2 \
     / /mnt/backup/landru/
