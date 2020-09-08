@@ -60,19 +60,19 @@ rsync -aAXHx --delete --info=progress2 \
 [ -n "$UMOUNT_BOOT" ] && umount /boot
 
 # Backup the alternate system partitions
-echo "$0: Backing up /mnt/alt"
-rsync -aAXHx --delete --info=progress2 \
-      /mnt/alt/ /mnt/backup/perkins/mnt/alt/ \
-    || exit 1
-
-[ -n "$UMOUNT_ALT" ] && umount /mnt/alt
-
 echo "$0: Backing up /mnt/alt/boot"
 rsync -aAXHx --delete --info=progress2 \
       /mnt/alt/boot/ /mnt/backup/perkins/mnt/alt/boot/ \
     || exit 1
 
 [ -n "$UMOUNT_ALT_BOOT" ] && umount /mnt/alt/boot
+
+echo "$0: Backing up /mnt/alt"
+rsync -aAXHx --delete --info=progress2 \
+      /mnt/alt/ /mnt/backup/perkins/mnt/alt/ \
+    || exit 1
+
+[ -n "$UMOUNT_ALT" ] && umount /mnt/alt
 
 [ -n "$UMOUNT_BACKUP" ] && umount /mnt/backup
 
