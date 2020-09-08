@@ -17,7 +17,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(Man-width 78)
+ '(Man-width 80)
  '(column-number-mode t)
  '(completions-format (quote vertical))
  '(confirm-kill-emacs (quote y-or-n-p))
@@ -42,10 +42,8 @@
  '(org-agenda-files (quote ("~/org/todo.org")))
  ;; '(package-selected-packages
  ;;   (quote
- ;;    (web-mode php-mode w3m go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
+ ;;    (docker-compose-mode dockerfile-mode restclient tabbar web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize)))
  '(safe-local-variable-values (quote ((sgml-basic-offset . 2))))
- '(server-port "9999")
- '(server-use-tcp t)
  '(sh-set-shell-hook
    (quote
     ((lambda nil
@@ -57,7 +55,10 @@
  '(show-paren-mode t)
  '(split-height-threshold 90)
  '(sql-mysql-options (quote ("--prompt=mysql> ")))
- '(text-mode-hook (quote (turn-on-flyspell text-mode-hook-identify)))
+ '(tabbar-mode t nil (tabbar))
+ '(text-mode-hook
+   (quote
+    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
    "\\(?:^\\|
@@ -77,14 +78,20 @@
      ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
      ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
      ("\\`ddg:" w3m-search-uri-replace "duckduckgo"))))
- '(wdired-allow-to-change-permissions (quote advanced)))
+ '(wdired-allow-to-change-permissions (quote advanced))
+ '(yaml-mode-hook
+   (quote
+    (yaml-set-imenu-generic-expression turn-off-flyspell turn-off-auto-fill))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal))))
- '(region ((t (:background "LightGoldenrod2")))))
+ '(region ((t (:background "LightGoldenrod2"))))
+ '(tabbar-default ((t (:inherit variable-pitch))))
+ '(tabbar-modified ((t (:inherit tabbar-default :foreground "darkgreen" :box (:line-width 1 :color "white" :style released-button)))))
+ '(tabbar-selected-modified ((t (:inherit tabbar-selected)))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -141,6 +148,74 @@ This is customized in ‘~/.emacs’."
 ;; Delete selection when typing over it.
 (delete-selection-mode t)
 
+;; tabbar-mode
+;; customize to show all normal files in one group
+;; (defun my-tabbar-buffer-groups ()
+;;   "Returns the name of the tab group names the current buffer belongs to.
+
+;; There are two groups: Emacs buffers (those whose name starts with '*', plus
+;; dired buffers), and the rest.  This works at least with Emacs v24.2 using
+;; tabbar.el v1.7.
+
+;; https://www.emacswiki.org/emacs/TabBarMode"
+;;   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+;; 	      ((eq major-mode 'dired-mode) "emacs")
+;; 	      (t "user"))))
+;; (defun my-tabbar-buffer-groups-all ()
+;;   (list "All"))
+;; (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+(defun tabbar-buffer-groups ()
+  "Return the list of group names the current buffer belongs to.
+Return a list of one element based on major mode.
+
+Customized in ~/.emacs.d/init.el
+Original in tabbar.el"
+  (list
+   (cond
+    ((or (get-buffer-process (current-buffer))
+         ;; Check if the major mode derives from `comint-mode' or
+         ;; `compilation-mode'.
+         (tabbar-buffer-mode-derived-p
+          major-mode '(comint-mode compilation-mode)))
+     "Process"
+     )
+    ((member (buffer-name)
+             '("*scratch*" "*Messages*"))
+     "Common"
+     )
+    ((eq major-mode 'dired-mode)
+     "Dired"
+     )
+    ((memq major-mode
+           '(help-mode apropos-mode Info-mode Man-mode))
+     "Help"
+     )
+    ((memq major-mode
+           '(rmail-mode
+             rmail-edit-mode vm-summary-mode vm-mode mail-mode
+             mh-letter-mode mh-show-mode mh-folder-mode
+             gnus-summary-mode message-mode gnus-group-mode
+             gnus-article-mode score-mode gnus-browse-killed-mode))
+     "Mail"
+     )
+    ((memq major-mode
+	   '(org-mode org-agenda-mode))
+     "Org"
+     )
+    ((string-prefix-p "*tramp/" (buffer-name))
+     "Tramp"
+     )
+    (t
+     ;; Return `mode-name' if not blank, `major-mode' otherwise.
+     (if (and (stringp mode-name)
+              ;; Take care of preserving the match-data because this
+              ;; function is called when updating the header line.
+              (save-match-data (string-match "[^ ]" mode-name)))
+         mode-name
+       (symbol-name major-mode))
+     ))))
+
+
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
 
@@ -152,6 +227,18 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	(tab-count (how-many "^\t" (point-min) (point-max))))
     (if (> space-count tab-count) (setq indent-tabs-mode nil))
     (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+;; tramp
+;; http://wikemacs.org/index.php/TRAMP
+;; https://www.gnu.org/software/tramp/#Multi_002dhops
+;; Allow ssh+sudo to get remote root
+;; (if (locate-library "tramp")
+;;     (eval-after-load "tramp"
+;;       '(progn
+;; 	 (add-to-list 'tramp-default-proxies-alist
+;; 		      '(nil "\\`root\\'" "/ssh:%h:"))
+;; 	 (add-to-list 'tramp-default-proxies-alist
+;; 		      '((regexp-quote (system-name)) nil nil)))))
 
 ;; atomic-chrome
 (setq atomic-chrome-buffer-open-style 'full)
@@ -186,6 +273,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; Install from MELPA
 ;; (require 'mode-local)
 ;; (setq-mode-local go-mode tab-width 4)
+
+;; mail-mode
+;; Make Thunderbird email replies load with the correct mode
+(add-to-list 'auto-mode-alist '("\\.eml\\'" . mail-mode))
 
 ;; markdown-mode
 ;; Install from MELPA
