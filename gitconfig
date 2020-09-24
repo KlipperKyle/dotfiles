@@ -8,27 +8,9 @@
 [credential]
 	helper = cache
 [core]
-#	pager = "less -FMRXi"
 	pager = "cat"
-[diff]
-	tool = diffuse
-[merge]
-	tool = diffuse
-
-#
-# Be smart when checking stuff out
-# Comment out if ports ssh and git are blocked
-#
-
-# Github
-[url "ssh://git@github.com/"]
-	pushInsteadOf = https://github.com/
-[url "git://github.com/"]
-	insteadOf = https://github.com/
-
-# AUR4
-[url "ssh+git://aur@aur4.archlinux.org/"]
-	InsteadOf = https://aur4.archlinux.org/cgit/
+[pull]
+	ff = only
 
 #
 # Aliases
@@ -38,5 +20,5 @@
 	graph = log --graph --oneline --decorate
 
 #
-# Misc
+# Misc (stuff appends here)
 #
