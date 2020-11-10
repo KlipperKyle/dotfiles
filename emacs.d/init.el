@@ -32,7 +32,7 @@
  '(mouse-wheel-progressive-speed nil)
  '(org-agenda-files '("~/org/todo-personal.org"))
  ;; '(package-selected-packages
- ;;  '(jinja2-mode docker-compose-mode dockerfile-mode restclient web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize))
+ ;;   '(gemini-mode elpher jinja2-mode docker-compose-mode dockerfile-mode restclient web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize))
  '(safe-local-variable-values '((sgml-basic-offset . 2)))
  '(sh-set-shell-hook
    '((lambda nil
@@ -120,8 +120,9 @@ This is customized in ‘~/.emacs’."
 ;; Global keybindings
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c r") 'revert-buffer)
-(global-set-key (kbd "C-x |") 'shell)
-(global-set-key (kbd "C-x M-|") 'ansi-term)
+(global-set-key (kbd "C-x \\") 'shell)
+(global-set-key (kbd "C-x M-\\") 'ansi-term)
+(global-set-key (kbd "C-x |") 'eshell)
 (global-set-key (kbd "C-x 7") 'rename-buffer)
 (global-set-key (kbd "C-x 9") 'quit-window)
 
@@ -215,6 +216,44 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	("BLOCKED" . "purple")
 	("CANCELED" . "blue")))
 (setq org-log-done 'time)
+
+;; Open Gemini and Gopher links in elpher
+(eval-after-load 'org
+  '(progn
+     (org-link-set-parameters "gemini"
+			      :follow #'org-gemini-follow
+			      :export #'org-gemini-export)
+     (org-link-set-parameters "gopher"
+			      :follow #'org-gopher-follow
+			      :export #'org-gopher-export)
+     (defun org-gemini-follow (path)
+       "Follow a gemini:// link in an org-mode doc"
+       (require 'elpher)
+       (elpher-go (concat "gemini:" path)))
+     (defun org-gemini-export (link desc backend)
+       "Export a gemini:// link in an org-mode doc"
+       (let ((url (concat "gemini:" link))
+	     (desc (or desc (concat "gemini:" link))))
+	 (pcase backend
+	   (`html (format "<a href=\"%s\">%s</a>" url desc))
+	   (`latex (format "\\href{%s}{%s}" url desc))
+	   (`texinfo (format "@uref{%s,%s}" url desc))
+	   (`ascii (format "%s (%s)" url desc))
+	   (t url))))
+     (defun org-gopher-follow (path)
+       "Follow a gopher:// link in an org-mode doc"
+       (require 'elpher)
+       (elpher-go (concat "gopher:" path)))
+     (defun org-gopher-export (link desc backend)
+       "Export a gopher:// link in an org-mode doc"
+       (let ((url (concat "gopher:" link))
+	     (desc (or desc (concat "gopher:" link))))
+	 (pcase backend
+	   (`html (format "<a href=\"%s\">%s</a>" url desc))
+	   (`latex (format "\\href{%s}{%s}" url desc))
+	   (`texinfo (format "@uref{%s,%s}" url desc))
+	   (`ascii (format "%s (%s)" url desc))
+	   (t url))))))
 
 (defun org-todo-at-date (date)
   "Run org-todo as though it had been executed at some prior time
