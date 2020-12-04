@@ -43,6 +43,11 @@
  '(show-paren-mode t)
  '(split-height-threshold 90)
  '(sql-mysql-options '("--prompt=mysql> "))
+ '(tab-bar-mode t)
+ '(tab-bar-new-tab-to 'rightmost)
+ '(tab-bar-select-tab-modifiers '(control))
+ '(tab-bar-tab-hints t)
+ '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(tool-bar-mode nil)
  '(tramp-shell-prompt-pattern
@@ -128,9 +133,6 @@ This is customized in ‘~/.emacs’."
 
 ;; Delete selection when typing over it.
 (delete-selection-mode t)
-
-;; Tabs
-(global-tab-line-mode)
 
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
