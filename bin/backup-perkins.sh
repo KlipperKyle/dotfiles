@@ -65,12 +65,12 @@ rsync -aAXHx --delete --info=progress2 \
       /mnt/alt/boot/ /mnt/backup/perkins/mnt/alt/boot/ \
     || exit 1
 
-[ -n "$UMOUNT_ALT_BOOT" ] && umount /mnt/alt/boot
-
 echo "$0: Backing up /mnt/alt"
 rsync -aAXHx --delete --info=progress2 \
       /mnt/alt/ /mnt/backup/perkins/mnt/alt/ \
     || exit 1
+
+[ -n "$UMOUNT_ALT_BOOT" ] && umount /mnt/alt/boot
 
 [ -n "$UMOUNT_ALT" ] && umount /mnt/alt
 
