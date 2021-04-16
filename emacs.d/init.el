@@ -18,9 +18,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-width 80)
+ '(auth-sources '("~/.authinfo.gpg"))
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
+ '(custom-safe-themes
+   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "a4e6940f5c63f3c6759d35e6534eaa26ff14512aa61616a0584bda9f858c60b9" default))
  '(echo-keystrokes 0.001)
  '(electric-pair-mode t)
  '(electric-quote-mode t)
@@ -31,9 +34,12 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-agenda-files '("~/org/todo-personal.org"))
- ;; '(package-selected-packages
- ;;   '(gemini-mode elpher jinja2-mode docker-compose-mode dockerfile-mode restclient web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize))
+ '(org-export-backends '(ascii beamer html icalendar latex md odt))
+ '(package-selected-packages
+   '(edit-indirect solarized-theme jq-mode gemini-mode elpher jinja2-mode docker-compose-mode dockerfile-mode restclient web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize))
  '(safe-local-variable-values '((sgml-basic-offset . 2)))
+ '(server-mode t)
+ '(server-window 'switch-to-buffer-other-tab)
  '(sh-set-shell-hook
    '((lambda nil
        (if
@@ -45,7 +51,7 @@
  '(sql-mysql-options '("--prompt=mysql> "))
  '(tab-bar-mode t)
  '(tab-bar-new-tab-to 'rightmost)
- '(tab-bar-select-tab-modifiers '(control))
+ '(tab-bar-select-tab-modifiers '(meta))
  '(tab-bar-tab-hints t)
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
@@ -75,7 +81,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal)))))
+ '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal))))
+ '(region ((t (:background "LightGoldenrod2")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -99,6 +106,17 @@ This is customized in ‘~/.emacs’."
 
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
+
+;; Solarized colors
+(setq solarized-distinct-fringe-background t
+      solarized-high-contrast-mode-line t
+      solarized-use-variable-pitch nil
+      solarized-height-minus-1 1.0	; was 0.8
+      solarized-height-plus-1 1.0	; was 1.1
+      solarized-height-plus-2 1.0	; was 1.15
+      solarized-height-plus-3 1.0	; was 1.2
+      solarized-height-plus-4 1.0)	; was 1.3
+(load-theme 'solarized-light)
 
 ;; Scroll the screen "up" or "down" one line with C-z and M-z
 ;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
@@ -125,6 +143,7 @@ This is customized in ‘~/.emacs’."
 ;; Global keybindings
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-x \\") 'shell)
 (global-set-key (kbd "C-x M-\\") 'ansi-term)
 (global-set-key (kbd "C-x |") 'eshell)
@@ -213,10 +232,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (setq org-todo-keywords
       '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
 	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
-(setq org-todo-keyword-faces
-      '(("INPROG" . "orange")
-	("BLOCKED" . "purple")
-	("CANCELED" . "blue")))
+;; (setq org-todo-keyword-faces
+;;       '(("INPROG" . "orange")
+;; 	("BLOCKED" . "purple")
+;; 	("CANCELED" . "blue")))
 (setq org-log-done 'time)
 
 ;; Open Gemini and Gopher links in elpher
