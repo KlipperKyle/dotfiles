@@ -50,9 +50,6 @@
  '(split-height-threshold 90)
  '(sql-mysql-options '("--prompt=mysql> "))
  '(tab-bar-mode t)
- '(tab-bar-new-tab-to 'rightmost)
- '(tab-bar-select-tab-modifiers '(meta))
- '(tab-bar-tab-hints t)
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(tool-bar-mode nil)
@@ -109,7 +106,7 @@ This is customized in ‘~/.emacs’."
 
 ;; Solarized colors
 (setq solarized-distinct-fringe-background t
-      solarized-high-contrast-mode-line t
+      solarized-high-contrast-mode-line nil
       solarized-use-variable-pitch nil
       solarized-height-minus-1 1.0	; was 0.8
       solarized-height-plus-1 1.0	; was 1.1
@@ -150,8 +147,8 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-x 7") 'rename-buffer)
 (global-set-key (kbd "C-x 9") 'quit-window)
 
-;; Delete selection when typing over it.
-(delete-selection-mode t)
+;; Whether to delete selection when typing over it.
+(delete-selection-mode 0)
 
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
