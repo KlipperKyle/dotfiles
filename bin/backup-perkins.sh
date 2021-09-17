@@ -70,10 +70,12 @@ rsync -aAXHx --delete --info=progress2 \
       /mnt/alt/ /mnt/backup/perkins/mnt/alt/ \
     || exit 1
 
+echo "$0: sync'ing disks..."
+sync
+
+echo "$0: Done!  Cleaning up..."
 [ -n "$UMOUNT_ALT_BOOT" ] && umount /mnt/alt/boot
-
 [ -n "$UMOUNT_ALT" ] && umount /mnt/alt
-
 [ -n "$UMOUNT_BACKUP" ] && umount /mnt/backup
 
 echo "$0: End of script"

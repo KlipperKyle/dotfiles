@@ -66,6 +66,9 @@ mount --rbind /sys sys || exit 1
 mount --rbind /dev dev || exit 1
 env -i HOME=/root TERM=$TERM /bin/chroot . sh /prepme || exit 1
 
+echo "$0: sync'ing disks..."
+sync
+
 # Clean up
 echo "$0: Done!  Cleaning up..."
 cd /
