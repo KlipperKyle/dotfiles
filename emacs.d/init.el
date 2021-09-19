@@ -20,26 +20,23 @@
  '(Man-width 80)
  '(auth-sources '("~/.authinfo.gpg"))
  '(column-number-mode t)
+ '(comint-terminfo-terminal "dumb-color")
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
- '(custom-safe-themes
-   '("51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "830877f4aab227556548dc0a28bf395d0abe0e3a0ab95455731c9ea5ab5fe4e1" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "a4e6940f5c63f3c6759d35e6534eaa26ff14512aa61616a0584bda9f858c60b9" default))
  '(echo-keystrokes 0.001)
- '(electric-pair-mode t)
  '(electric-quote-mode t)
  '(eshell-cmpl-cycle-completions nil)
- '(eww-header-line-format "%u | %t")
  '(flyspell-use-meta-tab nil)
+ '(frame-resize-pixelwise t)
+ '(indicate-buffer-boundaries t)
+ '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-agenda-files '("~/org/todo-personal.org"))
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
- '(package-selected-packages
-   '(edit-indirect solarized-theme jq-mode gemini-mode elpher jinja2-mode docker-compose-mode dockerfile-mode restclient web-mode php-mode go-playground atomic-chrome go-mode yaml-mode markdown-mode htmlize))
  '(safe-local-variable-values '((sgml-basic-offset . 2)))
- '(server-mode t)
- '(server-window 'switch-to-buffer-other-tab)
+ '(save-place-mode t)
  '(sh-set-shell-hook
    '((lambda nil
        (if
@@ -47,16 +44,14 @@
 	   (font-lock-mode 0)
 	 (font-lock-mode 1)))))
  '(show-paren-mode t)
+ '(shr-width 80)
  '(split-height-threshold 90)
  '(sql-mysql-options '("--prompt=mysql> "))
- '(tab-bar-mode t)
+ '(tab-bar-new-tab-to 'rightmost)
+ '(tab-bar-tab-hints t)
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(tool-bar-mode nil)
- '(tramp-shell-prompt-pattern
-   "\\(?:^\\|
-\\)[^]#$%>
-]*#?[]#$%>]:? *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
  '(w3m-fill-column 80)
  '(w3m-home-page "~/org/index.html")
  '(w3m-key-binding 'info)
@@ -79,7 +74,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal))))
- '(region ((t (:background "LightGoldenrod2")))))
+ ;; '(region ((t (:extend t :background "LightGoldenrod2")))))
+ )
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -105,15 +101,37 @@ This is customized in ‘~/.emacs’."
 (setq custom-theme-directory "~/.emacs.d/themes")
 
 ;; Solarized colors
-(setq solarized-distinct-fringe-background t
-      solarized-high-contrast-mode-line nil
-      solarized-use-variable-pitch nil
-      solarized-height-minus-1 1.0	; was 0.8
-      solarized-height-plus-1 1.0	; was 1.1
-      solarized-height-plus-2 1.0	; was 1.15
-      solarized-height-plus-3 1.0	; was 1.2
-      solarized-height-plus-4 1.0)	; was 1.3
-(load-theme 'solarized-light)
+;; (require 'solarized)
+;; (require 'solarized-palettes)
+;; (setq solarized-distinct-fringe-background t
+;;       solarized-high-contrast-mode-line nil
+;;       solarized-use-variable-pitch nil
+;;       solarized-height-minus-1 1.0	; was 0.8
+;;       solarized-height-plus-1 1.0	; was 1.1
+;;       solarized-height-plus-2 1.0	; was 1.15
+;;       solarized-height-plus-3 1.0	; was 1.2
+;;       solarized-height-plus-4 1.0)	; was 1.3
+;; (solarized-create-theme-file 'light 'solarized-light-kt
+;;   solarized-light-color-palette-alist
+;;   '((custom-theme-set-faces
+;;      theme-name
+;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
+;; (solarized-create-theme-file 'dark 'solarized-dark-kt
+;;   solarized-light-color-palette-alist
+;;   '((custom-theme-set-faces
+;;      theme-name
+;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
+;; (load-theme 'solarized-light-kt)
+
+(load-theme 'acme-kt)
+
+;; ffap
+(setq ffap-require-prefix t
+      ffap-bindings
+      '((global-set-key [S-mouse-2] 'ffap-at-mouse)
+	(global-set-key [C-S-mouse-2] 'ffap-menu)
+	(global-set-key [remap find-file] 'find-file-at-point)))
+(ffap-bindings)
 
 ;; Scroll the screen "up" or "down" one line with C-z and M-z
 ;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
@@ -125,8 +143,8 @@ This is customized in ‘~/.emacs’."
 (global-set-key "\C-\M-z" 'scroll-down-one)
 
 ;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
-(global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
-(global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
+;; (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
+;; (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 
 ;; Annoyances with KVM switch
 (global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
@@ -144,8 +162,10 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-x \\") 'shell)
 (global-set-key (kbd "C-x M-\\") 'ansi-term)
 (global-set-key (kbd "C-x |") 'eshell)
+(global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x 7") 'rename-buffer)
 (global-set-key (kbd "C-x 9") 'quit-window)
+(global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
@@ -203,6 +223,11 @@ See https://www.emacswiki.org/emacs/NoTabs"
   (eww-mode)
   (eww url))
 
+;; elpher
+(defun elpher-reset-cache ()
+  (interactive)
+  (setq elpher-content-cache (make-hash-table :test 'equal)))
+
 ;; go-mode
 ;; Install from MELPA
 ;; (require 'mode-local)
@@ -229,10 +254,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (setq org-todo-keywords
       '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
 	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
-;; (setq org-todo-keyword-faces
-;;       '(("INPROG" . "orange")
-;; 	("BLOCKED" . "purple")
-;; 	("CANCELED" . "blue")))
+(setq org-todo-keyword-faces
+      '(("INPROG" . "orange")
+	("BLOCKED" . "purple")
+	("CANCELED" . "blue")))
 (setq org-log-done 'time)
 
 ;; Open Gemini and Gopher links in elpher
@@ -311,6 +336,10 @@ https://www.emacswiki.org/emacs/OrgMode"
 ;; 		      python-indent-offset 4))))
 (add-hook 'python-mode-hook 'infer-indentation-style)
 
+;; shell-mode
+;; If this causes problems, e.g. on Alpine, then set it to nil
+(setq explicit-shell-file-name "/bin/bash")
+
 ;; web-mode
 (setq-default web-mode-markup-indent-offset 2)
 
@@ -318,6 +347,9 @@ https://www.emacswiki.org/emacs/OrgMode"
 (if (file-readable-p "~/.emacs.local")
     (load "~/.emacs.local")
   nil)
+
+;; Start Emacs server
+(server-mode)
 
 ;; Misc (stuff appends here)
 (put 'scroll-left 'disabled nil)
