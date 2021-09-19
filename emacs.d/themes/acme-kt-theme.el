@@ -1,6 +1,7 @@
-;;; acme-theme.el --- A color theme based on Acme & Sam from Plan 9  -*- lexical-binding: t; -*-
+;;; acme-kt-theme.el --- A color theme based on Acme & Sam from Plan 9  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020 Ian Yi-En Pan
+;; Some modifications by Kyle Terrien
 
 ;; Author: Ian Y.E. Pan
 ;; URL: https://github.com/ianpan870102/acme-emacs-theme
@@ -38,7 +39,7 @@
   :group 'acme-theme
   :type 'boolean)
 
-(deftheme acme "A color theme based on Acme & Sam")
+(deftheme acme-kt "A color theme based on Acme & Sam (Kyle’s customizations)")
 
 ;;; Color palette
 
@@ -70,7 +71,7 @@
 
 ;;; Theme Faces
   (custom-theme-set-faces
-   'acme
+   'acme-kt
 
 ;;;; Built-in
 
@@ -82,7 +83,7 @@
    `(default                                      ((t (:foreground ,fg :background ,bg))))
    `(cursor                                       ((t (:foreground ,bg :background ,fg))))
    `(escape-glyph                                 ((t (:foreground ,acme-cyan-light :bold nil))))
-   `(fringe                                       ((t (:foreground ,fg :background ,bg))))
+   `(fringe                                       ((t (:foreground ,fg :background ,bg-alt))))
    `(line-number                                  ((t (:foreground ,fg :background ,bg-alt))))
    `(line-number-current-line                     ((t (:foreground ,fg :background ,bg-alt))))
    `(header-line                                  ((t (:foreground ,fg :background ,acme-blue-light :box t))))
@@ -118,11 +119,11 @@
 
 ;;;;; isearch
    `(isearch                                      ((t (:foreground ,fg :weight normal :background ,acme-cyan-light))))
-   `(isearch-fail                                 ((t (:foreground ,fg :weight normal :background ,acme-red))))
+   `(isearch-fail                                 ((t (:foreground ,acme-yellow-light :weight normal :background ,acme-red))))
    `(lazy-highlight                               ((t (:foreground ,fg :weight normal :background ,acme-blue-light))))
 
    `(menu                                         ((t (:foreground ,bg :background ,fg))))
-   `(minibuffer-prompt                            ((t (:foreground ,fg :weight normal))))
+   `(minibuffer-prompt                            ((t (:foreground ,acme-blue :weight normal))))
    `(region                                       ((,class (:foreground ,fg :background ,highlight :extend nil))))
    `(secondary-selection                          ((t (:background ,acme-green-light))))
    `(trailing-whitespace                          ((t (:background ,acme-red-light))))
@@ -373,7 +374,7 @@
    `(rainbow-delimiters-depth-3-face              ((t (:foreground ,acme-red))))
 
 ;;;;; show-paren
-   `(show-paren-mismatch                          ((t (:foreground ,acme-yellow :background ,acme-red :weight normal))))
+   `(show-paren-mismatch                          ((t (:foreground ,acme-yellow-light :background ,acme-red :weight normal))))
    `(show-paren-match                             ((t (:foreground ,fg :background ,acme-cyan-light :weight normal))))
 
 ;;;;; mode-line/sml-mode-line
@@ -508,7 +509,7 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'acme)
-(provide 'acme-theme)
+(provide-theme 'acme-kt)
+(provide 'acme-kt-theme)
 
-;;; acme-theme.el ends here
+;;; acme-kt-theme.el ends here
