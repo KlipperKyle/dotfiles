@@ -33,9 +33,12 @@
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
- '(org-agenda-files '("~/org/todo-personal.org"))
+ '(org-agenda-files '("~/org/todo.org"))
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
- '(safe-local-variable-values '((sgml-basic-offset . 2)))
+ '(safe-local-variable-values
+   '((nxml-child-indent . 4)
+     (c-indent-level . 4)
+     (sgml-basic-offset . 2)))
  '(save-place-mode t)
  '(sh-set-shell-hook
    '((lambda nil
