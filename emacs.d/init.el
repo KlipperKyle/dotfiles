@@ -258,7 +258,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
       '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
 	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
 (setq org-todo-keyword-faces
-      '(("INPROG" . "orange")
+      '(("TODO" . "red")
+	("INPROG" . "orange")
+	("DONE" . "darkgreen")
 	("BLOCKED" . "purple")
 	("CANCELED" . "blue")))
 (setq org-log-done 'time)
