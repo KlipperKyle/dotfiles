@@ -441,6 +441,7 @@
    `(org-level-6                                  ((t (:background ,acme-blue-light :foreground ,acme-cyan))))
    `(org-level-7                                  ((t (:background ,acme-blue-light :foreground ,acme-blue))))
    `(org-level-8                                  ((t (:background ,acme-blue-light :foreground ,acme-cyan))))
+   `(org-headline-done                            ((t (:background ,acme-blue-light :foreground ,fg-dark :overline t))))
    `(org-document-title                           ((t (:height 1.2 :foreground ,acme-blue :weight bold :underline t)))) ; #TITLE
    `(org-meta-line                                ((t (:foreground ,acme-green))))
    `(org-document-info                            ((t (:foreground ,acme-cyan :weight normal))))
