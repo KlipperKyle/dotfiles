@@ -10,6 +10,7 @@
 
 ;; Setup ELPA and MELPA
 (setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
 (custom-set-variables
@@ -33,7 +34,6 @@
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
- '(org-agenda-files '("~/org/todo.org"))
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
    '((nxml-child-indent . 4)
@@ -249,21 +249,24 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+(setq org-directory "~/org")
+(setq org-agenda-files (concat org-directory "/agenda-files"))
 (setq org-publish-project-alist
       '(("org"
 	 :base-directory "~/org"
 	 :publishing-directory "~/org"
 	 :publishing-function org-html-publish-to-html)))
-(setq org-todo-keywords
-      '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
-	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
-(setq org-todo-keyword-faces
-      '(("TODO" . "red")
-	("INPROG" . "orange")
-	("DONE" . "darkgreen")
-	("BLOCKED" . "purple")
-	("CANCELED" . "blue")))
-(setq org-log-done 'time)
+;; (setq org-todo-keywords
+;;       '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
+;; 	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
+;; (setq org-todo-keyword-faces
+;;       '(("TODO" . "red")
+;; 	("INPROG" . "orange")
+;; 	("DONE" . "darkgreen")
+;; 	("BLOCKED" . "purple")
+;; 	("CANCELED" . "blue")))
+;; (setq org-log-done 'time)
+;; (setq org-fontify-done-headline nil)
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
@@ -347,6 +350,10 @@ https://www.emacswiki.org/emacs/OrgMode"
 
 ;; web-mode
 (setq-default web-mode-markup-indent-offset 2)
+
+;; yaml-mode
+;; *.sls: SaltStack conf files
+(add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.local")
