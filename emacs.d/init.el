@@ -220,7 +220,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
       (append holiday-general-holidays holiday-local-holidays
 	  holiday-other-holidays holiday-christian-holidays
 	  holiday-solar-holidays))
-(setq calendar-mark-holidays-flag t)
+(setq calendar-mark-diary-entries-flag t
+      calendar-mark-holidays-flag t
+      calendar-today-visible-hook '(calendar-mark-today))
 
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
