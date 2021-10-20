@@ -200,6 +200,27 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; atomic-chrome
 (setq atomic-chrome-buffer-open-style 'full)
 
+;; calendar
+;; Drop holidays of other religions.  Extra Ecclesiam nulla salus!
+(setq calendar-christian-all-holidays-flag t)
+(setq holiday-other-holidays
+      '(;; Other holy days of obligation in the US
+	(holiday-fixed 1 1 "Circumcision of Our Lord")
+	(holiday-fixed 11 1 "All Saints Day")
+	(holiday-fixed 12 8 "Immaculate Conception")
+	;; Archconfraternity of St. Philomena:
+	;; Wear the blessed cord and attend mass on these days to
+	;; receive a plenary indulgence (under the usual conditions).
+	(holiday-fixed 1 10 "St. Philomena’s Birthday")
+	(holiday-fixed 5 25 "Finding of St. Philomena’s tomb")
+	(holiday-fixed 8 10 "Martyrdom of St. Philomena")
+	(holiday-fixed 8 11 "Feast of St. Philomena")
+	(holiday-fixed 12 15 "Institution of the Blessed Cord of St. Philomena")))
+(setq calendar-holidays
+      (append holiday-general-holidays holiday-local-holidays
+	  holiday-other-holidays holiday-christian-holidays
+	  holiday-solar-holidays))
+
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
 (mapc
