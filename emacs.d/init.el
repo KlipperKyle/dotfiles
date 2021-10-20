@@ -220,6 +220,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
       (append holiday-general-holidays holiday-local-holidays
 	  holiday-other-holidays holiday-christian-holidays
 	  holiday-solar-holidays))
+(setq calendar-mark-holidays-flag t)
 
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
@@ -272,6 +273,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (global-set-key "\C-cb" 'org-switchb)
 (setq org-directory "~/org")
 (setq org-agenda-files (concat org-directory "/agenda-files"))
+(setq org-agenda-include-diary t)
 (setq org-publish-project-alist
       '(("org"
 	 :base-directory "~/org"
