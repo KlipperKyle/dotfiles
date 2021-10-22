@@ -16,11 +16,13 @@ if ! mountpoint -q "$BACKUP" ; then
 fi
 
 [ -d "$BACKUP_ROOT" ] || mkdir -p "$BACKUP_ROOT" || exit 1
+[ -d "${BACKUP_ROOT}/meta" ] || mkdir -p "${BACKUP_ROOT}/meta" || exit 1
 
 STAMP="$(date +%Y%m%d-%H%M%S)"
-apt-mark showmanual | bzip2 -c > "${BACKUP_ROOT}/apt-manual.${STAMP}.bz2" || exit 1
-apt-mark showhold | bzip2 -c > "${BACKUP_ROOT}/apt-hold.${STAMP}.bz2" || exit 1
-dpkg -l | bzip2 -c > "${BACKUP_ROOT}/dpkg-l.${STAMP}.bz2" || exit 1
+apt-mark showmanual | bzip2 -c > "${BACKUP_ROOT}/meta/apt-manual.${STAMP}.bz2" || exit 1
+apt-mark showhold | bzip2 -c > "${BACKUP_ROOT}/meta/apt-hold.${STAMP}.bz2" || exit 1
+dpkg -l | bzip2 -c > "${BACKUP_ROOT}/meta/dpkg-l.${STAMP}.bz2" || exit 1
+snap list --all | bzip2 -c > "${BACKUP_ROOT}/meta/snap-list.${STAMP}.bz2" || exit 1
 
 echo "$B: Backing up /etc"
 rsync -aAXHx --delete --info=progress2 \
@@ -41,6 +43,12 @@ echo "$B: Backing up /home"
 rsync -aAXHx --delete --info=progress2 \
       --exclude={"*/.cache","*/.ccache","*/.thumbnails","*/.gvfs"} \
       /home/ "${BACKUP_ROOT}/home/" \
+    || exit 1
+
+echo "$B: Backing up /usr/local"
+[ -d "${BACKUP_ROOT}/usr/local" ] || mkdir -p "${BACKUP_ROOT}/usr/local" || exit 1
+rsync -aAXHx --delete --info=progress2 \
+      /usr/local/ "${BACKUP_ROOT}/usr/local/" \
     || exit 1
 
 echo "$B: Success!"
