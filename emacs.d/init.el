@@ -209,15 +209,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	(holiday-fixed 11 1 "All Saints Day")
 	(holiday-fixed 12 8 "Immaculate Conception")
 	;; Other major Christian holidays
-	(holiday-float 10 0 -1 "Feast of Christ the King")
-	;; Archconfraternity of St. Philomena:
-	;; Wear the blessed cord and attend mass on these days to
-	;; receive a plenary indulgence (under the usual conditions).
-	(holiday-fixed 1 10 "St. Philomena’s Birthday")
-	(holiday-fixed 5 25 "Finding of St. Philomena’s tomb")
-	(holiday-fixed 8 10 "Martyrdom of St. Philomena")
-	(holiday-fixed 8 11 "Feast of St. Philomena")
-	(holiday-fixed 12 15 "Institution of the Blessed Cord of St. Philomena")))
+	(holiday-float 10 0 -1 "Feast of Christ the King")))
 (setq calendar-holidays
       (append holiday-general-holidays holiday-local-holidays
 	  holiday-other-holidays holiday-christian-holidays
