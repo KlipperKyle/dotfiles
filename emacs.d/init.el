@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; ~/.emacs.d/init.el
 
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -40,6 +39,7 @@
      (c-indent-level . 4)
      (sgml-basic-offset . 2)))
  '(save-place-mode t)
+ '(scroll-bar-mode 'left)
  '(sh-set-shell-hook
    '((lambda nil
        (if
@@ -208,6 +208,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	(holiday-fixed 1 1 "Circumcision of Our Lord")
 	(holiday-fixed 11 1 "All Saints Day")
 	(holiday-fixed 12 8 "Immaculate Conception")
+	;; Other major Christian holidays
+	(holiday-float 10 0 -1 "Feast of Christ the King")
 	;; Archconfraternity of St. Philomena:
 	;; Wear the blessed cord and attend mass on these days to
 	;; receive a plenary indulgence (under the usual conditions).
@@ -259,6 +261,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; Install from MELPA
 ;; (require 'mode-local)
 ;; (setq-mode-local go-mode tab-width 4)
+
+;; info-mode
+;; Include /usr/share/info/emacs
+(setq Info-additional-directory-list '("/usr/share/info/emacs"))
 
 ;; mail-mode
 ;; Make Thunderbird email replies load with the correct mode
