@@ -446,7 +446,7 @@
    `(org-meta-line                                ((t (:foreground ,acme-green))))
    `(org-document-info                            ((t (:foreground ,acme-cyan :weight normal))))
    `(org-document-info-keyword                    ((t (:foreground ,acme-cyan))))
-   `(org-todo                                     ((t (:foreground ,acme-yellow :background ,bg-alt :weight normal :box (:line-width 1 :style released-button)))))
+   `(org-todo                                     ((t (:foreground ,acme-red :background ,bg-alt :weight normal :box (:line-width 1 :style released-button)))))
    `(org-done                                     ((t (:foreground ,acme-green :background ,acme-green-light :weight normal :box (:style released-button)))))
    `(org-date                                     ((t (:foreground ,acme-purple))))
    `(org-table                                    ((t (:foreground ,acme-purple))))
