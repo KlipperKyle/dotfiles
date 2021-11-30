@@ -1,0 +1,18 @@
+# ~/.ssh/config
+
+# I don’t like it when routers forget about idle connections.  Send a
+# keepalive message every 5 minutes.
+ServerAliveInterval 300
+
+# I don’t like hashed known_hosts.  It’s too hard to prune obsolete
+# keys and too easy to lose hosts you accessed before.
+HashKnownHosts no
+
+
+# Example rules (to make building common configs easier)
+
+# Host box box.example.com
+# 	HostName box.example.com
+# 	User kterrien
+# 	Port 2112
+# 	ProxyJump kterrien@bastion.example.com

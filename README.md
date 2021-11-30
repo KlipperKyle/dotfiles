@@ -46,6 +46,7 @@ Applications:
 + w3m
 + vimperator (aka Pentadactyl, Vim in Firefox)
 + Conky
++ OpenSSH
 
 Other libraries:
 
