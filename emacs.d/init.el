@@ -20,7 +20,6 @@
  '(Man-width 80)
  '(auth-sources '("~/.authinfo.gpg"))
  '(column-number-mode t)
- '(comint-terminfo-terminal "eterm-color")
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
  '(echo-keystrokes 0.001)
