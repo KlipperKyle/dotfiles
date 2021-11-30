@@ -32,6 +32,7 @@ Distributions I have migrated between: (again, all here)
 + Slackware
 + Funtoo
 + (Some SUSE and RHEL sprinkled throughout)
++ Ubuntu
 
 Shells:
 
