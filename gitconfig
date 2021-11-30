@@ -1,21 +1,23 @@
-#
 # User Info
-#
-
 [user]
 	name = Kyle Terrien
 	email = kyleterrien@gmail.com
 [credential]
 	helper = cache
+
+# Behavior
+[color]
+	interactive = always
+	status = always
+	ui = always
 [core]
 	pager = "cat"
 [pull]
 	ff = only
+[receive]
+	denyCurrentBranch = updateInstead
 
-#
 # Aliases
-#
-
 [alias]
 	graph = log --graph --oneline --decorate
 
