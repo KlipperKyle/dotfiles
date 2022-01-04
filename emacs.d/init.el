@@ -27,6 +27,7 @@
  '(eshell-cmpl-cycle-completions nil)
  '(flyspell-use-meta-tab nil)
  '(frame-resize-pixelwise t)
+ '(icomplete-mode t)
  '(indicate-buffer-boundaries t)
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
@@ -68,6 +69,7 @@
      ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
      ("\\`ddg:" w3m-search-uri-replace "duckduckgo")))
  '(wdired-allow-to-change-permissions 'advanced)
+ '(window-resize-pixelwise t)
  '(yaml-mode-hook
    '(yaml-set-imenu-generic-expression turn-off-flyspell turn-off-auto-fill)))
 (custom-set-faces
@@ -75,9 +77,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Monospace" :foundry "unknown" :slant normal :weight normal :height 100 :width normal))))
- ;; '(region ((t (:extend t :background "LightGoldenrod2")))))
- )
+ '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 110 :width normal))))
+ '(fixed-pitch ((t (:family "Ubuntu Mono"))))
+ '(fixed-pitch-serif ((t (:family "Ubuntu Mono"))))
+ '(region ((t (:extend t :background "LightGoldenrod2")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
@@ -383,7 +386,9 @@ https://www.emacswiki.org/emacs/OrgMode"
   nil)
 
 ;; Start Emacs server
-(server-mode)
+(require 'server)
+(unless (server-running-p)
+  (server-mode))
 
 ;; Misc (stuff appends here)
 (put 'scroll-left 'disabled nil)
