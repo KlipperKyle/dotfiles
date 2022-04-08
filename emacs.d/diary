@@ -1,3 +1,11 @@
+;; Other major Christian days
+Nov 2 All Souls Day
+
+;; Other big devotions
+%%(diary-float t 2 1) St. Philomena devotions
+%%(diary-float t 5 1) First Friday
+%%(diary-float t 6 1) First Saturday
+
 ;; Archconfraternity of St. Philomena:
 ;; Wear the blessed cord and attend mass on these days to
 ;; receive a plenary indulgence (under the usual conditions).
@@ -6,4 +14,3 @@ May 25 Finding of St. Philomena’s tomb
 Aug 10 Martyrdom of St. Philomena
 Aug 11 Feast of St. Philomena
 Dec 15 Institution of the Blessed Cord of St. Philomena
-%%(diary-float t 2 1) St. Philomena devotions
