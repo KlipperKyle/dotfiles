@@ -4,29 +4,12 @@
 
 ! Terminal colors ------------------------------------------------------
 
-! Tango colors
 *VT100.foreground: black
 *VT100.background: white
-*color0: black
-*color1: rgb:cc/00/00
-*color2: rgb:4e/9a/06
-*color3: rgb:c4/a0/00
-*color4: rgb:34/65/a4
-*color5: rgb:75/50/7b
-*color6: rgb:06/98/9a
-*color7: rgb:d3/d7/cf
-*color8: rgb:55/57/53
-*color9: rgb:ef/29/29
-*color10: rgb:8a/e2/34
-*color11: rgb:fc/e9/4f
-*color12: rgb:72/9f/cf
-*color13: rgb:ad/7f/a8
-*color14: rgb:34/e2/e2
-*color15: rgb:ee/ee/ec
 
 ! Enable colors, bold.  Disable blinking.
 *VT100.colorMode: true
-*VT100.boldColors: true
+*VT100.boldColors: false
 *VT100.showBlinkAsBold: true
 
 ! Use color for the bold attribute
@@ -42,7 +25,8 @@
 ! Misc terminal settings
 *VT100.alternateScroll:     true
 *VT100.geometry:            80x24
-*VT100.faceName:            xft:Monospace:size=10
+*VT100.faceName:            xft:Ubuntu Mono:size=11
+!*VT100.faceName:            xft:Monospace:size=10
 !*VT100.faceName:            Bitstream Vera Sans Mono:style=Roman:size=9
 !*VT100.font:                -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 !*VT100.font:                -*-fixed-medium-r-*-*-13-*-*-*-*-60-*-*
@@ -56,14 +40,6 @@
 *VT100.multiScroll:         true
 *VT100.metaSendsEscape:     true
 
-! Xft (font rendering) ------------------------------------------------
-
-!Xft.antialias:	1
-!Xft.dpi:	96
-!Xft.hinting:	1
-!Xft.hintstyle:	hintfull
-!Xft.rgba:	none
-
 ! xterm ----------------------------------------------------------------
 
 xterm.bellIsUrgent:         true
@@ -73,45 +49,10 @@ xterm.toolBar:              false
 xterm.backarrowKeyIsErase:  true
 xterm.ptyInitialErase:      true
 
-! urxvt ----------------------------------------------------------------
-
-URxvt.termName:             rxvt-256color
-URxvt.scrollstyle:          next
-URxvt.scrollBar_right:      true
-URxvt.scrollBar_floating:   true
-URxvt.scrollTtyOutput:      false
-URxvt.scrollTtyKeypress:    true
-URxvt.scrollWithBuffer:     false
-URxvt.background:           white
-URxvt.foreground:           black
-!URxvt.colorBD:              white
-!URxvt.cursorColor:          rgb:f0/e6/8c
-URxvt.font:                 xft:Monospace:size=9
-URxvt.secondaryScreen:      true
-URxvt.secondaryScroll:      false
-URxvt.secondaryWheel:       true
-URxvt.geometry:             84x26
-URxvt.saveLines:            4096
-!URxvt.perl-ext-common:      matcher
-!URxvt.matcher.button:       3
-!URxvt.url-launcher:         xdg-open
-URxvt.perl-ext-common:      tabbed
-URxvt.tab-bg:               3
-URxvt.tab-fg:               0
-URxvt.tabbar-bg:            15
-URxvt.tabbar-fg:            0
-
 ! xclock ---------------------------------------------------------------
 
 xclock.Clock.update:        1
 xclock.Clock.sharp:         false
-xclock.Clock.background:    #233033
-xclock.Clock.foreground:    #FFFFFF
-xclock.Clock.hourColor:     #22CCFF
-xclock.Clock.minuteColor:   #22CCFF
-xclock.Clock.secondColor:   #FF9999
-xclock.Clock.majorColor:    #FF9999
-xclock.Clock.minorColor:    #22CCFF
 
 ! xosview --------------------------------------------------------------
 
