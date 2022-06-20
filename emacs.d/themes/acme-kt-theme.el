@@ -77,8 +77,8 @@
 
 ;;;;; basic coloring
    `(button                                       ((t (:underline t))))
-   `(link                                         ((t (:foreground "#0066cc":weight normal))))
-   `(highlight                                    ((t (:inherit link :underline t)))) ; link hover
+   `(link                                         ((t (:foreground "#0066cc" :underline t :weight normal))))
+   `(highlight                                    ((t (:inherit link :background ,bg-alt :underline t)))) ; link hover
    `(link-visited                                 ((t (:foreground ,acme-purple :underline t :weight normal))))
    `(default                                      ((t (:foreground ,fg :background ,bg))))
    `(cursor                                       ((t (:foreground ,bg :background ,fg))))
