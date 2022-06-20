@@ -19,6 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(Man-width 80)
  '(auth-sources '("~/.authinfo.gpg"))
+ '(auto-hscroll-mode 'current-line)
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
@@ -171,6 +172,7 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-x 7") 'rename-buffer)
 (global-set-key (kbd "C-x 9") 'quit-window)
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
+(global-set-key (kbd "C-x t t") 'tab-bar-select-tab)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
@@ -274,8 +276,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 (setq org-directory "~/org")
-(setq org-agenda-files (concat org-directory "/agenda-files"))
-(setq org-agenda-include-diary t)
+(setq org-agenda-files (concat org-directory "/agenda-files")
+      org-agenda-include-diary t)
 (setq org-publish-project-alist
       '(("org"
 	 :base-directory "~/org"
