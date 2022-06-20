@@ -40,6 +40,15 @@
 *VT100.multiScroll:         true
 *VT100.metaSendsEscape:     true
 
+! emacs ----------------------------------------------------------------
+
+! Emacs.pane.menubar.background: #E1FAFF
+! Emacs.pane.menubar.foreground: #000000
+! Emacs.menu*.background: #E1FAFF
+! Emacs.menu*.foreground: #000000
+! Emacs.dialog*.background: #E1FAFF
+! Emacs.dialog*.foreground: #000000
+
 ! xterm ----------------------------------------------------------------
 
 xterm.bellIsUrgent:         true
