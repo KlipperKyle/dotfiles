@@ -76,9 +76,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :slant normal :weight normal :height 110 :width normal))))
- '(fixed-pitch ((t (:family "Ubuntu Mono"))))
- '(fixed-pitch-serif ((t (:family "Ubuntu Mono"))))
+ '(default ((t (:family "Monospace" :height 100))))
+ '(fixed-pitch ((t (:family "Monospace"))))
+ '(fixed-pitch-serif ((t (:family "Monospace"))))
  '(region ((t (:extend t :background "LightGoldenrod2")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
