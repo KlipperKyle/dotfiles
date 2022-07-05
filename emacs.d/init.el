@@ -160,14 +160,12 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
 ;; Global keybindings
+(global-set-key (kbd "C-c i") 'imenu)
+(global-set-key (kbd "C-c n") 'rename-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c s") 'shell)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
-(global-set-key (kbd "C-x \\") 'shell)
-;; (global-set-key (kbd "C-x \\") 'multishell-pop-to-shell)
-;; (global-set-key (kbd "C-x C-\\") 'multishell-list)
-(global-set-key (kbd "C-x M-\\") 'ansi-term)
-(global-set-key (kbd "C-x |") 'eshell)
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x 7") 'rename-buffer)
 (global-set-key (kbd "C-x 9") 'quit-window)
