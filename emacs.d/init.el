@@ -31,6 +31,7 @@
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
+ '(mouse-autoselect-window t)
  '(mouse-wheel-progressive-speed nil)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
@@ -143,18 +144,19 @@ This is customized in ‘~/.emacs’."
        (scroll-up (prefix-numeric-value current-prefix-arg)))
 (defun scroll-down-one () "Scroll down 1 line." (interactive)
        (scroll-down (prefix-numeric-value current-prefix-arg)))
-(global-set-key "\C-z" 'scroll-up-one)
-(global-set-key "\C-\M-z" 'scroll-down-one)
+(global-set-key (kbd "C-z") 'scroll-up-one)
+(global-set-key (kbd "C-M-z") 'scroll-down-one)
 
-;; Get rid of "<mouse-?> is undefined" warnings (horizontal scroll in X11)
+;; Get rid of "<mouse-?> is undefined" warnings
+;; Horizontal scroll in X11
 ;; (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
 ;; (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 
-;; Annoyances with KVM switch
+;; KVM switch
 (global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
 (global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
 
-;; Annoyances with Windows
+;; Windows
 (global-set-key (kbd "<apps>") 'execute-extended-command)
 (global-set-key (kbd "<C-lwindow>") (lambda () (interactive) ()))
 (global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
