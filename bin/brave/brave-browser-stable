@@ -1,3 +1,6 @@
 #!/bin/sh
+# Use this if you want to force Brave Browser to start in
+# Wayland-native mode.  Don’t forget to also adjust your .desktop
+# files.
 [ "$XDG_SESSION_TYPE" = "wayland" ] && SERVER_ARGS="--ozone-platform=wayland"
 exec /usr/bin/brave-browser-stable $SERVER_ARGS "$@"
