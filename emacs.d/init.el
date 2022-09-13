@@ -31,9 +31,10 @@
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
- '(mouse-autoselect-window t)
  '(mouse-wheel-progressive-speed nil)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
+ '(package-selected-packages
+   '(dockerfile-mode org docker-tramp lxd-tramp htmlize markdown-mode yaml-mode elpher))
  '(safe-local-variable-values
    '((nxml-child-indent . 4)
      (c-indent-level . 4)
@@ -166,7 +167,7 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-c n") 'rename-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c r") 'revert-buffer)
-(global-set-key (kbd "C-c s") 'shell)
+(global-set-key (kbd "C-c t") 'shell)
 (global-set-key (kbd "C-c w") 'whitespace-mode)
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x 7") 'rename-buffer)
