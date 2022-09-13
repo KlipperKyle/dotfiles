@@ -33,8 +33,6 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
- '(package-selected-packages
-   '(dockerfile-mode org docker-tramp lxd-tramp htmlize markdown-mode yaml-mode elpher))
  '(safe-local-variable-values
    '((nxml-child-indent . 4)
      (c-indent-level . 4)
