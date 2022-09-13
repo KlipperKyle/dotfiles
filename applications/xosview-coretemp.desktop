@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Xosview +coretemp
+Comment=X based system monitor
+Exec=xosview +coretemp +cpus -page -batt
+Terminal=false
+Type=Application
+Icon=xosview
+Categories=System;Monitor;
+Keywords=System;Utility;System Monitor

@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+snap unset system refresh.hold
+snap refresh --time

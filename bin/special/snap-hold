@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+snap set system refresh.hold=2030-01-01T00:00:00-08:00
+snap refresh --time
