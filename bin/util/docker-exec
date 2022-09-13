@@ -1,0 +1,5 @@
+#!/bin/sh
+# docker-exec
+# A better ‘docker exec’ that detects whether we are running on a tty
+tty -s && t='-t'
+exec docker exec -i $t "$@"

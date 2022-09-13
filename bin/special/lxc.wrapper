@@ -1,0 +1,12 @@
+#!/bin/bash
+# lxc.wrapper
+#
+# Run lxc outside its snap context.  This allows one to use
+# EDITOR=emacsclient and do other dirty things.
+#
+# Be sure to add the following to ~/.bash_completion
+#
+# [ -e /snap/lxd/current/etc/bash_completion.d/snap.lxd.lxc ] && \
+#     . /snap/lxd/current/etc/bash_completion.d/snap.lxd.lxc
+#
+LXD_DIR=/var/snap/lxd/common/lxd exec /snap/lxd/current/bin/lxc "$@"

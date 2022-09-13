@@ -1,0 +1,3 @@
+#!/bin/sh
+[ "$XDG_SESSION_TYPE" = "wayland" ] && SERVER_ARGS="--ozone-platform=wayland"
+exec /usr/bin/brave-browser-stable $SERVER_ARGS "$@"

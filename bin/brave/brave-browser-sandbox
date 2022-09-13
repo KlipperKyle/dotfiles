@@ -1,0 +1,2 @@
+#!/bin/sh
+exec brave-browser --user-data-dir="$HOME/.config/BraveSoftware/Brave-Browser-sandbox" "$@"

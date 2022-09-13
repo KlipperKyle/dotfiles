@@ -1,0 +1,3 @@
+#!/bin/sh
+#exec xfce4-terminal -x c "$@"
+exec gnome-terminal -- c "$@"

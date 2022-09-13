@@ -1,0 +1,4 @@
+#!/bin/bash
+export EDITOR="$1"
+shift
+exec "$@"
