@@ -3,7 +3,7 @@ dotfiles
 
 Miscellaneous personal config files.
 
-Often times, I link people to various under here.  Use at your own
+Often times, I link people to various examples here.  Use at your own
 risk.  If something is helpful, then great!  Feel free to use it.  If
 something breaks your system, well sorry.
 
