@@ -25,6 +25,12 @@
  '(confirm-kill-emacs 'y-or-n-p)
  '(echo-keystrokes 0.001)
  '(electric-quote-mode t)
+ '(eww-suggest-uris
+   '(eww-links-at-point thing-at-point-url-at-point eww-current-url
+			(lambda nil
+			  (concat "file://"
+				  (getenv "HOME")
+				  "/org/index.html"))))
  '(flyspell-use-meta-tab nil)
  '(frame-resize-pixelwise t)
  '(indicate-buffer-boundaries t)
@@ -161,6 +167,8 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
 ;; Global keybindings
+(global-set-key (kbd "C-c e") 'eww)
+(global-set-key (kbd "C-c f") 'eww-open-file)
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-c n") 'rename-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
