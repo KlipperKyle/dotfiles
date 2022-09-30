@@ -1,0 +1,8 @@
+#!/bin/sh
+# git-nogit: Print all directories under the current directory which
+# are not version-controlled by git.
+
+find -type d \
+     -execdir sh -c 'git -C "$@" rev-parse --absolute-git-dir >/dev/null 2>&1' sh "{}" \; \
+     -prune \
+     -o -print

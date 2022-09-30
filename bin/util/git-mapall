@@ -1,10 +1,21 @@
 #!/bin/sh
-# git-mapall: For each (git) directory under the current directory,
+# git-mapall: Find each git repository under the current directory and
 # run the specified git command.
 
-for d in * ; do
-    if [ -d "$d" ] ; then
-	echo + git -C "$d" "$@"
-	git -C "$d" "$@"
-    fi
-done
+bname="$(basename "$0")"
+
+if [ "$#" -eq 0 ] ; then
+    cat <<EOF 1>&2
+$bname: Usage: git-mapall <git_cmd>
+
+Find each git repository under the current directory and run the
+specified git command.
+EOF
+    exit 2
+fi
+
+find -type d \
+     -execdir sh -c 'git -C "$@" rev-parse --absolute-git-dir >/dev/null 2>&1' sh "{}" \; \
+     -prune \
+     -printf "$(basename "$0"): %p\n" \
+     -execdir git -C "{}" "$@" \;
