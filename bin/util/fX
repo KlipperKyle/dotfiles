@@ -1,0 +1,12 @@
+#!/bin/sh
+# fX -> force an application to run under Xwayland
+# See https://wiki.archlinux.org/title/Wayland#GUI_libraries
+
+export GDK_BACKEND=x11
+export QT_QPA_PLATFORM=xcb
+export SDL_VIDEODRIVER=x11
+export WINIT_UNIX_BACKEND=x11
+export XDG_SESSION_TYPE=x11
+unset WAYLAND_DISPLAY
+
+exec "$@"
