@@ -7,3 +7,8 @@ Type=Application
 Icon=xosview
 Categories=System;Monitor;
 Keywords=System;Utility;System Monitor
+Actions=coretemp;
+
+[Desktop Action coretemp]
+Exec=xosview +coretemp +cpus -page -batt
+Name=Xosview +coretemp
