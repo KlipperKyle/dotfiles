@@ -1,0 +1,24 @@
+#!/bin/bash
+
+BNAME=$(basename "$0")
+FNAME=$(basename $(readlink -f "$0"))
+VIRTUALENV="$(dirname $(readlink -f "$0"))/${FNAME%.env}"
+
+if [ ! -d "$VIRTUALENV" ] ; then
+    echo "${BNAME}: Directory ${VIRTUALENV} does not exist"
+    exit -1
+fi
+
+if [ "$BNAME" == "$FNAME" ] ; then
+    PROG="$1"
+    shift
+    if [ -z "$PROG" ] ; then
+	echo "${BNAME}: Must specify program to execute" >&2
+	exit -1
+    fi
+else
+    PROG="$BNAME"
+fi
+
+source "${VIRTUALENV}/bin/activate"
+exec "${PROG}" "$@"
