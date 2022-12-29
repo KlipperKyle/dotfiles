@@ -81,7 +81,11 @@ link "../dotfiles/bin/slacklock" "bin/slacklock"
 link "../dotfiles/bin/sshfs-helper" "bin/sshfs-helper"
 
 # Git
-copy "dotfiles/gitconfig" ".gitconfig"
+if ! [ -d ".config/git" ] ; then
+    mkdir ".config/git"
+fi
+copy "dotfiles/git/config" ".config/git/config"
+copy "dotfiles/git/ignore" ".config/git/ignore"
 
 # Openbox
 mkdir -p ".config/openbox"
