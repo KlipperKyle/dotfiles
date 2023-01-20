@@ -37,7 +37,6 @@
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
- '(mouse-wheel-progressive-speed nil)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
    '((nxml-child-indent . 4)
@@ -158,8 +157,8 @@ This is customized in ‘~/.emacs’."
 ;; (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
 
 ;; KVM switch
-(global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
-(global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
+;; (global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
+;; (global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
 
 ;; Windows
 (global-set-key (kbd "<apps>") 'execute-extended-command)
