@@ -74,7 +74,8 @@
      ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
      ("\\`ddg:" w3m-search-uri-replace "duckduckgo")))
  '(wdired-allow-to-change-permissions 'advanced)
- '(whitespace-line-column nil)
+ '(whitespace-style
+   '(face trailing tabs spaces newline missing-newline-at-eof empty indentation space-after-tab space-before-tab space-mark tab-mark newline-mark))
  '(window-resize-pixelwise t)
  '(yaml-mode-hook
    '(yaml-set-imenu-generic-expression turn-off-flyspell turn-off-auto-fill)))
