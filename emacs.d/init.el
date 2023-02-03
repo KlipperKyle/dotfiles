@@ -77,8 +77,7 @@
  '(whitespace-style
    '(face trailing tabs spaces newline missing-newline-at-eof empty indentation space-after-tab space-before-tab space-mark tab-mark newline-mark))
  '(window-resize-pixelwise t)
- '(yaml-mode-hook
-   '(yaml-set-imenu-generic-expression turn-off-flyspell turn-off-auto-fill)))
+ '(yaml-mode-hook '(yaml-set-imenu-generic-expression turn-off-flyspell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -281,6 +280,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; info-mode
 ;; Include /usr/share/info/emacs
 (setq Info-additional-directory-list '("/usr/share/info/emacs"))
+
+;; jinja2-mode
+(add-hook 'jinja2-mode-hook 'turn-off-flyspell)
 
 ;; mail-mode
 ;; Make Thunderbird email replies load with the correct mode
