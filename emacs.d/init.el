@@ -394,7 +394,9 @@ https://www.emacswiki.org/emacs/OrgMode"
 (add-hook 'python-mode-hook 'infer-indentation-style)
 
 ;; shell-mode
-;; If this causes problems, e.g. on Alpine, then set it to nil
+;; Use emacsclient instead of a “normal” editor.
+(setenv "EDITOR" "emacsclient")
+;; If this causes problems, e.g. on Alpine, then set it to nil.
 (setq explicit-shell-file-name "/bin/bash")
 
 ;; web-mode
