@@ -252,6 +252,12 @@ See https://www.emacswiki.org/emacs/NoTabs"
       cperl-continued-statement-offset 8
       cperl-label-offset -8)
 
+;; Load pod-mode
+(if (locate-library "pod-mode")
+    (progn (require 'pod-mode)
+	   (add-to-list 'auto-mode-alist '("\\.pod$" . pod-mode))
+	   (add-to-list 'auto-mode-alist '("\\.rakudoc$" . pod-mode))))
+
 ;; ebuild-mode
 (setq-default ebuild-mode-update-copyright nil)
 
