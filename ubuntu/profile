@@ -16,28 +16,19 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# kt: Perl
-PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
+# PATH is handled by systemd now.
 
-# kt: Raku
-PATH="$HOME/.raku/bin:$PATH"
+# # set PATH so it includes user's private bin if it exists
+# if [ -d "$HOME/bin" ] ; then
+#     PATH="$HOME/bin:$PATH"
+# fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# # set PATH so it includes user's private bin if it exists
+# if [ -d "$HOME/.local/bin" ] ; then
+#     PATH="$HOME/.local/bin:$PATH"
+# fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-# kt
-export EDITOR=emacs
+# kt: Funtoo keychain
 if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
     eval `keychain -q --noask --eval`
 fi
