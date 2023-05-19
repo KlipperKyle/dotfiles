@@ -241,6 +241,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
       calendar-mark-holidays-flag t
       calendar-today-visible-hook '(calendar-mark-today))
 
+;; cperl-mode
 ;; Use cperl-mode instead of perl-mode
 ;; <https://www.emacswiki.org/emacs/CPerlMode>
 (mapc
@@ -248,9 +249,13 @@ See https://www.emacswiki.org/emacs/NoTabs"
    (if (eq (cdr pair) 'perl-mode)
        (setcdr pair 'cperl-mode)))
  (append auto-mode-alist interpreter-mode-alist))
-(setq cperl-indent-level 8
-      cperl-continued-statement-offset 8
-      cperl-label-offset -8)
+
+;; Use default indentation, but if you want to set custom indendation,
+;; here is how to do it.
+
+;; (setq cperl-indent-level 8
+;;       cperl-continued-statement-offset 8
+;;       cperl-label-offset -8)
 
 ;; Load pod-mode
 (if (locate-library "pod-mode")
