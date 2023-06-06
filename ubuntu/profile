@@ -16,14 +16,12 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# PATH is handled by systemd now.
-
 # # set PATH so it includes user's private bin if it exists
 # if [ -d "$HOME/bin" ] ; then
 #     PATH="$HOME/bin:$PATH"
 # fi
 
-# # set PATH so it includes user's private bin if it exists
+# set PATH so it includes user's private bin if it exists
 # if [ -d "$HOME/.local/bin" ] ; then
 #     PATH="$HOME/.local/bin:$PATH"
 # fi
@@ -31,4 +29,17 @@ fi
 # kt: Funtoo keychain
 if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
     eval `keychain -q --noask --eval`
+fi
+
+# kt: Custom vars
+if [ -z "$KTENV" ] ; then
+    EDITOR=emacs
+    PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
+    PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+    PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+    PERL_MB_OPT="--install_base \"$HOME/perl5\""
+    PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
+    PATH="$HOME/.raku/bin:$PATH"
+    PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+    KTENV=LOADED
 fi
