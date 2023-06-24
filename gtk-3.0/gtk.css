@@ -1,6 +1,7 @@
-* {
-    -GtkScrollbar-has-backward-stepper: true;
-    -GtkScrollbar-has-forward-stepper: true;
-    /* -GtkScrollbar-has-secondary-backward-stepper: false; */
-    /* -GtkScrollbar-has-secondary-forward-stepper: false; */
+/* ~/.config/gtk-3.0/gtk.css */
+
+/* gnome-terminal: move scrollbar to left side */
+terminal-screen-container {
+    -TerminalScreenContainer-window-placement: bottom-right;
+    -TerminalScreenContainer-window-placement-set: true;
 }
