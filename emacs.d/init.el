@@ -193,6 +193,12 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x t t") 'tab-bar-select-tab)
 
+;; Use editorconfig everywhere
+(if (locate-library "editorconfig")
+    (progn
+      (setq editorconfig-mode-lighter " ec")
+      (editorconfig-mode 1)))
+
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
 
