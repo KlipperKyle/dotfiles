@@ -25,6 +25,7 @@
  '(confirm-kill-emacs 'y-or-n-p)
  '(echo-keystrokes 0.001)
  '(electric-quote-mode t)
+ '(elpher-open-urls-with-eww t)
  '(eww-suggest-uris
    '(eww-links-at-point thing-at-point-url-at-point eww-current-url
 			(lambda nil
