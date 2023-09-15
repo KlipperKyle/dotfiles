@@ -183,6 +183,7 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "C-c f") 'eww-open-file)
 (global-set-key (kbd "C-c h") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-c i") 'imenu)
+(global-set-key [C-S-mouse-3] 'imenu)
 (global-set-key (kbd "C-c n") 'rename-buffer)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c r") 'revert-buffer)
