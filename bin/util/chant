@@ -1,0 +1,23 @@
+#!/bin/bash
+# chant
+#
+# Play a selection of Gregorian chant on a loop to keep away demons.
+#
+
+# List of songs to play
+SONGS=(
+    '/mnt/d1/kyle/Music/[anonymous]/Ave Maria'/*.flac
+    '/mnt/d1/kyle/Music/[anonymous]/Salve Regina_ Gregorian Chant'/*.flac
+)
+MPV_OPTS=(--loop-playlist --shuffle --no-audio-display)
+
+# Make sure mpv is installed
+mpv --version > /dev/null || exit 1
+
+echo "Playlist:"
+for i in "${!SONGS[@]}" ; do
+    printf "%i\t%s\n" "$i" "${SONGS[i]}"
+done
+echo ""
+
+mpv "${MPV_OPTS[@]}" "${SONGS[@]}"
