@@ -1,5 +1,10 @@
 # -*- mode: conf-unix; -*-
 
+# Ubuntu: Use upstream’s default of <Super>period to activate the IBUS
+# emoji input method.
+[desktop/ibus/panel/emoji]
+hotkey=['<Super>period']
+
 # Enable hot corners by default in Ubuntu
 [org/gnome/desktop/interface]
 enable-hot-corners=true
