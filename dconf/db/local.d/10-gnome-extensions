@@ -7,6 +7,11 @@ custom-theme-shrink=true
 dock-position='LEFT'
 extend-height=true
 intellihide=false
+# Ubuntu: nullify Canonical defaults
+dock-fixed=false
+intellihide-mode='FOCUS_APPLICATION_WINDOWS'
+shift-click-action='minimize'
+shift-middle-click-action='launch'
 
 [org/gnome/shell/extensions/system-monitor]
 compact-display=true

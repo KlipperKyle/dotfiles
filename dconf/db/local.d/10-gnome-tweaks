@@ -4,10 +4,11 @@
 [org/gnome/desktop/input-sources]
 xkb-options=['caps:escape_shifted_capslock', 'compose:menu']
 
-# Keyboard bindings to raise/lower windows
+# Keyboard bindings to raise/lower windows, force fullscreen
 [org/gnome/desktop/wm/keybindings]
 lower=['<Super>x']
 raise=['<Super>z']
+toggle-fullscreen=['<Super>F11']
 
 # Keyboard bindings to manage volume on classic 101/104-key keyboards
 [org/gnome/settings-daemon/plugins/media-keys]

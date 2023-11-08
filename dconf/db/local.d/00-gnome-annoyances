@@ -10,12 +10,14 @@ automount=false
 automount-open=false
 autorun-never=true
 
-# Disable GNOME Software search provider
+# Disable GNOME Software search provider (to prevent auto-starting)
 [org/gnome/desktop/search-providers]
 disabled=['org.gnome.Software.desktop']
 
 # Set the window/application switch bindings back to normal
 [org/gnome/desktop/wm/keybindings]
+# Ubuntu: disable show-desktop
+show-desktop=@as []
 switch-applications=['<Super>Tab']
 switch-applications-backward=['<Shift><Super>Tab']
 switch-windows=['<Alt>Tab']
