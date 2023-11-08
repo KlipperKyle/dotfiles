@@ -1,0 +1,18 @@
+# -*- mode: conf-unix; -*-
+
+# Setup special Compose and Escape keys
+[org/gnome/desktop/input-sources]
+xkb-options=['caps:escape_shifted_capslock', 'compose:menu']
+
+# Keyboard bindings to raise/lower windows
+[org/gnome/desktop/wm/keybindings]
+lower=['<Super>x']
+raise=['<Super>z']
+
+# Keyboard bindings to manage volume on classic 101/104-key keyboards
+[org/gnome/settings-daemon/plugins/media-keys]
+mic-mute=['<Super>backslash']
+volume-down=['<Super>minus']
+volume-mute=['<Super>BackSpace']
+volume-step=2
+volume-up=['<Super>equal']

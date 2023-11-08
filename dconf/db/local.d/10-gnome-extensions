@@ -1,0 +1,15 @@
+# -*- mode: conf-unix; -*-
+
+[org/gnome/shell/extensions/dash-to-dock]
+apply-custom-theme=true
+autohide=false
+custom-theme-shrink=true
+dock-position='LEFT'
+extend-height=true
+intellihide=false
+
+[org/gnome/shell/extensions/system-monitor]
+compact-display=true
+disk-display=true
+icon-display=false
+show-tooltip=true

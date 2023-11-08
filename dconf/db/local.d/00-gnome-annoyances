@@ -1,0 +1,61 @@
+# -*- mode: conf-unix; -*-
+
+# Enable hot corners by default in Ubuntu
+[org/gnome/desktop/interface]
+enable-hot-corners=true
+
+# Disable USB automount and autorun
+[org/gnome/desktop/media-handling]
+automount=false
+automount-open=false
+autorun-never=true
+
+# Disable GNOME Software search provider
+[org/gnome/desktop/search-providers]
+disabled=['org.gnome.Software.desktop']
+
+# Set the window/application switch bindings back to normal
+[org/gnome/desktop/wm/keybindings]
+switch-applications=['<Super>Tab']
+switch-applications-backward=['<Shift><Super>Tab']
+switch-windows=['<Alt>Tab']
+switch-windows-backward=['<Shift><Alt>Tab']
+
+# Show minimize/maximize/close buttons
+[org/gnome/desktop/wm/preferences]
+action-middle-click-titlebar='lower'
+button-layout='appmenu:minimize,maximize,close'
+
+# Let the user drag around modal dialogs
+[org/gnome/mutter]
+attach-modal-dialogs=false
+
+# Nautilus: make list-view more compact
+[org/gnome/nautilus/list-view]
+default-zoom-level='small'
+
+# Nautilus: add a ‘delete’ menu option, disable recursive search, and
+# make list-view the default
+[org/gnome/nautilus/preferences]
+show-delete-permanently=true
+recursive-search='never'
+default-folder-viewer='list-view'
+
+# Add a <Control><Alt>t binding to open a terminal
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal]
+binding='<Control><Alt>t'
+command='x-terminal-emulator'
+name='Terminal'
+
+# Don’t sleep on AC power
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-type='nothing'
+
+# Disable GNOME Software update nags
+# Real Linux users manage updates from the command line.  ;-)
+[org/gnome/software]
+allow-updates=false
+download-updates=false
