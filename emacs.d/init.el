@@ -18,6 +18,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(Man-width 80)
+ '(ange-ftp-default-user "anonymous")
+ '(ange-ftp-generate-anonymous-password "")
  '(auth-sources '("~/.authinfo.gpg"))
  '(auto-hscroll-mode 'current-line)
  '(column-number-mode t)
