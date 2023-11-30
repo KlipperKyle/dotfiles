@@ -171,12 +171,12 @@ This is customized in ‘~/.emacs’."
 (global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
 ;; Global keybindings
-(global-set-key (kbd "<f5>") 'auto-fill-mode)
-(global-set-key (kbd "C-<f5>") 'display-fill-column-indicator-mode)
-(global-set-key (kbd "<f6>") 'visual-line-mode)
-(global-set-key (kbd "C-<f6>") 'toggle-truncate-lines)
-(global-set-key (kbd "<f7>") 'flyspell-mode)
-(global-set-key (kbd "C-<f7>") 'flyspell-buffer)
+(global-set-key (kbd "<f5>") 'display-fill-column-indicator-mode)
+(global-set-key (kbd "C-<f5>") 'auto-fill-mode)
+(global-set-key (kbd "<f6>") 'toggle-truncate-lines)
+(global-set-key (kbd "C-<f6>") 'visual-line-mode)
+(global-set-key (kbd "<f7>") 'flyspell-buffer)
+(global-set-key (kbd "C-<f7>") 'flyspell-mode)
 (global-set-key (kbd "<f8>") 'display-line-numbers-mode)
 (global-set-key (kbd "C-<f8>") 'indent-tabs-mode)
 (global-set-key (kbd "<f9>") 'whitespace-mode)
