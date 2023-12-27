@@ -48,12 +48,6 @@
      (sgml-basic-offset . 2)))
  '(save-place-mode t)
  '(scroll-bar-mode 'left)
- '(sh-set-shell-hook
-   '((lambda nil
-       (if
-	   (eq sh-shell 'rc)
-	   (font-lock-mode 0)
-	 (font-lock-mode 1)))))
  '(show-paren-mode t)
  '(shr-width 80)
  '(split-height-threshold 90)
@@ -413,6 +407,10 @@ https://www.emacswiki.org/emacs/OrgMode"
 ;; 		(setq tab-width 4
 ;; 		      python-indent-offset 4))))
 (add-hook 'python-mode-hook 'infer-indentation-style)
+
+;; sh-mode
+;; Don’t use sh-mode for rc scripts.  It is broken.
+(add-to-list 'interpreter-mode-alist '("rc" . prog-mode))
 
 ;; shell-mode
 ;; Use emacsclient instead of a “normal” editor.
