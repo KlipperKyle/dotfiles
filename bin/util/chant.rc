@@ -4,8 +4,10 @@
 # Play a selection of Gregorian chant on a loop to keep away demons.
 #
 
+# Prefer plan9port utilities
 if(! ~ $#PLAN9 0 && test -e $PLAN9/bin/9.rc) . $PLAN9/bin/9.rc
 
+# List of songs to play
 songs=( \
 	'/mnt/d1/kyle/Music/[anonymous]/Ave Maria'/*.flac \
 	'/mnt/d1/kyle/Music/[anonymous]/Salve Regina_ Gregorian Chant'/*.flac \
