@@ -1,0 +1,23 @@
+#!/usr/bin/env rc
+# chant.rc
+#
+# Play a selection of Gregorian chant on a loop to keep away demons.
+#
+
+if(! ~ $#PLAN9 0 && test -e $PLAN9/bin/9.rc) . $PLAN9/bin/9.rc
+
+songs=( \
+	'/mnt/d1/kyle/Music/[anonymous]/Ave Maria'/*.flac \
+	'/mnt/d1/kyle/Music/[anonymous]/Salve Regina_ Gregorian Chant'/*.flac \
+)
+mpv_opts=(--loop-playlist --shuffle --no-audio-display)
+
+# Make sure mpv is installed
+mpv --version > /dev/null || exit 1
+
+echo "Playlist:"
+for(i in `{seq 1 $#songs}) {
+	echo $i^'	'^$songs($i)
+}
+echo ''
+mpv $mpv_opts $songs
