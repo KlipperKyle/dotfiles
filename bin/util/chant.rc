@@ -17,7 +17,7 @@ mpv_opts=(--loop-playlist --shuffle --no-audio-display)
 # Make sure mpv is installed
 mpv --version > /dev/null || exit 1
 
-echo "Playlist:"
+echo 'Playlist:'
 for(i in `{seq 1 $#songs}) {
 	echo $i^'	'^$songs($i)
 }
