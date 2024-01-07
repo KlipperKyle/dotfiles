@@ -1,3 +1,6 @@
+#!/bin/zsh -f
+# ~/.zshrc
+
 # Set up the prompt
 case $TERM in
     cygwin*|linux*|rxvt*|screen*|tmux*|xterm*|*-color|*-256color)
@@ -32,21 +35,31 @@ then
     alias egrep='egrep --color=auto'
 fi
 
-# No line editing in Emacs
-[[ "$TERM" == "dumb" ]] && unsetopt zle
-
-setopt histignorealldups sharehistory
+# Emacs inferior shells, 9term, etc
+if [[ "$TERM" == "dumb" ]]; then
+    unsetopt zle notify
+    export PAGER=cat
+else
+    unset PAGER
+fi
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
 
+# Use bash-like word movements
 autoload -U select-word-style
 select-word-style bash
+
+# Open large commands in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
 
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
+setopt histignorealldups sharehistory
 
 # Use modern completion system
 autoload -Uz compinit
