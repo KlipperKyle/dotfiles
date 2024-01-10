@@ -15,7 +15,7 @@ mpv_opts=(--loop-playlist --shuffle --no-audio-display)
 mpv --version > /dev/null || exit 1
 
 echo "Playlist:"
-for (( i = 1; i <= $#songs; i++ )) do
+for i in {1..$#songs}; do
     printf '%i\t%s\n' $i $songs[i]
 done
 echo ""
