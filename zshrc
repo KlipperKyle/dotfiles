@@ -42,6 +42,7 @@ if [[ "$TERM" == "dumb" ]]; then
 else
     unset PAGER
 fi
+unset READNULLCMD
 
 # Use emacs keybindings even if our EDITOR is set to vi
 bindkey -e
