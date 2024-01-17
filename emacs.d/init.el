@@ -40,6 +40,16 @@
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount
+   '(0.1
+     ((shift)
+      . hscroll)
+     ((meta))
+     ((control meta)
+      . global-text-scale)
+     ((control)
+      . text-scale)))
  '(mouse-wheel-scroll-amount-horizontal 10)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
