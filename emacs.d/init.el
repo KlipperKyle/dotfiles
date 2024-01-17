@@ -82,8 +82,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monospace" :height 100))))
  '(fixed-pitch ((t (:family "Monospace"))))
- '(fixed-pitch-serif ((t (:family "Monospace"))))
- '(region ((t (:extend t :background "LightGoldenrod2")))))
+ '(fixed-pitch-serif ((t (:family "Monospace")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
