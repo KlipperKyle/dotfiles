@@ -87,7 +87,7 @@
    `(line-number                                  ((t (:foreground ,fg :background ,bg-alt))))
    `(line-number-current-line                     ((t (:foreground ,fg :background ,bg-alt))))
    `(header-line                                  ((t (:foreground ,fg :background ,acme-blue-light :box t))))
-   `(scroll-bar                                   ((t (:foreground ,bg :background ,acme-yellow))))
+   `(scroll-bar                                   ((t (:foreground ,bg-alt :background ,acme-yellow))))
    `(success                                      ((t (:foreground ,acme-green :weight normal))))
    `(warning                                      ((t (:foreground ,acme-red :weight normal))))
    `(error                                        ((t (:foreground ,acme-red :bold t))))
