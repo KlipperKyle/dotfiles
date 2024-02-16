@@ -18,6 +18,13 @@ shift-middle-click-action='launch'
 
 [org/gnome/shell/extensions/system-monitor]
 compact-display=true
+cpu-display=true
+cpu-refresh-time=500
 disk-display=true
+disk-refresh-time=500
 icon-display=false
+memory-display=true
+memory-refresh-time=500
+net-display=true
+net-refresh-time=500
 show-tooltip=true
