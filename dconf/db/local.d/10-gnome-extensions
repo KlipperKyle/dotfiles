@@ -1,7 +1,9 @@
 # -*- mode: conf-unix; -*-
 
 [org/gnome/shell]
-enabled-extensions=['apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com']
+enabled-extensions=['apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'system-monitor@paradoxxx.zero.gmail.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com']
+# Ubuntu: disable Canonical extensions
+disabled-extensions=['ding@rastersoft.com', 'ubuntu-dock@ubuntu.com']
 
 [org/gnome/shell/extensions/dash-to-dock]
 apply-custom-theme=true
