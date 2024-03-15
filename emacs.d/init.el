@@ -204,7 +204,7 @@ This is customized in ‘~/.emacs’."
 ;; Use editorconfig everywhere
 (if (locate-library "editorconfig")
     (progn
-      (setq editorconfig-mode-lighter " ec")
+      (setq editorconfig-mode-lighter nil)
       (editorconfig-mode 1)))
 
 ;; Whether to delete selection when typing over it.
