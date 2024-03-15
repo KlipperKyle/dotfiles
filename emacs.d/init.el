@@ -315,7 +315,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; markdown-mode
 ;; Install from MELPA
-(setq-default markdown-content-type "text/html; charset=utf-8")
+(setq-default markdown-content-type "text/html; charset=utf-8"
+	      markdown-command "cmark")
 
 ;; Org Mode
 (global-set-key "\C-cl" 'org-store-link)
