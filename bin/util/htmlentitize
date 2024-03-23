@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+#
+# htmlentitize
+#
+# Convert text to numerical HTML entities.  Great for masking email
+# addresses in web pages!
+#
+
+use v5.14;
+use strict;
+use warnings;
+
+while (<>) {
+  my $nl = chomp;
+  for my $code (unpack("U*", $_)) {
+    print "&#$code;"
+  }
+  print "\n" if ($nl);
+}
