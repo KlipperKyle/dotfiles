@@ -62,6 +62,7 @@
  '(shr-width 80)
  '(split-height-threshold 90)
  '(sql-mysql-options '("--prompt=mysql> "))
+ '(tab-always-indent 'complete)
  '(tab-bar-new-tab-to 'rightmost)
  '(tab-bar-tab-hints t)
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
