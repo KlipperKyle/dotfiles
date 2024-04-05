@@ -141,7 +141,7 @@ This is customized in ‘~/.emacs’."
 ;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
 ;; (load-theme 'solarized-light-kt)
 
-(load-theme 'acme-kt)
+;; (load-theme 'acme-kt)
 
 ;; ffap
 (setq ffap-require-prefix t
