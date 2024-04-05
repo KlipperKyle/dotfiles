@@ -366,7 +366,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	   (`latex (format "\\href{%s}{%s}" url desc))
 	   (`texinfo (format "@uref{%s,%s}" url desc))
 	   (`ascii (format "%s (%s)" url desc))
-	   (t url))))
+	   (_ url))))
      (defun org-gopher-follow (path)
        "Follow a gopher:// link in an org-mode doc"
        (require 'elpher)
@@ -380,7 +380,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	   (`latex (format "\\href{%s}{%s}" url desc))
 	   (`texinfo (format "@uref{%s,%s}" url desc))
 	   (`ascii (format "%s (%s)" url desc))
-	   (t url))))))
+	   (_ url))))))
 
 (defun org-todo-at-date (date)
   "Run org-todo as though it had been executed at some prior time
