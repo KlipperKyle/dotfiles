@@ -1,0 +1,6 @@
+#!/bin/sh
+# org2html
+
+for f in "$@" ; do
+    emacs --batch -l ~/.emacs.d/init.el "$f" -f org-html-export-to-html
+done
