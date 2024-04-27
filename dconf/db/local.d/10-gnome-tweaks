@@ -12,6 +12,7 @@ font-antialiasing='rgba'
 font-hinting='slight'
 font-name='Serif 10'
 monospace-font-name='Monospace 10'
+show-battery-percentage=true
 [org/gnome/desktop/wm/preferences]
 titlebar-font='Serif Bold 10'
 
