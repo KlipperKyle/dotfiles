@@ -19,6 +19,10 @@ autorun-never=true
 [org/gnome/desktop/search-providers]
 disabled=['org.gnome.Software.desktop']
 
+# Set the lock timeout to 10 minutes
+[org/gnome/desktop/session]
+idle-delay=uint32 600
+
 # Set the window/application switch bindings back to normal
 [org/gnome/desktop/wm/keybindings]
 # Ubuntu: disable show-desktop
