@@ -4,6 +4,17 @@
 [org/gnome/desktop/input-sources]
 xkb-options=['caps:escape_shifted_capslock', 'compose:menu']
 
+# Tweak default fonts
+[org/gnome/desktop/interface]
+document-font-name='Serif 10'
+enable-animations=false
+font-antialiasing='rgba'
+font-hinting='slight'
+font-name='Serif 10'
+monospace-font-name='Monospace 10'
+[org/gnome/desktop/wm/preferences]
+titlebar-font='Serif Bold 10'
+
 # Keyboard bindings to raise/lower windows, force fullscreen
 [org/gnome/desktop/wm/keybindings]
 lower=['<Super>x']
