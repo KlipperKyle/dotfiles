@@ -25,6 +25,7 @@
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
+ '(custom-enabled-themes '(modus-operandi))
  '(echo-keystrokes 0.001)
  '(electric-quote-mode t)
  '(elpher-open-urls-with-eww t)
@@ -93,7 +94,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monospace" :height 100))))
  '(fixed-pitch ((t (:family "Monospace"))))
- '(fixed-pitch-serif ((t (:family "Monospace")))))
+ '(fixed-pitch-serif ((t (:family "Monospace"))))
+ '(variable-pitch ((t (:family "DejaVu Serif")))))
 
 ;; Use xdg-open, even if we are not running a full-fledged desktop
 ;; environment.  (See net/browse-url.el.gz)
