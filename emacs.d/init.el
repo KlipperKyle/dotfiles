@@ -25,7 +25,6 @@
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
- '(custom-enabled-themes '(modus-operandi))
  '(echo-keystrokes 0.001)
  '(electric-quote-mode t)
  '(elpher-open-urls-with-eww t)
@@ -143,6 +142,7 @@ This is customized in ‘~/.emacs’."
 ;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
 ;; (load-theme 'solarized-light-kt)
 
+(load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
 ;; ffap
