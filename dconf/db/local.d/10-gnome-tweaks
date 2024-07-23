@@ -2,7 +2,7 @@
 
 # Setup special Compose and Escape keys
 [org/gnome/desktop/input-sources]
-xkb-options=['caps:escape_shifted_capslock', 'compose:menu']
+xkb-options=['caps:escape_shifted_capslock', 'compose:ralt']
 
 # Tweak default fonts
 [org/gnome/desktop/interface]
