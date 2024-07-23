@@ -16,6 +16,10 @@ show-battery-percentage=true
 [org/gnome/desktop/wm/preferences]
 titlebar-font='Serif Bold 10'
 
+# "Forward" button turns trackball into a scroll ball
+[org/gnome/desktop/peripherals/trackball]
+scroll-wheel-emulation-button=9
+
 # Keyboard bindings to raise/lower windows, force fullscreen
 [org/gnome/desktop/wm/keybindings]
 lower=['<Super>x']
