@@ -15,6 +15,12 @@ automount=false
 automount-open=false
 autorun-never=true
 
+# Disable “natural scroll”
+[org/gnome/desktop/peripherals/mouse]
+natural-scroll=false
+[org/gnome/desktop/peripherals/touchpad]
+natural-scroll=false
+
 # Disable GNOME Software search provider (to prevent auto-starting)
 [org/gnome/desktop/search-providers]
 disabled=['org.gnome.Software.desktop']
