@@ -58,15 +58,6 @@ show-delete-permanently=true
 recursive-search='never'
 default-folder-viewer='list-view'
 
-# Add a <Control><Alt>t binding to open a terminal
-[org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/']
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal]
-binding='<Control><Alt>t'
-command='x-terminal-emulator'
-name='Terminal'
-
 # Don’t sleep on AC power
 [org/gnome/settings-daemon/plugins/power]
 sleep-inactive-ac-type='nothing'

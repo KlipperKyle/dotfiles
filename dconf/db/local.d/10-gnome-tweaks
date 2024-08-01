@@ -29,3 +29,17 @@ volume-down=['<Super>minus']
 volume-mute=['<Super>BackSpace']
 volume-step=2
 volume-up=['<Super>equal']
+
+# Add some keybindings
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dmenu/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/dmenu]
+binding='<Super>d'
+command='dmenu_run -b'
+name='dmenu'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/terminal]
+binding='<Control><Alt>t'
+command='x-terminal-emulator'
+name='Terminal'
