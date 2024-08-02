@@ -12,7 +12,5 @@ shopt -s globstar
 
 # perlbrew
 perlbrew() {
-    . "${PERLBREW_ROOT:-$HOME/perl5/perlbrew}/etc/bashrc" || return
-    unset -f perlbrew
-    command perlbrew "$@"
+    . "${PERLBREW_ROOT:-$HOME/perl5/perlbrew}/etc/bashrc" && command perlbrew "$@"
 }
