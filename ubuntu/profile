@@ -51,7 +51,7 @@ if [ -z "$USERENV" ] ; then
     export USERENV=LOADED
 fi
 
-# kt: Funtoo keychain
-if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
-    eval `keychain -q --noask --eval`
-fi
+# # kt: Funtoo keychain
+# if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
+#     eval "$(keychain -q --noask --eval)"
+# fi
