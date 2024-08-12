@@ -1,0 +1,5 @@
+#!/bin/sh
+# kt: Funtoo keychain
+if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
+    eval "$(keychain --noask --eval)"
+fi
