@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=XEphem
+Exec=xephem
+Comment=Astronomical Ephemeris Program for the X Window System
+Terminal=false
+Type=Application
+Categories=Education;Science
