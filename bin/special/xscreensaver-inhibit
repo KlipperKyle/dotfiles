@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# xscreensaver-inhibit
+#
+# This is the correct way to inhibit xscreensaver---send an occasional
+# activity ping.
+#
+# https://www.jwz.org/blog/2020/12/xscreensaver-5-45/
+#
+# > For decades, the traditional way for a video player to temporarily
+# > inhibit the screen saver was to have a heartbeat command that ran
+# > "xscreensaver-command -deactivate" once a minute while the video
+# > was playing, and ceased when the video was paused or stopped. The
+# > reason to do it as a heartbeat rather than a toggle is so that the
+# > player fails SAFE -- if the player exits abnormally, the heart
+# > stops beating, and screen saving and locking resumes.
+#
+
+while true ; do
+    xscreensaver-command -deactivate -quiet
+    sleep 60
+done
