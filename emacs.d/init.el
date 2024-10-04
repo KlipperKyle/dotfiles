@@ -440,9 +440,8 @@ https://www.emacswiki.org/emacs/OrgMode"
 (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
 ;; Local overrides
-(if (file-readable-p "~/.emacs.local")
-    (load "~/.emacs.local")
-  nil)
+(if (file-readable-p "~/.emacs.d/init-local.el")
+    (load "~/.emacs.d/init-local.el"))
 
 ;; Start Emacs server
 (require 'server)
