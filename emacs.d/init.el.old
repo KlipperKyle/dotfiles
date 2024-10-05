@@ -1,7 +1,8 @@
 ;; -*- mode: emacs-lisp -*-
 ;;
 ;; This contains some old elisp that ties together old static versions
-;; of various elisp libraries that I have.
+;; of various elisp libraries that I have, as well as old obsolete
+;; stuff.
 ;;
 
 ;; Markdown Mode
@@ -37,11 +38,158 @@
 (add-to-list 'auto-mode-alist'("\\.tmpl$" . twiki-mode))
 
 ;; Acme keybindings
-;; (if (not (require 'acme-search nil t))
-;;     (message "‘acme-search’ not found")
-;;   (global-set-key [(mouse-3)] 'acme-search-forward)
-;;   (global-set-key [(shift mouse-3)] 'acme-search-backward))
+(if (not (require 'acme-search nil t))
+    (message "‘acme-search’ not found")
+  (global-set-key [(mouse-3)] 'acme-search-forward)
+  (global-set-key [(shift mouse-3)] 'acme-search-backward))
 
-;; (if (not (require 'acme-mouse nil t))
-;;     (message "‘acme-mouse’ not found"))
+(if (not (require 'acme-mouse nil t))
+    (message "‘acme-mouse’ not found"))
 
+;; w3m
+'(customize-set-variables
+  '(w3m-fill-column 80)
+  '(w3m-home-page "~/org/index.html")
+  '(w3m-key-binding 'info)
+  '(w3m-search-default-engine "duckduckgo")
+  '(w3m-uri-replace-alist
+    '(("\\`gg:" w3m-search-uri-replace "google")
+      ("\\`ya:" w3m-search-uri-replace "yahoo")
+      ("\\`bts:" w3m-search-uri-replace "debian-bts")
+      ("\\`dpkg:" w3m-search-uri-replace "debian-pkg")
+      ("\\`alc:" w3m-search-uri-replace "alc")
+      ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
+      ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
+      ("\\`ddg:" w3m-search-uri-replace "duckduckgo"))))
+
+;; Use xdg-open, even if we are not running a full-fledged desktop
+;; environment.  (See net/browse-url.el.gz)
+(eval-after-load 'browse-url
+  '(defun browse-url-can-use-xdg-open ()
+    "Return non-nil if the \"xdg-open\" program can be used.
+xdg-open is a desktop utility that calls your preferred web
+browser.
+
+This is customized in ‘~/.emacs’."
+    (and (getenv "DISPLAY")
+	 (executable-find "xdg-open")
+	 ;; xdg-open may call gnome-open and that does not wait for its child
+	 ;; to finish.  This child may then be killed when the parent dies.
+	 ;; Use nohup to work around.  See bug#7166, bug#8917, bug#9779 and
+	 ;; http://lists.gnu.org/archive/html/emacs-devel/2009-07/msg00279.html
+	 (executable-find "nohup"))))
+
+;; Solarized colors
+(require 'solarized)
+(require 'solarized-palettes)
+(setq solarized-distinct-fringe-background t
+      solarized-high-contrast-mode-line nil
+      solarized-use-variable-pitch nil
+      solarized-height-minus-1 1.0	; was 0.8
+      solarized-height-plus-1 1.0	; was 1.1
+      solarized-height-plus-2 1.0	; was 1.15
+      solarized-height-plus-3 1.0	; was 1.2
+      solarized-height-plus-4 1.0)	; was 1.3
+(solarized-create-theme-file 'light 'solarized-light-kt
+  solarized-light-color-palette-alist
+  '((custom-theme-set-faces
+     theme-name
+     `(minibuffer-prompt ((,class (:foreground ,blue)))))))
+(solarized-create-theme-file 'dark 'solarized-dark-kt
+  solarized-light-color-palette-alist
+  '((custom-theme-set-faces
+     theme-name
+     `(minibuffer-prompt ((,class (:foreground ,blue)))))))
+(load-theme 'solarized-light-kt)
+
+;; Get rid of "<mouse-?> is undefined" warnings
+;; Horizontal scroll in X11
+(global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
+(global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
+
+;; KVM switch
+(global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
+(global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
+
+;; tramp
+;; http://wikemacs.org/index.php/TRAMP
+;; https://www.gnu.org/software/tramp/#Multi_002dhops
+;; Allow ssh+sudo to get remote root
+(if (locate-library "tramp")
+    (eval-after-load "tramp"
+      '(progn
+	 (add-to-list 'tramp-default-proxies-alist
+		      '(nil "\\`root\\'" "/ssh:%h:"))
+	 (add-to-list 'tramp-default-proxies-alist
+		      '((regexp-quote (system-name)) nil nil)))))
+
+;; atomic-chrome
+(setq atomic-chrome-buffer-open-style 'full)
+
+;; go-mode
+;; Install from MELPA
+(require 'mode-local)
+(setq-mode-local go-mode tab-width 4)
+
+;; org-mode
+;; These vars are set in individual files now, but here is how you set
+;; them globally.
+(setq org-todo-keywords
+      '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
+	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
+(setq org-todo-keyword-faces
+      '(("TODO" . "red")
+	("INPROG" . "orange")
+	("DONE" . "darkgreen")
+	("BLOCKED" . "purple")
+	("CANCELED" . "blue")))
+(setq org-log-done 'time)
+(setq org-fontify-done-headline nil)
+
+;; I don’t use this anymore.
+(setq org-publish-project-alist
+      '(("org"
+	 :base-directory "~/org"
+	 :publishing-directory "~/org"
+	 :publishing-function org-html-publish-to-html)))
+
+;; I can’t get this function to work correctly
+(defun org-todo-at-date (date)
+  "Run org-todo as though it had been executed at some prior time
+that is interactively selected using org-read-date.
+
+This is particularly useful if you use the org-habits module and
+you are late to file the completion of a habit.  If you complete
+the habit with org-todo it will be completed for the current day,
+and scheduled to repeat at the next repeat interval based on the
+current date.  If you use org-todo-at-date and set the
+appropriate date, the task will be scheduled to repeat as though
+the task had been completed on the specified date.
+
+https://www.emacswiki.org/emacs/OrgMode"
+  (interactive (list (org-time-string-to-time (org-read-date))))
+  (cl-flet ((org-current-effective-time (&rest r) date)
+	    (org-today (&rest r) (time-to-days date)))
+    (org-todo)))
+
+;; python-mode
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (if indent-tabs-mode
+		(setq tab-width 4
+		      python-indent-offset 4))))
+
+;; php-mode
+;; [f5] switches between mhtml-mode and php-mode
+(if (fboundp 'php-mode)
+    (progn
+      (add-hook 'php-mode-hook (lambda ()
+				 (define-key php-mode-map [f5] 'mhtml-mode)))
+      (add-hook 'mhtml-mode-hook (lambda ()
+				   (define-key mhtml-mode-map [f5]
+				     (lambda () (interactive)
+				       (flyspell-mode 0)
+				       (php-mode)))))))
+
+;; web-mode
+(setq-default web-mode-markup-indent-offset 2)

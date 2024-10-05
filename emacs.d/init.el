@@ -68,19 +68,6 @@
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(tool-bar-mode nil)
- '(w3m-fill-column 80)
- '(w3m-home-page "~/org/index.html")
- '(w3m-key-binding 'info)
- '(w3m-search-default-engine "duckduckgo")
- '(w3m-uri-replace-alist
-   '(("\\`gg:" w3m-search-uri-replace "google")
-     ("\\`ya:" w3m-search-uri-replace "yahoo")
-     ("\\`bts:" w3m-search-uri-replace "debian-bts")
-     ("\\`dpkg:" w3m-search-uri-replace "debian-pkg")
-     ("\\`alc:" w3m-search-uri-replace "alc")
-     ("\\`urn:ietf:rfc:\\([0-9]+\\)" w3m-pattern-uri-replace "http://www.ietf.org/rfc/rfc\\1.txt")
-     ("\\`duckduckgo:" w3m-search-uri-replace "duckduckgo")
-     ("\\`ddg:" w3m-search-uri-replace "duckduckgo")))
  '(wdired-allow-to-change-permissions 'advanced)
  '(whitespace-style
    '(face trailing tabs spaces newline missing-newline-at-eof empty indentation space-after-tab space-before-tab space-mark tab-mark newline-mark))
@@ -94,53 +81,13 @@
  '(default ((t (:family "Monospace" :height 100))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(fixed-pitch-serif ((t (:family "Monospace"))))
- '(variable-pitch ((t (:family "DejaVu Serif")))))
-
-;; Use xdg-open, even if we are not running a full-fledged desktop
-;; environment.  (See net/browse-url.el.gz)
-(eval-after-load 'browse-url
-  '(defun browse-url-can-use-xdg-open ()
-    "Return non-nil if the \"xdg-open\" program can be used.
-xdg-open is a desktop utility that calls your preferred web
-browser.
-
-This is customized in ‘~/.emacs’."
-    (and (getenv "DISPLAY")
-	 (executable-find "xdg-open")
-	 ;; xdg-open may call gnome-open and that does not wait for its child
-	 ;; to finish.  This child may then be killed when the parent dies.
-	 ;; Use nohup to work around.  See bug#7166, bug#8917, bug#9779 and
-	 ;; http://lists.gnu.org/archive/html/emacs-devel/2009-07/msg00279.html
-	 (executable-find "nohup"))))
+ '(variable-pitch ((t (:family "Noto Serif")))))
 
 ;; Custom lisp dir
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
-
-;; Solarized colors
-;; (require 'solarized)
-;; (require 'solarized-palettes)
-;; (setq solarized-distinct-fringe-background t
-;;       solarized-high-contrast-mode-line nil
-;;       solarized-use-variable-pitch nil
-;;       solarized-height-minus-1 1.0	; was 0.8
-;;       solarized-height-plus-1 1.0	; was 1.1
-;;       solarized-height-plus-2 1.0	; was 1.15
-;;       solarized-height-plus-3 1.0	; was 1.2
-;;       solarized-height-plus-4 1.0)	; was 1.3
-;; (solarized-create-theme-file 'light 'solarized-light-kt
-;;   solarized-light-color-palette-alist
-;;   '((custom-theme-set-faces
-;;      theme-name
-;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
-;; (solarized-create-theme-file 'dark 'solarized-dark-kt
-;;   solarized-light-color-palette-alist
-;;   '((custom-theme-set-faces
-;;      theme-name
-;;      `(minibuffer-prompt ((,class (:foreground ,blue)))))))
-;; (load-theme 'solarized-light-kt)
 
 (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
@@ -161,15 +108,6 @@ This is customized in ‘~/.emacs’."
        (scroll-down (prefix-numeric-value current-prefix-arg)))
 (global-set-key (kbd "C-z") 'scroll-up-one)
 (global-set-key (kbd "C-M-z") 'scroll-down-one)
-
-;; Get rid of "<mouse-?> is undefined" warnings
-;; Horizontal scroll in X11
-;; (global-set-key (kbd "<mouse-6>") (lambda () (interactive) ()))
-;; (global-set-key (kbd "<mouse-7>") (lambda () (interactive) ()))
-
-;; KVM switch
-;; (global-set-key (kbd "<Scroll_Lock>") (lambda () (interactive) ()))
-;; (global-set-key (kbd "<scroll>") (lambda () (interactive) ()))
 
 ;; Windows
 (global-set-key (kbd "<apps>") 'execute-extended-command)
@@ -206,21 +144,6 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	(tab-count (how-many "^\t" (point-min) (point-max))))
     (if (> space-count tab-count) (setq indent-tabs-mode nil))
     (if (> tab-count space-count) (setq indent-tabs-mode t))))
-
-;; tramp
-;; http://wikemacs.org/index.php/TRAMP
-;; https://www.gnu.org/software/tramp/#Multi_002dhops
-;; Allow ssh+sudo to get remote root
-;; (if (locate-library "tramp")
-;;     (eval-after-load "tramp"
-;;       '(progn
-;; 	 (add-to-list 'tramp-default-proxies-alist
-;; 		      '(nil "\\`root\\'" "/ssh:%h:"))
-;; 	 (add-to-list 'tramp-default-proxies-alist
-;; 		      '((regexp-quote (system-name)) nil nil)))))
-
-;; atomic-chrome
-(setq atomic-chrome-buffer-open-style 'full)
 
 ;; calendar
 ;; Drop holidays of other religions.  Extra Ecclesiam nulla salus!
@@ -282,11 +205,6 @@ See https://www.emacswiki.org/emacs/NoTabs"
   (interactive)
   (setq elpher-content-cache (make-hash-table :test 'equal)))
 
-;; go-mode
-;; Install from MELPA
-;; (require 'mode-local)
-;; (setq-mode-local go-mode tab-width 4)
-
 ;; info-mode
 ;; Include /usr/share/info/emacs
 (setq Info-additional-directory-list '("/usr/share/info/emacs"))
@@ -311,22 +229,6 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (setq org-directory "~/org")
 (setq org-agenda-files (concat org-directory "/agenda-files")
       org-agenda-include-diary t)
-(setq org-publish-project-alist
-      '(("org"
-	 :base-directory "~/org"
-	 :publishing-directory "~/org"
-	 :publishing-function org-html-publish-to-html)))
-;; (setq org-todo-keywords
-;;       '((sequence "TODO(t!/!)" "INPROG(i!/!)" "|" "DONE(d!/!)")
-;; 	(sequence "BLOCKED(b!/!)" "|" "CANCELED(c!/!)")))
-;; (setq org-todo-keyword-faces
-;;       '(("TODO" . "red")
-;; 	("INPROG" . "orange")
-;; 	("DONE" . "darkgreen")
-;; 	("BLOCKED" . "purple")
-;; 	("CANCELED" . "blue")))
-;; (setq org-log-done 'time)
-;; (setq org-fontify-done-headline nil)
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
@@ -366,42 +268,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	   (`ascii (format "%s (%s)" url desc))
 	   (_ url))))))
 
-(defun org-todo-at-date (date)
-  "Run org-todo as though it had been executed at some prior time
-that is interactively selected using org-read-date.
-
-This is particularly useful if you use the org-habits module and
-you are late to file the completion of a habit.  If you complete
-the habit with org-todo it will be completed for the current day,
-and scheduled to repeat at the next repeat interval based on the
-current date.  If you use org-todo-at-date and set the
-appropriate date, the task will be scheduled to repeat as though
-the task had been completed on the specified date.
-
-https://www.emacswiki.org/emacs/OrgMode"
-  (interactive (list (org-time-string-to-time (org-read-date))))
-  (cl-flet ((org-current-effective-time (&rest r) date)
-	    (org-today (&rest r) (time-to-days date)))
-    (org-todo)))
-
-;; php-mode
-;; [f5] switches between mhtml-mode and php-mode
-;; (if (fboundp 'php-mode)
-;;     (progn
-;;       (add-hook 'php-mode-hook (lambda ()
-;; 				 (define-key php-mode-map [f5] 'mhtml-mode)))
-;;       (add-hook 'mhtml-mode-hook (lambda ()
-;; 				   (define-key mhtml-mode-map [f5]
-;; 				     (lambda () (interactive)
-;; 				       (flyspell-mode 0)
-;; 				       (php-mode)))))))
-
 ;; python-mode
-;; (add-hook 'python-mode-hook
-;; 	  (lambda ()
-;; 	    (if indent-tabs-mode
-;; 		(setq tab-width 4
-;; 		      python-indent-offset 4))))
 (add-hook 'python-mode-hook 'infer-indentation-style)
 
 ;; sh-mode
@@ -413,9 +280,6 @@ https://www.emacswiki.org/emacs/OrgMode"
 (setenv "EDITOR" "emacsclient")
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setq explicit-shell-file-name "/bin/bash")
-
-;; web-mode
-(setq-default web-mode-markup-indent-offset 2)
 
 ;; yaml-mode
 ;; *.sls: SaltStack conf files
