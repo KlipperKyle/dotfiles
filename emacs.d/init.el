@@ -215,6 +215,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; mail-mode
 ;; Make Thunderbird email replies load with the correct mode
 (add-to-list 'auto-mode-alist '("\\.eml\\'" . mail-mode))
+;; Mutt support.
+(add-to-list 'auto-mode-alist '("/tmp/mutt.*" . mail-mode))
 
 ;; markdown-mode
 ;; Install from MELPA
@@ -286,6 +288,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
 
 ;; Local overrides
+(if (file-readable-p "~/.emacs.d/prv.el")
+    (load "~/.emacs.d/prv.el"))
 (if (file-readable-p "~/.emacs.d/init-local.el")
     (load "~/.emacs.d/init-local.el"))
 
