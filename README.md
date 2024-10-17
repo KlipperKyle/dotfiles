@@ -14,8 +14,9 @@ several desktop environments on multiple Linux distributions.  All
 configuration files and hacks are here, in various states ranging from
 working to archival.
 
-Desktop environments I have migrated between: (all of them are here)
+Desktop environments I have migrated between:
 
++ XFCE
 + i3
 + Window Maker
 + dwm
@@ -23,8 +24,9 @@ Desktop environments I have migrated between: (all of them are here)
 + Window Maker (again)
 + Openbox
 + GNOME
++ XFCE (again)
 
-Distributions I have migrated between: (again, all here)
+Distributions I have migrated between:
 
 + Cygwin
 + Arch Linux
@@ -33,10 +35,12 @@ Distributions I have migrated between: (again, all here)
 + Funtoo
 + (Some SUSE and RHEL sprinkled throughout)
 + Ubuntu
++ Debian
 
 Shells:
 
-+ bash only (sorry, zsh fans)
++ bash
++ zsh
 
 Applications:
 
@@ -47,12 +51,19 @@ Applications:
 + vimperator (aka Pentadactyl, Vim in Firefox)
 + Conky
 + OpenSSH
++ Sakura
++ Picom
++ ...
 
 Other libraries:
 
 + inputrc/terminfo
++ X11
 + Xresources
 + xsettingsd
 + gtk
 + fontconfig
++ dconf overrides
++ iptables
++ ...
 
