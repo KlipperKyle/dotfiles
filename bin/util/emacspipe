@@ -1,0 +1,8 @@
+#!/bin/sh
+# emacspipe -> Send stdin into emacs
+# See https://superuser.com/q/31404
+
+TMP="$(mktemp /tmp/emacspipe.XXXXXXX)" || exit
+trap 'rm -f "$TMP"' EXIT
+cat > "$TMP" || exit
+emacsclient -a emacs "$@" -- "$TMP"
