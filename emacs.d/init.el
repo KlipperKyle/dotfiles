@@ -96,7 +96,7 @@
 (setq ffap-require-prefix t
       ffap-bindings
       '((global-set-key [S-mouse-2] 'ffap-at-mouse)
-	(global-set-key [C-S-mouse-2] 'ffap-menu)
+	(global-set-key [C-M-mouse-2] 'ffap-menu)
 	(global-set-key [remap find-file] 'find-file-at-point)))
 (ffap-bindings)
 
@@ -122,7 +122,7 @@
 (global-set-key (kbd "C-c w") 'eww)
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
-(global-set-key [S-mouse-3] 'imenu)
+(global-set-key [C-M-mouse-1] 'imenu)
 
 ;; Use editorconfig everywhere
 (if (locate-library "editorconfig")
