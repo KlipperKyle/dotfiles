@@ -13,7 +13,7 @@ for my $f (@files) {
   if ($f eq "-") {
     $f = "-stdin";
   }
-  open(my $lynx, "-|", "lynx", "-dump", "$f");
+  open(my $lynx, "-|", "lynx", "-dump", "$f") or die;
   while (<$lynx>) {
     if (m{(\w+://\S+)}) {
       print $1, "\n";
