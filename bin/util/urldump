@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+# urldump -> Dump URLs from web page
+
+use strict;
+use warnings;
+
+my @files = @ARGV;
+if (!@files) {
+  push @files, "-";
+}
+
+for my $f (@files) {
+  if ($f eq "-") {
+    $f = "-stdin";
+  }
+  open(my $lynx, "-|", "lynx", "-dump", "$f");
+  while (<$lynx>) {
+    if (m{(\w+://\S+)}) {
+      print $1, "\n";
+    }
+  }
+}
