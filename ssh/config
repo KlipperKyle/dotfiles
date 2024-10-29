@@ -1,11 +1,12 @@
 # ~/.ssh/config
 
-# I don’t like it when routers forget about idle connections.  Send a
-# keepalive message every 5 minutes.
-ServerAliveInterval 300
+# Send keep-alive messages occasionally, lest NAT routers forget and
+# drop the connection.
+ServerAliveInterval 120
+ServerAliveCountMax 2
 
-# I don’t like hashed known_hosts.  It’s too hard to prune obsolete
-# keys and too easy to lose hosts you accessed before.
+# Disable hashed known_hosts.  It is too hard to prune obsolete keys
+# and too easy to lose names of previously accessed hosts.
 HashKnownHosts no
 
 
