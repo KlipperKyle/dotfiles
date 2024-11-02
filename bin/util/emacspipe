@@ -3,6 +3,6 @@
 # See https://superuser.com/q/31404
 
 TMP="$(mktemp /tmp/emacspipe.XXXXXXX)" || exit
-trap 'rm -f "$TMP"' EXIT
+trap 'rm -f "$TMP"' EXIT HUP INT TERM
 cat > "$TMP" || exit
 emacsclient -a emacs "$@" -- "$TMP"
