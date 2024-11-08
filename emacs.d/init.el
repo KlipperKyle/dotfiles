@@ -89,14 +89,14 @@
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
-(load-theme 'modus-operandi)
-;; (load-theme 'acme-kt)
+;; (load-theme 'modus-operandi)
+(load-theme 'acme-kt)
 
 ;; ffap
 (setq ffap-require-prefix t
       ffap-bindings
       '((global-set-key [C-M-mouse-2] 'ffap-at-mouse)
-	(global-set-key [S-mouse-2] 'ffap-menu)
+	(global-set-key [C-M-mouse-3] 'ffap-menu)
 	(global-set-key [remap find-file] 'find-file-at-point)))
 (ffap-bindings)
 
@@ -123,7 +123,7 @@
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
 (global-set-key [C-M-mouse-1] 'xref-find-definitions-at-mouse)
-(global-set-key [C-M-mouse-3] 'imenu)
+(global-set-key [S-mouse-2] 'imenu)
 
 ;; Use editorconfig everywhere
 (if (locate-library "editorconfig")
