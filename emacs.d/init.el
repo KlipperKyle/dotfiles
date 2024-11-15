@@ -89,8 +89,8 @@
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
-;; (load-theme 'modus-operandi)
-(load-theme 'acme-kt)
+(load-theme 'modus-operandi)
+;; (load-theme 'acme-kt)
 
 ;; ffap
 (setq ffap-require-prefix t
