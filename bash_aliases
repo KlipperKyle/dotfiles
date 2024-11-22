@@ -10,8 +10,8 @@ fi
 
 shopt -s globstar
 
-# perlbrew
-perlbrew() {
-    unset PERL5LIB PERL_MB_OPT PERL_MM_OPT PERL_LOCAL_LIB_ROOT
-    . "${PERLBREW_ROOT:-$HOME/perl5/perlbrew}/etc/bashrc" && perlbrew "$@"
-}
+# # perlbrew
+# perlbrew() {
+#     unset PERL5LIB PERL_MB_OPT PERL_MM_OPT PERL_LOCAL_LIB_ROOT
+#     . "${PERLBREW_ROOT:-$HOME/perl5/perlbrew}/etc/bashrc" && perlbrew "$@"
+# }
