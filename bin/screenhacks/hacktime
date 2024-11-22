@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+# hacktime
+#
+# Hack time, like Hackerman from Kung Fury.
+#
+# This is a demo written to show off what is possible with whiptail
+# (or dialog).  It does not actually hack time, sorry.
+#
+# See:
+# Kung Fury: https://www.youtube.com/watch?v=bS5P_LAqiVg
+# Hackerman scene: https://www.youtube.com/watch?v=6jSVEEqqbbY
+# Hackerman tutorial: https://www.youtube.com/watch?v=KEkrWRHCDQU
+
+d() {
+    # Common options for dialog program
+    whiptail --backtitle 'Hackerman Toolkit' "$@"
+}
+
+printinc() {
+    # Print an increasing list of numbers
+    start=$1
+    end=$2
+    step=$3
+    sleep=$4
+    for ((i = start ; i <= end ; i += step)); do
+	echo "$i"
+	sleep "$sleep"
+    done
+}
+
+printdec() {
+    # Print a decreasing list of numbers
+    start=$1
+    end=$2
+    step=$3
+    sleep=$4
+    for ((i = start ; i >= end ; i -= step)); do
+	echo "$i"
+	sleep "$sleep"
+    done
+}
+
+printfullseq() {
+    # The full sequence for the "Hacking time" gauge
+    printinc 0 80 1 0.05
+    sleep 1
+    printdec 80 45 7 1
+    sleep 2
+    printinc 45 89 2 0.05
+    sleep 4
+    printinc 90 99 1 0.1
+    sleep 1
+}
+
+checkpasswd() {
+    # A very rudimentary password check
+    HASH="aHVudGVyMg=="
+    INCOMING="$1"
+    INCOMING_HASH=$(printf '%s' "$INCOMING" | base64)
+    test "$INCOMING_HASH" = "$HASH"
+}
+
+PASSWD=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
+if ! checkpasswd "${PASSWD}" ; then
+    d --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
+    printdec 100 0 4 0.1 | d --gauge 'Secure wiping DataWraith module...' 0 70 100
+    exit 1
+fi
+d --msgbox $'Time warp ready\n\nLink to all system established' 0 0
+YEAR=$(d --inputbox 'Insert year for time warp:' 0 0 2005 3>&1 1>&2 2>&3) || exit
+d --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
+printfullseq | d --gauge 'Hacking time...' 0 70 0
+d --msgbox 'ERROR!  HACKING TOO MUCH TIME!' 0 0
+d --msgbox 'Bailing out... you'\''re on your own, kid.' 0 0
