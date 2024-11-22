@@ -16,9 +16,12 @@
 # Hackerman scene: https://www.youtube.com/watch?v=6jSVEEqqbbY
 # Hackerman tutorial: https://www.youtube.com/watch?v=KEkrWRHCDQU
 
+# Dialog program: whiptail is preinstalled in Debian and Ubuntu
+: "${DIALOG:=whiptail}"
+
 d() {
     # Common options for dialog program
-    whiptail --backtitle 'Hackerman Toolkit' "$@"
+    "$DIALOG" --backtitle 'Hackerman Toolkit' "$@"
 }
 
 printinc() {
@@ -65,6 +68,7 @@ checkpasswd() {
     test "$INCOMING_HASH" = "$HASH"
 }
 
+d --infobox 'Testing terminal...' 0 0 > /dev/null || exit
 PASSWD=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
 if ! checkpasswd "${PASSWD}" ; then
     d --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
