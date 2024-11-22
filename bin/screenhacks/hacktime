@@ -11,6 +11,7 @@
 # (or dialog).  It does not actually hack time, sorry.
 #
 # See:
+# Whiptail tutorial: https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
 # Kung Fury: https://www.youtube.com/watch?v=bS5P_LAqiVg
 # Hackerman scene: https://www.youtube.com/watch?v=6jSVEEqqbbY
 # Hackerman tutorial: https://www.youtube.com/watch?v=KEkrWRHCDQU
