@@ -19,6 +19,12 @@
 # Dialog program: whiptail is preinstalled in Debian and Ubuntu
 : "${DIALOG:=whiptail}"
 
+checkpasswd() {
+    # A very rudimentary password check
+    local len="${#1}"
+    (( len > 0 && len % 2 == 0 ))
+}
+
 d() {
     # Common options for dialog program
     "$DIALOG" --backtitle 'Hackerman Toolkit' "$@"
@@ -26,10 +32,10 @@ d() {
 
 printinc() {
     # Print an increasing list of numbers
-    start=$1
-    end=$2
-    step=$3
-    sleep=$4
+    local start=$1
+    local end=$2
+    local step=$3
+    local sleep=$4
     for ((i = start ; i <= end ; i += step)); do
 	echo "$i"
 	sleep "$sleep"
@@ -38,10 +44,10 @@ printinc() {
 
 printdec() {
     # Print a decreasing list of numbers
-    start=$1
-    end=$2
-    step=$3
-    sleep=$4
+    local start=$1
+    local end=$2
+    local step=$3
+    local sleep=$4
     for ((i = start ; i >= end ; i -= step)); do
 	echo "$i"
 	sleep "$sleep"
@@ -52,20 +58,10 @@ printfullseq() {
     # The full sequence for the "Hacking time" gauge
     printinc 0 80 1 0.05
     sleep 1
-    printdec 80 45 7 1
-    sleep 2
-    printinc 45 89 2 0.05
+    printinc 80 92 2 1
     sleep 4
-    printinc 90 99 1 0.1
-    sleep 1
-}
-
-checkpasswd() {
-    # A very rudimentary password check
-    HASH="aHVudGVyMg=="
-    INCOMING="$1"
-    INCOMING_HASH=$(printf '%s' "$INCOMING" | base64)
-    test "$INCOMING_HASH" = "$HASH"
+    printinc 92 99 1 0.1
+    sleep 2
 }
 
 d --infobox 'Testing terminal...' 0 0 > /dev/null || exit
@@ -73,6 +69,9 @@ PASSWD=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 
 if ! checkpasswd "${PASSWD}" ; then
     d --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
     printdec 100 0 4 0.1 | d --gauge 'Secure wiping DataWraith module...' 0 70 100
+    printf '[time_warp] %s\n' \
+	   "A secret phrase is not my strength" \
+	   "Try a word with even length"
     exit 1
 fi
 d --msgbox $'Time warp ready\n\nLink to all system established' 0 0
