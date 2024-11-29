@@ -84,7 +84,7 @@ menu() {
 }
 
 sysinfo() {
-    d --scrolltext --textbox /etc/os-release 0 0
+    d --title 'System information' --scrolltext --textbox /etc/os-release 0 0
 }
 
 method() { :; }
@@ -93,13 +93,13 @@ optmodules() { :; }
 
 getpasswd() {
     local passwd
-    passwd=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
+    passwd=$(d --title 'Password' --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
     checkpasswd "${passwd}"
 }
 
 do_unauthorized() {
-    d --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
-    printdec 100 0 4 0.1 | d --gauge 'Secure wiping DataWraith module...' 0 70 100
+    d --title 'Unauthorized!' --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
+    printdec 100 0 4 0.1 | d --title 'Unauthorized!' --gauge 'Secure wiping DataWraith module...' 0 70 100
     log time_warp \
 	"A secret phrase is not my strength" \
 	"Try a word with even length"
@@ -107,21 +107,21 @@ do_unauthorized() {
 }
 
 showready() {
-    d --msgbox $'Time warp ready\n\nLink to all system established' 0 0
+    d --title 'Ready' --msgbox $'Time warp ready\n\nLink to all system established' 0 0
 }
 
 getyear() {
-    YEAR=$(d --inputbox 'Insert year for time warp:' 0 0 2005 3>&1 1>&2 2>&3) || exit
+    YEAR=$(d --title 'Year' --inputbox 'Insert year for time warp:' 0 0 2005 3>&1 1>&2 2>&3) || exit
 }
 
 confirm() {
-    d --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
+    d --title 'Proceed?' --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
 }
 
 doit() {
     printfullseq | d --gauge 'Hacking time...' 0 70 0
-    d --msgbox 'ERROR!  HACKING TOO MUCH TIME!' 0 0
-    d --msgbox 'Bailing out... you'\''re on your own, kid.' 0 0
+    d --title "ERROR" --msgbox 'ERROR!  HACKING TOO MUCH TIME!' 0 0
+    d --title "ERROR" --msgbox 'Bailing out... you'\''re on your own, kid.' 0 0
 }
 
 main() {
