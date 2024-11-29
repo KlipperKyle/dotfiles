@@ -76,7 +76,7 @@ testterm() {
 }
 
 menu() {
-    ACTION=$(d --menu 'Choose task:' 0 0 0 \
+    ACTION=$(d --title 'hacktime' --menu 'Choose task:' 0 0 0 \
       "hacktime" "Initialize the Time Warp and hack time" \
       "sysinfo" "Display system information" \
       "exit" "Exit" \
@@ -87,9 +87,25 @@ sysinfo() {
     d --title 'System information' --scrolltext --textbox /etc/os-release 0 0
 }
 
-method() { :; }
+method() {
+    METHOD=$(d --title 'Method' --radiolist \
+	       "Choose method:" 0 0 0 \
+	       "flux" "Flux capacitor" on \
+	       "nexus" "Solar nexus" off \
+	       "tardis" "Tardis" off \
+	       "ttlchains" "Time To Live Chains (Experimental)" off \
+	       3>&1 1>&2 2>&3 ) || exit
+}
 
-optmodules() { :; }
+optmodules() {
+    MODULES=$(d --title 'Modules' --checklist \
+		"Choose optional modules:" 0 0 0 \
+		"portal" "Open a portal to desired time" on \
+		"bootstrap" "Use secondary computer as skateboard to bootstrap time travel" on \
+		"delorean" "Connect to DeLorean via OBD (experimental)" off \
+		"phonebooth" "Don't forget to dial one number ahead! (experimental)" off \
+		3>&1 1>&2 2>&3 ) || exit
+}
 
 getpasswd() {
     local passwd
@@ -115,7 +131,12 @@ getyear() {
 }
 
 confirm() {
-    d --title 'Proceed?' --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
+    local message="Method set to ${METHOD} -- VERIFIED
+Modules enabled: ${MODULES} -- VERIFIED
+Year set to ${YEAR} -- VERIFIED
+
+You're about to hack time, are you sure?"
+    d --title 'Proceed?' --yesno "$message" 0 0 || exit
 }
 
 doit() {
@@ -133,10 +154,10 @@ main() {
 	    "exit") exit;;
 	esac
     done
-    method
-    optmodules
     getpasswd || do_unauthorized
     showready
+    method
+    optmodules
     getyear
     confirm
     doit
