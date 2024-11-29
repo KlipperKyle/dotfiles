@@ -25,6 +25,13 @@ checkpasswd() {
     (( len > 0 && len % 2 == 0 ))
 }
 
+log() {
+    local tag="$1" ; shift
+    for line in "$@" ; do
+	printf '[%s] %s\n' "$tag" "$line"
+    done
+}
+
 d() {
     # Common options for dialog program
     "$DIALOG" --backtitle 'Hackerman Toolkit' "$@"
@@ -64,19 +71,52 @@ printfullseq() {
     sleep 2
 }
 
-d --infobox 'Testing terminal...' 0 0 > /dev/null || exit
-PASSWD=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
-if ! checkpasswd "${PASSWD}" ; then
+testterm() {
+    d --infobox 'Testing terminal...' 0 0 > /dev/null || exit
+}
+
+getpasswd() {
+    local passwd
+    passwd=$(d --passwordbox $'Time warp protected\n\nEnter password to decrypt' 12 0 3>&1 1>&2 2>&3) || exit
+    checkpasswd "${passwd}"
+}
+
+do_unauthorized() {
     d --msgbox $'Unauthorized access detected!\n\nProceeding with secure wipe of DataWraith module...' 0 0
     printdec 100 0 4 0.1 | d --gauge 'Secure wiping DataWraith module...' 0 70 100
-    printf '[time_warp] %s\n' \
-	   "A secret phrase is not my strength" \
-	   "Try a word with even length"
+    log time_warp \
+	"A secret phrase is not my strength" \
+	"Try a word with even length"
     exit 1
+}
+
+showready() {
+    d --msgbox $'Time warp ready\n\nLink to all system established' 0 0
+}
+
+getyear() {
+    YEAR=$(d --inputbox 'Insert year for time warp:' 0 0 2005 3>&1 1>&2 2>&3) || exit
+}
+
+confirm() {
+    d --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
+}
+
+doit() {
+    printfullseq | d --gauge 'Hacking time...' 0 70 0
+    d --msgbox 'ERROR!  HACKING TOO MUCH TIME!' 0 0
+    d --msgbox 'Bailing out... you'\''re on your own, kid.' 0 0
+}
+
+main() {
+    testterm
+    getpasswd || do_unauthorized
+    showready
+    getyear
+    confirm
+    doit
+}
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    main "$@"
 fi
-d --msgbox $'Time warp ready\n\nLink to all system established' 0 0
-YEAR=$(d --inputbox 'Insert year for time warp:' 0 0 2005 3>&1 1>&2 2>&3) || exit
-d --yesno "Year set to ${YEAR} -- VERIFIED"$'\n\n''You'\''re about to hack time, are you sure?' 0 0 || exit
-printfullseq | d --gauge 'Hacking time...' 0 70 0
-d --msgbox 'ERROR!  HACKING TOO MUCH TIME!' 0 0
-d --msgbox 'Bailing out... you'\''re on your own, kid.' 0 0
