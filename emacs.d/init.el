@@ -126,7 +126,7 @@
 
 ;; Default frame parameters
 ;; See (emacs)Frame Parameters
-(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(width . 90))
 (add-to-list 'default-frame-alist '(height . 36))
 
 ;; Use editorconfig everywhere
