@@ -124,6 +124,11 @@
 (global-set-key [C-M-mouse-2] 'xref-find-definitions-at-mouse)
 (global-set-key [C-M-mouse-3] 'imenu)
 
+;; Default frame parameters
+;; See (emacs)Frame Parameters
+(add-to-list 'default-frame-alist '(width . 100))
+(add-to-list 'default-frame-alist '(height . 36))
+
 ;; Use editorconfig everywhere
 (if (locate-library "editorconfig")
     (progn
