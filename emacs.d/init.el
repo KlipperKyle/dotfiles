@@ -164,7 +164,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
       (append holiday-general-holidays holiday-local-holidays
 	  holiday-other-holidays holiday-christian-holidays
 	  holiday-solar-holidays))
-(setq calendar-mark-diary-entries-flag t
+(setq calendar-mark-diary-entries-flag nil
       calendar-mark-holidays-flag t
       calendar-today-visible-hook '(calendar-mark-today))
 
@@ -235,7 +235,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; (global-set-key "\C-cb" 'org-switchb)
 (setq org-directory "~/org")
 (setq org-agenda-files (concat org-directory "/agenda-files")
-      org-agenda-include-diary t)
+      org-agenda-include-diary nil)
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
