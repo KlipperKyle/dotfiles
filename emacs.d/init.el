@@ -81,6 +81,7 @@
  '(default ((t (:family "Monospace" :height 90))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(fixed-pitch-serif ((t (:family "Monospace"))))
+ '(org-agenda-date-weekend ((t (:weight bold))))
  '(variable-pitch ((t (:family "Noto Serif")))))
 
 ;; Custom lisp dir
