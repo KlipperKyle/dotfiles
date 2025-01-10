@@ -237,6 +237,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (setq org-directory "~/org")
 (setq org-agenda-files (concat org-directory "/agenda-files")
       org-agenda-include-diary nil)
+(setq org-startup-indented t)
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
