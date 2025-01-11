@@ -119,6 +119,7 @@
 (global-set-key (kbd "C-c i") 'imenu)
 (global-set-key (kbd "C-c q") 'quit-window)
 (global-set-key (kbd "C-c t") 'shell)
+(global-set-key (kbd "C-c T") 'ansi-term)
 (global-set-key (kbd "C-c w") 'eww)
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
