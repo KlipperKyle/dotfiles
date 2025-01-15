@@ -81,7 +81,6 @@
  '(default ((t (:family "Monospace" :height 90))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(fixed-pitch-serif ((t (:family "Monospace"))))
- '(org-agenda-date-weekend ((t (:weight bold))))
  '(variable-pitch ((t (:family "Noto Serif")))))
 
 ;; Custom lisp dir
@@ -90,7 +89,7 @@
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
-(load-theme 'modus-operandi)
+;; (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
 ;; ffap
@@ -290,6 +289,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (setenv "EDITOR" "emacsclient")
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setq explicit-shell-file-name "/bin/bash")
+
+;; xterm-mouse-mode
+(xterm-mouse-mode 1)
 
 ;; yaml-mode
 ;; *.sls: SaltStack conf files
