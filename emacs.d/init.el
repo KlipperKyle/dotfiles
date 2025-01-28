@@ -234,10 +234,12 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (global-set-key "\C-ca" 'org-agenda)
 ;; (global-set-key "\C-cc" 'org-capture)
 ;; (global-set-key "\C-cb" 'org-switchb)
-(setq org-directory "~/org")
-(setq org-agenda-files (concat org-directory "/agenda-files")
-      org-agenda-include-diary nil)
-(setq org-startup-indented t)
+(setq org-directory "~/org"
+      org-agenda-files "~/org/agenda-files"
+      org-agenda-include-diary nil
+      org-startup-indented t
+      org-todo-keyword-faces '(("INPROG" . "orange")
+			       ("BLOCKED" . "purple")))
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
