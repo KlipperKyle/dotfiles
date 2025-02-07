@@ -123,7 +123,6 @@
    `(isearch-fail                                 ((t (:foreground ,acme-yellow-light :weight normal :background ,acme-red))))
    `(lazy-highlight                               ((t (:foreground ,fg :weight normal :background ,acme-blue-light))))
 
-   `(menu                                         ((t (:foreground "#000000" :background ,bg-dark))))
    `(minibuffer-prompt                            ((t (:foreground ,acme-blue :weight normal))))
    `(region                                       ((,class (:foreground ,fg :background ,highlight :extend nil))))
    `(secondary-selection                          ((t (:background ,acme-green-light))))
