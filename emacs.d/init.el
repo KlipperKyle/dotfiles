@@ -12,6 +12,9 @@
 			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
 			 ("melpa" . "https://melpa.org/packages/")))
 
+;; Custom lisp dir
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -83,12 +86,10 @@
  '(fixed-pitch-serif ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Noto Serif")))))
 
-;; Custom lisp dir
-(add-to-list 'load-path "~/.emacs.d/lisp")
-
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
+(load-theme 'tango)
 ;; (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
