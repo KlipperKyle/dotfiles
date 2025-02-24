@@ -56,7 +56,12 @@
  '(mouse-wheel-scroll-amount-horizontal 10)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
-   '((nxml-child-indent . 4)
+   '((vc-default-patch-addressee . "bug-gnu-emacs@gnu.org")
+     (etags-regen-ignores "test/manual/etags/")
+     (etags-regen-regexp-alist
+      (("c" "objc")
+       "/[ \11]*DEFVAR_[A-Z_ \11(]+\"\\([^\"]+\\)\"/\\1/" "/[ \11]*DEFVAR_[A-Z_ \11(]+\"[^\"]+\",[ \11]\\([A-Za-z0-9_]+\\)/\\1/"))
+     (nxml-child-indent . 4)
      (c-indent-level . 4)
      (sgml-basic-offset . 2)))
  '(save-place-mode t)
@@ -89,7 +94,7 @@
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
-(load-theme 'tango)
+;; (load-theme 'tango)
 ;; (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
