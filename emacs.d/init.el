@@ -34,8 +34,7 @@
  '(eww-suggest-uris
    '(eww-links-at-point thing-at-point-url-at-point eww-current-url
 			(lambda nil
-			  (concat "file://"
-				  (getenv "HOME")
+			  (concat "file://" (getenv "HOME")
 				  "/org/index.html"))))
  '(flyspell-use-meta-tab nil)
  '(frame-resize-pixelwise t)
@@ -45,24 +44,17 @@
  '(make-backup-files nil)
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount
-   '(0.1
-     ((shift)
-      . hscroll)
-     ((meta))
-     ((control meta)
-      . global-text-scale)
-     ((control)
-      . text-scale)))
+   '(0.1 ((shift) . hscroll) ((meta))
+	 ((control meta) . global-text-scale) ((control) . text-scale)))
  '(mouse-wheel-scroll-amount-horizontal 10)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
  '(safe-local-variable-values
    '((vc-default-patch-addressee . "bug-gnu-emacs@gnu.org")
      (etags-regen-ignores "test/manual/etags/")
      (etags-regen-regexp-alist
-      (("c" "objc")
-       "/[ \11]*DEFVAR_[A-Z_ \11(]+\"\\([^\"]+\\)\"/\\1/" "/[ \11]*DEFVAR_[A-Z_ \11(]+\"[^\"]+\",[ \11]\\([A-Za-z0-9_]+\\)/\\1/"))
-     (nxml-child-indent . 4)
-     (c-indent-level . 4)
+      (("c" "objc") "/[ \11]*DEFVAR_[A-Z_ \11(]+\"\\([^\"]+\\)\"/\\1/"
+       "/[ \11]*DEFVAR_[A-Z_ \11(]+\"[^\"]+\",[ \11]\\([A-Za-z0-9_]+\\)/\\1/"))
+     (nxml-child-indent . 4) (c-indent-level . 4)
      (sgml-basic-offset . 2)))
  '(save-place-mode t)
  '(scroll-bar-mode 'left)
@@ -78,7 +70,9 @@
  '(tool-bar-mode nil)
  '(wdired-allow-to-change-permissions 'advanced)
  '(whitespace-style
-   '(face trailing tabs spaces newline missing-newline-at-eof empty indentation space-after-tab space-before-tab space-mark tab-mark newline-mark))
+   '(face trailing tabs spaces newline missing-newline-at-eof empty
+	  indentation space-after-tab space-before-tab space-mark
+	  tab-mark newline-mark))
  '(window-resize-pixelwise t)
  '(yaml-mode-hook '(yaml-set-imenu-generic-expression turn-off-flyspell)))
 (custom-set-faces
