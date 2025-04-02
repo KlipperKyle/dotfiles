@@ -65,6 +65,8 @@ xclock.Clock.sharp:         false
 
 ! xosview --------------------------------------------------------------
 
+xosview.page:               False
+
 xosview.loadGraph:          False
 xosview.cpuGraph:           False
 xosview.memGraph:           False

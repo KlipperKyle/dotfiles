@@ -1,14 +1,18 @@
 [Desktop Entry]
 Name=Xosview
 Comment=X based system monitor
-Exec=xosview +cpus -page -batt
+Exec=xosview
 Terminal=false
 Type=Application
 Icon=xosview
 Categories=System;Monitor;
 Keywords=System;Utility;System Monitor
-Actions=coretemp;
+Actions=cpus;coretemp
+
+[Desktop Action cpus]
+Exec=xosview +cpus
+Name=Xosview +cpus
 
 [Desktop Action coretemp]
-Exec=xosview +coretemp +cpus -page -batt
+Exec=xosview +coretemp -load -cpu -mem -disk -page -swap -wireless -net -battery -xrm xosview.interrupts:\ False
 Name=Xosview +coretemp
