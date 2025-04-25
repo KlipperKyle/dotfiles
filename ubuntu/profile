@@ -30,7 +30,7 @@ fi
 if ! echo "$PATH" | grep -Eqe "(^|:)$HOME/bin(:|$)" ; then
     # export PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
     # export PATH="$HOME/.raku/bin:$PATH"
-    export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+    export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 
 # kt: Funtoo keychain
