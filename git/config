@@ -22,7 +22,7 @@
 	graph = log --graph --oneline --decorate
 	a = add
 	ff = merge --ff-only
-	r = remote update -p
+	r = !git remote update -p || true && git status
 	s = status
 
 #
