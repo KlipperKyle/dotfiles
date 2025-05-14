@@ -20,6 +20,10 @@
 # Aliases
 [alias]
 	graph = log --graph --oneline --decorate
+	a = add
+	ff = merge --ff-only
+	r = remote update -p
+	s = status
 
 #
 # Misc (stuff appends here)
