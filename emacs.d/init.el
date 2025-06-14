@@ -14,6 +14,8 @@
 
 ;; Custom lisp dir
 (add-to-list 'load-path "~/.emacs.d/lisp")
+;; Custom info files
+(add-to-list 'Info-directory-list "~/.local/share/info")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -210,10 +212,6 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (defun elpher-reset-cache ()
   (interactive)
   (setq elpher-content-cache (make-hash-table :test 'equal)))
-
-;; info-mode
-;; Include /usr/share/info/emacs
-(setq Info-additional-directory-list '("/usr/share/info/emacs"))
 
 ;; jinja2-mode
 (add-hook 'jinja2-mode-hook 'turn-off-flyspell)
