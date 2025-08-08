@@ -141,6 +141,10 @@
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
 
+;; Recursive minibuffer
+(setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode 1)
+
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
 
