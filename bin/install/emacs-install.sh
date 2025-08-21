@@ -2,7 +2,7 @@
 set -e
 set -x
 
-d="/usr/local/stow/emacs-30.1-lucid1"
+d="/usr/local/stow/emacs-30.2-gtk1"
 
 make install "prefix=$d"
 cd "$d/bin"

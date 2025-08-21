@@ -91,7 +91,7 @@
 (setq custom-theme-directory "~/.emacs.d/themes")
 
 ;; (load-theme 'tango)
-(load-theme 'modus-operandi)
+;; (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
 ;; ffap
