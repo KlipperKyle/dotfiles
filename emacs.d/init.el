@@ -90,6 +90,19 @@
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
 
+;; Light mode and Dark mode
+(defun light-mode ()
+  "Switch to light mode"
+  (interactive)
+  (set-foreground-color "black")
+  (set-background-color "white"))
+
+(defun dark-mode ()
+  "Switch to dark mode"
+  (interactive)
+  (set-foreground-color "#DCDCDC")
+  (set-background-color "#2C2C2C"))
+
 ;; (load-theme 'tango)
 ;; (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
