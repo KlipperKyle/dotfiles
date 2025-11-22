@@ -210,6 +210,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	   (add-to-list 'auto-mode-alist '("\\.pod$" . pod-mode))
 	   (add-to-list 'auto-mode-alist '("\\.rakudoc$" . pod-mode))))
 
+;; dired
+(setq dired-maybe-use-globstar t)
+
 ;; ebuild-mode
 (setq-default ebuild-mode-update-copyright nil)
 
