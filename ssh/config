@@ -9,11 +9,13 @@ ServerAliveCountMax 2
 # and too easy to lose names of previously accessed hosts.
 HashKnownHosts no
 
+# Enable the ~C command line
+EnableEscapeCommandline yes
 
 # Example rules (to make building common configs easier)
 
-# Host box box.example.com
-# 	HostName box.example.com
-# 	User kterrien
-# 	Port 2112
-# 	ProxyJump kterrien@bastion.example.com
+# Host bag-end bag-end.hobbiton.shire.
+# 	HostName bag-end.hobbiton.shire.
+# 	User bilbo
+# 	Port 8022
+# 	ProxyJump jumpbox.hobbiton.shire.
