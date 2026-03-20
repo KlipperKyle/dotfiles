@@ -14,7 +14,7 @@
 # appends or prepends are duplicated upon each login.  See
 # https://superuser.com/q/1649684 .
 if [ -z "$USERENV" ] ; then
-    export EDITOR="emacsclient -a emacs -c"
+    export EDITOR="emacsclient --alternate-editor="
     # export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
     # export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
     # export PERL_MB_OPT="--install_base \"$HOME/perl5\""

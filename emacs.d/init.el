@@ -304,8 +304,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (add-to-list 'interpreter-mode-alist '("rc" . prog-mode))
 
 ;; shell-mode
-;; Use emacsclient instead of a “normal” editor.
-(setenv "EDITOR" "emacsclient")
+;; Parse hyperlink escapes (a la ‘ls --hyperlink’)
+(add-hook 'comint-output-filter-functions #'comint-osc-process-output)
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setq explicit-shell-file-name "/bin/bash")
 
@@ -324,6 +324,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; Start Emacs server
 (require 'server)
+(setq server-window 'pop-to-buffer)
 (unless (server-running-p)
   (server-mode))
 
