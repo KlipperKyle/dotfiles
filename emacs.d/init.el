@@ -30,6 +30,7 @@
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
+ '(electric-pair-mode t)
  '(electric-quote-mode t)
  '(elpher-open-urls-with-eww t)
  '(eww-suggest-uris
@@ -149,6 +150,10 @@
     (progn
       (setq editorconfig-mode-lighter nil)
       (editorconfig-mode 1)))
+
+;; Whether to select the current window under the pointer.
+;; Use if your window manager focus follows mouse.
+(setq mouse-autoselect-window nil)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
