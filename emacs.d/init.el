@@ -153,7 +153,7 @@
 
 ;; Whether to select the current window under the pointer.
 ;; Use if your window manager focus follows mouse.
-(setq mouse-autoselect-window nil)
+(setq mouse-autoselect-window t)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
