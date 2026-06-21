@@ -1,0 +1,6 @@
+! /etc/X11/Xresources/kt-fontconfig
+!
+! https://wiki.archlinux.org/title/Font_configuration
+
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
