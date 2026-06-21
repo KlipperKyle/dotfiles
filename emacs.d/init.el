@@ -15,7 +15,8 @@
 ;; Custom lisp dir
 (add-to-list 'load-path "~/.emacs.d/lisp")
 ;; Custom info files
-(add-to-list 'Info-directory-list "~/.local/share/info")
+(eval-after-load 'info
+  '(add-to-list 'Info-directory-list "~/.local/share/info"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
