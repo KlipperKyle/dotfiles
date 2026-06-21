@@ -1,0 +1,12 @@
++ Rec: install XFCE first
++ fvwm3 stalonetray picom xsettingsd volumeicon-alsa feh
+
+#+begin_example
+  echo 'exec fvwm3' > ~/.xsession
+  xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/show-tray-icon -s true
+#+end_example
+
+Xsettingsd information:
++ https://codeberg.org/derat/xsettingsd
++ https://specifications.freedesktop.org/xsettings/latest/
++ https://www.freedesktop.org/wiki/Specifications/XSettingsRegistry/
