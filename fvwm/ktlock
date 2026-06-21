@@ -1,0 +1,56 @@
+#!/bin/sh
+#
+# ktlock
+#
+# Lock and suspend for lightweight desktop environments, 2026 edition
+# for systemd.
+#
+# Hints:
+# + If you use another screenlocker, update LOCKCTL.
+# + On Gentoo and other systems which use elogind, change POWERCTL
+#   from ‘systemctl’ to ‘loginctl’.
+
+LOCKCTL="xfce4-screensaver-command"
+POWERCTL="systemctl"
+
+lock() {
+    "$LOCKCTL" --lock "$@"
+    # Note: xfce4-screensaver-command returns immediately.
+}
+
+inhibit() {
+    "$LOCKCTL" --inhibit "$@"
+    # Press C-c to exit.
+}
+
+sus() {
+    "$POWERCTL" suspend "$@"
+    # Note: all systemctl commands return immediately.
+}
+
+hibernate() {
+    "$POWERCTL" hibernate "$@"
+}
+
+hybrid_sleep() {
+    "$POWERCTL" hybrid-sleep "$@"
+}
+
+poweroff() {
+    "$POWERCTL" poweroff "$@"
+}
+
+reboot() {
+    "$POWERCTL" reboot "$@"
+}
+
+case "$1" in
+    lock) shift; lock "$@" ;;
+    inhibit|inh) shift; inhibit "$@" ;;
+    suspend|sus) shift; lock; sus "$@" ;;
+    hibernate|hib) shift; lock; hibernate "$@" ;;
+    hybrid-sleep|hyb) shift; lock; hybrid_sleep "$@" ;;
+    poweroff|off) shift; poweroff "$@" ;;
+    reboot|reb) shift; reboot "$@" ;;
+    *) echo "Usage: $0 {lock|inhibit|suspend|hibernate|hybrid-sleep|poweroff|reboot|inh|sus|hib|hyb|off|reb}" 1>&2 ; exit 2 ;;
+esac
