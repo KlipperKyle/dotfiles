@@ -39,6 +39,12 @@ InfoStoreAdd editor "emacsclient --alternate-editor= -c"
 InfoStoreAdd fileman "thunar"
 InfoStoreAdd webbrowser "x-www-browser"
 
+InfoStoreAdd test_audio "aplay /usr/share/sounds/sound-icons/capital > /dev/null 2>&1"
+
+InfoStoreAdd screenshooter "xfce4-screenshooter"
+InfoStoreAdd screenshooter_rect "$[infostore.screenshooter] -r"
+InfoStoreAdd screenshooter_window "$[infostore.screenshooter] -w"
+
 # Fonts
 InfoStoreAdd font "xft:Serif:Bold:size=8:antialias=True"
 InfoStoreAdd font_big "xft:Serif:size=10:antialias=True"
@@ -182,6 +188,14 @@ AddToFunc   ToggleTitle
 + I ThisWindow (HasTitle) WindowStyle !Title
 + I TestRc (NoMatch) WindowStyle Title
 
+# Function: ToggleLayer
+#
+# Toggle between “always on top” (layer 6) and ordinary layer (layer 4)
+DestroyFunc ToggleLayer
+AddToFunc   ToggleLayer
++ I ThisWindow (Layer 6) Layer
++ I TestRc (NoMatch) Layer 0 6
+
 # Function: ChangeDesk
 #
 # This function is called by FvwmEvent every time the Desk is changed.
@@ -245,7 +259,7 @@ Style * SloppyFocus, MouseFocusClickRaises
 DefaultFont $[infostore.font]
 
 # Window Placement
-Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
+Style * MinOverlapPlacement, GrabFocus, !UsePPosition
 
 # Sets all windows to OpaqueMove (vs a wired frame) and  windows will
 # snap to each other and the edge of the screen.
@@ -280,9 +294,9 @@ Style * !Icon
 
 # ICCCM allows windows to tell the WM to not give them keyboard focus.
 # Many windows use this incorrectly and expect keyboard focus anyways.
-# This styles tells fvwm to ignore this property, which makes some
+# Lenience tells fvwm to ignore this property, which makes some
 # applications (such as java and electron apps) behave better.
-Style * Lenience
+Style * !Lenience
 
 # Window Specific Styles
 Style RightPanel !Title, !Borders, !Handles, Sticky, \
@@ -339,6 +353,7 @@ MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%s%|%3.1i%5.3l%5l%5r%5.3>%|"
 MenuStyle * Font $[infostore.font]
+MenuStyle * AutomaticHotkeys
 
 # Root Menu
 #
@@ -357,7 +372,7 @@ Test (x FvwmPrompt) + "&FvwmPrompt%icons/terminal.png%" Exec exec $[infostore.te
 + "$[gt.M&an Pages]%icons/help.png%"       Popup MenuFvwmManPages
 + "$[gt.Cop&y Config]%icons/conf.png%"     FvwmScript FvwmScript-ConfirmCopyConfig
 + "" Nop
-Test (x ktlock) + "P&ower" Popup MenuPower
+Test (x ktlock) + "P&ower%icons/quit.png%" Popup MenuPower
 + "$[gt.Re&fresh]%icons/refresh.png%" Refresh
 + "$[gt.&Restart]%icons/restart.png%" Restart
 + "$[gt.&Quit]%icons/quit.png%"       Module FvwmScript FvwmScript-ConfirmQuit
@@ -372,19 +387,18 @@ PipeRead "fvwm3-menu-desktop -e"
 # lines as this is only to help make this menu portable.
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "$[gt.Programs]" Title
-Test (x emacsclient) + "Emacs Client" Exec exec emacsclient --alternate-editor= -c
-+ "Terminal Emulator" Exec exec $[infostore.terminal]
-Test (x brave-browser) + "Brave Browser" Exec exec brave-browser
-Test (x chromium) + "Chromium" Exec exec chromium
-Test (x google-chrome) + "Google-Chrome" Exec exec google-chrome
-Test (x firefox) + "Firefox" Exec exec firefox
-Test (x thunderbird) + "Thunderbird" Exec exec thunderbird
-Test (x thunar) + "Thunar File Manager" Exec exec thunar
-Test (x gvim) + "gVim" Exec exec gvim
-Test (x gimp) + "Gimp" Exec exec gimp
-Test (x vlc) + "VLC" Exec exec vlc
-Test (x keepassxc) + "KeePassXC" Exec exec keepassxc
-Test (x xosview) + "Xosview" Exec exec xosview
+Test (x emacsclient) + "&Emacs Client" Exec exec emacsclient --alternate-editor= -c
+Test (x brave-browser) + "&Brave Browser" Exec exec brave-browser
+Test (x chromium) + "&Chromium" Exec exec chromium
+Test (x google-chrome) + "&Google-Chrome" Exec exec google-chrome
+Test (x firefox) + "&Firefox" Exec exec firefox
+Test (x thunderbird) + "&Thunderbird" Exec exec thunderbird
+Test (x thunar) + "Thunar &File Manager" Exec exec thunar
+Test (x gvim) + "g&Vim" Exec exec gvim
+Test (x gimp) + "&Gimp" Exec exec gimp
+Test (x vlc) + "V&LC" Exec exec vlc
+Test (x keepassxc) + "&KeePassXC" Exec exec keepassxc
+Test (x xosview) + "&Xosview" Exec exec xosview
 
 # Background Menu
 #
@@ -539,15 +553,17 @@ AddToMenu MenuPower "Power" Title
 # Alt-Space to launch dmenu (Note: dmenu must be present in the system)
 #
 # Silent suppresses any errors (such as keyboards with no Menu key).
-Silent Key F1      A M Menu MenuFvwmRoot
-Silent Key Menu    A A Menu MenuFvwmRoot
+# Silent Key F1      A M Menu MenuFvwmRoot
+# Silent Key Menu    A A Menu MenuFvwmRoot
 Silent Key X       A 4 Menu MenuFvwmRoot
+Silent Key C       A 4 WindowList
+Silent Key V       A 4 Menu MenuWindowOpsLong
 Silent Key Tab     A 4 WindowList Root c c NoDeskSort, NoGeometry, SelectOnRelease Super_L, CurrentAtEnd
 Silent Key Tab     A M -
-Silent Key F1      A C GotoDesk 0 0
-Silent Key F2      A C GotoDesk 0 1
-Silent Key F3      A C GotoDesk 0 2
-Silent Key F4      A C GotoDesk 0 3
+# Silent Key F1      A C GotoDesk 0 0
+# Silent Key F2      A C GotoDesk 0 1
+# Silent Key F3      A C GotoDesk 0 2
+# Silent Key F4      A C GotoDesk 0 3
 # Silent Key Super_R A A Exec exec $[infostore.terminal]
 # Test (x $[infostore.runcmd]) Silent Key Space A M Exec exec $[infostore.runcmd] $[infostore.runcmdopt]
 
@@ -565,15 +581,16 @@ Silent Key Delete A CM Popup MenuPower
 Silent Key KP_Delete A CM Popup MenuPower
 
 # Audio
-# Test (x pactl) Silent Key equal A 4 Exec exec pactl set-sink-volume @DEFAULT_SINK@ +2%
-# Test (x pactl) Silent Key minus A 4 Exec exec pactl set-sink-volume @DEFAULT_SINK@ -2%
-# Test (x pactl) Silent Key BackSpace A 4 Exec exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-# Test (x pactl) Silent Key backslash A 4 Exec exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-Silent Key G A 4 Exec exec aplay /usr/share/sounds/sound-icons/capital > /dev/null 2>&1
+Silent Key G A 4 Exec exec $[infostore.test_audio]
+
+# Screenshot
+Silent Key Print A N Exec exec $[infostore.screenshooter]
+Silent Key Print A S Exec exec $[infostore.screenshooter_rect]
+Silent Key Print A M Exec exec $[infostore.screenshooter_window]
 
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
-#   2 - Close on single click, Destory on double click.
+#   2 - Close on single click, Destroy on double click.
 #   4 - Maximize (right/middle button will only maximize vertical/horizontal)
 #   6 - Iconify (minimize)
 Mouse 1 1 A Menu MenuWindowOps Delete
@@ -589,7 +606,7 @@ Mouse 1 6 A Iconify
 #   Root Window: Left Click - Main Menu
 #                Right Click - WindowOps Menu
 #                Middle Click - Window List Menu
-#   Right click TitleBar/Borders for WindowOps Menu
+#   Right click TitleBar for WindowOps Menu
 Mouse 1 T    A RaiseMoveX Move Maximize
 Mouse 1 FS   A RaiseMoveX Resize Lower
 Mouse 2 FST  A RaiseMoveX Move Lower
@@ -629,16 +646,32 @@ Key Down    WTSF    CSM Maximize True 0 growdown
 Key Right   WTSF    CSM Maximize True growright 0
 Key Left    WTSF    CSM Maximize True growleft 0
 
+# Navigate pages
+Key Up    A 4 GotoPage 0p -1p
+Key Right A 4 GotoPage 1p 0p
+Key Down  A 4 GotoPage 0p 1p
+Key Left  A 4 GotoPage -1p 0p
+
+# Close/Move/Resize/Maximize commands
+Silent Key F4  WTSF 4 Close
+Silent Key F6  WTSF 4 Stick
+Silent Key F7  WTSF 4 Move
+Silent Key F8  WTSF 4 Resize
+Silent Key F9  WTSF 4 Iconify
+Silent Key F10 WTSF 4 Maximize
+Silent Key F11 WTSF 4 Maximize fullscreen ewmhiwa
+Silent Key F12 WTSF 4 ToggleLayer
+
 # Tiling commands
-Key KP_Begin WTSF   4   Maximize
-Key KP_Left  WTSF   4   ResizeMoveMaximize frame 50wa 100 0 0 Warp
-Key KP_Right WTSF   4   ResizeMoveMaximize frame 50wa 100 -0 0 Warp
-Key KP_Up    WTSF   4   ResizeMoveMaximize frame 100 50wa 0 0 Warp
-Key KP_Down  WTSF   4   ResizeMoveMaximize frame 100 50wa 0 -0 Warp
-Key KP_Home  WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 0 Warp
-Key KP_Prior WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 0 Warp
-Key KP_Next  WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 -0 Warp
-Key KP_End   WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 -0 Warp
+Silent Key KP_Begin WTSF   4   Maximize
+Silent Key KP_Left  WTSF   4   ResizeMoveMaximize frame 50wa 100 0 0 Warp
+Silent Key KP_Right WTSF   4   ResizeMoveMaximize frame 50wa 100 -0 0 Warp
+Silent Key KP_Up    WTSF   4   ResizeMoveMaximize frame 100 50wa 0 0 Warp
+Silent Key KP_Down  WTSF   4   ResizeMoveMaximize frame 100 50wa 0 -0 Warp
+Silent Key KP_Home  WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 0 Warp
+Silent Key KP_Prior WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 0 Warp
+Silent Key KP_Next  WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 -0 Warp
+Silent Key KP_End   WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 -0 Warp
 
 #######
 # 6: Window Decor
