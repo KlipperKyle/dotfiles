@@ -119,6 +119,7 @@ AddToFunc InitFunction
 + I Exec systemctl --user start xfce4-notifyd.service 2>/dev/null || exec /usr/lib/x86_64-linux-gnu/xfce4/notifyd/xfce4-notifyd
 + I Test (x xfce4-screensaver) Exec exec xfce4-screensaver
 + I Test (x spice-vdagent) Exec exec spice-vdagent
++ I Test (x snap) snap userd --autostart
 
 # Mouse Bindings Functions
 DestroyFunc RaiseMoveX
@@ -664,14 +665,15 @@ Silent Key F12 WTSF 4 ToggleLayer
 
 # Tiling commands
 Silent Key KP_Begin WTSF   4   Maximize
-Silent Key KP_Left  WTSF   4   ResizeMoveMaximize frame 50wa 100 0 0 Warp
-Silent Key KP_Right WTSF   4   ResizeMoveMaximize frame 50wa 100 -0 0 Warp
-Silent Key KP_Up    WTSF   4   ResizeMoveMaximize frame 100 50wa 0 0 Warp
-Silent Key KP_Down  WTSF   4   ResizeMoveMaximize frame 100 50wa 0 -0 Warp
-Silent Key KP_Home  WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 0 Warp
-Silent Key KP_Prior WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 0 Warp
-Silent Key KP_Next  WTSF   4   ResizeMoveMaximize frame 50wa 50wa -0 -0 Warp
-Silent Key KP_End   WTSF   4   ResizeMoveMaximize frame 50wa 50wa 0 -0 Warp
+Silent Key KP_5     WTSF   4   Maximize
+Silent Key KP_Left  WTSF   4   ResizeMoveMaximize frame  50wa 100wa  0  0 Warp
+Silent Key KP_Right WTSF   4   ResizeMoveMaximize frame  50wa 100wa -0  0 Warp
+Silent Key KP_Up    WTSF   4   ResizeMoveMaximize frame 100wa  50wa  0  0 Warp
+Silent Key KP_Down  WTSF   4   ResizeMoveMaximize frame 100wa  50wa  0 -0 Warp
+Silent Key KP_Home  WTSF   4   ResizeMoveMaximize frame  50wa  50wa  0  0 Warp
+Silent Key KP_Prior WTSF   4   ResizeMoveMaximize frame  50wa  50wa -0  0 Warp
+Silent Key KP_Next  WTSF   4   ResizeMoveMaximize frame  50wa  50wa -0 -0 Warp
+Silent Key KP_End   WTSF   4   ResizeMoveMaximize frame  50wa  50wa  0 -0 Warp
 
 #######
 # 6: Window Decor
