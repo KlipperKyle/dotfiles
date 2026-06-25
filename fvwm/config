@@ -623,9 +623,9 @@ Mouse 3 T    A Menu MenuWindowOps
 Mouse 3 I    A Menu MenuIconOps
 
 # <Mod>+<Mouse> to manipulate windows
-Mouse 1 WFST 4 RaiseMoveX Move Maximize
-Mouse 2 WFST 4 Lower
-Mouse 3 WFST 4 RaiseMoveX Resize Lower
+Mouse 1 WFST1246 4 RaiseMoveX Move Maximize
+Mouse 2 WFST1246 4 Lower
+Mouse 3 WFST1246 4 RaiseMoveX Resize Lower
 
 # Shuffle moves a window in a given direction until it hits another window.
 # These bindings will shuffle a window using the arrow keys.
@@ -639,14 +639,14 @@ AddToFunc   ShuffleDir
 + I Move shuffle layers $[w.layer] $[w.layer] snap windows $0
 + I WarpToWindow 50 50
 
-Key Up      WTSF    CM  ShuffleDir up
-Key Down    WTSF    CM  ShuffleDir down
-Key Left    WTSF    CM  ShuffleDir left
-Key Right   WTSF    CM  ShuffleDir right
-Key Up      WTSF    CSM Maximize True 0 growup
-Key Down    WTSF    CSM Maximize True 0 growdown
-Key Right   WTSF    CSM Maximize True growright 0
-Key Left    WTSF    CSM Maximize True growleft 0
+Key Up      WTSF1246    CM  ShuffleDir up
+Key Down    WTSF1246    CM  ShuffleDir down
+Key Left    WTSF1246    CM  ShuffleDir left
+Key Right   WTSF1246    CM  ShuffleDir right
+Key Up      WTSF1246    CSM Maximize True 0 growup
+Key Down    WTSF1246    CSM Maximize True 0 growdown
+Key Right   WTSF1246    CSM Maximize True growright 0
+Key Left    WTSF1246    CSM Maximize True growleft 0
 
 # Navigate pages
 Key Up    A 4 GotoPage 0p -1p
@@ -655,26 +655,26 @@ Key Down  A 4 GotoPage 0p 1p
 Key Left  A 4 GotoPage -1p 0p
 
 # Close/Move/Resize/Maximize commands
-Silent Key F4  WTSF 4 Close
-Silent Key F6  WTSF 4 Stick
-Silent Key F7  WTSF 4 Move
-Silent Key F8  WTSF 4 Resize
-Silent Key F9  WTSF 4 Iconify
-Silent Key F10 WTSF 4 Maximize
-Silent Key F11 WTSF 4 Maximize fullscreen ewmhiwa
-Silent Key F12 WTSF 4 ToggleLayer
+Silent Key F4  WTSF1246 4 Close
+Silent Key F6  WTSF1246 4 Stick
+Silent Key F7  WTSF1246 4 Move
+Silent Key F8  WTSF1246 4 Resize
+Silent Key F9  WTSF1246 4 Iconify
+Silent Key F10 WTSF1246 4 Maximize
+Silent Key F11 WTSF1246 4 Maximize fullscreen ewmhiwa
+Silent Key F12 WTSF1246 4 ToggleLayer
 
 # Tiling commands
-Silent Key KP_Begin WTSF   4   Maximize
-Silent Key KP_5     WTSF   4   Maximize
-Silent Key KP_Left  WTSF   4   ResizeMoveMaximize frame  50wa 100wa  0  0 Warp
-Silent Key KP_Right WTSF   4   ResizeMoveMaximize frame  50wa 100wa -0  0 Warp
-Silent Key KP_Up    WTSF   4   ResizeMoveMaximize frame 100wa  50wa  0  0 Warp
-Silent Key KP_Down  WTSF   4   ResizeMoveMaximize frame 100wa  50wa  0 -0 Warp
-Silent Key KP_Home  WTSF   4   ResizeMoveMaximize frame  50wa  50wa  0  0 Warp
-Silent Key KP_Prior WTSF   4   ResizeMoveMaximize frame  50wa  50wa -0  0 Warp
-Silent Key KP_Next  WTSF   4   ResizeMoveMaximize frame  50wa  50wa -0 -0 Warp
-Silent Key KP_End   WTSF   4   ResizeMoveMaximize frame  50wa  50wa  0 -0 Warp
+Silent Key KP_Begin WTSF1246   4   Maximize
+Silent Key KP_5     WTSF1246   4   Maximize
+Silent Key KP_Left  WTSF1246   4   ResizeMoveMaximize frame  50wa 100wa  0  0 Warp
+Silent Key KP_Right WTSF1246   4   ResizeMoveMaximize frame  50wa 100wa -0  0 Warp
+Silent Key KP_Up    WTSF1246   4   ResizeMoveMaximize frame 100wa  50wa  0  0 Warp
+Silent Key KP_Down  WTSF1246   4   ResizeMoveMaximize frame 100wa  50wa  0 -0 Warp
+Silent Key KP_Home  WTSF1246   4   ResizeMoveMaximize frame  50wa  50wa  0  0 Warp
+Silent Key KP_Prior WTSF1246   4   ResizeMoveMaximize frame  50wa  50wa -0  0 Warp
+Silent Key KP_Next  WTSF1246   4   ResizeMoveMaximize frame  50wa  50wa -0 -0 Warp
+Silent Key KP_End   WTSF1246   4   ResizeMoveMaximize frame  50wa  50wa  0 -0 Warp
 
 #######
 # 6: Window Decor
