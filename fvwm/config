@@ -583,6 +583,7 @@ Silent Key KP_Delete A CM Popup MenuPower
 
 # Audio
 Silent Key G A 4 Exec exec $[infostore.test_audio]
+Silent Key BackSpace A 4M Exec killall volumeicon ; exec volumeicon
 
 # Screenshot
 Silent Key Print A N Exec exec $[infostore.screenshooter]
