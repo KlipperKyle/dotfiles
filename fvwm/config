@@ -583,7 +583,7 @@ Silent Key KP_Delete A CM Popup MenuPower
 
 # Audio
 Silent Key G A 4 Exec exec $[infostore.test_audio]
-Silent Key BackSpace A 4M Exec killall volumeicon ; exec volumeicon
+Silent Key BackSpace A C4 Exec killall volumeicon ; exec volumeicon
 
 # Screenshot
 Silent Key Print A N Exec exec $[infostore.screenshooter]
@@ -629,24 +629,24 @@ Mouse 3 WFST1246 4 RaiseMoveX Resize Lower
 
 # Shuffle moves a window in a given direction until it hits another window.
 # These bindings will shuffle a window using the arrow keys.
-#    Ctrl-Alt Up_Arrow     - Shuffle window up
-#    Ctrl-Alt Right_Arrow  - Shuffle window right
-#    Ctrl-Alt Down_Arrow   - Shuffle window down
-#    Ctrl-Alt Left_Arrow   - Shuffle window left
-# Holding shift (Ctrl-Alt-Shift) will grow the window in the given direction.
+#    Ctrl-Super Up_Arrow     - Shuffle window up
+#    Ctrl-Super Right_Arrow  - Shuffle window right
+#    Ctrl-Super Down_Arrow   - Shuffle window down
+#    Ctrl-Super Left_Arrow   - Shuffle window left
+# Holding shift (Ctrl-Super-Shift) will grow the window in the given direction.
 DestroyFunc ShuffleDir
 AddToFunc   ShuffleDir
 + I Move shuffle layers $[w.layer] $[w.layer] snap windows $0
 + I WarpToWindow 50 50
 
-Key Up      WTSF1246    CM  ShuffleDir up
-Key Down    WTSF1246    CM  ShuffleDir down
-Key Left    WTSF1246    CM  ShuffleDir left
-Key Right   WTSF1246    CM  ShuffleDir right
-Key Up      WTSF1246    CSM Maximize True 0 growup
-Key Down    WTSF1246    CSM Maximize True 0 growdown
-Key Right   WTSF1246    CSM Maximize True growright 0
-Key Left    WTSF1246    CSM Maximize True growleft 0
+Key Up      WTSF1246    C4  ShuffleDir up
+Key Down    WTSF1246    C4  ShuffleDir down
+Key Left    WTSF1246    C4  ShuffleDir left
+Key Right   WTSF1246    C4  ShuffleDir right
+Key Up      WTSF1246    CS4 Maximize True 0 growup
+Key Down    WTSF1246    CS4 Maximize True 0 growdown
+Key Right   WTSF1246    CS4 Maximize True growright 0
+Key Left    WTSF1246    CS4 Maximize True growleft 0
 
 # Navigate pages
 Key Up    A 4 GotoPage 0p -1p
