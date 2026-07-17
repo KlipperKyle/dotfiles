@@ -578,8 +578,8 @@ Silent Key W A 4 Exec exec $[infostore.webbrowser]
 
 # Power management/lockscreen
 Silent Key L A 4 Exec exec ktlock lock
-Silent Key Delete A CM Popup MenuPower
-Silent Key KP_Delete A CM Popup MenuPower
+Silent Key Delete A 4 Popup MenuPower
+Silent Key KP_Delete A 4 Popup MenuPower
 
 # Audio
 Silent Key G A 4 Exec exec $[infostore.test_audio]
