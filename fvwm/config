@@ -416,59 +416,59 @@ AddToMenu   BGMenu "$[gt.Wallpapers]" Title
 # Window Operations Menus
 DestroyMenu MenuWindowOps
 AddToMenu   MenuWindowOps
-+ "$[gt.Move]"         Move
-+ "$[gt.Resize]"       Resize
-+ "$[gt.(De)Iconify]"  Iconify
-+ "$[gt.(Un)Maximize]" Maximize
-+ "$[gt.(Un)Shade]"    WindowShade
-+ "$[gt.(Un)Stick]"    Stick
++ "$[gt.&Move]"         Move
++ "$[gt.&Resize]"       Resize
++ "$[gt.(De)&Iconify]"  Iconify
++ "$[gt.(Un)M&aximize]" Maximize
++ "$[gt.(Un)&Shade]"    WindowShade
++ "$[gt.(Un)S&tick]"    Stick
 + "" Nop
-+ "$[gt.Close]"   Close
-+ "$[gt.More]..." Menu MenuWindowOpsLong This 0 0
++ "$[gt.&Close]"   Close
++ "$[gt.Mor&e]..." Menu MenuWindowOpsLong This 0 0
 
 DestroyMenu MenuWindowOpsLong
 AddToMenu   MenuWindowOpsLong "$[gt.Window Ops]" Title
-+ "$[gt.Move]%icons/win/move.png%"           Move
-+ "$[gt.Resize]%icons/win/resize.png%"       Resize
-+ "$[gt.(De)Iconify]%icons/win/iconify.png%" Iconify
-+ "$[gt.(Un)Maximize]%icons/win/max.png%"    Maximize
-+ "$[gt.(Un)Shade]%icons/win/shade.png%"     WindowShade
-+ "$[gt.(Un)Sticky]%icons/win/sticky.png%"   Stick
-+ "$[gt.(No)Title Bar]%icons/win/title.png%" Pick (CirculateHit) ToggleTitle
-+ "$[gt.Send To]%icons/win/sendto.png%"      Popup MenuSendTo
++ "$[gt.&Move]%icons/win/move.png%"           Move
++ "$[gt.&Resize]%icons/win/resize.png%"       Resize
++ "$[gt.(De)&Iconify]%icons/win/iconify.png%" Iconify
++ "$[gt.(Un)M&aximize]%icons/win/max.png%"    Maximize
++ "$[gt.(Un)&Shade]%icons/win/shade.png%"     WindowShade
++ "$[gt.(Un)S&ticky]%icons/win/sticky.png%"   Stick
++ "$[gt.(No)Tit&le Bar]%icons/win/title.png%" Pick (CirculateHit) ToggleTitle
++ "$[gt.Se&nd To]%icons/win/sendto.png%"      Popup MenuSendTo
 + "" Nop
-+ "$[gt.Close]%icons/win/close.png%"     Close
-+ "$[gt.Destroy]%icons/win/destroy.png%" Destroy
++ "$[gt.&Close]%icons/win/close.png%"     Close
++ "$[gt.&Destroy]%icons/win/destroy.png%" Destroy
 + "" Nop
-+ "$[gt.Raise]%icons/win/raise.png%" Raise
-+ "$[gt.Lower]%icons/win/lower.png%" Lower
++ "$[gt.Rais&e]%icons/win/raise.png%" Raise
++ "$[gt.Lo&wer]%icons/win/lower.png%" Lower
 + "" Nop
-+ "$[gt.Stays On Top]%icons/win/top.png%"       Pick (CirculateHit) Layer 0 6
-+ "$[gt.Stays Put]%icons/win/stays.png%"        Pick (CirculateHit) Layer 0 4
-+ "$[gt.Stays On Bottom]%icons/win/bottom.png%" Pick (CirculateHit) Layer 0 2
++ "$[gt.Stays On T&op]%icons/win/top.png%"       Pick (CirculateHit) Layer 0 6
++ "$[gt.Stays &Put]%icons/win/stays.png%"        Pick (CirculateHit) Layer 0 4
++ "$[gt.Stays On &Bottom]%icons/win/bottom.png%" Pick (CirculateHit) Layer 0 2
 + "" Nop
-+ "$[gt.Identify]%icons/info.png%" Module FvwmIdent
++ "$[gt.Identi&fy]%icons/info.png%" Module FvwmIdent
 
 DestroyMenu MenuIconOps
 AddToMenu   MenuIconOps
-+ "$[gt.(De)Iconify]%icons/win/iconify.png%" Iconify
-+ "$[gt.(Un)Maximize]%icons/win/max.png%"    Maximize
-+ "$[gt.(Un)Shade]%icons/win/shade.png%"     WindowShade
-+ "$[gt.(Un)Sticky]%icons/win/sticky.png%"   Stick
-+ "$[gt.(No)TitleBar]%icons/win/title.png%"  Pick (CirculateHit) ToggleTitle
-+ "$[gt.Send To]%icons/win/sendto.png%"      Popup MenuSendTo
++ "$[gt.(De)&Iconify]%icons/win/iconify.png%" Iconify
++ "$[gt.(Un)M&aximize]%icons/win/max.png%"    Maximize
++ "$[gt.(Un)&Shade]%icons/win/shade.png%"     WindowShade
++ "$[gt.(Un)S&ticky]%icons/win/sticky.png%"   Stick
++ "$[gt.(No)Tit&leBar]%icons/win/title.png%"  Pick (CirculateHit) ToggleTitle
++ "$[gt.Se&nd To]%icons/win/sendto.png%"      Popup MenuSendTo
 + "" Nop
-+ "$[gt.Close]%icons/win/close.png%"     Close
-+ "$[gt.Destroy]%icons/win/destroy.png%" Destroy
++ "$[gt.&Close]%icons/win/close.png%"     Close
++ "$[gt.&Destroy]%icons/win/destroy.png%" Destroy
 + "" Nop
-+ "$[gt.Raise]%icons/win/raise.png%" Raise
-+ "$[gt.Lower]%icons/win/lower.png%" Lower
++ "$[gt.Rais&e]%icons/win/raise.png%" Raise
++ "$[gt.Lo&wer]%icons/win/lower.png%" Lower
 + "" Nop
-+ "$[gt.Stays On Top]%icons/win/top.png%"       Pick (CirculateHit) Layer 0 6
-+ "$[gt.Stays Put]%icons/win/stays.png%"        Pick (CirculateHit) Layer 0 4
-+ "$[gt.Stays On Bottom]%icons/win/bottom.png%" Pick (CirculateHit) Layer 0 2
++ "$[gt.Stays On T&op]%icons/win/top.png%"       Pick (CirculateHit) Layer 0 6
++ "$[gt.Stays &Put]%icons/win/stays.png%"        Pick (CirculateHit) Layer 0 4
++ "$[gt.Stays On &Bottom]%icons/win/bottom.png%" Pick (CirculateHit) Layer 0 2
 + "" Nop
-+ "$[gt.Identify]%icons/info.png%" Module FvwmIdent
++ "$[gt.Identi&fy]%icons/info.png%" Module FvwmIdent
 
 DestroyMenu MenuSendTo
 AddToMenu MenuSendTo
