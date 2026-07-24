@@ -305,6 +305,8 @@ Style RightPanel !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
+Style Telegram !UseUSPosition
+
 #######
 # 3: Colorsets
 #
