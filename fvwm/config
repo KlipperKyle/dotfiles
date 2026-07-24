@@ -89,7 +89,7 @@ DesktopConfiguration global
 # actions that are run after a restart.
 DestroyFunc StartFunction
 AddToFunc   StartFunction
-+ I Test (Init) InitBackground
++ I InitBackground
 + I Module FvwmButtons RightPanel
 + I Module FvwmEvent EventNewDesk
 
