@@ -33,10 +33,39 @@ if ! echo "$PATH" | grep -Eqe "(^|:)$HOME/bin(:|$)" ; then
     export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 
-# kt: Funtoo keychain
+# kt: Keychain - https://kernel-seeds.org/projects/keychain/
+
+# ssh-agent spawns before X11 loads, so ssh-agent doesn't have the
+# DISPLAY environment variable.  Fortunately, the Xsession scripts
+# export DISPLAY to the systemd user daemon.  In order for
+# per-connection key confirmation to work ('ssh-add -c' and 'keychain
+# add --confirm'), ssh-agent must use this ssh-askpass wrapper that
+# fetches the DISPLAY environment variable from the systemd user
+# daemon.
+print_askpass_wrapper() {
+    cat <<'EOF'
+#!/bin/sh
+DISPLAY=$(systemctl --user show-environment | grep ^DISPLAY= | cut -d= -f2) \
+       exec ssh-askpass "$@"
+EOF
+}
+
+# Only run keychain if we are not in 'ssh -A', and if keychain exists.
 if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
-    eval "$(keychain --noask --eval)"
+    # Force ssh-agent to use our wrapper for ssh-askpass
+    export SSH_ASKPASS="$HOME/.keychain/ssh-askpass-x11"
+    export SSH_ASKPASS_REQUIRE=force
+    eval "$(keychain agent start --eval --systemd)"
+    # Write our wrapper if it doesn't yet exist.
+    if [ ! -e "$SSH_ASKPASS" ] ; then
+	print_askpass_wrapper > "$SSH_ASKPASS"
+	chmod 700 "$SSH_ASKPASS"
+    fi
+    unset SSH_ASKPASS SSH_ASKPASS_REQUIRE
 fi
+unset print_askpass_wrapper
+
+# kt: End of customizations
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
