@@ -105,7 +105,7 @@
   (set-background-color "#2C2C2C"))
 
 ;; (load-theme 'tango)
-;; (load-theme 'modus-operandi)
+(load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
 ;; ffap
@@ -154,7 +154,7 @@
 
 ;; Whether to select the current window under the pointer.
 ;; Use if your window manager focus follows mouse.
-(setq mouse-autoselect-window t)
+(setq mouse-autoselect-window nil)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
