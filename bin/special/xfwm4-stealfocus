@@ -1,0 +1,18 @@
+#!/bin/bash
+# xfwm4-stealfocus
+
+on() {
+    xfconf-query -c xfwm4 -p /general/prevent_focus_stealing -s true
+    xfconf-query -c xfwm4 -p /general/focus_hint -s false
+}
+
+off() {
+    xfconf-query -c xfwm4 -p /general/prevent_focus_stealing -s false
+    xfconf-query -c xfwm4 -p /general/focus_hint -s true
+}
+
+case "$1" in
+    on|true|t) on ;;
+    off|false|f|nil) off ;;
+    *) echo "Usage: xfwm4-stealfocus on|off"; exit 1 ;;
+esac

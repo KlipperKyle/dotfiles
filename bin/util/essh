@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# essh
+#
+# Synopsis:
+#
+#   essh [SSH_PARAMS] DESTINATION
+#
+# Description:
+#
+#   Forward the Emacs Server socket and setup the magic variables so
+#   that emacsclient opens the file in TRAMP on the local machine.
+#
+# Example:
+#
+#   (local)$ scp "$(which emacsclient)" remote:bin/
+#   (local)$ essh remote
+#   (remote)$ $EDITOR notes.txt
+#   (remote)$ $SUDOEDITOR /etc/fstab
+#
+
+# Location of Emacs sockets
+# https://www.gnu.org/software/emacs/manual/html_node/emacs/emacsclient-Options.html
+: "${EMACS_SOCKET_NAME:=${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}/emacs%i}${XDG_RUNTIME_DIR:+/emacs}/server}"
+: "${REMOTE_EMACS_SOCKET_NAME:=/tmp/$(mktemp -u essh.XXXXXXXXXX)}"
+
+SSH_OPTS=(
+    -R "${REMOTE_EMACS_SOCKET_NAME}:${EMACS_SOCKET_NAME}"
+    -t
+)
+
+# Get the host name and user, as seen by SSH
+mapfile -t lines < <(ssh -G "$@")
+declare -A SSH_CONF
+# https://stackoverflow.com/a/25251400
+for line in "${lines[@]}" ; do
+    key="${line%% *}"
+    value="${line#* }"
+    SSH_CONF["$key"]="$value"
+done
+SSH_HOST="${SSH_CONF[host]}"
+SSH_USER="${SSH_CONF[user]}"
+
+# Handle nested connections
+if [ -n "$EMACSCLIENT_TRAMP" ] ; then
+    EMACSCLIENT_TRAMP="${EMACSCLIENT_TRAMP%:}|ssh:${SSH_USER}@${SSH_HOST}:"
+else
+    EMACSCLIENT_TRAMP="/ssh:${SSH_USER}@${SSH_HOST}:"
+fi
+
+# Send the variables to the remote host
+read -r -d '' ESSH_SCRIPT <<EOF
+export EMACS_SOCKET_NAME="${REMOTE_EMACS_SOCKET_NAME}"
+export EMACSCLIENT_TRAMP="${EMACSCLIENT_TRAMP}"
+export EDITOR="emacsclient"
+export SUDOEDITOR="emacsclient -T ${EMACSCLIENT_TRAMP%:}|sudo::"
+\$SHELL -l
+EOF
+# https://serverfault.com/a/158091
+
+ssh "${SSH_OPTS[@]}" "$@" $'\n' "${ESSH_SCRIPT}"
