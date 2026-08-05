@@ -1,0 +1,56 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# kt: Custom vars
+
+# kt: Everything is tracked with an ifndef USERENV.  Otherwise,
+# appends or prepends are duplicated upon each login.  See
+# https://superuser.com/q/1649684 .
+if [ -z "$USERENV" ] ; then
+    export EDITOR="emacsclient --alternate-editor="
+    # export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+    # export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+    # export PERL_MB_OPT="--install_base \"$HOME/perl5\""
+    # export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
+    # if [ -n "$BASH_VERSION" ] ; then
+    # 	. "${PERLBREW_ROOT:-$HOME/perl5/perlbrew}/etc/bashrc"
+    # fi
+    export USERENV=LOADED
+fi
+
+# kt: PATH must be treated specially b/c of too many cooks in the
+# kitchen.
+if ! echo "$PATH" | grep -Eqe "(^|:)$HOME/bin(:|$)" ; then
+    # export PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
+    # export PATH="$HOME/.raku/bin:$PATH"
+    export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+
+# Termux ssh-agent
+# Run `sv-enable ssh-agent` and add the following to your bashrc (or
+# equivalent) to use ssh-agent:
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+    export SSH_AUTH_SOCK="$PREFIX"/var/run/ssh-agent.socket
+fi
+# After that you can add your key to the agent with `ssh-add`, and
+# then make use of the credentials across all terminal sessions
+
+# kt: Funtoo keychain
+if [ -z "$SSH_AUTH_SOCK" ] && which keychain > /dev/null ; then
+    eval "$(keychain --noask --eval)"
+fi
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
