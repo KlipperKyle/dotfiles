@@ -393,13 +393,13 @@ AddToMenu   MenuPrograms "$[gt.Programs]" Title
 Test (x emacsclient) + "&Emacs Client" Exec exec emacsclient --alternate-editor= -c
 Test (x brave-browser) + "&Brave Browser" Exec exec brave-browser
 Test (x chromium) + "&Chromium" Exec exec chromium
-Test (x google-chrome) + "&Google-Chrome" Exec exec google-chrome
+Test (x google-chrome) + "&Google Chrome" Exec exec google-chrome
 Test (x firefox) + "&Firefox" Exec exec firefox
-Test (x thunderbird) + "&Thunderbird" Exec exec thunderbird
-Test (x thunar) + "Thunar &File Manager" Exec exec thunar
+Test (x thunar) + "&Thunar File Manager" Exec exec thunar
+Test (x liferea) + "&Liferea" Exec exec liferea
 Test (x gvim) + "g&Vim" Exec exec gvim
 Test (x gimp) + "&Gimp" Exec exec gimp
-Test (x vlc) + "V&LC" Exec exec vlc
+Test (x vlc) + "VL&C" Exec exec vlc
 Test (x keepassxc) + "&KeePassXC" Exec exec keepassxc
 Test (x xosview) + "&Xosview" Exec exec xosview
 
