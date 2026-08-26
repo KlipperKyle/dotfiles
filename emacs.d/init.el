@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+;; -*- mode: emacs-lisp; lexical-binding: t; -*-
 ;; ~/.emacs.d/init.el
 
 ;; Added by Package.el.  This must come before configurations of
@@ -14,9 +14,6 @@
 
 ;; Custom lisp dir
 (add-to-list 'load-path "~/.emacs.d/lisp")
-;; Custom info files
-(eval-after-load 'info
-  '(add-to-list 'Info-directory-list "~/.local/share/info"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -90,6 +87,9 @@
 
 ;; Custom theme dir
 (setq custom-theme-directory "~/.emacs.d/themes")
+
+;; Custom info directories
+(add-to-list 'Info-default-directory-list "~/.local/share/info")
 
 ;; Light mode and Dark mode
 (defun light-mode ()
