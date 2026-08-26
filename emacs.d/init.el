@@ -138,6 +138,7 @@
 (global-set-key (kbd "C-c w") 'eww)
 (global-set-key (kbd "C-x 4 B") 'bookmark-jump-other-window)
 (global-set-key (kbd "C-x r B") 'bookmark-jump-other-window)
+(global-set-key (kbd "<f5>") 'revert-buffer-quick)
 (global-set-key [C-M-mouse-2] 'xref-find-definitions-at-mouse)
 (global-set-key [C-M-mouse-3] 'imenu)
 
@@ -154,7 +155,7 @@
 
 ;; Whether to select the current window under the pointer.
 ;; Use if your window manager focus follows mouse.
-(setq mouse-autoselect-window nil)
+(setq mouse-autoselect-window t)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
