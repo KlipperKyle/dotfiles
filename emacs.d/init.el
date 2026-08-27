@@ -55,11 +55,10 @@
  '(fixed-pitch-serif ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Noto Serif")))))
 
+;;;; Themes
+
 ;; Custom theme dir
 (setopt custom-theme-directory "~/.emacs.d/themes")
-
-;; Custom info directories
-(add-to-list 'Info-default-directory-list "~/.local/share/info")
 
 ;; Hacks to set Light mode and Dark mode
 (defun light-mode ()
@@ -78,26 +77,74 @@
 (load-theme 'modus-operandi)
 ;; (load-theme 'acme-kt)
 
-;; ffap
-(setopt ffap-require-prefix t
-	ffap-bindings
-	'((global-set-key [S-mouse-2] 'ffap-at-mouse)
-	  (global-set-key [remap find-file] 'find-file-at-point)))
-(ffap-bindings)
+;;;; Options
 
-;; Scroll the screen "up" or "down" one line with C-z and M-z
-;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
-(defun scroll-up-one () "Scroll up 1 line." (interactive)
-       (scroll-up (prefix-numeric-value current-prefix-arg)))
-(defun scroll-down-one () "Scroll down 1 line." (interactive)
-       (scroll-down (prefix-numeric-value current-prefix-arg)))
-(global-set-key (kbd "C-z") 'scroll-up-one)
-(global-set-key (kbd "C-M-z") 'scroll-down-one)
+;; GUI quality of life improvements
+(setopt column-number-mode t
+	confirm-kill-emacs 'y-or-n-p
+	delete-selection-mode nil
+	editorconfig-mode t
+	frame-resize-pixelwise t
+	indicate-buffer-boundaries t
+	indicate-empty-lines t
+	inhibit-startup-screen t
+	mouse-autoselect-window t
+	mouse-yank-at-point t
+	recentf-mode t
+	save-interprogram-paste-before-kill t
+	save-place-mode t
+	savehist-mode t
+	shell-command-prompt-show-cwd t
+	split-height-threshold 90
+	tab-always-indent 'complete
+	which-key-lighter ""
+	which-key-mode t
+	window-resize-pixelwise t
+	xterm-mouse-mode t)
 
-;; Windows
-(global-set-key (kbd "<apps>") 'execute-extended-command)
-(global-set-key (kbd "<C-lwindow>") (lambda () (interactive) ()))
-(global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
+;; Default frame parameters
+;; See (emacs)Frame Parameters
+(add-to-list 'default-frame-alist '(width . 90))
+(add-to-list 'default-frame-alist '(height . 36))
+
+;; Editing options
+(setopt auto-hscroll-mode 'current-line
+	electric-pair-mode t
+	electric-quote-mode t
+	etags-regen-mode t
+	flyspell-use-meta-tab nil
+	imenu-auto-rescan t
+	make-backup-files nil
+	show-paren-mode t
+	whitespace-style '(face trailing tabs spaces newline
+				missing-newline-at-eof empty indentation
+				space-after-tab space-before-tab space-mark
+				tab-mark newline-mark))
+
+;; Minibuffer and completions
+(setopt enable-recursive-minibuffers t
+	minibuffer-depth-indicate-mode t
+	completions-format 'vertical)
+
+;; Scrolling nonsense
+(setopt mouse-wheel-progressive-speed nil
+	mouse-wheel-scroll-amount '(0.1 ((shift) . hscroll)
+					((meta))
+					((control meta) . global-text-scale)
+					((control) . text-scale))
+	mouse-wheel-scroll-amount-horizontal 10
+	scroll-bar-mode 'left)
+
+;; Tab bar
+(setopt tab-bar-history-mode t
+	tab-bar-new-tab-to 'rightmost
+	tab-bar-tab-hints t
+	tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
+
+;; Might throw an error on Termux
+(setopt tool-bar-mode nil)
+
+;;;; Keybindings
 
 ;; Global keybindings
 (global-set-key (kbd "C-c f") 'eww-open-file)
@@ -112,72 +159,28 @@
 (global-set-key [C-M-mouse-2] 'xref-find-definitions-at-mouse)
 (global-set-key [C-M-mouse-3] 'imenu)
 
-;; Default frame parameters
-;; See (emacs)Frame Parameters
-(add-to-list 'default-frame-alist '(width . 90))
-(add-to-list 'default-frame-alist '(height . 36))
+;; Scroll the screen "up" or "down" one line with C-z and M-z
+;; From O'Reilly's *Unix Power Tools*, 3rd Ed., Sect. 19.7, pg. 361
+(defun scroll-up-one () "Scroll up 1 line." (interactive)
+       (scroll-up (prefix-numeric-value current-prefix-arg)))
+(defun scroll-down-one () "Scroll down 1 line." (interactive)
+       (scroll-down (prefix-numeric-value current-prefix-arg)))
+(global-set-key (kbd "C-z") 'scroll-up-one)
+(global-set-key (kbd "C-M-z") 'scroll-down-one)
 
-;; Use editorconfig everywhere
-(if (locate-library "editorconfig")
-    (progn
-      (setopt editorconfig-mode-lighter nil)
-      (editorconfig-mode 1)))
+;; ffap overrides
+(setopt ffap-require-prefix t
+	ffap-bindings
+	'((global-set-key [S-mouse-2] 'ffap-at-mouse)
+	  (global-set-key [remap find-file] 'find-file-at-point)))
+(ffap-bindings)
 
-;; GUI quality of life improvements
-(setopt column-number-mode t
-	confirm-kill-emacs 'y-or-n-p
-	delete-selection-mode nil
-	frame-resize-pixelwise t
-	indicate-buffer-boundaries t
-	indicate-empty-lines t
-	inhibit-startup-screen t
-	mouse-autoselect-window t
-	mouse-yank-at-point t
-	recentf-mode t
-	save-interprogram-paste-before-kill t
-	save-place-mode t
-	savehist-mode t
-	shell-command-prompt-show-cwd t
-	split-height-threshold 90
-	tab-always-indent 'complete
-	which-key-mode t
-	window-resize-pixelwise t)
+;; Windows
+(global-set-key (kbd "<apps>") 'execute-extended-command)
+(global-set-key (kbd "<C-lwindow>") (lambda () (interactive) ()))
+(global-set-key (kbd "<C-rwindow>") (lambda () (interactive) ()))
 
-;; Editing options
-(setopt auto-hscroll-mode 'current-line
-	electric-pair-mode t
-	electric-quote-mode t
-	etags-regen-mode t
-	flyspell-use-meta-tab nil
-	imenu-auto-rescan t
-	make-backup-files nil
-	show-paren-mode t
-	whitespace-style
-	'(face trailing tabs spaces newline missing-newline-at-eof empty
-	       indentation space-after-tab space-before-tab space-mark
-	       tab-mark newline-mark))
-
-;; Minibuffer and completions
-(setopt enable-recursive-minibuffers t
-	minibuffer-depth-indicate-mode t
-	completions-format 'vertical)
-
-;; Scrolling nonsense
-(setopt mouse-wheel-progressive-speed nil
-	mouse-wheel-scroll-amount
-	'(0.1 ((shift) . hscroll) ((meta))
-	      ((control meta) . global-text-scale) ((control) . text-scale))
-	mouse-wheel-scroll-amount-horizontal 10
-	scroll-bar-mode 'left)
-
-;; Tab bar
-(setopt tab-bar-history-mode t
-	tab-bar-new-tab-to 'rightmost
-	tab-bar-tab-hints t
-	tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
-
-;; Might throw an error on Termux
-(setopt tool-bar-mode nil)
+;;;; Helper functions
 
 (defun infer-indentation-style () (interactive)
   "Infer indentation style from buffer contents.
@@ -190,6 +193,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	(tab-count (how-many "^\t" (point-min) (point-max))))
     (if (> space-count tab-count) (setq indent-tabs-mode nil))
     (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+;;; Mode-specific customizations
 
 ;; calendar
 ;; Drop holidays of other religions.  Extra Ecclesiam nulla salus!
@@ -253,6 +258,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (defun elpher-reset-cache ()
   (interactive)
   (setq elpher-content-cache (make-hash-table :test 'equal)))
+
+;; Info viewer
+;; Custom info directories
+(add-to-list 'Info-default-directory-list "~/.local/share/info")
 
 ;; jinja2-mode
 (add-hook 'jinja2-mode-hook 'turn-off-flyspell)
@@ -330,9 +339,6 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (add-hook 'comint-output-filter-functions #'comint-osc-process-output)
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setopt explicit-shell-file-name "/bin/bash")
-
-;; xterm-mouse-mode
-(xterm-mouse-mode 1)
 
 ;; yaml-mode
 ;; *.sls: SaltStack conf files
