@@ -28,9 +28,11 @@
  '(column-number-mode t)
  '(completions-format 'vertical)
  '(confirm-kill-emacs 'y-or-n-p)
+ '(dired-auto-revert-buffer t)
  '(electric-pair-mode t)
  '(electric-quote-mode t)
  '(elpher-open-urls-with-eww t)
+ '(etags-regen-mode t nil nil "Copied from newcomers-presets by `copy-theme-options'")
  '(eww-suggest-uris
    '(eww-links-at-point thing-at-point-url-at-point eww-current-url
 			(lambda nil
@@ -38,6 +40,7 @@
 				  "/org/index.html"))))
  '(flyspell-use-meta-tab nil)
  '(frame-resize-pixelwise t)
+ '(imenu-auto-rescan t)
  '(indicate-buffer-boundaries t)
  '(indicate-empty-lines t)
  '(inhibit-startup-screen t)
@@ -47,7 +50,9 @@
    '(0.1 ((shift) . hscroll) ((meta))
 	 ((control meta) . global-text-scale) ((control) . text-scale)))
  '(mouse-wheel-scroll-amount-horizontal 10)
+ '(mouse-yank-at-point t)
  '(org-export-backends '(ascii beamer html icalendar latex md odt))
+ '(recentf-mode t nil nil "Copied from newcomers-presets by `copy-theme-options'")
  '(safe-local-variable-values
    '((vc-default-patch-addressee . "bug-gnu-emacs@gnu.org")
      (etags-regen-ignores "test/manual/etags/")
@@ -56,19 +61,24 @@
        "/[ \11]*DEFVAR_[A-Z_ \11(]+\"[^\"]+\",[ \11]\\([A-Za-z0-9_]+\\)/\\1/"))
      (nxml-child-indent . 4) (c-indent-level . 4)
      (sgml-basic-offset . 2)))
+ '(save-interprogram-paste-before-kill t)
  '(save-place-mode t)
+ '(savehist-mode t nil nil "Copied from newcomers-presets by `copy-theme-options'")
  '(scroll-bar-mode 'left)
+ '(shell-command-prompt-show-cwd t)
  '(show-paren-mode t)
  '(shr-width 80)
  '(split-height-threshold 90)
  '(sql-mysql-options '("--prompt=mysql> "))
  '(tab-always-indent 'complete)
+ '(tab-bar-history-mode t nil nil "Copied from newcomers-presets by `copy-theme-options'")
  '(tab-bar-new-tab-to 'rightmost)
  '(tab-bar-tab-hints t)
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(tool-bar-mode nil)
  '(wdired-allow-to-change-permissions 'advanced)
+ '(which-key-mode t nil nil "Copied from newcomers-presets by `copy-theme-options'")
  '(whitespace-style
    '(face trailing tabs spaces newline missing-newline-at-eof empty
 	  indentation space-after-tab space-before-tab space-mark
