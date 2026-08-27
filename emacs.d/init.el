@@ -8,9 +8,9 @@
 (package-initialize)
 
 ;; Setup ELPA and MELPA
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-			 ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-			 ("melpa" . "https://melpa.org/packages/")))
+(setopt package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+			   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+			   ("melpa" . "https://melpa.org/packages/")))
 
 ;; Custom lisp dir
 (add-to-list 'load-path "~/.emacs.d/lisp")
@@ -96,12 +96,12 @@
  '(variable-pitch ((t (:family "Noto Serif")))))
 
 ;; Custom theme dir
-(setq custom-theme-directory "~/.emacs.d/themes")
+(setopt custom-theme-directory "~/.emacs.d/themes")
 
 ;; Custom info directories
 (add-to-list 'Info-default-directory-list "~/.local/share/info")
 
-;; Light mode and Dark mode
+;; Hacks to set Light mode and Dark mode
 (defun light-mode ()
   "Switch to light mode"
   (interactive)
@@ -119,10 +119,10 @@
 ;; (load-theme 'acme-kt)
 
 ;; ffap
-(setq ffap-require-prefix t
-      ffap-bindings
-      '((global-set-key [S-mouse-2] 'ffap-at-mouse)
-	(global-set-key [remap find-file] 'find-file-at-point)))
+(setopt ffap-require-prefix t
+	ffap-bindings
+	'((global-set-key [S-mouse-2] 'ffap-at-mouse)
+	  (global-set-key [remap find-file] 'find-file-at-point)))
 (ffap-bindings)
 
 ;; Scroll the screen "up" or "down" one line with C-z and M-z
@@ -160,18 +160,18 @@
 ;; Use editorconfig everywhere
 (if (locate-library "editorconfig")
     (progn
-      (setq editorconfig-mode-lighter nil)
+      (setopt editorconfig-mode-lighter nil)
       (editorconfig-mode 1)))
 
 ;; Whether to select the current window under the pointer.
 ;; Use if your window manager focus follows mouse.
-(setq mouse-autoselect-window t)
+(setopt mouse-autoselect-window t)
 
 ;; Whether to delete selection when typing over it.
 (delete-selection-mode 0)
 
 ;; Recursive minibuffer
-(setq enable-recursive-minibuffers t)
+(setopt enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode 1)
 
 (defun infer-indentation-style () (interactive)
@@ -188,21 +188,21 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; calendar
 ;; Drop holidays of other religions.  Extra Ecclesiam nulla salus!
-(setq calendar-christian-all-holidays-flag t)
-(setq holiday-other-holidays
-      '(;; Other holy days of obligation in the US
-	(holiday-fixed 1 1 "Circumcision of Our Lord")
-	(holiday-fixed 11 1 "All Saints Day")
-	(holiday-fixed 12 8 "Immaculate Conception")
-	;; Other major Christian holidays
-	(holiday-float 10 0 -1 "Feast of Christ the King")))
-(setq calendar-holidays
-      (append holiday-general-holidays holiday-local-holidays
-	  holiday-other-holidays holiday-christian-holidays
-	  holiday-solar-holidays))
-(setq calendar-mark-diary-entries-flag nil
-      calendar-mark-holidays-flag t
-      calendar-today-visible-hook '(calendar-mark-today))
+(setopt calendar-christian-all-holidays-flag t)
+(setopt holiday-other-holidays
+	'(;; Other holy days of obligation in the US
+	  (holiday-fixed 1 1 "Circumcision of Our Lord")
+	  (holiday-fixed 11 1 "All Saints Day")
+	  (holiday-fixed 12 8 "Immaculate Conception")
+	  ;; Other major Christian holidays
+	  (holiday-float 10 0 -1 "Feast of Christ the King")))
+(setopt calendar-holidays
+	(append holiday-general-holidays holiday-local-holidays
+		holiday-other-holidays holiday-christian-holidays
+		holiday-solar-holidays))
+(setopt calendar-mark-diary-entries-flag nil
+	calendar-mark-holidays-flag t
+	calendar-today-visible-hook '(calendar-mark-today))
 
 ;; cperl-mode
 ;; Use cperl-mode instead of perl-mode
@@ -227,10 +227,10 @@ See https://www.emacswiki.org/emacs/NoTabs"
 	   (add-to-list 'auto-mode-alist '("\\.rakudoc$" . pod-mode))))
 
 ;; dired
-(setq dired-maybe-use-globstar t)
+(setopt dired-maybe-use-globstar t)
 
 ;; ebuild-mode
-(setq-default ebuild-mode-update-copyright nil)
+(setopt ebuild-mode-update-copyright nil)
 
 ;; New eww (web browser) buffer
 (defun eww-new (url)
@@ -260,7 +260,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; markdown-mode
 ;; Install from MELPA
-(setq-default markdown-content-type "text/html; charset=utf-8"
+(setopt markdown-content-type "text/html; charset=utf-8"
 	      markdown-command "cmark")
 
 ;; Org Mode
@@ -268,12 +268,12 @@ See https://www.emacswiki.org/emacs/NoTabs"
 (global-set-key "\C-ca" 'org-agenda)
 ;; (global-set-key "\C-cc" 'org-capture)
 ;; (global-set-key "\C-cb" 'org-switchb)
-(setq org-directory "~/org"
-      org-agenda-files "~/org/agenda-files"
-      org-agenda-include-diary nil
-      org-startup-indented t
-      org-todo-keyword-faces '(("INPROG" . "orange")
-			       ("BLOCKED" . "purple")))
+(setopt org-directory "~/org"
+	org-agenda-files "~/org/agenda-files"
+	org-agenda-include-diary nil
+	org-startup-indented t
+	org-todo-keyword-faces '(("INPROG" . "orange")
+				 ("BLOCKED" . "purple")))
 
 ;; Open Gemini and Gopher links in elpher
 (eval-after-load 'org
@@ -324,7 +324,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; Parse hyperlink escapes (a la ‘ls --hyperlink’)
 (add-hook 'comint-output-filter-functions #'comint-osc-process-output)
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
-;; (setq explicit-shell-file-name "/bin/bash")
+;; (setopt explicit-shell-file-name "/bin/bash")
 
 ;; xterm-mouse-mode
 (xterm-mouse-mode 1)
@@ -341,7 +341,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; Start Emacs server
 (require 'server)
-(setq server-window 'pop-to-buffer)
+(setopt server-window 'pop-to-buffer)
 (unless (server-running-p)
   (server-mode))
 
