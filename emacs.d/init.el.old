@@ -126,6 +126,12 @@ This is customized in ‘~/.emacs’."
 ;; atomic-chrome
 (setq atomic-chrome-buffer-open-style 'full)
 
+;; Use editorconfig everywhere
+(if (locate-library "editorconfig")
+    (progn
+      (setopt editorconfig-mode-lighter nil)
+      (editorconfig-mode 1)))
+
 ;; go-mode
 ;; Install from MELPA
 (require 'mode-local)
