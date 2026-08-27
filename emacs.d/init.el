@@ -88,7 +88,6 @@
 	indicate-buffer-boundaries t
 	indicate-empty-lines t
 	inhibit-startup-screen t
-	mouse-autoselect-window t
 	mouse-yank-at-point t
 	recentf-mode t
 	save-interprogram-paste-before-kill t
