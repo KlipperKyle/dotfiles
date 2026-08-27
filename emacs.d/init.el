@@ -97,10 +97,15 @@
 	shell-command-prompt-show-cwd t
 	split-height-threshold 90
 	tab-always-indent 'complete
+	which-key-allow-imprecise-window-fit nil
 	which-key-lighter ""
 	which-key-mode t
 	window-resize-pixelwise t
 	xterm-mouse-mode t)
+
+;; Focus follows mouse options
+(setopt mouse-autoselect-window t
+	focus-follows-mouse t)
 
 ;; Default frame parameters
 ;; See (emacs)Frame Parameters
@@ -352,7 +357,8 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; Start Emacs server
 (require 'server)
-(setopt server-window 'pop-to-buffer)
+(setopt server-window 'pop-to-buffer
+	server-stop-automatically 'kill-terminal)
 (unless (server-running-p)
   (server-mode))
 
