@@ -401,6 +401,7 @@ Test (x gvim) + "g&Vim" Exec exec gvim
 Test (x gimp) + "&Gimp" Exec exec gimp
 Test (x vlc) + "VL&C" Exec exec vlc
 Test (x keepassxc) + "&KeePassXC" Exec exec keepassxc
+Test (x pavucontrol) + "&Pavucontrol" Exec exec pavucontrol
 Test (x xosview) + "&Xosview" Exec exec xosview
 
 # Background Menu
