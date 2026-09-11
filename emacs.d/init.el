@@ -44,7 +44,7 @@
  '(sql-mysql-options '("--prompt=mysql> "))
  '(text-mode-hook '(turn-on-flyspell text-mode-hook-identify))
  '(wdired-allow-to-change-permissions 'advanced)
- '(yaml-mode-hook '(yaml-set-imenu-generic-expression turn-off-flyspell)))
+ '(yaml-mode-hook '(turn-off-flyspell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -344,9 +344,9 @@ See https://www.emacswiki.org/emacs/NoTabs"
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setopt explicit-shell-file-name "/bin/bash")
 
-;; yaml-mode
+;; yaml-ts-mode
 ;; *.sls: SaltStack conf files
-(add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-ts-mode))
 
 ;; Local overrides
 (if (file-readable-p "~/.emacs.d/prv.el")
