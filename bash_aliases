@@ -1,6 +1,15 @@
 #!/bin/bash
 # ~/.bash_aliases
 
+# If this is an xterm, then put the running command in the title
+case "$TERM" in
+    xterm*|rxvt*)
+	PS0='\[\e]0;$(HISTTIMEFORMAT= history 1 | sed -e "s/^ *[0-9]* *//")${SSH_CONNECTION:+ [\u@\h]}\a\]'
+	;;
+    *)
+	;;
+esac
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
