@@ -253,8 +253,8 @@ ClickTime 250
 MoveThreshold 3
 
 # Sets the focus style to SloppyFocus and a mouse click
-# in a window will Raise it.
-Style * SloppyFocus, MouseFocusClickRaises
+# in a window will *not* Raise it.
+Style * SloppyFocus, !MouseFocusClickRaises
 
 # Default Font
 DefaultFont $[infostore.font]
