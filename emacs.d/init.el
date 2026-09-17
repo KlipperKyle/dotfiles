@@ -186,17 +186,32 @@
 
 ;;;; Helper functions
 
-(defun infer-indentation-style () (interactive)
+(defun infer-indentation-style ()
   "Infer indentation style from buffer contents.
 
 If our source file uses tabs, we use tabs, if spaces spaces, and
 if neither, we use the current indent-tabs-mode.
 
 See https://www.emacswiki.org/emacs/NoTabs"
+  (interactive)
   (let ((space-count (how-many "^  " (point-min) (point-max)))
 	(tab-count (how-many "^\t" (point-min) (point-max))))
     (if (> space-count tab-count) (setq indent-tabs-mode nil))
     (if (> tab-count space-count) (setq indent-tabs-mode t))))
+
+(defun replace-mode (old-mode new-mode)
+  "Replace autoloads for OLD-MODE with NEW-MODE.
+
+Scan through ‘auto-mode-alist’, ‘magic-mode-alist’, and
+‘interpreter-mode-alist’.  Replace all instances of OLD-MODE with
+NEW-MODE.
+
+See https://www.emacswiki.org/emacs/CPerlMode"
+  (mapc
+   (lambda (pair)
+     (if (eq (cdr pair) old-mode)
+	 (setcdr pair new-mode)))
+   (append auto-mode-alist magic-mode-alist interpreter-mode-alist)))
 
 ;;; Mode-specific customizations
 
@@ -220,12 +235,7 @@ See https://www.emacswiki.org/emacs/NoTabs"
 
 ;; cperl-mode
 ;; Use cperl-mode instead of perl-mode
-;; <https://www.emacswiki.org/emacs/CPerlMode>
-(mapc
- (lambda (pair)
-   (if (eq (cdr pair) 'perl-mode)
-       (setcdr pair 'cperl-mode)))
- (append auto-mode-alist interpreter-mode-alist))
+(replace-mode 'perl-mode 'cperl-mode)
 
 ;; Use default indentation, but if you want to set custom indendation,
 ;; here is how to do it.
