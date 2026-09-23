@@ -354,6 +354,11 @@ See https://www.emacswiki.org/emacs/CPerlMode"
 ;; If this causes problems, e.g. on Alpine, then set it to nil.
 ;; (setopt explicit-shell-file-name "/bin/bash")
 
+;; treesit modes
+;; Prefer some treesit modes over their ordinary counterparts.
+(setopt treesit-enabled-modes
+	'(bash-ts-mode css-ts-mode js-ts-mode mhtml-ts-mode python-ts-mode))
+
 ;; yaml-ts-mode
 ;; *.sls: SaltStack conf files
 (add-to-list 'auto-mode-alist '("\\.sls\\'" . yaml-ts-mode))
