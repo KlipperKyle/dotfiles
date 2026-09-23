@@ -10,3 +10,6 @@
 	((meta))
 	((control meta) . global-text-scale)
 	((control) . text-scale)))
+
+;; Don’t use treesit
+(setopt treesit-enabled-modes nil)
