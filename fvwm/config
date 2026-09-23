@@ -589,7 +589,7 @@ Silent Key Print A M Exec exec $[infostore.screenshooter_window]
 #   2 - Close on single click, Destroy on double click.
 #   4 - Maximize (right/middle button will only maximize vertical/horizontal)
 #   6 - Iconify (minimize)
-Mouse 1 1 A Menu MenuWindowOps Delete
+Mouse 1 1 A Menu MenuWindowOpsLong Delete
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize 100 100
 Mouse 2 4 A Maximize 0 100
@@ -609,13 +609,13 @@ Mouse 1 6 A Iconify
 Mouse 1 T    A RaiseMoveX Move Lower
 Mouse 1 FS   A RaiseMoveX Resize Lower
 Mouse 2 FST  A RaiseMoveX Move Lower
+Mouse 3 FST  A Menu MenuWindowOpsLong
 Mouse 4 T    A WindowShade True
 Mouse 5 T    A WindowShade False
 Mouse 1 R    A Menu MenuFvwmRoot
 Mouse 2 R    A WindowList
 Mouse 3 R    A Menu MenuWindowOpsLong
 Mouse 1 I    A RaiseMoveX Move "Iconify off"
-Mouse 3 T    A Menu MenuWindowOps
 Mouse 3 I    A Menu MenuIconOps
 
 # Super+Mouse-1: Raise and Move, Double Click to Lower
