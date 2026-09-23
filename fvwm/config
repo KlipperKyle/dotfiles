@@ -618,10 +618,12 @@ Mouse 1 I    A RaiseMoveX Move "Iconify off"
 Mouse 3 T    A Menu MenuWindowOps
 Mouse 3 I    A Menu MenuIconOps
 
-# <Mod>+<Mouse> to manipulate windows
-Mouse 1 WFST1246 4 RaiseMoveX Move Maximize
-Mouse 2 WFST1246 4 Lower
-Mouse 3 WFST1246 4 RaiseMoveX Resize Lower
+# Super+Mouse-1: Raise and Move, Double Click to Lower
+# Super+Mouse-2: Resize, Double Click to Maximize
+# Super+Mouse-3: WindowOps Menu
+Mouse 1 WFST1246 4 RaiseMoveX Move Lower
+Mouse 2 WFST1246 4 RaiseMoveX Resize Maximize
+Mouse 3 WFST1246 4 Menu MenuWindowOpsLong
 
 # Shuffle moves a window in a given direction until it hits another window.
 # These bindings will shuffle a window using the arrow keys.
