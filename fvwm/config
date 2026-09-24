@@ -268,8 +268,7 @@ OpaqueMoveSize unlimited
 Style * ResizeOpaque, SnapAttraction 15 SameType ScreenAll, SnapGrid
 
 # Transient Windows (such as open file windows)
-Style * DecorateTransient, StackTransientParent
-Style * !FPGrabFocusTransient, FPReleaseFocusTransient
+Style * DecorateTransient, StackTransientParent, GrabFocusTransient
 
 # WindowShade
 Style * WindowShadeScrolls, WindowShadeSteps 10
