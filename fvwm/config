@@ -306,6 +306,7 @@ Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
 Style Telegram !UseUSPosition
+Style XClock !Title
 
 #######
 # 3: Colorsets
