@@ -3,11 +3,18 @@
 # ~/.xsettingsd
 #
 # This is more/less the default XFCE configuration, with some font
-# tweaks.  Xsettings defaults are commented out.
+# tweaks and miscellaneous tweaks for FVWM.  Xsettings defaults are
+# commented out.
 #
 # https://codeberg.org/derat/xsettingsd
 # https://www.freedesktop.org/wiki/Specifications/XSettingsRegistry/
 # https://specifications.freedesktop.org/xsettings/latest/
+#
+# For more Gtk settings, see
+# https://gitlab.gnome.org/GNOME/gtk/-/blob/main/gdk/x11/gdksettings.c
+#
+# Also look in dconf:
+# /org/gnome/desktop/wm/preferences/
 #
 
 Gdk/WindowScalingFactor 1
@@ -25,7 +32,10 @@ Gtk/FontName "Serif 9"
 Gtk/MenuBarAccel "F10"
 Gtk/MenuImages 1
 Gtk/MonospaceFontName "Monospace 9"
-Gtk/TitlebarMiddleClick "lower"
+# Gtk/TitlebarDoubleClick "toggle-maximize"
+Gtk/TitlebarDoubleClick "lower"
+# Gtk/TitlebarMiddleClick "none"
+# Gtk/TitlebarRightClick "menu"
 # Net/CursorBlink 1
 # Net/CursorBlinkTime 1200
 # Net/DndDragThreshold 8
