@@ -1,0 +1,7 @@
+# /etc/X11/sessions/xsession.desktop
+# https://askubuntu.com/a/1105509
+[Desktop Entry]
+Name=XSession
+Comment=This session uses the custom xsession file
+Exec=/etc/X11/Xsession
+Type=Application
