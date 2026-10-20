@@ -46,8 +46,8 @@ Net/EnableInputFeedbackSounds 0
 Net/IconThemeName "Tango"
 # Net/SoundThemeName "default"
 Net/ThemeName "Adwaita"
-# Xft/Antialias -1
-# Xft/DPI -1
-# Xft/Hinting -1
-# Xft/HintStyle "hintnone"
-# Xft/RGBA "none"
+Xft/Antialias 1
+Xft/DPI -1
+Xft/Hinting 1
+Xft/HintStyle "hintslight"
+Xft/RGBA "rgb"
