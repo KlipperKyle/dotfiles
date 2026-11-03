@@ -568,6 +568,13 @@ Silent Key C       A 4 WindowList
 Silent Key V       A 4 Menu MenuWindowOpsLong
 Silent Key Tab     A 4 WindowList Root c c NoDeskSort
 Silent Key Tab     A M -
+Silent Key grave   A 4 GotoDesk 0 0
+Silent Key 0       A 4 GotoDesk 0 0
+Silent Key 1       A 4 GotoDesk 0 1
+Silent Key 2       A 4 GotoDesk 0 2
+Silent Key 3       A 4 GotoDesk 0 3
+Silent Key Prior   A 4 GotoDesk -1 0 3
+Silent Key Next    A 4 GotoDesk 1 0 3
 
 # Common applications
 Silent Key D A 4 Exec exec $[infostore.runcmd] $[infostore.runcmdopt]
