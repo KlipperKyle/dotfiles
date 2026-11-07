@@ -357,7 +357,7 @@ See https://www.emacswiki.org/emacs/CPerlMode"
 ;; treesit modes
 ;; Prefer some treesit modes over their ordinary counterparts.
 (setopt treesit-enabled-modes
-	'(bash-ts-mode css-ts-mode js-ts-mode mhtml-ts-mode python-ts-mode))
+	'(bash-ts-mode css-ts-mode js-ts-mode json-ts-mode mhtml-ts-mode python-ts-mode))
 
 ;; yaml-ts-mode
 ;; *.sls: SaltStack conf files
