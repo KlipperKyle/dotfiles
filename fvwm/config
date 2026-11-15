@@ -53,9 +53,9 @@ InfoStoreAdd screenshooter_rect "$[infostore.screenshooter] -r"
 InfoStoreAdd screenshooter_window "$[infostore.screenshooter] -w"
 
 # Fonts
-InfoStoreAdd font "xft:Serif:Bold:size=8:antialias=True"
-InfoStoreAdd font_big "xft:Serif:size=10:antialias=True"
-InfoStoreAdd font_bigfat "xft:Serif:Bold:size=10:antialias=True"
+InfoStoreAdd font "xft:Sans:Bold:size=8:antialias=True"
+InfoStoreAdd font_big "xft:Sans:size=10:antialias=True"
+InfoStoreAdd font_bigfat "xft:Sans:Bold:size=10:antialias=True"
 
 # DesktopConfiguration sets how fvwm handles desktops:
 #

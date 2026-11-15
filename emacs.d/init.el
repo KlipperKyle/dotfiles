@@ -52,8 +52,7 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Monospace" :height 90))))
  '(fixed-pitch ((t (:family "Monospace"))))
- '(fixed-pitch-serif ((t (:family "Monospace"))))
- '(variable-pitch ((t (:family "Noto Serif")))))
+ '(fixed-pitch-serif ((t (:family "Monospace")))))
 
 ;;;; Themes
 

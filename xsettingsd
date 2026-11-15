@@ -26,7 +26,7 @@ Gtk/CursorThemeSize 16
 # Gtk/DecorationLayout "icon,menu:minimize,maximize,close"
 Gtk/DecorationLayout "icon,menu:"
 Gtk/DialogsUseHeader 0
-Gtk/FontName "Serif 9"
+Gtk/FontName "Sans 9"
 # Gtk/IconSizes ""
 # Gtk/KeyThemeName ""
 Gtk/MenuBarAccel "F10"
