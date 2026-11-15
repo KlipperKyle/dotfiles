@@ -577,7 +577,7 @@ Silent Key Prior   A 4 GotoDesk -1 0 3
 Silent Key Next    A 4 GotoDesk 1 0 3
 
 # Common applications
-Silent Key D A 4 Exec exec $[infostore.runcmd] $[infostore.runcmdopt]
+Silent Key R A 4 Exec exec $[infostore.runcmd] $[infostore.runcmdopt]
 Silent Key F A 4 Exec exec $[infostore.appfinder]
 Silent Key T A 4 Exec exec $[infostore.terminal]
 Silent Key Y A 4 Exec exec $[infostore.editor]
